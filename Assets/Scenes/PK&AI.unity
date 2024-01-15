@@ -1012,6 +1012,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1339384682}
   - component: {fileID: 1339384681}
+  - component: {fileID: 1339384683}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Untagged
@@ -1086,6 +1087,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1339384683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339384680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d0d68c5881d1dd47b1e54eba479620f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Energy: 0
+  Priority: 0
+  Rebounding: 0
+  Defensing: 0
+  player: {fileID: 7113615}
+  chose: 0
 --- !u!1 &1409499272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1531,6 +1550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 7113615}
+  ai: {fileID: 0}
 --- !u!4 &1692729168
 Transform:
   m_ObjectHideFlags: 0
