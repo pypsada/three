@@ -34,6 +34,12 @@ public class Player : MonoBehaviour
             // 将剩余时间显示在UI界面上的倒计时文本中
             countDownText.text = Mathf.RoundToInt(countDownTimer).ToString();
         }
+        else
+        {
+            AI.AIplaying();
+            RubbingEnergy();
+            Despare();
+        }
     }
 
     public void RubbingEnergy()
