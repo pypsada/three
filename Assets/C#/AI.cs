@@ -9,11 +9,14 @@ public class AI : MonoBehaviour
     public int Priority = 0;
     public bool Rebounding = false;
     public bool Defensing = false;
+    public Player player;
+    public int chose;
 
     void Start()
     {
         Energy = 0;
         myAnim = GetComponent<Animator>();
+        player = FindObjectOfType<Player>(); // 获取Player脚本的引用
     }
 
     void Update()
@@ -55,6 +58,91 @@ public class AI : MonoBehaviour
 
     public void AIplaying()
     {
-        
+        if (Energy==0 && player.Energy==0)
+        {
+            RubbingEnergy();
+            Debug.Log("AI:RubbingEnergy");
+        }
+        else if (Energy==0)
+        {
+            chose=Random.Range(0, 2);
+            if (chose==0)
+            {
+                RubbingEnergy();
+                Debug.Log("AI:RubbingEnergy");
+            }
+            else if (chose==1)
+            {
+                Defense();
+                Debug.Log("AI:Defense");
+            }
+        }
+        else if(Energy<2)
+        {
+            chose = Random.Range(0, 3);
+            if (chose == 0)
+            {
+                RubbingEnergy();
+                Debug.Log("AI:RubbingEnergy");
+            }
+            else if (chose == 1)
+            {
+                Defense();
+                Debug.Log("AI:Defense");
+            }
+            else if (chose==2)
+            {
+                Gun();
+                Debug.Log("AI:Gun");
+            }
+        }
+        else if(Energy<4)
+        {
+            chose = Random.Range(0, 4);
+            if (chose == 0)
+            {
+                RubbingEnergy();
+                Debug.Log("AI:RubbingEnergy");
+            }
+            else if (chose == 1)
+            {
+                Defense();
+                Debug.Log("AI:Defense");
+            }
+            else if (chose == 2)
+            {
+                Gun();
+                Debug.Log("AI:Gun");
+            }
+            else if(chose==3)
+            {
+                Rebound();
+                Debug.Log("AI:Rebound");
+            }
+        }
+        else
+        {
+            chose = Random.Range(0, 5);
+            if (chose == 0)
+            {
+                RubbingEnergy();
+                Debug.Log("AI:RubbingEnergy");
+            }
+            else if (chose == 1)
+            {
+                Defense();
+                Debug.Log("AI:Defense");
+            }
+            else if (chose == 2)
+            {
+                Gun();
+                Debug.Log("AI:Gun");
+            }
+            else if (chose == 3)
+            {
+                Rebound();
+                Debug.Log("AI:Rebound");
+            }
+        }
     }
 }

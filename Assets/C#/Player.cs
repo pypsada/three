@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
     public void RubbingEnergy()
     { 
         Energy += 1;
+        Debug.Log("You:RubbingEnergy");
         Priority = 0;
     } 
 
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour
     {
         Priority = 1;
         Energy -= 1;
+        Debug.Log("You:Gun");
     }
 
     public void Rebound()
@@ -53,23 +55,26 @@ public class Player : MonoBehaviour
         Priority = 100;
         Rebounding=true;
         Energy -= 2;
+        Debug.Log("You:Rebound");
     }
 
     public void Defense()
     {
         Priority = 1;
         Defensing = true;
+        Debug.Log("You:Defense");
     }
 
     public void HolyGrail()
     {
         Priority = 2;
         Energy -= 2;
+        Debug.Log("You:HolyGrail");
     }
 
     public void Despare()
     {
-        if (Priority < AI.Priority && AI.Rebounding==false)  //AI攻击优先级更高
+        if (Priority < AI.Priority && AI.Rebounding==false && AI.Defensing==false)  //AI攻击优先级更高
         {
             Destroy(gameObject);
             Debug.Log("LOSE");
@@ -104,6 +109,18 @@ public class Player : MonoBehaviour
             Debug.Log("Continue");
         }
         else if(Rebounding==true && (AI.Priority==0 || (AI.Priority!=0 && AI.Defensing==true)))  //玩家反弹失败
+        {
+            Chose = false;
+            Priority = 0;
+            Defensing = false;
+            Rebounding = false;
+            AI.Rebounding = false;
+            countDownTimer = 5f;
+            AI.Priority = 0;
+            AI.Defensing = false;
+            Debug.Log("Continue");
+        }
+        else if (Priority==0 && (AI.Defensing==true || AI.Priority==0 || AI.Rebounding==true))  //玩家搓能量，AI不攻击
         {
             Chose = false;
             Priority = 0;

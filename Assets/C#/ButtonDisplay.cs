@@ -12,7 +12,6 @@ public class ButtonDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public int Energy;
     public bool Click = false;
 
-
     void Start()
     {
         buttonText = GetComponentInChildren<Text>(); // 获取按钮文本组件
@@ -21,7 +20,6 @@ public class ButtonDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     void Update()
     {
-        Debug.Log(player.Energy);
         if (player.Energy < Energy) // 根据Energy值判断按钮颜色和可点击状态
         {
             Click = false;
