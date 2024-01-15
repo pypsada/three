@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -11,17 +12,28 @@ public class Player : MonoBehaviour
     public bool Defensing=false;
     public AI AI;
     public GameObject AIgameobject;
-    
+    public bool Chose=false;
+
+    public Text countDownText; // 倒计时文本
+    public float countDownTimer = 5f; // 倒计时时间
+
     void Start()
     {
         Energy = 0;
         myAnim = GetComponent<Animator>();
-
+        countDownText = countDownText.GetComponent<Text>();
+        AI = FindObjectOfType<AI>();
     }
 
     void Update()
     {
-        
+        if (countDownTimer > 0f)
+        {
+            countDownTimer -= Time.deltaTime;
+
+            // 将剩余时间显示在UI界面上的倒计时文本中
+            countDownText.text = Mathf.RoundToInt(countDownTimer).ToString();
+        }
     }
 
     public void RubbingEnergy()
@@ -69,10 +81,36 @@ public class Player : MonoBehaviour
         }
         else if(Priority==AI.Priority)  //优先级一样，相互抵消
         {
+            Chose = false;
             Priority = 0;
             Defensing = false;
             Rebounding= false;
             AI.Rebounding = false;
+            countDownTimer = 5f;
+            AI.Priority = 0;
+            AI.Defensing = false;
+            Debug.Log("Continue");
+        }
+        else if (Defensing==true && AI.Priority!=2)  //玩家防御，AI不用大招，继续游戏
+        {
+            Chose = false;
+            Priority = 0;
+            Defensing = false;
+            Rebounding = false;
+            AI.Rebounding = false;
+            countDownTimer = 5f;
+            AI.Priority = 0;
+            AI.Defensing = false;
+            Debug.Log("Continue");
+        }
+        else if(Rebounding==true && (AI.Priority==0 || (AI.Priority!=0 && AI.Defensing==true)))  //玩家反弹失败
+        {
+            Chose = false;
+            Priority = 0;
+            Defensing = false;
+            Rebounding = false;
+            AI.Rebounding = false;
+            countDownTimer = 5f;
             AI.Priority = 0;
             AI.Defensing = false;
             Debug.Log("Continue");
@@ -83,5 +121,4 @@ public class Player : MonoBehaviour
             Debug.Log("WIN");
         }
     }
-
 }
