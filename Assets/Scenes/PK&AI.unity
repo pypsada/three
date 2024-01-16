@@ -228,6 +228,7 @@ MonoBehaviour:
   StringCareer: 
   Ground: 0
   RascallyNumber: 0
+  ArroganceNumber: 0
   countDownText: {fileID: 991388923}
   countDownTimer: 5
 --- !u!1 &47665277

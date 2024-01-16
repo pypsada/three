@@ -21,19 +21,19 @@ public class CareerKillName : MonoBehaviour
         }
         else if (Whole.PlayerCareer == "Guard")
         {
-            textComponent.text = "能防";
+            textComponent.text = "守护";
         }
         else if (Whole.PlayerCareer == "Turtle")
         {
-            textComponent.text = "龟缩";
+            textComponent.text = "刺甲";
         }
         else if (Whole.PlayerCareer == "Rascally")
         {
-            textComponent.text = "汲能";
+            textComponent.text = "蹬鼻子上脸";
         }
         else if (Whole.PlayerCareer == "Arrogance")
         {
-            textComponent.text = "嘲讽";
+            textComponent.text = "中指";
         }
     }
 
