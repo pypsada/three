@@ -14,7 +14,7 @@ public class Button : MonoBehaviour
     void Start()
     {
         Player = FindObjectOfType<Player>(); // 获取Player脚本的引用
-        ai = FindObjectOfType<AI>();
+        ai = FindObjectOfType<AI>();  //获取AI脚本的引用
     }
 
     // Update is called once per frame
@@ -23,14 +23,14 @@ public class Button : MonoBehaviour
         
     }
 
-    public void RubbingEnergy()
+    public void RubbingEnergy()  //搓能量
     {
         ai.AIplaying();
         Player.RubbingEnergy();
         Player.Despare();
     }
 
-    public void Gun()
+    public void Gun()  //枪
     {
         if (Player.Energy>=1)
         {
@@ -41,7 +41,7 @@ public class Button : MonoBehaviour
 
     }
 
-    public void Rebound()
+    public void Rebound()  //反弹
     {
         if (Player.Energy>=2)
         {
@@ -52,14 +52,14 @@ public class Button : MonoBehaviour
 
     }
 
-    public void Defense()
+    public void Defense()  //防御
     {
         ai.AIplaying();
         Player.Defense();
         Player.Despare();
     }
 
-    public void HolyGrail()
+    public void HolyGrail()  //大招
     {
         if (Player.Energy>=4)
         {
@@ -70,20 +70,36 @@ public class Button : MonoBehaviour
         }
     }
 
-    public void ChoseAssassin()
+    public void ChoseAssassin()  //选择刺客职业
     {
         Whole.PlayerCareer = "Assassin";
         SceneManager.LoadScene("PK&AI");
     }
 
-    public void VocationalSkills()
+    public void ChoseKing()  //选择国王职业
     {
-        if (Player.StringCareer== "Assassin")
+        Whole.PlayerCareer = "King";
+        SceneManager.LoadScene("PK&AI");
+    }
+
+    public void VocationalSkills()  //使用职业技能
+    {
+        if (Player.Career>0)
         {
-            ai.AIplaying();
-            Player.Assassinate();
-            Player.Despare();
+            if (Player.StringCareer== "Assassin")
+            {
+                ai.AIplaying();
+                Player.Assassinate();
+                Player.Despare();
+            }
+            if (Player.StringCareer=="King")
+            {
+                ai.AIplaying();
+                Player.King();
+                Player.Despare();
+            }
         }
+
     }
 
 }

@@ -23,12 +23,12 @@ public class Number : MonoBehaviour
         if (Career)
         {
             int CareerNumber = playerScript.Career;
-            textComponent.text=CareerNumber.ToString();
+            textComponent.text=CareerNumber.ToString();  //显示技能点数
         }
         else
         {
             int energyValue = playerScript.Energy;
-            textComponent.text = energyValue.ToString();
+            textComponent.text = energyValue.ToString();  //显示能量点数
         }
 
     }

@@ -8,6 +8,7 @@ public class NumberAI : MonoBehaviour
     public Text textComponent; // 引用物体上的Text组件
     public AI AIScript; // 引用AI脚本
     public int energyValue;
+    public bool Career;
     void Start()
     {
         // 获取物体上的Text组件
@@ -19,7 +20,16 @@ public class NumberAI : MonoBehaviour
 
     void Update()
     {
-        int energyValue = AIScript.Energy;
-        textComponent.text = energyValue.ToString();
+        if (Career)
+        {
+            int energyValue = AIScript.Energy;
+            textComponent.text = energyValue.ToString();  //显示能量点数
+        }
+        else
+        {
+            int energyValue = AIScript.Energy;
+            textComponent.text = energyValue.ToString();  //显示能量点数
+        }
+
     }
 }

@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public int Energy;
-    private Animator myAnim;
-    public int Priority=0;
-    public bool Rebounding=false;
-    public bool Defensing=false;
-    public AI AI;
-    public GameObject AIgameobject;
-    public bool Chose=false;
-    public int Career;
-    public string StringCareer;
-    public int Ground;
+    //private Animator myAnim;
+    public int Priority=0;  //优先级
+    public bool Rebounding=false;  //是否反弹
+    public bool Defensing=false;  //是否防御
+    public AI AI;  
+    public GameObject AIgameobject;   
+    public bool Chose=false;    //是否选择了技能
+    public int Career;  //技能点数(职业技能点数)
+    public string StringCareer;  //职业名字
+    public int Ground;  //回合数
 
     public Text countDownText; // 倒计时文本
     public float countDownTimer = 5f; // 倒计时时间
@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
         StringCareer = Whole.PlayerCareer;
         Career = 0;
         Energy = 0;
-        myAnim = GetComponent<Animator>();
+        //myAnim = GetComponent<Animator>();
         countDownText = countDownText.GetComponent<Text>();
         AI = FindObjectOfType<AI>();
         if (StringCareer== "Thief" || StringCareer== "Assassin")
@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
     public void HolyGrail()   //大招
     {
         Priority = 2;
-        Energy -= 2;
+        Energy -= 4;
         Debug.Log("You:HolyGrail");
     }
 
@@ -98,6 +98,13 @@ public class Player : MonoBehaviour
     public void Steal()   //偷取
     {
         Priority = 1;
+    }
+
+    public void King() //
+    {
+        Priority = 2;
+        Energy -= 2;
+        Debug.Log("You:King");
     }
 
     public void Despare()   //判定
@@ -166,13 +173,16 @@ public class Player : MonoBehaviour
             Destroy(AIgameobject);
             Debug.Log("WIN");
         }
-        if (StringCareer== "Assassin")
+        if (StringCareer== "Assassin")   //刺客职业点数判定
         {
             if (Ground%2==1)
             {
                 Career += 1;
             }
         }
-
+        if (StringCareer=="King")  //国王职业点数判定
+        {
+            Career = Energy / 2;
+        }
     }
 }
