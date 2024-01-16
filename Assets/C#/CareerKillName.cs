@@ -27,6 +27,10 @@ public class CareerKillName : MonoBehaviour
         {
             textComponent.text = "¹êËõ";
         }
+        else if (Whole.PlayerCareer == "Rascally")
+        {
+            textComponent.text = "¼³ÄÜ";
+        }
     }
 
     // Update is called once per frame

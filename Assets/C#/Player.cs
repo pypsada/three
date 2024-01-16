@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public int Career;  //技能点数(职业技能点数)
     public string StringCareer;  //职业名字
     public int Ground;  //回合数
+    public int RascallyNumber;  //老赖技能获取能量数
 
     public Text countDownText; // 倒计时文本
     public float countDownTimer = 5f; // 倒计时时间
@@ -23,13 +24,14 @@ public class Player : MonoBehaviour
     void Start()
     {
         Ground = 1;
+        RascallyNumber = 1;
         StringCareer = Whole.PlayerCareer;
         Career = 0;
-        Energy = 0;
+        Energy = 0;   //初始化
         //myAnim = GetComponent<Animator>();
         countDownText = countDownText.GetComponent<Text>();
         AI = FindObjectOfType<AI>();
-        if (StringCareer == "Thief" || StringCareer == "Assassin" || StringCareer=="Guard")
+        if (StringCareer == "Thief" || StringCareer == "Assassin" || StringCareer=="Guard" || StringCareer== "Rascally")
         {
             Career = 1;
         }
@@ -115,12 +117,19 @@ public class Player : MonoBehaviour
         Debug.Log("You:Guard");
     }
 
-    public void Turtle()
+    public void Turtle()  //乌龟技能：龟缩
     {
         Energy -= 1;
         Priority = 100;
         Rebounding = true;
         Debug.Log("You:Turtle");
+    }
+
+    public void Rascally()  //老赖技能：汲能
+    {
+        Priority = 0;
+        Energy += RascallyNumber;
+        RascallyNumber += 1;
     }
 
     public void Despare()   //判定
@@ -200,7 +209,7 @@ public class Player : MonoBehaviour
         {
             Career = Energy / 2;
         }
-        else if (StringCareer== "Guard")  //卫士职业点数判定
+        else if (StringCareer== "Guard" || StringCareer== "Rascally")  //卫士职业点数判定
         {
             Career = 1;
         }

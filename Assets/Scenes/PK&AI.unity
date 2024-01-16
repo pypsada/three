@@ -227,6 +227,7 @@ MonoBehaviour:
   Career: 0
   StringCareer: 
   Ground: 0
+  RascallyNumber: 0
   countDownText: {fileID: 991388923}
   countDownTimer: 5
 --- !u!1 &47665277
@@ -1542,6 +1543,7 @@ GameObject:
   - component: {fileID: 1409499276}
   - component: {fileID: 1409499275}
   - component: {fileID: 1409499274}
+  - component: {fileID: 1409499278}
   m_Layer: 5
   m_Name: Button (3)
   m_TagString: Untagged
@@ -1680,6 +1682,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1409499272}
   m_CullTransparentMesh: 1
+--- !u!114 &1409499278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409499272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c08b466a73b3c5f458363205c0a4e8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisableCareer: Rascally
 --- !u!1 &1421071947
 GameObject:
   m_ObjectHideFlags: 0

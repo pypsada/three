@@ -20,7 +20,7 @@ public class Button : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void RubbingEnergy()  //搓能量
@@ -32,7 +32,7 @@ public class Button : MonoBehaviour
 
     public void Gun()  //枪
     {
-        if (Player.Energy>=1)
+        if (Player.Energy >= 1)
         {
             ai.AIplaying();
             Player.Gun();
@@ -43,7 +43,7 @@ public class Button : MonoBehaviour
 
     public void Rebound()  //反弹
     {
-        if (Player.Energy>=2)
+        if (Player.Energy >= 2)
         {
             ai.AIplaying();
             Player.Rebound();
@@ -61,11 +61,11 @@ public class Button : MonoBehaviour
 
     public void HolyGrail()  //大招
     {
-        if (Player.Energy>=4)
+        if (Player.Energy >= 4)
         {
             ai.AIplaying();
             Player.HolyGrail();
-           
+
             Player.Despare();
         }
     }
@@ -91,6 +91,12 @@ public class Button : MonoBehaviour
     public void ChoseTurtle()
     {
         Whole.PlayerCareer = "Turtle";
+        SceneManager.LoadScene("PK&AI");
+    }
+
+    public void ChoseRascally()
+    {
+        Whole.PlayerCareer = "Rascally";
         SceneManager.LoadScene("PK&AI");
     }
 
@@ -120,6 +126,12 @@ public class Button : MonoBehaviour
             {
                 ai.AIplaying();
                 Player.Turtle();
+                Player.Despare();
+            }
+            if (Player.StringCareer == "Rascally")
+            {
+                ai.AIplaying();
+                Player.Rascally();
                 Player.Despare();
             }
         }
