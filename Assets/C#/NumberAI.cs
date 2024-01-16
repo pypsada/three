@@ -14,7 +14,7 @@ public class NumberAI : MonoBehaviour
         textComponent = GetComponent<Text>();
 
         // 获取AI脚本的引用
-        AIScript = GameObject.Find("AI").GetComponent<AI>();
+        AIScript = FindObjectOfType<AI>();
     }
 
     void Update()

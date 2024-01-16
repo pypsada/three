@@ -8,6 +8,7 @@ public class Number : MonoBehaviour
     public Text textComponent; // 引用物体上的Text组件
     public Player playerScript; // 引用Player脚本
     public int energyValue;
+    public bool Career;
     void Start()
     {
         // 获取物体上的Text组件
@@ -19,7 +20,16 @@ public class Number : MonoBehaviour
 
     void Update()
     {
-        int energyValue = playerScript.Energy;
-        textComponent.text = energyValue.ToString();
+        if (Career)
+        {
+            int CareerNumber = playerScript.Career;
+            textComponent.text=CareerNumber.ToString();
+        }
+        else
+        {
+            int energyValue = playerScript.Energy;
+            textComponent.text = energyValue.ToString();
+        }
+
     }
 }

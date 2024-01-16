@@ -11,6 +11,7 @@ public class ButtonDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public Player player; // Player脚本的引用
     public int Energy;
     public bool Click = false;
+    public bool Career;
 
     void Start()
     {
@@ -20,19 +21,39 @@ public class ButtonDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     void Update()
     {
-        if (player.Energy < Energy) // 根据Energy值判断按钮颜色和可点击状态
+        if (Career)
         {
-            Click = false;
-            buttonText.color = grayColor;  // 设置按钮颜色为灰色
+            if (player.Career==0)
+            {
+                Click = false;
+                buttonText.color = grayColor;  // 设置按钮颜色为灰色
+            }
+            else
+            {
+                Click = true;// 启用按钮交互性
+                if (buttonText.color == grayColor)
+                {
+                    buttonText.color = Color.white; // 设置按钮颜色为白色
+                }
+            }
         }
         else
         {
-            Click = true;// 启用按钮交互性
-            if (buttonText.color==grayColor)
+            if (player.Energy < Energy) // 根据Energy值判断按钮颜色和可点击状态
             {
-                buttonText.color = Color.white; // 设置按钮颜色为白色
+                Click = false;
+                buttonText.color = grayColor;  // 设置按钮颜色为灰色
+            }
+            else
+            {
+                Click = true;// 启用按钮交互性
+                if (buttonText.color==grayColor)
+                {
+                    buttonText.color = Color.white; // 设置按钮颜色为白色
+                }
             }
         }
+
     }
 
     public void OnPointerEnter(PointerEventData eventData)

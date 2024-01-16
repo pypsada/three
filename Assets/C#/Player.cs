@@ -15,12 +15,15 @@ public class Player : MonoBehaviour
     public bool Chose=false;
     public int Career;
     public string StringCareer;
+    public int Ground;
 
     public Text countDownText; // 倒计时文本
     public float countDownTimer = 5f; // 倒计时时间
 
     void Start()
     {
+        Ground = 1;
+        StringCareer = Whole.PlayerCareer;
         Career = 0;
         Energy = 0;
         myAnim = GetComponent<Animator>();
@@ -49,21 +52,21 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void RubbingEnergy()
+    public void RubbingEnergy()   //能量
     { 
         Energy += 1;
         Debug.Log("You:RubbingEnergy");
         Priority = 0;
     } 
 
-    public void Gun()
+    public void Gun()  //枪
     {
         Priority = 1;
         Energy -= 1;
         Debug.Log("You:Gun");
     }
 
-    public void Rebound()
+    public void Rebound()   //反弹
     {
         Priority = 100;
         Rebounding=true;
@@ -71,34 +74,35 @@ public class Player : MonoBehaviour
         Debug.Log("You:Rebound");
     }
 
-    public void Defense()
+    public void Defense()   //防御
     {
         Priority = 1;
         Defensing = true;
         Debug.Log("You:Defense");
     }
 
-    public void HolyGrail()
+    public void HolyGrail()   //大招
     {
         Priority = 2;
         Energy -= 2;
         Debug.Log("You:HolyGrail");
     }
 
-    public void Assassinate()
+    public void Assassinate()  //刺杀
     {
         Priority = 1;
         Career -= 1;
         Debug.Log("You:Assassinate");
     }
 
-    public void Steal()
+    public void Steal()   //偷取
     {
         Priority = 1;
     }
 
-    public void Despare()
+    public void Despare()   //判定
     {
+        Ground += 1;
         if (Priority < AI.Priority && AI.Rebounding==false && AI.Defensing==false)  //AI攻击优先级更高
         {
             Destroy(gameObject);
@@ -162,5 +166,13 @@ public class Player : MonoBehaviour
             Destroy(AIgameobject);
             Debug.Log("WIN");
         }
+        if (StringCareer== "Assassin")
+        {
+            if (Ground%2==1)
+            {
+                Career += 1;
+            }
+        }
+
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.EventSystems.EventTrigger;
 
 public class Button : MonoBehaviour
@@ -68,4 +69,21 @@ public class Button : MonoBehaviour
             Player.Despare();
         }
     }
+
+    public void ChoseAssassin()
+    {
+        Whole.PlayerCareer = "Assassin";
+        SceneManager.LoadScene("PK&AI");
+    }
+
+    public void VocationalSkills()
+    {
+        if (Player.StringCareer== "Assassin")
+        {
+            ai.AIplaying();
+            Player.Assassinate();
+            Player.Despare();
+        }
+    }
+
 }
