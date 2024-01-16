@@ -88,15 +88,21 @@ public class Button : MonoBehaviour
         SceneManager.LoadScene("PK&AI");
     }
 
-    public void ChoseTurtle()
+    public void ChoseTurtle()  //选择乌龟职业
     {
         Whole.PlayerCareer = "Turtle";
         SceneManager.LoadScene("PK&AI");
     }
 
-    public void ChoseRascally()
+    public void ChoseRascally()  //选择老赖职业
     {
         Whole.PlayerCareer = "Rascally";
+        SceneManager.LoadScene("PK&AI");
+    }
+
+    public void ChoseArrogance()  //选择傲慢职业
+    {
+        Whole.PlayerCareer = "Arrogance";
         SceneManager.LoadScene("PK&AI");
     }
 
@@ -132,6 +138,12 @@ public class Button : MonoBehaviour
             {
                 ai.AIplaying();
                 Player.Rascally();
+                Player.Despare();
+            }
+            if (Player.StringCareer == "Arrogance")
+            {
+                ai.AIplaying();
+                Player.Arrogance();
                 Player.Despare();
             }
         }

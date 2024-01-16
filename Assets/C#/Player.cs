@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public string StringCareer;  //职业名字
     public int Ground;  //回合数
     public int RascallyNumber;  //老赖技能获取能量数
+    public int ArroganceNumber;
 
     public Text countDownText; // 倒计时文本
     public float countDownTimer = 5f; // 倒计时时间
@@ -25,13 +26,14 @@ public class Player : MonoBehaviour
     {
         Ground = 1;
         RascallyNumber = 1;
+        ArroganceNumber = 0;
         StringCareer = Whole.PlayerCareer;
         Career = 0;
         Energy = 0;   //初始化
         //myAnim = GetComponent<Animator>();
         countDownText = countDownText.GetComponent<Text>();
         AI = FindObjectOfType<AI>();
-        if (StringCareer == "Thief" || StringCareer == "Assassin" || StringCareer=="Guard" || StringCareer== "Rascally")
+        if (StringCareer == "Thief" || StringCareer == "Assassin" || StringCareer=="Guard" || StringCareer== "Rascally" || StringCareer== "Arrogance")
         {
             Career = 1;
         }
@@ -132,6 +134,12 @@ public class Player : MonoBehaviour
         RascallyNumber += 1;
     }
 
+    public void Arrogance()  //傲慢技能：嘲讽
+    {
+        ArroganceNumber += 1;
+        Priority = 0;
+    }
+
     public void Despare()   //判定
     {
         Ground += 1;
@@ -198,6 +206,11 @@ public class Player : MonoBehaviour
             Destroy(AIgameobject);
             Debug.Log("WIN");
         }
+        if (ArroganceNumber>=3)
+        {
+            Destroy(AIgameobject);
+            Debug.Log("WIN");
+        }
         if (StringCareer== "Assassin")   //刺客职业点数判定
         {
             if (Ground%2==1)
@@ -209,7 +222,7 @@ public class Player : MonoBehaviour
         {
             Career = Energy / 2;
         }
-        else if (StringCareer== "Guard" || StringCareer== "Rascally")  //卫士职业点数判定
+        else if (StringCareer== "Guard" || StringCareer== "Rascally" || StringCareer== "Arrogance")  //卫士职业点数判定
         {
             Career = 1;
         }
