@@ -82,6 +82,18 @@ public class Button : MonoBehaviour
         SceneManager.LoadScene("PK&AI");
     }
 
+    public void ChoseGuard()  //选择护卫职业
+    {
+        Whole.PlayerCareer = "Guard";
+        SceneManager.LoadScene("PK&AI");
+    }
+
+    public void ChoseTurtle()
+    {
+        Whole.PlayerCareer = "Turtle";
+        SceneManager.LoadScene("PK&AI");
+    }
+
     public void VocationalSkills()  //使用职业技能
     {
         if (Player.Career>0)
@@ -96,6 +108,18 @@ public class Button : MonoBehaviour
             {
                 ai.AIplaying();
                 Player.King();
+                Player.Despare();
+            }
+            if(Player.StringCareer=="Guard")
+            {
+                ai.AIplaying();
+                Player.Guard();
+                Player.Despare();
+            }
+            if (Player.StringCareer == "Turtle")
+            {
+                ai.AIplaying();
+                Player.Turtle();
                 Player.Despare();
             }
         }

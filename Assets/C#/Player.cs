@@ -7,12 +7,12 @@ public class Player : MonoBehaviour
 {
     public int Energy;
     //private Animator myAnim;
-    public int Priority=0;  //优先级
-    public bool Rebounding=false;  //是否反弹
-    public bool Defensing=false;  //是否防御
-    public AI AI;  
-    public GameObject AIgameobject;   
-    public bool Chose=false;    //是否选择了技能
+    public int Priority = 0;  //优先级
+    public bool Rebounding = false;  //是否反弹
+    public bool Defensing = false;  //是否防御
+    public AI AI;
+    public GameObject AIgameobject;
+    public bool Chose = false;    //是否选择了技能
     public int Career;  //技能点数(职业技能点数)
     public string StringCareer;  //职业名字
     public int Ground;  //回合数
@@ -29,9 +29,9 @@ public class Player : MonoBehaviour
         //myAnim = GetComponent<Animator>();
         countDownText = countDownText.GetComponent<Text>();
         AI = FindObjectOfType<AI>();
-        if (StringCareer== "Thief" || StringCareer== "Assassin")
+        if (StringCareer == "Thief" || StringCareer == "Assassin" || StringCareer=="Guard")
         {
-            Career= 1;
+            Career = 1;
         }
     }
 
@@ -53,11 +53,11 @@ public class Player : MonoBehaviour
     }
 
     public void RubbingEnergy()   //能量
-    { 
+    {
         Energy += 1;
         Debug.Log("You:RubbingEnergy");
         Priority = 0;
-    } 
+    }
 
     public void Gun()  //枪
     {
@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
     public void Rebound()   //反弹
     {
         Priority = 100;
-        Rebounding=true;
+        Rebounding = true;
         Energy -= 2;
         Debug.Log("You:Rebound");
     }
@@ -88,23 +88,39 @@ public class Player : MonoBehaviour
         Debug.Log("You:HolyGrail");
     }
 
-    public void Assassinate()  //刺杀
+    public void Assassinate()  // 刺客技能：暗杀
     {
         Priority = 1;
         Career -= 1;
         Debug.Log("You:Assassinate");
     }
 
-    public void Steal()   //偷取
+    public void Steal()   // 盗贼技能：偷取
     {
         Priority = 1;
     }
 
-    public void King() //
+    public void King() // 国王技能：王权
     {
         Priority = 2;
         Energy -= 2;
         Debug.Log("You:King");
+    }
+
+    public void Guard()  // 护卫技能：能防
+    {
+        Priority = 1;
+        Defensing = true;
+        Energy += 1;
+        Debug.Log("You:Guard");
+    }
+
+    public void Turtle()
+    {
+        Energy -= 1;
+        Priority = 100;
+        Rebounding = true;
+        Debug.Log("You:Turtle");
     }
 
     public void Despare()   //判定
@@ -180,9 +196,17 @@ public class Player : MonoBehaviour
                 Career += 1;
             }
         }
-        if (StringCareer=="King")  //国王职业点数判定
+        else if (StringCareer=="King")  //国王职业点数判定
         {
             Career = Energy / 2;
+        }
+        else if (StringCareer== "Guard")  //卫士职业点数判定
+        {
+            Career = 1;
+        }
+        else if (StringCareer == "Turtle")  //乌龟职业点数判定
+        {
+            Career = Energy;
         }
     }
 }
