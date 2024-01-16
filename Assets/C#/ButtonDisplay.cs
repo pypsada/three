@@ -8,14 +8,14 @@ public class ButtonDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 {
     private Text buttonText; // 按钮文本组件
     public Color grayColor; // 灰色颜色
-    public LocalPlayer player; // Player脚本的引用
+    public Player player; // Player脚本的引用
     public int Energy;
     public bool Click = false;
 
     void Start()
     {
         buttonText = GetComponentInChildren<Text>(); // 获取按钮文本组件
-        player = FindObjectOfType<LocalPlayer>(); // 获取Player脚本的引用
+        player = FindObjectOfType<Player>(); // 获取Player脚本的引用
     }
 
     void Update()

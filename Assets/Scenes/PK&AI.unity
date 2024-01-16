@@ -1550,7 +1550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 7113615}
-  ai: {fileID: 0}
+  ai: {fileID: 1339384683}
 --- !u!4 &1692729168
 Transform:
   m_ObjectHideFlags: 0
