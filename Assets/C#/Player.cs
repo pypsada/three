@@ -13,16 +13,23 @@ public class Player : MonoBehaviour
     public AI AI;
     public GameObject AIgameobject;
     public bool Chose=false;
+    public int Career;
+    public string StringCareer;
 
     public Text countDownText; // 倒计时文本
     public float countDownTimer = 5f; // 倒计时时间
 
     void Start()
     {
+        Career = 0;
         Energy = 0;
         myAnim = GetComponent<Animator>();
         countDownText = countDownText.GetComponent<Text>();
         AI = FindObjectOfType<AI>();
+        if (StringCareer== "Thief" || StringCareer== "Assassin")
+        {
+            Career= 1;
+        }
     }
 
     void Update()
@@ -76,6 +83,18 @@ public class Player : MonoBehaviour
         Priority = 2;
         Energy -= 2;
         Debug.Log("You:HolyGrail");
+    }
+
+    public void Assassinate()
+    {
+        Priority = 1;
+        Career -= 1;
+        Debug.Log("You:Assassinate");
+    }
+
+    public void Steal()
+    {
+        Priority = 1;
     }
 
     public void Despare()
