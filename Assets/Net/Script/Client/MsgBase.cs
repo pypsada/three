@@ -83,6 +83,7 @@ public class MsgBase
         int nameLen;
         string name = DecodeName(bytes, 2, out nameLen);
         if (name == "") return null;
+        Debug.Log(nameLen.ToString() + " " + len.ToString());
         MsgBase msgBase = DecodeBody(name, bytes, 2 + nameLen, len - nameLen);
         count = len + 2;
         return msgBase;

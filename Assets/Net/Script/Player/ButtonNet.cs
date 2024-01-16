@@ -32,12 +32,11 @@ public class ButtonNet : MonoBehaviour
     public void Gun()
     {
         if (!main.chose) return;
-        if (Player.Energy>=1)
+        if (Player.Energy >= 1)
         {
             Player.Gun();
             main.Despare();
         }
-
     }
 
     public void Rebound()

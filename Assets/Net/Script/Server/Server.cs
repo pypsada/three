@@ -33,18 +33,23 @@ public class Server : MonoBehaviour
         string[] input = inputField.text.Split(":");
         localIpAdress = input[0];
         localPort = int.Parse(input[1]);
-
         isServer = true;
-
-        listenfd = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        IPAddress ip = IPAddress.Parse(localIpAdress);
-        IPEndPoint ipEnd = new(ip, localPort);
-        listenfd.Bind(ipEnd);
-        listenfd.Listen(0);
-        Debug.Log("Listening...");
-        SceneManager.LoadScene(1);
-
         NetManager.Connect(localIpAdress, localPort);
+
+        SceneManager.LoadScene(1);
+        return;
+        //string[] input = inputField.text.Split(":");
+        //localIpAdress = input[0];
+        //localPort = int.Parse(input[1]);
+
+        //isServer = true;
+
+        //listenfd = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        //IPAddress ip = IPAddress.Parse(localIpAdress);
+        //IPEndPoint ipEnd = new(ip, localPort);
+        //listenfd.Bind(ipEnd);
+        //listenfd.Listen(0);
+        //Debug.Log("Listening...");
     }
 
     public void BeginClient()
@@ -61,6 +66,7 @@ public class Server : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        return;
         if (!isServer) return;
         Debug.Log("ServerUpdate");
         check.Clear();

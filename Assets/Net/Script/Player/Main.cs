@@ -44,11 +44,12 @@ public class Main : MonoBehaviour
     {
         NetManager.MsgUpdate();
 
-        if(chose)
+        if(!chose)
         {
             countDownText.text = "等待对手出招";
             return;
         }
+        return;
         if (countDownTimer > 0f)
         {
             countDownTimer -= Time.deltaTime;
@@ -163,6 +164,7 @@ public class Main : MonoBehaviour
 
     public void RemoteAct(MsgBase msgAct)
     {
+        Debug.Log(((MsgAct)msgAct).act.ToString());
         string actStr = ((MsgAct)msgAct).act.ToString();
         MethodInfo mei = typeof(RemotePlayer).GetMethod(actStr);
         mei.Invoke(null, null);
@@ -170,6 +172,7 @@ public class Main : MonoBehaviour
 
     public void RemoteResult(MsgBase msgResult)
     {
+        Debug.Log(((MsgResult)msgResult).result.ToString());
         switch(((MsgResult)msgResult).result)
         {
             case MsgResult.Result.thisContinue:

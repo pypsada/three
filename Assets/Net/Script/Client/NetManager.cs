@@ -338,20 +338,23 @@ public static class NetManager
         if (bytes.Length < 2 + bodyLength) return;
         readBuff.readIdx += 2;
         //解析协议名
-        int msgCount = 0;
-        MsgBase msgBase = MsgBase.Decode(readBuff.bytes,readBuff.readIdx,out msgCount);
+        Debug.Log("OnRecv");
+        int msgReadCount = 0;
+        MsgBase msgBase = MsgBase.Decode(readBuff.bytes,readBuff.readIdx,out msgReadCount);
+        Debug.Log("BeforeAdd");
         if (msgBase==null)
         {
             Debug.Log("OnReceiveData MsgBase.DecodeName fail");
             return;
         }
-        readBuff.readIdx += msgCount;
+        readBuff.readIdx += msgReadCount;
         //添加到消息队列
         lock (msgList)
         {
             msgList.Add(msgBase);
         }
         msgCount++;
+        Debug.Log("Add");
         //继续读取消息
         if (readBuff.length > 2)
         {
