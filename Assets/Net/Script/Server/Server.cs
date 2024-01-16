@@ -4,14 +4,18 @@ using UnityEngine;
 using System.Net.Sockets;
 using System.Net;
 using System;
-using UnityEditor.PackageManager;
 using System.Globalization;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Server : MonoBehaviour
 {
+    [HideInInspector]
     public bool isServer;
-    public string localIpAdress;
-    public int localPort;
+    private string localIpAdress;
+    private int localPort;
+
+    public InputField inputField;
 
     private Socket listenfd;
     List<Socket> clients = new();
@@ -20,11 +24,17 @@ public class Server : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!isServer)
-        {
-            gameObject.GetComponent<Server>().enabled = false;
-            return;
-        }
+        DontDestroyOnLoad(gameObject);
+        isServer = false;
+    }
+
+    public void BeginServer()
+    {
+        string[] input = inputField.text.Split(":");
+        localIpAdress = input[0];
+        localPort = int.Parse(input[1]);
+
+        isServer = true;
 
         listenfd = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         IPAddress ip = IPAddress.Parse(localIpAdress);
@@ -32,6 +42,20 @@ public class Server : MonoBehaviour
         listenfd.Bind(ipEnd);
         listenfd.Listen(0);
         Debug.Log("Listening...");
+        SceneManager.LoadScene(1);
+
+        NetManager.Connect(localIpAdress, localPort);
+    }
+
+    public void BeginClient()
+    {
+        string[] input = inputField.text.Split(":");
+        localIpAdress = input[0];
+        localPort = int.Parse(input[1]);
+        isServer = false;
+        NetManager.Connect(localIpAdress, localPort);
+
+        SceneManager.LoadScene(1);
     }
 
     // Update is called once per frame

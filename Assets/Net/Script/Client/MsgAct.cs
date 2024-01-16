@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class MsgAct : MsgBase
 {
-    MsgAct()
+    public MsgAct()
     {
         this.protoName = "MsgAct";
     }
+
+    public enum Act
+    {
+        RubbingEnergy,
+        Gun,
+        Rebound,
+        Defense,
+        HolyGrail
+    }
+
+    public Act act;
 }
