@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 
     public Text countDownText; // 倒计时文本
     public float countDownTimer = 5f; // 倒计时时间
+    public Text GroundText; //回合数文本
 
     void Start()
     {
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour
         Energy = 0;   //初始化
         //myAnim = GetComponent<Animator>();
         countDownText = countDownText.GetComponent<Text>();
+        GroundText = GroundText.GetComponent<Text>();
         AI = FindObjectOfType<AI>();
         if (StringCareer == "Thief" || StringCareer == "Assassin" || StringCareer=="Guard" || StringCareer== "Rascally" || StringCareer== "Arrogance")
         {
@@ -41,6 +43,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        GroundText.text = Ground.ToString();
         if (countDownTimer > 0f)
         {
             countDownTimer -= Time.deltaTime;
