@@ -62,7 +62,7 @@ public class Server : MonoBehaviour
     void Update()
     {
         if (!isServer) return;
-
+        Debug.Log("ServerUpdate");
         check.Clear();
         check.Add(listenfd);
         foreach (Socket s in clients)

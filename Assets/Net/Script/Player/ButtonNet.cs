@@ -24,12 +24,14 @@ public class ButtonNet : MonoBehaviour
 
     public void RubbingEnergy()
     {
+        if (!main.chose) return;
         Player.RubbingEnergy();
         main.Despare();
     }
 
     public void Gun()
     {
+        if (!main.chose) return;
         if (Player.Energy>=1)
         {
             Player.Gun();
@@ -40,6 +42,7 @@ public class ButtonNet : MonoBehaviour
 
     public void Rebound()
     {
+        if (!main.chose) return;
         if (Player.Energy>=2)
         {
             Player.Rebound();
@@ -50,12 +53,14 @@ public class ButtonNet : MonoBehaviour
 
     public void Defense()
     {
+        if (!main.chose) return;
         Player.Defense();
         main.Despare();
     }
 
     public void HolyGrail()
     {
+        if (!main.chose) return;
         if (Player.Energy>=4)
         {
             Player.HolyGrail();

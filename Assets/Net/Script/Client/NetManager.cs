@@ -363,6 +363,7 @@ public static class NetManager
     public static void MsgUpdate()
     {
         if (msgCount == 0) return;
+        Debug.Log("MsgFire");
         for (int i = 0; i < MAX_MESSAGE_FIRE; i++)
         {
             MsgBase msgBase = null;

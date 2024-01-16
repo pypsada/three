@@ -15,7 +15,8 @@ public class Main : MonoBehaviour
     public bool isFirst;
 
     //是否该选择
-    private bool chose;
+    [HideInInspector]
+    public bool chose;
 
     public Text countDownText; // 倒计时文本
     public float countDownTimer = 5f; // 倒计时时间
