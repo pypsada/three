@@ -73,48 +73,96 @@ public class Button : MonoBehaviour
     public void ChoseAssassin()  //选择刺客职业
     {
         Whole.PlayerCareer = "Assassin";
-        SceneManager.LoadScene("PK&AI");
+        SceneManager.LoadScene("AIChoseCareer");
     }
 
     public void ChoseKing()  //选择国王职业
     {
         Whole.PlayerCareer = "King";
-        SceneManager.LoadScene("PK&AI");
+        SceneManager.LoadScene("AIChoseCareer");
     }
 
     public void ChoseGuard()  //选择护卫职业
     {
         Whole.PlayerCareer = "Guard";
-        SceneManager.LoadScene("PK&AI");
+        SceneManager.LoadScene("AIChoseCareer");
     }
 
     public void ChoseTurtle()  //选择乌龟职业
     {
         Whole.PlayerCareer = "Turtle";
-        SceneManager.LoadScene("PK&AI");
+        SceneManager.LoadScene("AIChoseCareer");
     }
 
     public void ChoseRascally()  //选择老赖职业
     {
         Whole.PlayerCareer = "Rascally";
-        SceneManager.LoadScene("PK&AI");
+        SceneManager.LoadScene("AIChoseCareer");
     }
 
     public void ChoseArrogance()  //选择傲慢职业
     {
         Whole.PlayerCareer = "Arrogance";
-        SceneManager.LoadScene("PK&AI");
+        SceneManager.LoadScene("AIChoseCareer");
     }
 
     public void ChoseThief()  //选择盗贼职业
     {
         Whole.PlayerCareer = "Thief";
+        SceneManager.LoadScene("AIChoseCareer");
+    }
+
+    public void ChosePangolin()  //选择穿山甲职业
+    {
+        Whole.PlayerCareer = "Pangolin";
+        SceneManager.LoadScene("AIChoseCareer");
+    }
+
+    public void AIChoseAssassin()  //AI选择刺客职业
+    {
+        Whole.AICareer = "Assassin";
         SceneManager.LoadScene("PK&AI");
     }
 
-    public void ChosePangolin()
+    public void AIKing()  //AI选择国王职业
     {
-        Whole.PlayerCareer = "Pangolin";
+        Whole.AICareer = "King";
+        SceneManager.LoadScene("PK&AI");
+    }
+
+    public void AIGuard()  //AI选择护卫职业
+    {
+        Whole.AICareer = "Guard";
+        SceneManager.LoadScene("PK&AI");
+    }
+
+    public void AIChoseTurtle()  //AI选择乌龟职业
+    {
+        Whole.AICareer = "Turtle";
+        SceneManager.LoadScene("PK&AI");
+    }
+
+    public void AIChoseRascally()  //AI选择老赖职业
+    {
+        Whole.AICareer = "Rascally";
+        SceneManager.LoadScene("PK&AI");
+    }
+
+    public void AIChoseArrogance()  //AI选择傲慢职业
+    {
+        Whole.AICareer = "Arrogance";
+        SceneManager.LoadScene("PK&AI");
+    }
+
+    public void AIChoseThief()  //选择盗贼职业
+    {
+        Whole.AICareer = "Thief";
+        SceneManager.LoadScene("PK&AI");
+    }
+
+    public void AIChosePangolin()  //AI选择穿山甲职业
+    {
+        Whole.AICareer = "Pangolin";
         SceneManager.LoadScene("PK&AI");
     }
 

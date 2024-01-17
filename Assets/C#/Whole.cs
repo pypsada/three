@@ -5,6 +5,7 @@ using UnityEngine;
 public class Whole : MonoBehaviour
 {
     public static string PlayerCareer;
+    public static string AICareer;
     // Start is called before the first frame update
     void Start()
     {

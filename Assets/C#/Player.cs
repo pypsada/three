@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     public string StringCareer;  //职业名字
     public int Ground;  //回合数
     public int RascallyNumber;  //老赖技能获取能量数
-    public int ArroganceNumber;
+    public int ArroganceNumber;  //傲慢点数
     public bool Thiefing;  //神偷判定
     public int PangolinNumber; //穿山甲叠加层数
     public bool IsPangolin;  //叠加判定
@@ -68,7 +68,6 @@ public class Player : MonoBehaviour
             {
                 RubbingEnergy();
             }
-
             Despare();
         }
     }
@@ -249,7 +248,6 @@ public class Player : MonoBehaviour
                 Defensing = false;
                 Rebounding= false;
                 AI.Rebounding = false;
-                countDownTimer = 5f;
                 AI.Priority = 0;
                 AI.Defensing = false;
                 Debug.Log("Continue");
@@ -261,7 +259,6 @@ public class Player : MonoBehaviour
                 Defensing = false;
                 Rebounding = false;
                 AI.Rebounding = false;
-                countDownTimer = 5f;
                 AI.Priority = 0;
                 AI.Defensing = false;
                 Debug.Log("Continue");
@@ -273,7 +270,6 @@ public class Player : MonoBehaviour
                 Defensing = false;
                 Rebounding = false;
                 AI.Rebounding = false;
-                countDownTimer = 5f;
                 AI.Priority = 0;
                 AI.Defensing = false;
                 Debug.Log("Continue");
@@ -285,7 +281,6 @@ public class Player : MonoBehaviour
                 Defensing = false;
                 Rebounding = false;
                 AI.Rebounding = false;
-                countDownTimer = 5f;
                 AI.Priority = 0;
                 AI.Defensing = false;
                 Debug.Log("Continue");
@@ -296,12 +291,23 @@ public class Player : MonoBehaviour
                 Debug.Log("WIN");
             }           
         }
-
-        if (ArroganceNumber>=3)
+        if (ArroganceNumber>=3 && AI.ArroganceNumber>=3)
+        {
+            ArroganceNumber = 0;
+            AI.ArroganceNumber = 0;
+        }
+        else if (ArroganceNumber>=3)
         {
             Destroy(AIgameobject);
             Debug.Log("WIN");
         }
+        else if(AI.ArroganceNumber>=3) 
+        {
+            Destroy(gameObject);
+            Debug.Log("LOSE");
+        }
+
+        //AI职业点数判定
         if (StringCareer== "Assassin" || StringCareer=="Thief")   //刺客,盗贼职业点数判定
         {
             if (Ground%2==1)
@@ -309,17 +315,39 @@ public class Player : MonoBehaviour
                 Career += 1;
             }
         }
-        else if (StringCareer=="King")  //国王职业点数判定
+        else if (AI.StringCareer=="King")  //国王职业点数判定
         {
-            Career = Energy / 2;
+            AI.Career = Energy / 2;
         }
-        else if (StringCareer== "Guard" || StringCareer== "Rascally" || StringCareer== "Arrogance")  //卫士等职业点数判定
+        else if (AI.StringCareer== "Guard" || AI.StringCareer== "Rascally" || AI.StringCareer== "Arrogance")  //卫士等职业点数判定
         {
-            Career = 1;
+            AI.Career = 1;
         }
-        else if (StringCareer == "Turtle")  //乌龟职业点数判定
+        else if (AI.StringCareer == "Turtle")  //乌龟职业点数判定
         {
-            Career = Energy;
+            AI.Career = Energy;
         }
+
+        if (AI.StringCareer == "Assassin" || AI.StringCareer == "Thief")   //刺客,盗贼职业点数判定
+        {
+            if (Ground % 2 == 1)
+            {
+                AI.Career += 1;
+            }
+        }
+        else if (AI.StringCareer == "King")  //国王职业点数判定
+        {
+            AI.Career = Energy / 2;
+        }
+        else if (AI.StringCareer == "Guard" || AI.StringCareer == "Rascally" || AI.StringCareer == "Arrogance")  //卫士等职业点数判定
+        {
+            AI.Career = 1;
+        }
+        else if (AI.StringCareer == "Turtle")  //乌龟职业点数判定
+        {
+            AI.Career = AI.Energy;
+        }
+
+        countDownTimer = 5f;
     }
 }
