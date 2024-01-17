@@ -112,6 +112,12 @@ public class Button : MonoBehaviour
         SceneManager.LoadScene("PK&AI");
     }
 
+    public void ChosePangolin()
+    {
+        Whole.PlayerCareer = "Pangolin";
+        SceneManager.LoadScene("PK&AI");
+    }
+
     public void VocationalSkills()  //使用职业技能
     {
         if (Player.Career>0)
@@ -156,6 +162,12 @@ public class Button : MonoBehaviour
             {
                 ai.AIplaying();
                 Player.Thief();
+                Player.Despare();
+            }
+            if (Player.StringCareer == "Pangolin")
+            {
+                ai.AIplaying();
+                Player.Pangolin();
                 Player.Despare();
             }
         }

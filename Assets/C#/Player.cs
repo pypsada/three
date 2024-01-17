@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     public int RascallyNumber;  //老赖技能获取能量数
     public int ArroganceNumber;
     public bool Thiefing;  //神偷判定
+    public int PangolinNumber; //穿山甲叠加层数
+    public bool IsPangolin;  //叠加判定
 
     public Text countDownText; // 倒计时文本
     public float countDownTimer = 5f; // 倒计时时间
@@ -29,6 +31,8 @@ public class Player : MonoBehaviour
         Ground = 1;
         RascallyNumber = 1;
         ArroganceNumber = 0;
+        Thiefing = false;
+        PangolinNumber = 0;
         StringCareer = Whole.PlayerCareer;
         Career = 0;
         Energy = 0;   //初始化
@@ -36,7 +40,8 @@ public class Player : MonoBehaviour
         countDownText = countDownText.GetComponent<Text>();
         GroundText = GroundText.GetComponent<Text>();
         AI = FindObjectOfType<AI>();
-        if (StringCareer == "Thief" || StringCareer == "Assassin" || StringCareer=="Guard" || StringCareer== "Rascally" || StringCareer== "Arrogance")
+        if (StringCareer == "Thief" || StringCareer == "Assassin" || StringCareer=="Guard" || 
+            StringCareer== "Rascally" || StringCareer== "Arrogance" ||StringCareer== "Pangolin")
         {
             Career = 1;
         }
@@ -55,7 +60,15 @@ public class Player : MonoBehaviour
         else
         {
             AI.AIplaying();
-            RubbingEnergy();
+            if (StringCareer== "Pangolin" || StringCareer=="Thief")
+            {
+                Defense();
+            }
+            else
+            {
+                RubbingEnergy();
+            }
+
             Despare();
         }
     }
@@ -150,10 +163,54 @@ public class Player : MonoBehaviour
         Thiefing = true;
     }
 
+    public void Pangolin()
+    {
+        PangolinNumber += 1;
+        Priority = 0;
+        IsPangolin=true;
+    }
+
     public void Despare()   //判定
     {
         Ground += 1;
-        if (Thiefing)
+        if (IsPangolin)  //穿山甲职业判定
+        {
+            if (PangolinNumber >= 5)  //秒杀
+            {
+                Destroy(AIgameobject);
+                Debug.Log("WIN");
+            }
+            else if (PangolinNumber >= 3)  //免疫普攻判定
+            {
+                if (AI.Priority == 2)
+                {
+                    Destroy(gameObject);
+                    Debug.Log("LOSE");
+                }
+                else
+                {
+                    Debug.Log("Continue");
+                }
+            }
+            else  //否则就相当于普通搓
+            {
+                if (AI.Defensing==false && AI.Rebounding==false && AI.Priority>=2)
+                {
+                    Destroy(gameObject) ;
+                    Debug.Log("LOSE");
+                }
+                else if (AI.Defensing == false && AI.Rebounding == false && AI.Priority == 1 && Defensing==false)
+                {
+                    Destroy(gameObject);
+                    Debug.Log("LOSE");
+                }
+                else
+                {
+                    Debug.Log("Continue");
+                }
+            }
+        }
+        else if (Thiefing)
         {
             if (AI.Defensing==true || AI.Rebounding==true)  
             {
@@ -169,6 +226,7 @@ public class Player : MonoBehaviour
                 AI.Energy -= 1;
                 Energy += 1;
                 Career += 1;
+                Debug.Log("Continue");
             }
             Thiefing=false;
         }
@@ -255,7 +313,7 @@ public class Player : MonoBehaviour
         {
             Career = Energy / 2;
         }
-        else if (StringCareer== "Guard" || StringCareer== "Rascally" || StringCareer== "Arrogance")  //卫士职业点数判定
+        else if (StringCareer== "Guard" || StringCareer== "Rascally" || StringCareer== "Arrogance")  //卫士等职业点数判定
         {
             Career = 1;
         }

@@ -39,6 +39,10 @@ public class CareerKillName : MonoBehaviour
         {
             textComponent.text = "ÉñÍµ";
         }
+        else if (Whole.PlayerCareer == "Pangolin")
+        {
+            textComponent.text = "µþ¼×";
+        }
     }
 
     // Update is called once per frame
