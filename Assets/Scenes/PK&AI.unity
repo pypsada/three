@@ -229,6 +229,7 @@ MonoBehaviour:
   Ground: 0
   RascallyNumber: 0
   ArroganceNumber: 0
+  Thiefing: 0
   countDownText: {fileID: 991388923}
   countDownTimer: 5
   GroundText: {fileID: 1209382040}
@@ -478,6 +479,7 @@ GameObject:
   - component: {fileID: 260801514}
   - component: {fileID: 260801513}
   - component: {fileID: 260801512}
+  - component: {fileID: 260801516}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -616,6 +618,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260801510}
   m_CullTransparentMesh: 1
+--- !u!114 &260801516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260801510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c08b466a73b3c5f458363205c0a4e8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisableCareer: Thief
 --- !u!1 &319050742
 GameObject:
   m_ObjectHideFlags: 0

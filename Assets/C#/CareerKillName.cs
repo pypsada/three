@@ -35,6 +35,10 @@ public class CareerKillName : MonoBehaviour
         {
             textComponent.text = "ÖÐÖ¸";
         }
+        else if (Whole.PlayerCareer == "Thief")
+        {
+            textComponent.text = "ÉñÍµ";
+        }
     }
 
     // Update is called once per frame

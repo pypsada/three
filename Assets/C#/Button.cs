@@ -106,6 +106,12 @@ public class Button : MonoBehaviour
         SceneManager.LoadScene("PK&AI");
     }
 
+    public void ChoseThief()  //选择盗贼职业
+    {
+        Whole.PlayerCareer = "Thief";
+        SceneManager.LoadScene("PK&AI");
+    }
+
     public void VocationalSkills()  //使用职业技能
     {
         if (Player.Career>0)
@@ -144,6 +150,12 @@ public class Button : MonoBehaviour
             {
                 ai.AIplaying();
                 Player.Arrogance();
+                Player.Despare();
+            }
+            if (Player.StringCareer == "Thief")
+            {
+                ai.AIplaying();
+                Player.Thief();
                 Player.Despare();
             }
         }

@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public int Ground;  //回合数
     public int RascallyNumber;  //老赖技能获取能量数
     public int ArroganceNumber;
+    public bool Thiefing;  //神偷判定
 
     public Text countDownText; // 倒计时文本
     public float countDownTimer = 5f; // 倒计时时间
@@ -143,78 +144,107 @@ public class Player : MonoBehaviour
         Priority = 0;
     }
 
+    public void Thief()  //盗贼技能：神偷
+    {
+        Career -= 1;
+        Thiefing = true;
+    }
+
     public void Despare()   //判定
     {
         Ground += 1;
-        if (Priority < AI.Priority && AI.Rebounding==false && AI.Defensing==false)  //AI攻击优先级更高
+        if (Thiefing)
         {
-            Destroy(gameObject);
-            Debug.Log("LOSE");
+            if (AI.Defensing==true || AI.Rebounding==true)  
+            {
+                Career -= 1;
+            }
+            else if (AI.Defensing==false && AI.Priority>0)
+            {
+                Destroy(AIgameobject);
+                Debug.Log("WIN");
+            }
+            else if (AI.Priority==0)
+            {
+                AI.Energy -= 1;
+                Energy += 1;
+                Career += 1;
+            }
+            Thiefing=false;
         }
-        else if (Priority < AI.Priority && AI.Rebounding==true && Defensing==false && Priority!=0) //AI反弹成功
+        else
         {
-            Destroy(gameObject);
-            Debug.Log("LOSE");
+             if (Priority < AI.Priority && AI.Rebounding==false && AI.Defensing==false)  //AI攻击优先级更高
+            {
+                Destroy(gameObject);
+                Debug.Log("LOSE");
+            }
+            else if (Priority < AI.Priority && AI.Rebounding==true && Defensing==false && Priority!=0) //AI反弹成功
+            {
+                Destroy(gameObject);
+                Debug.Log("LOSE");
+            }
+            else if(Priority==AI.Priority)  //优先级一样，相互抵消
+            {
+                Chose = false;
+                Priority = 0;
+                Defensing = false;
+                Rebounding= false;
+                AI.Rebounding = false;
+                countDownTimer = 5f;
+                AI.Priority = 0;
+                AI.Defensing = false;
+                Debug.Log("Continue");
+            }
+            else if (Defensing==true && AI.Priority!=2)  //玩家防御，AI不用大招，继续游戏
+            {
+                Chose = false;
+                Priority = 0;
+                Defensing = false;
+                Rebounding = false;
+                AI.Rebounding = false;
+                countDownTimer = 5f;
+                AI.Priority = 0;
+                AI.Defensing = false;
+                Debug.Log("Continue");
+            }
+            else if(Rebounding==true && (AI.Priority==0 || (AI.Priority!=0 && AI.Defensing==true)))  //玩家反弹失败
+            {
+                Chose = false;
+                Priority = 0;
+                Defensing = false;
+                Rebounding = false;
+                AI.Rebounding = false;
+                countDownTimer = 5f;
+                AI.Priority = 0;
+                AI.Defensing = false;
+                Debug.Log("Continue");
+            }
+            else if (Priority==0 && (AI.Defensing==true || AI.Priority==0 || AI.Rebounding==true))  //玩家搓能量，AI不攻击
+            {
+                Chose = false;
+                Priority = 0;
+                Defensing = false;
+                Rebounding = false;
+                AI.Rebounding = false;
+                countDownTimer = 5f;
+                AI.Priority = 0;
+                AI.Defensing = false;
+                Debug.Log("Continue");
+            }
+            else  //否则就是玩家赢
+            {
+                Destroy(AIgameobject);
+                Debug.Log("WIN");
+            }           
         }
-        else if(Priority==AI.Priority)  //优先级一样，相互抵消
-        {
-            Chose = false;
-            Priority = 0;
-            Defensing = false;
-            Rebounding= false;
-            AI.Rebounding = false;
-            countDownTimer = 5f;
-            AI.Priority = 0;
-            AI.Defensing = false;
-            Debug.Log("Continue");
-        }
-        else if (Defensing==true && AI.Priority!=2)  //玩家防御，AI不用大招，继续游戏
-        {
-            Chose = false;
-            Priority = 0;
-            Defensing = false;
-            Rebounding = false;
-            AI.Rebounding = false;
-            countDownTimer = 5f;
-            AI.Priority = 0;
-            AI.Defensing = false;
-            Debug.Log("Continue");
-        }
-        else if(Rebounding==true && (AI.Priority==0 || (AI.Priority!=0 && AI.Defensing==true)))  //玩家反弹失败
-        {
-            Chose = false;
-            Priority = 0;
-            Defensing = false;
-            Rebounding = false;
-            AI.Rebounding = false;
-            countDownTimer = 5f;
-            AI.Priority = 0;
-            AI.Defensing = false;
-            Debug.Log("Continue");
-        }
-        else if (Priority==0 && (AI.Defensing==true || AI.Priority==0 || AI.Rebounding==true))  //玩家搓能量，AI不攻击
-        {
-            Chose = false;
-            Priority = 0;
-            Defensing = false;
-            Rebounding = false;
-            AI.Rebounding = false;
-            countDownTimer = 5f;
-            AI.Priority = 0;
-            AI.Defensing = false;
-            Debug.Log("Continue");
-        }
-        else  //否则就是玩家赢
-        {
-            Destroy(AIgameobject);
-            Debug.Log("WIN");
-        }
+
         if (ArroganceNumber>=3)
         {
             Destroy(AIgameobject);
             Debug.Log("WIN");
         }
-        if (StringCareer== "Assassin")   //刺客职业点数判定
+        if (StringCareer== "Assassin" || StringCareer=="Thief")   //刺客,盗贼职业点数判定
         {
             if (Ground%2==1)
             {
