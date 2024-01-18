@@ -45,6 +45,11 @@ public class Player : MonoBehaviour
         {
             Career = 1;
         }
+        if (StringCareer =="Turtle")
+        {
+            Energy = 1;
+            Career = 1;
+        }
     }
 
     void Update()

@@ -36,6 +36,11 @@ public class AI : MonoBehaviour
         {
             Career = 1;
         }
+        if (StringCareer == "Turtle")
+        {
+            Energy = 1;
+            Career = 1;
+        }
     }
 
     void Update()
@@ -808,6 +813,120 @@ public class AI : MonoBehaviour
                         RubbingEnergy();
                         Debug.Log("AI:RubbingEnergy");
                     }
+                }
+            }
+        }
+        else if (StringCareer== "Turtle")
+        {
+            if (Career != 0)
+            {
+                if (Energy < 4 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //能量<4，玩家有攻击手段
+                {
+                    chose = Random.Range(0, 4);
+                    if (chose == 0)
+                    {
+                        RubbingEnergy();
+                        Debug.Log("AI:RubbingEnergy");
+                    }
+                    else if (chose == 1)
+                    {
+                        Turtle();
+                        Debug.Log("AI:Turtle");
+                    }
+                    else if (chose == 2)
+                    {
+                        Defense();
+                        Debug.Log("AI:Defense");
+                    }
+                    else if (chose == 3)
+                    {
+                        Gun();
+                        Debug.Log("AI:Gun");
+                    }
+                }
+                else if (Energy < 4)  //能量<4，玩家无攻击手段（不用防御和反弹）
+                {
+                    chose = Random.Range(0, 2);
+                    if (chose == 0)
+                    {
+                        RubbingEnergy();
+                        Debug.Log("AI:RubbingEnergy");
+                    }
+                    else if (chose == 1)
+                    {
+                        Gun();
+                        Debug.Log("AI:Gun");
+                    }
+                }
+                else if (Energy >= 4 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))
+                {
+                    chose = Random.Range(0, 5);
+                    if (chose == 0)
+                    {
+                        RubbingEnergy();
+                        Debug.Log("AI:RubbingEnergy");
+                    }
+                    else if (chose == 1)
+                    {
+                        Turtle();
+                        Debug.Log("AI:Turtle");
+                    }
+                    else if (chose == 2)
+                    {
+                        Defense();
+                        Debug.Log("AI:Defense");
+                    }
+                    else if (chose == 3)
+                    {
+                        Gun();
+                        Debug.Log("AI:Gun");
+                    }
+                    else if (chose == 4)
+                    {
+                        HolyGrail();
+                        Debug.Log("AI:HolyGrail");
+                    }
+                }
+                else
+                {
+                    chose = Random.Range(0, 3);
+                    if (chose == 0)
+                    {
+                        RubbingEnergy();
+                        Debug.Log("AI:RubbingEnergy");
+                    }
+                    else if (chose == 1)
+                    {
+                        Gun();
+                        Debug.Log("AI:Gun");
+                    }
+                    else if (chose == 2)
+                    {
+                        HolyGrail();
+                        Debug.Log("AI:HolyGrail");
+                    }
+                }
+            }
+            else
+            {
+                if (Energy == 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
+                {
+                    chose = Random.Range(0, 2);
+                    if (chose == 0)
+                    {
+                        RubbingEnergy();
+                        Debug.Log("AI:RubbingEnergy");
+                    }
+                    else if (chose == 1)
+                    {
+                        Defense();
+                        Debug.Log("AI:Defense");
+                    }
+                }
+                else if (Energy == 0)  //这样这里就是能量为0，玩家没有攻击手段
+                {
+                    RubbingEnergy();
+                    Debug.Log("AI:RubbingEnergy");
                 }
             }
         }
