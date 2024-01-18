@@ -1158,6 +1158,31 @@ public class AI : MonoBehaviour
                 }
             }
         }
+        else if (StringCareer == "Arrogance")
+        {
+            if (Career != 0)
+            {
+                if (Energy == 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
+                {
+                    chose = Random.Range(0, 2);
+                    if (chose == 0)
+                    {
+                        Arrogance();
+                        Debug.Log("AI:Arrogance");
+                    }
+                    else if (chose == 1)
+                    {
+                        Defense();
+                        Debug.Log("AI:Defense");
+                    }
+                }
+                else if (Energy == 0)  //这样这里就是能量为0，玩家没有攻击手段
+                {
+                    Arrogance();
+                    Debug.Log("AI:Arrogance");
+                }
+            }
+        }
     }
     //public void AIplaying()
     //{
