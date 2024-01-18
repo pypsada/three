@@ -930,6 +930,134 @@ public class AI : MonoBehaviour
                 }
             }
         }
+        else if (StringCareer=="Guard")
+        {
+            if (Career != 0)
+            {
+                if (Energy == 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
+                {
+                    chose = Random.Range(1, 2);
+                    if (chose == 1)
+                    {
+                        Guard();
+                        Debug.Log("AI:Guard");
+                    }
+                }
+                else if (Energy == 0)  //这样这里就是能量为0，玩家没有攻击手段
+                {
+                    chose = Random.Range(0, 1);
+                    if (chose == 0)
+                    {
+                        Guard();
+                        Debug.Log("AI:Guard");
+                    }
+                }
+                else if (Energy < 2 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //能量<2,玩家有攻击手段
+                {
+                    chose = Random.Range(0, 2);
+                    if (chose == 0)
+                    {
+                        Guard();
+                        Debug.Log("AI:Guard");
+                    }
+                    else if (chose == 1)
+                    {
+                        Gun();
+                        Debug.Log("AI:Gun");
+                    }
+                }
+                else if (Energy < 2)
+                {
+                    chose = Random.Range(0, 2);
+                    if (chose == 0)
+                    {
+                        Guard();
+                        Debug.Log("AI:Guard");
+                    }
+                    else if (chose == 1)
+                    {
+                        Gun();
+                        Debug.Log("AI:Gun");
+                    }
+                }
+                else if (Energy < 4 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //能量<4，玩家有攻击手段
+                {
+                    chose = Random.Range(0, 3);
+                    if (chose == 0)
+                    {
+                        Guard();
+                        Debug.Log("AI:Guard");
+                    }
+                    else if (chose == 1)
+                    {
+                        Gun();
+                        Debug.Log("AI:Gun");
+                    }
+                    else if (chose == 2)
+                    {
+                        Rebound();
+                        Debug.Log("AI:Rebound");
+                    }
+                }
+                else if (Energy < 4)  //能量<4，玩家无攻击手段（不用防御和反弹）
+                {
+                    chose = Random.Range(0, 2);
+                    if (chose == 0)
+                    {
+                        Guard();
+                        Debug.Log("AI:Guard");
+                    }
+                    else if (chose == 1)
+                    {
+                        Gun();
+                        Debug.Log("AI:Gun");
+                    }
+                }
+                else if (Energy >= 4 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))
+                {
+                    chose = Random.Range(0, 4);
+                    if (chose == 0)
+                    {
+                        Guard();
+                        Debug.Log("AI:Guard");
+                    }
+                    else if (chose == 1)
+                    {
+                        Gun();
+                        Debug.Log("AI:Gun");
+                    }
+                    else if (chose == 2)
+                    {
+                        Rebound();
+                        Debug.Log("AI:Rebound");
+                    }
+                    else if (chose == 3)
+                    {
+                        HolyGrail();
+                        Debug.Log("AI:HolyGrail");
+                    }
+                }
+                else
+                {
+                    chose = Random.Range(0, 3);
+                    if (chose == 0)
+                    {
+                        Guard();
+                        Debug.Log("AI:Guard");
+                    }
+                    else if (chose == 1)
+                    {
+                        Gun();
+                        Debug.Log("AI:Gun");
+                    }
+                    else if (chose == 2)
+                    {
+                        HolyGrail();
+                        Debug.Log("AI:HolyGrail");
+                    }
+                }
+            }
+        }
     }
     //public void AIplaying()
     //{
