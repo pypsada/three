@@ -354,16 +354,23 @@ public class Player : MonoBehaviour
         }
 
         //AI职业点数判定
-        if (StringCareer== "Assassin" || StringCareer=="Thief")   //刺客,盗贼职业点数判定
+        if (AI.StringCareer== "Assassin" || AI.StringCareer=="Thief")   //刺客,盗贼职业点数判定
         {
             if (Ground%2==1)
             {
-                Career += 1;
+                AI.Career += 1;
             }
         }
         else if (AI.StringCareer=="King")  //国王职业点数判定
         {
-            AI.Career = Energy / 2;
+            if (AI.Energy%2==0)
+            {
+                AI.Career = AI.Energy / 2;
+            }
+            else
+            {
+                AI.Career = (AI.Energy-1) / 2;
+            }
         }
         else if (AI.StringCareer== "Guard" || AI.StringCareer== "Rascally" || AI.StringCareer== "Arrogance")  //卫士等职业点数判定
         {
@@ -374,24 +381,32 @@ public class Player : MonoBehaviour
             AI.Career = Energy;
         }
 
-        if (AI.StringCareer == "Assassin" || AI.StringCareer == "Thief")   //刺客,盗贼职业点数判定
+
+        if (StringCareer == "Assassin" || StringCareer == "Thief")   //刺客,盗贼职业点数判定
         {
             if (Ground % 2 == 1)
             {
-                AI.Career += 1;
+                Career += 1;
             }
         }
-        else if (AI.StringCareer == "King")  //国王职业点数判定
+        else if (StringCareer == "King")  //国王职业点数判定
         {
-            AI.Career = Energy / 2;
+            if (Energy % 2 == 0)
+            {
+                Career = Energy / 2;
+            }
+            else
+            {
+                Career = (Energy - 1) / 2;
+            }
         }
-        else if (AI.StringCareer == "Guard" || AI.StringCareer == "Rascally" || AI.StringCareer == "Arrogance")  //卫士等职业点数判定
+        else if (StringCareer == "Guard" || StringCareer == "Rascally" || StringCareer == "Arrogance")  //卫士等职业点数判定
         {
-            AI.Career = 1;
+            Career = 1;
         }
-        else if (AI.StringCareer == "Turtle")  //乌龟职业点数判定
+        else if (StringCareer == "Turtle")  //乌龟职业点数判定
         {
-            AI.Career = AI.Energy;
+            Career = Energy;
         }
 
         countDownTimer = 5f;

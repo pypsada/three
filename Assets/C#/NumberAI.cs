@@ -22,8 +22,8 @@ public class NumberAI : MonoBehaviour
     {
         if (Career)
         {
-            int energyValue = AIScript.Energy;
-            textComponent.text = energyValue.ToString();  //显示能量点数
+            int energyValue = AIScript.Career;
+            textComponent.text = energyValue.ToString();  //显示技能点数
         }
         else
         {
