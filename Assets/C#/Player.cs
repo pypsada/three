@@ -160,6 +160,7 @@ public class Player : MonoBehaviour
     {
         Career -= 1;
         Thiefing = true;
+        Priority = 1;
     }
 
     public void Pangolin()
@@ -222,10 +223,18 @@ public class Player : MonoBehaviour
             }
             else if (AI.Priority==0)
             {
-                AI.Energy -= 1;
-                Energy += 1;
-                Career += 1;
-                Debug.Log("Continue");
+                if (AI.Thiefing==true)
+                {
+                    Debug.Log("Continue");
+                }
+                else
+                {
+                    AI.Energy -= 1;
+                    Energy += 1;
+                    Career += 1;
+                    Debug.Log("Continue");
+                }
+
             }
             Thiefing=false;
         }
@@ -243,58 +252,90 @@ public class Player : MonoBehaviour
             }
             else if(Priority==AI.Priority)  //优先级一样，相互抵消
             {
-                Chose = false;
-                Priority = 0;
-                Defensing = false;
-                Rebounding= false;
-                AI.Rebounding = false;
-                AI.Priority = 0;
-                AI.Defensing = false;
-                Debug.Log("Continue");
+                if (AI.Thiefing==true)
+                {
+                    Energy -= 1;
+                    AI.Energy += 1;
+                    AI.Career += 1;
+                    Debug.Log("Continue");
+                }
+                else
+                {
+                    Debug.Log("Continue");
+                }
+
             }
             else if (Defensing==true && AI.Priority!=2)  //玩家防御，AI不用大招，继续游戏
             {
-                Chose = false;
-                Priority = 0;
-                Defensing = false;
-                Rebounding = false;
-                AI.Rebounding = false;
-                AI.Priority = 0;
-                AI.Defensing = false;
-                Debug.Log("Continue");
+                if (AI.Thiefing==true)
+                {
+                    AI.Career -= 1;
+                    Debug.Log("Continue");
+                }
+                else
+                {
+                    Debug.Log("Continue");
+                }
+
             }
             else if(Rebounding==true && (AI.Priority==0 || (AI.Priority!=0 && AI.Defensing==true)))  //玩家反弹失败
             {
-                Chose = false;
-                Priority = 0;
-                Defensing = false;
-                Rebounding = false;
-                AI.Rebounding = false;
-                AI.Priority = 0;
-                AI.Defensing = false;
-                Debug.Log("Continue");
+                if (AI.Thiefing==true)
+                {
+                    AI.Career -= 1;
+                    Debug.Log("Continue");
+                }
+                else
+                {
+                    Debug.Log("Continue");
+                }
+
             }
             else if (Priority==0 && (AI.Defensing==true || AI.Priority==0 || AI.Rebounding==true))  //玩家搓能量，AI不攻击
             {
-                Chose = false;
-                Priority = 0;
-                Defensing = false;
-                Rebounding = false;
-                AI.Rebounding = false;
-                AI.Priority = 0;
-                AI.Defensing = false;
-                Debug.Log("Continue");
+                if (AI.Thiefing==true)
+                {
+                    AI.Career += 1;
+                    AI.Energy += 1;
+                }
+                else
+                {
+                    Debug.Log("Continue");
+                }
+
             }
             else  //否则就是玩家赢
             {
-                Destroy(AIgameobject);
-                Debug.Log("WIN");
+                if (AI.Thiefing==true)
+                {
+                    Destroy(gameObject);
+                    Debug.Log("LOSE");
+                }
+                else
+                {
+                    Destroy(AIgameobject);
+                    Debug.Log("WIN");
+                }
+
             }           
         }
+
+        Chose = false;  //初始化
+        Priority = 0;
+        Defensing = false;
+        Rebounding = false;
+        Thiefing=false;
+        AI.Rebounding = false;
+        AI.Priority = 0;
+        AI.Defensing = false;
+        AI.Thiefing = false;
+
+
         if (ArroganceNumber>=3 && AI.ArroganceNumber>=3)
         {
             ArroganceNumber = 0;
             AI.ArroganceNumber = 0;
+            Debug.Log("Continue");
         }
         else if (ArroganceNumber>=3)
         {
