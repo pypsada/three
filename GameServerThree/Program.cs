@@ -56,25 +56,31 @@ public class MainClass
     {
         Socket newClient = socket.Accept();
         clients.Add(newClient);
+        Console.WriteLine("Accept " + newClient.RemoteEndPoint.ToString());
     }
 
     static void ReadClientfd(Socket socket)
     {
         byte[] buff = new byte[1024];
-        socket.Receive(buff, 0, 1024, 0);
-        BroadCast(socket, buff);
+        int count = socket.Receive(buff, 0, 1024, 0);
+        if(count==0)
+        {
+            socket.Close();
+        }
+        BroadCast(socket, buff, count);
     }
 
     //给clients中除sn外所有客户端分发消息
-    static void BroadCast(Socket sn, byte[] bytes)
+    static void BroadCast(Socket sn, byte[] bytes,int count)
     {
         foreach (Socket s in clients)
         {
             if (s != sn)
             {
-                s.Send(bytes);
+                s.Send(bytes, 0, count, 0);
+                Console.WriteLine("Send to "+s.RemoteEndPoint.ToString());
             }
         }
-        Console.WriteLine("BroadCast");
+        Console.WriteLine("BroadCast " + count);
     }
 }
