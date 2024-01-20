@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GameServerThree
-build_property.ProjectDir = C:\Users\llx25\Desktop\VS_Projects\CSharp\GameServerThree\
+build_property.ProjectDir = C:\Users\llx25\Desktop\UnityFolder\UnityProjects\three\GameServerThree\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

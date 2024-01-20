@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\llx25\\Desktop\\VS_Projects\\CSharp\\GameServerThree\\GameServerThree.csproj",
+      "projectUniqueName": "C:\\Users\\llx25\\Desktop\\UnityFolder\\UnityProjects\\three\\GameServerThree\\GameServerThree.csproj",
       "projectName": "GameServerThree",
-      "projectPath": "C:\\Users\\llx25\\Desktop\\VS_Projects\\CSharp\\GameServerThree\\GameServerThree.csproj",
+      "projectPath": "C:\\Users\\llx25\\Desktop\\UnityFolder\\UnityProjects\\three\\GameServerThree\\GameServerThree.csproj",
       "packagesPath": "C:\\Users\\llx25\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\llx25\\Desktop\\VS_Projects\\CSharp\\GameServerThree\\obj\\",
+      "outputPath": "C:\\Users\\llx25\\Desktop\\UnityFolder\\UnityProjects\\three\\GameServerThree\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\llx25\\AppData\\Roaming\\NuGet\\NuGet.Config",

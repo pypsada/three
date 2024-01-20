@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GameServerThree")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+384eb7ec5a10af41d4a727e19c14d34278cc9201")]
 [assembly: System.Reflection.AssemblyProductAttribute("GameServerThree")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GameServerThree")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
