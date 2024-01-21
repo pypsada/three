@@ -27,7 +27,6 @@ public class Button : MonoBehaviour
     {
         ai.AIplaying();
         Player.RubbingEnergy();
-        Player.Despare();
     }
 
     public void Gun()  //«π
@@ -36,7 +35,6 @@ public class Button : MonoBehaviour
         {
             ai.AIplaying();
             Player.Gun();
-            Player.Despare();
         }
 
     }
@@ -47,7 +45,6 @@ public class Button : MonoBehaviour
         {
             ai.AIplaying();
             Player.Rebound();
-            Player.Despare();
         }
 
     }
@@ -56,7 +53,6 @@ public class Button : MonoBehaviour
     {
         ai.AIplaying();
         Player.Defense();
-        Player.Despare();
     }
 
     public void HolyGrail()  //¥Û’–
@@ -66,7 +62,6 @@ public class Button : MonoBehaviour
             ai.AIplaying();
             Player.HolyGrail();
 
-            Player.Despare();
         }
     }
 
@@ -174,49 +169,41 @@ public class Button : MonoBehaviour
             {
                 ai.AIplaying();
                 Player.Assassinate();
-                Player.Despare();
             }
             if (Player.StringCareer=="King")
             {
                 ai.AIplaying();
                 Player.King();
-                Player.Despare();
             }
             if(Player.StringCareer=="Guard")
             {
                 ai.AIplaying();
                 Player.Guard();
-                Player.Despare();
             }
             if (Player.StringCareer == "Turtle")
             {
                 ai.AIplaying();
                 Player.Turtle();
-                Player.Despare();
             }
             if (Player.StringCareer == "Rascally")
             {
                 ai.AIplaying();
                 Player.Rascally();
-                Player.Despare();
             }
             if (Player.StringCareer == "Arrogance")
             {
                 ai.AIplaying();
                 Player.Arrogance();
-                Player.Despare();
             }
             if (Player.StringCareer == "Thief")
             {
                 ai.AIplaying();
                 Player.Thief();
-                Player.Despare();
             }
             if (Player.StringCareer == "Pangolin")
             {
                 ai.AIplaying();
                 Player.Pangolin();
-                Player.Despare();
             }
         }
 

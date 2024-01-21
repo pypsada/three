@@ -23,11 +23,12 @@ public class Player : MonoBehaviour
     public bool IsPangolin;  //叠加判定
 
     public Text countDownText; // 倒计时文本
-    public float countDownTimer = 5f; // 倒计时时间
+    public float countDownTimer = 10f; // 倒计时时间
     public Text GroundText; //回合数文本
 
     void Start()
     {
+        countDownTimer = 10f;
         Ground = 1;
         RascallyNumber = 1;
         ArroganceNumber = 0;
@@ -65,13 +66,16 @@ public class Player : MonoBehaviour
         else
         {
             AI.AIplaying();
-            if (StringCareer== "Pangolin" || StringCareer=="Thief")
+            if (Chose==false)
             {
-                Defense();
-            }
-            else
-            {
-                RubbingEnergy();
+                if (StringCareer== "Pangolin" || StringCareer=="Thief")
+                {
+                    Defense();
+                }
+                else
+                {
+                    RubbingEnergy();
+                }
             }
             Despare();
         }
@@ -79,6 +83,8 @@ public class Player : MonoBehaviour
 
     public void RubbingEnergy()   //能量
     {
+        Chose = true;
+        countDownTimer = 2f;
         Energy += 1;
         Debug.Log("You:RubbingEnergy");
         Priority = 0;
@@ -86,6 +92,8 @@ public class Player : MonoBehaviour
 
     public void Gun()  //枪
     {
+        Chose = true;
+        countDownTimer = 2f;
         Priority = 1;
         Energy -= 1;
         Debug.Log("You:Gun");
@@ -93,6 +101,8 @@ public class Player : MonoBehaviour
 
     public void Rebound()   //反弹
     {
+        Chose = true;
+        countDownTimer = 2f;
         Priority = 100;
         Rebounding = true;
         Energy -= 2;
@@ -101,6 +111,8 @@ public class Player : MonoBehaviour
 
     public void Defense()   //防御
     {
+        Chose = true;
+        countDownTimer = 2f;
         Priority = 1;
         Defensing = true;
         Debug.Log("You:Defense");
@@ -108,6 +120,8 @@ public class Player : MonoBehaviour
 
     public void HolyGrail()   //大招
     {
+        Chose = true;
+        countDownTimer = 2f;
         Priority = 2;
         Energy -= 4;
         Debug.Log("You:HolyGrail");
@@ -115,18 +129,24 @@ public class Player : MonoBehaviour
 
     public void Assassinate()  // 刺客技能：暗杀
     {
+        Chose = true;
+        countDownTimer = 2f;
         Priority = 1;
         Career -= 1;
         Debug.Log("You:Assassinate");
     }
 
-    public void Steal()   // 盗贼技能：偷取
-    {
-        Priority = 1;
-    }
+    //public void Steal()   // 盗贼技能：偷取
+    //{
+    //    Chose = true;
+    //    countDownTimer = 2f;
+    //    Priority = 1;
+    //}
 
     public void King() // 国王技能：王权
     {
+        Chose = true;
+        countDownTimer = 2f;
         Priority = 2;
         Energy -= 2;
         Debug.Log("You:King");
@@ -134,6 +154,8 @@ public class Player : MonoBehaviour
 
     public void Guard()  // 护卫技能：能防
     {
+        Chose = true;
+        countDownTimer = 2f;
         Priority = 1;
         Defensing = true;
         Energy += 1;
@@ -142,6 +164,8 @@ public class Player : MonoBehaviour
 
     public void Turtle()  //乌龟技能：龟缩
     {
+        Chose = true;
+        countDownTimer = 2f;
         Energy -= 1;
         Priority = 100;
         Rebounding = true;
@@ -150,6 +174,8 @@ public class Player : MonoBehaviour
 
     public void Rascally()  //老赖技能：汲能
     {
+        Chose = true;
+        countDownTimer = 2f;
         Priority = 0;
         Energy += RascallyNumber;
         RascallyNumber += 1;
@@ -157,12 +183,16 @@ public class Player : MonoBehaviour
 
     public void Arrogance()  //傲慢技能：嘲讽
     {
+        Chose = true;
+        countDownTimer = 2f;
         ArroganceNumber += 1;
         Priority = 0;
     }
 
     public void Thief()  //盗贼技能：神偷
     {
+        Chose = true;
+        countDownTimer = 2f;
         Career -= 1;
         Thiefing = true;
         Priority = 1;
@@ -170,6 +200,8 @@ public class Player : MonoBehaviour
 
     public void Pangolin()
     {
+        Chose = true;
+        countDownTimer = 2f;
         PangolinNumber += 1;
         Priority = 0;
         IsPangolin=true;
@@ -409,6 +441,6 @@ public class Player : MonoBehaviour
             Career = Energy;
         }
 
-        countDownTimer = 5f;
+        countDownTimer = 10f;
     }
 }
