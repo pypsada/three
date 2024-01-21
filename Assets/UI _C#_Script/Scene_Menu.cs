@@ -15,12 +15,16 @@ public class Scene_Menu : MonoBehaviour
     {
         Application.Quit();
     }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 
     /*下面是进入各个场景的跳转代码*/
 
     public void StartPVP()
     {
-        SceneManager.LoadScene("PVP");
+        SceneManager.LoadScene("Net");
     }
     public void Toturial()
     {

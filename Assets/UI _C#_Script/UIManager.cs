@@ -27,11 +27,11 @@ public class UIManager : MonoBehaviour
 
         if (isOver)
         {
-            image.color = new Color(0 / 255f, 0 / 255f, 0 / 255f, 110 / 255f); // 鼠标进入，设置显示颜色（为灰色）
+            image.color = new Color(0 / 255f, 0 / 255f, 0 / 255f, 110 / 255f); //鼠标进入，设置显示颜色（为灰色）
         }
         else
         {
-            image.color = new Color(0 / 255f, 0 / 255f, 0 / 255f, 0 / 255f); // 鼠标退出，设置透明颜色
+            image.color = Color.clear; //鼠标退出，设置透明颜色（优化一下，用预设的）
         }
     }
 }
