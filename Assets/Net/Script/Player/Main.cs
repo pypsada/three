@@ -255,11 +255,11 @@ public class Main : MonoBehaviour
     }
 
     [Header("Áª»úÑ¡Ôñ")]
-    public InputField ipAndPort;
+    public string ipAndPort;
     public Dropdown isFirstDropDown;
     public void Conn()
     {
-        string[] split = ipAndPort.text.Split(":");
+        string[] split = ipAndPort.Split(":");
         isFirst = false;
         if (isFirstDropDown.value == 0)
         {
