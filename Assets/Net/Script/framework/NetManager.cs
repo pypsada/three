@@ -77,6 +77,14 @@ public static class NetManager
         msgList = new();
         //消息列表长度
         msgCount = 0;
+        //心跳时间
+        lastPingTime = Time.time;
+        lastPongTime = Time.time;
+        //监听Pong协议
+        if(!msgListeners.ContainsKey("MsgPong"))
+        {
+            AddMsgListener("MsgPong", OnMsgPong);
+        }
     }
 
     //是否正在连接
@@ -330,8 +338,42 @@ public static class NetManager
         }
     }
 
-    //Update
-    public static void MsgUpdate()
+    //是否使用心跳
+    public static bool isUsePing = true;
+    //心跳间隔时间
+    public static int pingInterval = 30;
+    //上一次发送ping时间
+    static float lastPingTime = 0;
+    //上一次受到pong时间
+    static float lastPongTime = 0;
+
+    //Send proto ping
+    private static void PingUpdate()
+    {
+        if (!isUsePing) return;
+        //Send ping
+        if(Time.time-lastPingTime>pingInterval)
+        {
+            MsgPing msgPing = new();
+            Send(msgPing);
+            lastPingTime = Time.time;
+        }
+        //检测pong时间
+        if(Time.time-lastPongTime>pingInterval*4)
+        {
+            Debug.Log("PingUpdate Close Connection:Too long time has no MsgPong from server");
+            Close();
+        }
+    }
+
+    //监听Pong协议
+    private static void OnMsgPong(MsgBase msgBase)
+    {
+        lastPongTime = Time.time;
+    }
+
+    //MsgUpdate
+    private static void MsgUpdate()
     {
         if (msgCount == 0) return;
         for(int i=0;i<MAX_MESSAGE_FIRE;i++)
@@ -355,5 +397,11 @@ public static class NetManager
                 break;
             }
         }
+    }
+
+    public static void Update()
+    {
+        MsgUpdate();
+        PingUpdate();
     }
 }
