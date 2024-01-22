@@ -29,7 +29,7 @@ public class Main : MonoBehaviour
     void Update()
     {
         if (!connectSucc) return;
-        NetManager.MsgUpdate();
+        NetManager.Update();
         TextUpdate();
     }
 
