@@ -55,18 +55,11 @@ public class Connect : MonoBehaviour
         });
     }
 
-    private void RemoveConnFunc()
-    {
-        NetManager.RemoveEventListener(NetManager.NetEvent.ConnectFail, ConnectFail);
-        NetManager.RemoveEventListener(NetManager.NetEvent.ConnectSucc, ConnectSucc);
-    }
-
     //按下连接成功的按钮
     public void OnClickConnSucc()
     {
         connectSucc.SetActive(false);
         login.SetActive(true);
-        RemoveConnFunc();
     }
 
     //按下连接失败的按钮
