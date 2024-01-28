@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "OIP-C1 - \u526F\u672C_0": 3059795429372341193
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

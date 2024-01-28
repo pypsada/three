@@ -16,7 +16,6 @@ public class Connect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DelegateTrigger();
         return;
     }
 
@@ -40,36 +39,20 @@ public class Connect : MonoBehaviour
 
     private void ConnectSucc(string msg)
     {
-        trigger = 1;
+        NetMain.actions.Enqueue(() =>
+        {
+            connectSucc.SetActive(true);
+            connecting.SetActive(false);
+        });
     }
 
     private void ConnectFail(string msg)
     {
-        trigger = 2;
-    }
-
-    //为了解决一个非常奇怪的bug
-    int trigger = 0;
-    private void DelegateTrigger()
-    {
-        if (trigger == 1)
+        NetMain.actions.Enqueue(() =>
         {
-            connecting.SetActive(false);
-            connectSucc.SetActive(true);
-            trigger = 0;
-        }
-        else if(trigger==2)
-        {
-            connecting.SetActive(false);
             connectFail.SetActive(true);
-            trigger = 0;
-        }
-    }
-
-    private void RemoveConnFunc()
-    {
-        NetManager.RemoveEventListener(NetManager.NetEvent.ConnectFail, ConnectFail);
-        NetManager.RemoveEventListener(NetManager.NetEvent.ConnectSucc, ConnectSucc);
+            connecting.SetActive(false);
+        });
     }
 
     //按下连接成功的按钮
@@ -77,13 +60,22 @@ public class Connect : MonoBehaviour
     {
         connectSucc.SetActive(false);
         login.SetActive(true);
-        RemoveConnFunc();
     }
 
     //按下连接失败的按钮
     public void OnClickConnFail()
     {
         connectFail.SetActive(false);
+        beforeConnect.SetActive(true);
+    }
+
+    //主动点击关闭按钮
+    public void ClickClose()
+    {
+        Debug.Log("登出");
+        NetManager.Close();
+        NetManager.ping = -1;
+        login.SetActive(false);
         beforeConnect.SetActive(true);
     }
 }

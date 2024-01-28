@@ -120,6 +120,16 @@ public static class NetManager
             Debug.Log("Socket Conn Succ");
             FireEvent(NetEvent.ConnectSucc, "");
             isConnecting = false;
+            //连接上过后立即更新一次ping值
+            if(isUsePing)
+            {
+                NetMain.actions.Enqueue(() =>
+                {
+                    lastPingTime = Time.time;
+                });
+                MsgPing msgPing = new();
+                Send(msgPing);
+            }
             //开始接收
             socket.BeginReceive(readBuff.bytes, readBuff.writeIdx, readBuff.Remain, 0, ReceiveCallback, socket);
         }
@@ -154,6 +164,7 @@ public static class NetManager
         else
         {
             socket.Close();
+            Debug.Log("Close");
             FireEvent(NetEvent.Close, "");
         }
     }
@@ -359,9 +370,9 @@ public static class NetManager
         //Send ping
         if(Time.time-lastPingTime>pingInterval)
         {
+            lastPingTime = Time.time;
             MsgPing msgPing = new();
             Send(msgPing);
-            lastPingTime = Time.time;
         }
         //检测pong时间
         if(Time.time-lastPongTime>pingInterval*4)
@@ -375,7 +386,7 @@ public static class NetManager
     private static void OnMsgPong(MsgBase msgBase)
     {
         lastPongTime = Time.time;
-        ping = (int)(lastPongTime - lastPingTime) * 1000;
+        ping = (int)((lastPongTime - lastPingTime) * 1000);
     }
 
     //MsgUpdate

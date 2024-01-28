@@ -35,7 +35,7 @@ public class Login : MonoBehaviour
     {
         MsgLogin msgLogin = new();
         msgLogin.id = lid.text;
-        msgLogin.pw = lid.text;
+        msgLogin.pw = lpw.text;
         NetManager.Send(msgLogin);
     }
 
@@ -57,14 +57,6 @@ public class Login : MonoBehaviour
     {
         login.SetActive(true);
         register.SetActive(false);
-    }
-
-    //主动点击关闭按钮
-    public void ClickClose()
-    {
-        Debug.Log("登出");
-        NetManager.Close();
-        NetManager.ping = -1;
     }
 
     //登录回调

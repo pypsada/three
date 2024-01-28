@@ -2805,8 +2805,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 952097275}
-        m_TargetAssemblyTypeName: Login, Assembly-CSharp
+      - m_Target: {fileID: 952097274}
+        m_TargetAssemblyTypeName: Connect, Assembly-CSharp
         m_MethodName: ClickClose
         m_Mode: 1
         m_Arguments:
