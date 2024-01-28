@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     public float speed = 20f; // ×Óµ¯ËÙ¶È
     Rigidbody2D rb;
     private float time = 0f;
+    public bool flag=false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -17,11 +18,18 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //time += Time.deltaTime;
-        //if (time>=5f)
-        //{
-        //    Destroy(gameObject);
-        //}
+        time += Time.deltaTime;
+        if (time >= 5f)
+        {
+            if (flag)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                time = -1000000000f;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -23,13 +23,31 @@ public class TiShi : MonoBehaviour
             if (transform.position.x < x)
             {
                 // 物体x坐标小于x的值，直接生成预制体
-                GameObject newBullet=Instantiate(Bullet, transform.position, Quaternion.identity);
+                GameObject newPrefab=Instantiate(Bullet, transform.position, Quaternion.identity);
+                if (newPrefab != null)
+                {
+                    // 修改当前预制体的属性
+                    TiShi tiShi = newPrefab.GetComponent<TiShi>();
+                    if (tiShi != null)
+                    {
+                        tiShi.flag = true;
+                    }
+                }
             }
             else
             {
                 // 物体x坐标大于等于x的值，翻转预制体180度后再生成
-                GameObject newBullet = Instantiate(Bullet, transform.position, Quaternion.identity);
-                newBullet.transform.Rotate(0, 180, 0);
+                GameObject newPrefab = Instantiate(Bullet, transform.position, Quaternion.identity);
+                newPrefab.transform.Rotate(0, 180, 0);
+                if (newPrefab != null)
+                {
+                    // 修改当前预制体的属性
+                    TiShi tiShi = newPrefab.GetComponent<TiShi>();
+                    if (tiShi != null)
+                    {
+                        tiShi.flag = true;
+                    }
+                }
             }
             if (flag)
             {
