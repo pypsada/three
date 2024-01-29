@@ -1,9 +1,0 @@
-
-[2024/1/29 18:04:02]
-[DataBase]Connect fail:Unable to connect to any of the specified MySQL hosts.
-
-[2024/1/29 18:04:29]
-[DataBase]Connect succ
-
-[2024/1/29 18:04:29]
-[Server]Listening...
