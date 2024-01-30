@@ -75,6 +75,7 @@ public class Login : MonoBehaviour
         }
     }
 
+    //重复登录被提出（不应该放在这里
     private void OnKick(MsgBase msgBase)
     {
         MsgKick msgKick = (MsgKick)msgBase;
