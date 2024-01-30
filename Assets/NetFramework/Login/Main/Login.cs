@@ -8,9 +8,7 @@ public class Login : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        NetManager.AddMsgListener("MsgLogin", OnLogin);
-        NetManager.AddMsgListener("MsgRegister", OnRegister);
-        NetManager.AddMsgListener("MsgKick", OnKick);
+        AddMsgListener();
     }
 
     // Update is called once per frame
@@ -67,6 +65,7 @@ public class Login : MonoBehaviour
         {
             //登录成功
             Debug.Log("登录成功");
+            RemoveMsgListener();
         }
         else if(msgLogin.result==1)
         {
@@ -75,7 +74,7 @@ public class Login : MonoBehaviour
         }
     }
 
-    //重复登录被提出（不应该放在这里
+    //重复登录被提出
     private void OnKick(MsgBase msgBase)
     {
         MsgKick msgKick = (MsgKick)msgBase;
@@ -84,6 +83,8 @@ public class Login : MonoBehaviour
             Debug.Log("被踢出");
             NetManager.Close();
             NetManager.ping = -1;
+            Connect connect = new();
+            connect.ClickClose();
         }
     }
 
@@ -100,5 +101,19 @@ public class Login : MonoBehaviour
             //注册失败
             Debug.Log("注册失败");
         }
+    }
+
+    private void AddMsgListener()
+    {
+        NetManager.AddMsgListener("MsgLogin", OnLogin);
+        NetManager.AddMsgListener("MsgRegister", OnRegister);
+        NetManager.AddMsgListener("MsgKick", OnKick);
+    }
+
+    private void RemoveMsgListener()
+    {
+        NetManager.RemoveMsgListener("MsgLogin", OnLogin);
+        NetManager.RemoveMsgListener("MsgRegister", OnRegister);
+        NetManager.RemoveMsgListener("MsgKick", OnKick);
     }
 }

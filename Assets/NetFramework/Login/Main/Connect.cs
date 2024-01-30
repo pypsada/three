@@ -9,8 +9,7 @@ public class Connect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        NetManager.AddEventListener(NetManager.NetEvent.ConnectSucc, ConnectSucc);
-        NetManager.AddEventListener(NetManager.NetEvent.ConnectFail, ConnectFail);
+        AddMsgListener();
     }
 
     // Update is called once per frame
@@ -60,6 +59,7 @@ public class Connect : MonoBehaviour
     {
         connectSucc.SetActive(false);
         login.SetActive(true);
+        RemoveMsgListener();
     }
 
     //按下连接失败的按钮
@@ -77,5 +77,18 @@ public class Connect : MonoBehaviour
         NetManager.ping = -1;
         login.SetActive(false);
         beforeConnect.SetActive(true);
+        AddMsgListener();
+    }
+
+    private void AddMsgListener()
+    {
+        NetManager.AddEventListener(NetManager.NetEvent.ConnectSucc, ConnectSucc);
+        NetManager.AddEventListener(NetManager.NetEvent.ConnectFail, ConnectFail);
+    }
+
+    private void RemoveMsgListener()
+    {
+        NetManager.RemoveEventListener(NetManager.NetEvent.ConnectSucc, ConnectSucc);
+        NetManager.RemoveEventListener(NetManager.NetEvent.ConnectFail, ConnectFail);
     }
 }
