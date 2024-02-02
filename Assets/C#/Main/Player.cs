@@ -92,36 +92,36 @@ public class Player : MonoBehaviour
     }
     public void RubbingEnergy()   //能量
     {
+        Chose = true;
         zhaoshi = "RubbingEnergy";
+        countDownTimer = 2f;
     }
     public void RubbingEnergy1()   //能量
     {
-        Chose = true;
-        countDownTimer = 2f;
         Energy += 1;
         Debug.Log("You:RubbingEnergy");
         Priority = 0;
     }
     public void Gun()  //枪
     {
+        Chose = true;
         zhaoshi = "Gun";
+        countDownTimer = 2f;
     }
     public void Gun1()  //枪
     {
-        Chose = true;
-        countDownTimer = 2f;
         Priority = 1;
         Energy -= 1;
         Debug.Log("You:Gun");
     }
     public void Rebound()   //反弹
     {
+        Chose = true;
         zhaoshi = "Rebound";
+        countDownTimer = 2f;
     }
     public void Rebound1()   //反弹
     {
-        Chose = true;
-        countDownTimer = 2f;
         Priority = 100;
         Rebounding = true;
         Energy -= 2;
@@ -129,36 +129,36 @@ public class Player : MonoBehaviour
     }
     public void Defense()   //防御
     {
+        Chose = true;
         zhaoshi = "Defense";
+        countDownTimer = 2f;
     }
     public void Defense1()   //防御
     {
-        Chose = true;
-        countDownTimer = 2f;
         Priority = 1;
         Defensing = true;
         Debug.Log("You:Defense");
     }
     public void HolyGrail()   //大招
     {
+        Chose = true;
         zhaoshi = "HolyGrail1";
+        countDownTimer = 2f;
     }
     public void HolyGrail1()   //大招
     {
-        Chose = true;
-        countDownTimer = 2f;
         Priority = 2;
         Energy -= 4;
         Debug.Log("You:HolyGrail");
     }
     public void Assassinate()  // 刺客技能：暗杀
     {
+        Chose = true;
         zhaoshi = "Assassinate";
+        countDownTimer = 2f;
     }
     public void Assassinate1()  // 刺客技能：暗杀
     {
-        Chose = true;
-        countDownTimer = 2f;
         Priority = 1;
         Career -= 1;
         Debug.Log("You:Assassinate");
@@ -172,24 +172,24 @@ public class Player : MonoBehaviour
     //}
     public void King() // 国王技能：王权
     {
+        Chose = true;
         zhaoshi = "King";
+        countDownTimer = 2f;
     }
     public void King1() // 国王技能：王权
     {
-        Chose = true;
-        countDownTimer = 2f;
         Priority = 2;
         Energy -= 2;
         Debug.Log("You:King");
     }
     public void Guard()  // 护卫技能：能防
     {
+        Chose = true;
         zhaoshi = "Guard";
+        countDownTimer = 2f;
     }
     public void Guard1()  // 护卫技能：能防
     {
-        Chose = true;
-        countDownTimer = 2f;
         Priority = 1;
         Defensing = true;
         Energy += 1;
@@ -197,12 +197,12 @@ public class Player : MonoBehaviour
     }
     public void Turtle()  //乌龟技能：龟缩
     {
+        Chose = true;
         zhaoshi = "Turtle";
+        countDownTimer = 2f;
     }
     public void Turtle1()  //乌龟技能：龟缩
     {
-        Chose = true;
-        countDownTimer = 2f;
         Energy -= 1;
         Priority = 100;
         Rebounding = true;
@@ -210,35 +210,35 @@ public class Player : MonoBehaviour
     }
     public void Rascally()  //老赖技能：汲能
     {
+        Chose = true;
         zhaoshi = "Rascally";
+        countDownTimer = 2f;
     }
     public void Rascally1()  //老赖技能：汲能
     {
-        Chose = true;
-        countDownTimer = 2f;
         Priority = 0;
         Energy += RascallyNumber;
         RascallyNumber += 1;
     }
     public void Arrogance()  //傲慢技能：嘲讽
     {
+        Chose = true;
         zhaoshi = "Arrogance";
+        countDownTimer = 2f;
     }
     public void Arrogance1()  //傲慢技能：嘲讽
     {
-        Chose = true;
-        countDownTimer = 2f;
         ArroganceNumber += 1;
         Priority = 0;
     }
     public void Thief()  //盗贼技能：神偷
     {
+        Chose = true;
         zhaoshi = "Thief";
+        countDownTimer = 2f;
     }
     public void Thief1()  //盗贼技能：神偷
     {
-        Chose = true;
-        countDownTimer = 2f;
         Career -= 1;
         Thiefing = true;
         Priority = 1;
@@ -246,12 +246,12 @@ public class Player : MonoBehaviour
 
     public void Pangolin()
     {
+        Chose = true;
         zhaoshi = "Pangolin";
+        countDownTimer = 2f;
     }
     public void Pangolin1()
     {
-        Chose = true;
-        countDownTimer = 2f;
         PangolinNumber += 1;
         Priority = 0;
         IsPangolin=true;
@@ -260,6 +260,7 @@ public class Player : MonoBehaviour
     public void Despare()   //判定
     {
         Ground += 1;
+        Debug.Log(zhaoshi);
         if (zhaoshi=="Thief")
         {
             Thief1();
@@ -564,6 +565,8 @@ public class Player : MonoBehaviour
             //时间暂停
         }
 
+        Win = true;
+        AI.Win = true;
         Chose = false;  //初始化
         Priority = 0;
         Defensing = false;
