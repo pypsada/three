@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AI : MonoBehaviour
 {
+    public int health;
+    public bool Win;
     public int Energy;
     private Animator myAnim;
     public int Priority = 0;
@@ -21,6 +23,8 @@ public class AI : MonoBehaviour
 
     void Start()
     {
+        health = 1;
+        Win = true;
         PangolinNumber = 0;
         Thiefing = false; Defensing = false;
         StringCareer =Whole.AICareer;
@@ -84,7 +88,6 @@ public class AI : MonoBehaviour
     {
         Priority = 1;
         Career -= 1;
-        Debug.Log("You:Assassinate");
     }
 
     public void Steal()   // 盗贼技能：偷取
@@ -96,7 +99,6 @@ public class AI : MonoBehaviour
     {
         Priority = 2;
         Energy -= 2;
-        Debug.Log("You:King");
     }
 
     public void Guard()  // 护卫技能：能防
@@ -104,7 +106,6 @@ public class AI : MonoBehaviour
         Priority = 1;
         Defensing = true;
         Energy += 1;
-        Debug.Log("You:Guard");
     }
 
     public void Turtle()  //乌龟技能：龟缩
@@ -112,7 +113,6 @@ public class AI : MonoBehaviour
         Energy -= 1;
         Priority = 100;
         Rebounding = true;
-        Debug.Log("You:Turtle");
     }
 
     public void Rascally()  //老赖技能：汲能

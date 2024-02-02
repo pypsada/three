@@ -25,7 +25,6 @@ public class Button : MonoBehaviour
 
     public void RubbingEnergy()  //´êÄÜÁ¿
     {
-        ai.AIplaying();
         Player.RubbingEnergy();
     }
 
@@ -33,7 +32,6 @@ public class Button : MonoBehaviour
     {
         if (Player.Energy >= 1)
         {
-            ai.AIplaying();
             Player.Gun();
         }
 
@@ -43,7 +41,6 @@ public class Button : MonoBehaviour
     {
         if (Player.Energy >= 2)
         {
-            ai.AIplaying();
             Player.Rebound();
         }
 
@@ -51,7 +48,6 @@ public class Button : MonoBehaviour
 
     public void Defense()  //·ÀÓù
     {
-        ai.AIplaying();
         Player.Defense();
     }
 
@@ -59,7 +55,6 @@ public class Button : MonoBehaviour
     {
         if (Player.Energy >= 4)
         {
-            ai.AIplaying();
             Player.HolyGrail();
 
         }
@@ -167,42 +162,34 @@ public class Button : MonoBehaviour
         {
             if (Player.StringCareer== "Assassin")
             {
-                ai.AIplaying();
                 Player.Assassinate();
             }
             if (Player.StringCareer=="King")
             {
-                ai.AIplaying();
                 Player.King();
             }
             if(Player.StringCareer=="Guard")
             {
-                ai.AIplaying();
                 Player.Guard();
             }
             if (Player.StringCareer == "Turtle")
             {
-                ai.AIplaying();
                 Player.Turtle();
             }
             if (Player.StringCareer == "Rascally")
             {
-                ai.AIplaying();
                 Player.Rascally();
             }
             if (Player.StringCareer == "Arrogance")
             {
-                ai.AIplaying();
                 Player.Arrogance();
             }
             if (Player.StringCareer == "Thief")
             {
-                ai.AIplaying();
                 Player.Thief();
             }
             if (Player.StringCareer == "Pangolin")
             {
-                ai.AIplaying();
                 Player.Pangolin();
             }
         }

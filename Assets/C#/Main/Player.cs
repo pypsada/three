@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public string zhaoshi;
+    public int health;  //血量
     public int Energy;
     //private Animator myAnim;
     public int Priority = 0;  //优先级
@@ -26,8 +28,12 @@ public class Player : MonoBehaviour
     public float countDownTimer = 10f; // 倒计时时间
     public Text GroundText; //回合数文本
 
+    public bool Win=true;  //是否获胜
+
     void Start()
     {
+        Win = true;
+        health = 1;
         countDownTimer = 10f;
         Ground = 1;
         RascallyNumber = 1;
@@ -78,10 +84,17 @@ public class Player : MonoBehaviour
                 }
             }
             Despare();
+            Sum();
+            countDownTimer = 10f;
+            Debug.Log(health);
+            Debug.Log(AI.health);
         }
     }
-
     public void RubbingEnergy()   //能量
+    {
+        zhaoshi = "RubbingEnergy";
+    }
+    public void RubbingEnergy1()   //能量
     {
         Chose = true;
         countDownTimer = 2f;
@@ -89,8 +102,11 @@ public class Player : MonoBehaviour
         Debug.Log("You:RubbingEnergy");
         Priority = 0;
     }
-
     public void Gun()  //枪
+    {
+        zhaoshi = "Gun";
+    }
+    public void Gun1()  //枪
     {
         Chose = true;
         countDownTimer = 2f;
@@ -98,8 +114,11 @@ public class Player : MonoBehaviour
         Energy -= 1;
         Debug.Log("You:Gun");
     }
-
     public void Rebound()   //反弹
+    {
+        zhaoshi = "Rebound";
+    }
+    public void Rebound1()   //反弹
     {
         Chose = true;
         countDownTimer = 2f;
@@ -108,8 +127,11 @@ public class Player : MonoBehaviour
         Energy -= 2;
         Debug.Log("You:Rebound");
     }
-
     public void Defense()   //防御
+    {
+        zhaoshi = "Defense";
+    }
+    public void Defense1()   //防御
     {
         Chose = true;
         countDownTimer = 2f;
@@ -117,8 +139,11 @@ public class Player : MonoBehaviour
         Defensing = true;
         Debug.Log("You:Defense");
     }
-
     public void HolyGrail()   //大招
+    {
+        zhaoshi = "HolyGrail1";
+    }
+    public void HolyGrail1()   //大招
     {
         Chose = true;
         countDownTimer = 2f;
@@ -126,8 +151,11 @@ public class Player : MonoBehaviour
         Energy -= 4;
         Debug.Log("You:HolyGrail");
     }
-
     public void Assassinate()  // 刺客技能：暗杀
+    {
+        zhaoshi = "Assassinate";
+    }
+    public void Assassinate1()  // 刺客技能：暗杀
     {
         Chose = true;
         countDownTimer = 2f;
@@ -142,8 +170,11 @@ public class Player : MonoBehaviour
     //    countDownTimer = 2f;
     //    Priority = 1;
     //}
-
     public void King() // 国王技能：王权
+    {
+        zhaoshi = "King";
+    }
+    public void King1() // 国王技能：王权
     {
         Chose = true;
         countDownTimer = 2f;
@@ -151,8 +182,11 @@ public class Player : MonoBehaviour
         Energy -= 2;
         Debug.Log("You:King");
     }
-
     public void Guard()  // 护卫技能：能防
+    {
+        zhaoshi = "Guard";
+    }
+    public void Guard1()  // 护卫技能：能防
     {
         Chose = true;
         countDownTimer = 2f;
@@ -161,8 +195,11 @@ public class Player : MonoBehaviour
         Energy += 1;
         Debug.Log("You:Guard");
     }
-
     public void Turtle()  //乌龟技能：龟缩
+    {
+        zhaoshi = "Turtle";
+    }
+    public void Turtle1()  //乌龟技能：龟缩
     {
         Chose = true;
         countDownTimer = 2f;
@@ -171,8 +208,11 @@ public class Player : MonoBehaviour
         Rebounding = true;
         Debug.Log("You:Turtle");
     }
-
     public void Rascally()  //老赖技能：汲能
+    {
+        zhaoshi = "Rascally";
+    }
+    public void Rascally1()  //老赖技能：汲能
     {
         Chose = true;
         countDownTimer = 2f;
@@ -180,16 +220,22 @@ public class Player : MonoBehaviour
         Energy += RascallyNumber;
         RascallyNumber += 1;
     }
-
     public void Arrogance()  //傲慢技能：嘲讽
+    {
+        zhaoshi = "Arrogance";
+    }
+    public void Arrogance1()  //傲慢技能：嘲讽
     {
         Chose = true;
         countDownTimer = 2f;
         ArroganceNumber += 1;
         Priority = 0;
     }
-
     public void Thief()  //盗贼技能：神偷
+    {
+        zhaoshi = "Thief";
+    }
+    public void Thief1()  //盗贼技能：神偷
     {
         Chose = true;
         countDownTimer = 2f;
@@ -199,6 +245,10 @@ public class Player : MonoBehaviour
     }
 
     public void Pangolin()
+    {
+        zhaoshi = "Pangolin";
+    }
+    public void Pangolin1()
     {
         Chose = true;
         countDownTimer = 2f;
@@ -210,44 +260,96 @@ public class Player : MonoBehaviour
     public void Despare()   //判定
     {
         Ground += 1;
-        if (IsPangolin)  //穿山甲职业判定
+        if (zhaoshi=="Thief")
         {
-            if (PangolinNumber >= 5)  //秒杀
-            {
-                Destroy(AIgameobject);
-                Debug.Log("WIN");
-            }
-            else if (PangolinNumber >= 3)  //免疫普攻判定
-            {
-                if (AI.Priority == 2)
-                {
-                    Destroy(gameObject);
-                    Debug.Log("LOSE");
-                }
-                else
-                {
-                    Debug.Log("Continue");
-                }
-            }
-            else  //否则就相当于普通搓
-            {
-                if (AI.Defensing==false && AI.Rebounding==false && AI.Priority>=2)
-                {
-                    Destroy(gameObject) ;
-                    Debug.Log("LOSE");
-                }
-                else if (AI.Defensing == false && AI.Rebounding == false && AI.Priority == 1 && Defensing==false)
-                {
-                    Destroy(gameObject);
-                    Debug.Log("LOSE");
-                }
-                else
-                {
-                    Debug.Log("Continue");
-                }
-            }
+            Thief1();
         }
-        else if (Thiefing)
+        else if (zhaoshi=="RubbingEnergy")
+        {
+            RubbingEnergy1();
+        }
+        else if (zhaoshi == "Gun")
+        {
+            Gun1();
+        }
+        else if (zhaoshi == "Guard")
+        {
+            Guard1();
+        }
+        else if (zhaoshi == "HolyGrail")
+        {
+            HolyGrail1();
+        }
+        else if (zhaoshi == "Rebound")
+        {
+            Rebound1();
+        }
+        else if (zhaoshi == "Defense")
+        {
+            Defense1();
+        }
+        else if (zhaoshi == "Assassinate")
+        {
+            Assassinate1();
+        }
+        else if (zhaoshi == "King")
+        {
+            King1();
+        }
+        else if (zhaoshi == "Pangolin")
+        {
+            Pangolin1();
+        }
+        else if (zhaoshi == "Turtle")
+        {
+            Turtle1();  
+        }
+        else if (zhaoshi == "Rascally")
+        {
+            Rascally1();
+        }
+        else if (zhaoshi == "Arrogance")
+        {
+            Arrogance1();
+        }
+        //if (IsPangolin)  //穿山甲职业判定
+        //{
+        //    if (PangolinNumber >= 5)  //秒杀
+        //    {
+        //        Destroy(AIgameobject);
+        //        Debug.Log("WIN");
+        //    }
+        //    else if (PangolinNumber >= 3)  //免疫普攻判定
+        //    {
+        //        if (AI.Priority == 2)
+        //        {
+        //            Destroy(gameObject);
+        //            Debug.Log("LOSE");
+        //        }
+        //        else
+        //        {
+        //            Debug.Log("Continue");
+        //        }
+        //    }
+        //    else  //否则就相当于普通搓
+        //    {
+        //        if (AI.Defensing==false && AI.Rebounding==false && AI.Priority>=2)
+        //        {
+        //            Destroy(gameObject) ;
+        //            Debug.Log("LOSE");
+        //        }
+        //        else if (AI.Defensing == false && AI.Rebounding == false && AI.Priority == 1 && Defensing==false)
+        //        {
+        //            Destroy(gameObject);
+        //            Debug.Log("LOSE");
+        //        }
+        //        else
+        //        {
+        //            Debug.Log("Continue");
+        //        }
+        //    }
+        //}
+        if (Thiefing)
         {
             if (AI.Defensing==true || AI.Rebounding==true)  
             {
@@ -255,8 +357,7 @@ public class Player : MonoBehaviour
             }
             else if (AI.Defensing==false && AI.Priority>0)
             {
-                Destroy(AIgameobject);
-                Debug.Log("WIN");
+                AI.Win=false;
             }
             else if (AI.Priority==0)
             {
@@ -279,13 +380,11 @@ public class Player : MonoBehaviour
         {
              if (Priority < AI.Priority && AI.Rebounding==false && AI.Defensing==false)  //AI攻击优先级更高
             {
-                Destroy(gameObject);
-                Debug.Log("LOSE");
+                Win = false;
             }
             else if (Priority < AI.Priority && AI.Rebounding==true && Defensing==false && Priority!=0) //AI反弹成功
             {
-                Destroy(gameObject);
-                Debug.Log("LOSE");
+                Win = false;
             }
             else if(Priority==AI.Priority)  //优先级一样，相互抵消
             {
@@ -345,28 +444,15 @@ public class Player : MonoBehaviour
             {
                 if (AI.Thiefing==true)
                 {
-                    Destroy(gameObject);
-                    Debug.Log("LOSE");
+                    Win = false;
                 }
                 else
                 {
-                    Destroy(AIgameobject);
-                    Debug.Log("WIN");
+                    AI.Win = false;
                 }
 
             }           
         }
-
-        Chose = false;  //初始化
-        Priority = 0;
-        Defensing = false;
-        Rebounding = false;
-        Thiefing=false;
-        AI.Rebounding = false;
-        AI.Priority = 0;
-        AI.Defensing = false;
-        AI.Thiefing = false;
-
 
         if (ArroganceNumber>=3 && AI.ArroganceNumber>=3)
         {
@@ -384,27 +470,130 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
             Debug.Log("LOSE");
         }
+    }
+
+    public void Sum()  //结算
+    {
+        if (AI.Win == false)
+        {
+            if (Thiefing)
+            {
+                if (AI.Priority == 1)
+                {
+                    AI.health -= 1;
+                }
+                else if (AI.Priority == 2)
+                {
+                    AI.health -= 2;
+                }
+            }
+            else if (Rebounding==true)
+            {
+                if (AI.Priority==1)
+                {
+                    AI.health -= 1;
+                }
+                else if(AI.Priority==2)
+                {
+                    AI.health -= 2;
+                }
+            }
+            else
+            {
+                if (Priority == 1)
+                {
+                    AI.health -= 1;
+                }
+                else if (Priority == 2)
+                {
+                    AI.health -= 2;
+                }
+            }
+        }
+        else if (Win == false)
+        {
+            if (AI.Thiefing)
+            {
+                if (Priority == 1)
+                {
+                    health -= 1;
+                }
+                else if (Priority == 2)
+                {
+                    health -= 2;
+                }
+            }
+            else if (AI.Rebounding == true)
+            {
+                if (Priority == 1)
+                {
+                    health -= 1;
+                }
+                else if (Priority == 2)
+                {
+                    health -= 2;
+                }
+            }
+            else
+            {
+                if (AI.Priority == 1)
+                {
+                    health -= 1;
+                }
+                else if (AI.Priority == 2)
+                {
+                    health -= 2;
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("Continue");
+        }
+
+        if (health<=0)
+        {
+            Destroy(gameObject);
+            Debug.Log("LOST");
+            //时间暂停
+        }
+        if (AI.health<=0)
+        {
+            Destroy(AIgameobject);
+            Debug.Log(Win);
+            //时间暂停
+        }
+
+        Chose = false;  //初始化
+        Priority = 0;
+        Defensing = false;
+        Rebounding = false;
+        Thiefing = false;
+        AI.Rebounding = false;
+        AI.Priority = 0;
+        AI.Defensing = false;
+        AI.Thiefing = false;
 
         //AI职业点数判定
-        if (AI.StringCareer== "Assassin" || AI.StringCareer=="Thief")   //刺客,盗贼职业点数判定
+        if (AI.StringCareer == "Assassin" || AI.StringCareer == "Thief")   //刺客,盗贼职业点数判定
         {
-            if (Ground%2==1)
+            if (Ground % 2 == 1)
             {
                 AI.Career += 1;
             }
         }
-        else if (AI.StringCareer=="King")  //国王职业点数判定
+        else if (AI.StringCareer == "King")  //国王职业点数判定
         {
-            if (AI.Energy%2==0)
+            if (AI.Energy % 2 == 0)
             {
                 AI.Career = AI.Energy / 2;
             }
             else
             {
-                AI.Career = (AI.Energy-1) / 2;
+                AI.Career = (AI.Energy - 1) / 2;
             }
         }
-        else if (AI.StringCareer== "Guard" || AI.StringCareer== "Rascally" || AI.StringCareer== "Arrogance")  //卫士等职业点数判定
+        else if (AI.StringCareer == "Guard" || AI.StringCareer == "Rascally" || AI.StringCareer == "Arrogance")  //卫士等职业点数判定
         {
             AI.Career = 1;
         }
@@ -440,7 +629,5 @@ public class Player : MonoBehaviour
         {
             Career = Energy;
         }
-
-        countDownTimer = 10f;
     }
 }
