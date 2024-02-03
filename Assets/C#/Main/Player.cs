@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public string zhaoshi;
     public int health;  //血量
     public int Energy;
-    //private Animator myAnim;
+    private Animator myAnim;
     public int Priority = 0;  //优先级
     public bool Rebounding = false;  //是否反弹
     public bool Defensing = false;  //是否防御
@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     public bool Thiefing;  //神偷判定
     public int PangolinNumber; //穿山甲叠加层数
     public bool IsPangolin;  //叠加判定
+    public bool Continue;
 
     public Text countDownText; // 倒计时文本
     public float countDownTimer = 10f; // 倒计时时间
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        Continue = true;
         Win = true;
         health = 1;
         countDownTimer = 10f;
@@ -43,7 +45,7 @@ public class Player : MonoBehaviour
         StringCareer = Whole.PlayerCareer;
         Career = 0;
         Energy = 0;   //初始化
-        //myAnim = GetComponent<Animator>();
+        myAnim = GetComponent<Animator>();
         countDownText = countDownText.GetComponent<Text>();
         GroundText = GroundText.GetComponent<Text>();
         AI = FindObjectOfType<AI>();
@@ -71,23 +73,24 @@ public class Player : MonoBehaviour
         }
         else
         {
-            AI.AIplaying();
-            if (Chose==false)
+            if (Continue)
             {
-                if (StringCareer== "Pangolin" || StringCareer=="Thief")
+                AI.AIplaying();
+                if (Chose==false)
                 {
-                    Defense();
+                    if (StringCareer== "Pangolin" || StringCareer=="Thief")
+                    {
+                        Defense();
+                    }
+                    else
+                    {
+                        RubbingEnergy();
+                    }
                 }
-                else
-                {
-                    RubbingEnergy();
-                }
+                Despare();
+                Continue = false;
             }
-            Despare();
-            Sum();
-            countDownTimer = 10f;
-            Debug.Log(health);
-            Debug.Log(AI.health);
+
         }
     }
     public void RubbingEnergy()   //能量
@@ -101,6 +104,7 @@ public class Player : MonoBehaviour
         Energy += 1;
         Debug.Log("You:RubbingEnergy");
         Priority = 0;
+        myAnim.SetTrigger("Cuo");
     }
     public void Gun()  //枪
     {
@@ -113,6 +117,7 @@ public class Player : MonoBehaviour
         Priority = 1;
         Energy -= 1;
         Debug.Log("You:Gun");
+        myAnim.SetTrigger("Gun");
     }
     public void Rebound()   //反弹
     {
@@ -126,6 +131,7 @@ public class Player : MonoBehaviour
         Rebounding = true;
         Energy -= 2;
         Debug.Log("You:Rebound");
+        myAnim.SetTrigger("Rebound");
     }
     public void Defense()   //防御
     {
@@ -138,6 +144,7 @@ public class Player : MonoBehaviour
         Priority = 1;
         Defensing = true;
         Debug.Log("You:Defense");
+        myAnim.SetTrigger("Defense");
     }
     public void HolyGrail()   //大招
     {
@@ -150,6 +157,7 @@ public class Player : MonoBehaviour
         Priority = 2;
         Energy -= 4;
         Debug.Log("You:HolyGrail");
+        myAnim.SetTrigger("King");
     }
     public void Assassinate()  // 刺客技能：暗杀
     {
@@ -162,6 +170,7 @@ public class Player : MonoBehaviour
         Priority = 1;
         Career -= 1;
         Debug.Log("You:Assassinate");
+        myAnim.SetTrigger("King");
     }
 
     //public void Steal()   // 盗贼技能：偷取
@@ -181,6 +190,7 @@ public class Player : MonoBehaviour
         Priority = 2;
         Energy -= 2;
         Debug.Log("You:King");
+        myAnim.SetTrigger("King");
     }
     public void Guard()  // 护卫技能：能防
     {
@@ -194,6 +204,7 @@ public class Player : MonoBehaviour
         Defensing = true;
         Energy += 1;
         Debug.Log("You:Guard");
+        myAnim.SetTrigger("King");
     }
     public void Turtle()  //乌龟技能：龟缩
     {
@@ -207,6 +218,7 @@ public class Player : MonoBehaviour
         Priority = 100;
         Rebounding = true;
         Debug.Log("You:Turtle");
+        myAnim.SetTrigger("King");
     }
     public void Rascally()  //老赖技能：汲能
     {
@@ -219,6 +231,7 @@ public class Player : MonoBehaviour
         Priority = 0;
         Energy += RascallyNumber;
         RascallyNumber += 1;
+        myAnim.SetTrigger("King");
     }
     public void Arrogance()  //傲慢技能：嘲讽
     {
@@ -230,6 +243,7 @@ public class Player : MonoBehaviour
     {
         ArroganceNumber += 1;
         Priority = 0;
+        myAnim.SetTrigger("Arrogant");
     }
     public void Thief()  //盗贼技能：神偷
     {
@@ -242,6 +256,7 @@ public class Player : MonoBehaviour
         Career -= 1;
         Thiefing = true;
         Priority = 1;
+        myAnim.SetTrigger("Steal");
     }
 
     public void Pangolin()
@@ -255,6 +270,7 @@ public class Player : MonoBehaviour
         PangolinNumber += 1;
         Priority = 0;
         IsPangolin=true;
+        myAnim.SetTrigger("King");
     }
 
     public void Despare()   //判定
@@ -632,5 +648,8 @@ public class Player : MonoBehaviour
         {
             Career = Energy;
         }
+        myAnim.SetTrigger("Idle");
+        countDownTimer = 10f;
+        Continue = true;
     }
 }
