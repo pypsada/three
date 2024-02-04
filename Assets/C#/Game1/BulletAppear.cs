@@ -22,7 +22,7 @@ public class BulletAppear : MonoBehaviour
     public void Update()
     {
         time += Time.deltaTime;
-        if (time > 2f)
+        if (time > 2.5f)
         {
             if (Ci>9)
             {
@@ -52,7 +52,6 @@ public class BulletAppear : MonoBehaviour
     {
         // 在范围内生成随机位置
         float spawnX = Random.Range(0,2);
-        Debug.Log(spawnX);
         if (spawnX ==0 )
         {
             spawnX = LeftX;
