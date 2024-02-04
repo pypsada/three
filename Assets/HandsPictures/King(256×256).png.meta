@@ -272,7 +272,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "King(256\xD7256)_0": 5228067164053129448
+      "King(256\xD7256)_1": -5087545100239042319
+      "King(256\xD7256)_2": 8755201580870390419
+      "King(256\xD7256)_3": 1228155151508500366
+      "King(256\xD7256)_4": 7506544884544748884
+      "King(256\xD7256)_5": 8111376854678999069
+      "King(256\xD7256)_6": 8414756213154273103
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
