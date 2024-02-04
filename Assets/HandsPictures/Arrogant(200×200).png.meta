@@ -368,7 +368,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "Arrogant(200\xD7200)_0": 3582117200136461777
+      "Arrogant(200\xD7200)_1": -3490495725181353275
+      "Arrogant(200\xD7200)_10": -8382353652568210077
+      "Arrogant(200\xD7200)_2": 7228599530486438302
+      "Arrogant(200\xD7200)_3": 6031931286147901079
+      "Arrogant(200\xD7200)_4": -4860993216807735125
+      "Arrogant(200\xD7200)_5": 2640982672262872164
+      "Arrogant(200\xD7200)_6": -1950961810757189549
+      "Arrogant(200\xD7200)_7": 4178733015200315100
+      "Arrogant(200\xD7200)_8": -6225786469633244622
+      "Arrogant(200\xD7200)_9": -9045760160664466491
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
