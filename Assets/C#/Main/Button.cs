@@ -195,5 +195,13 @@ public class Button : MonoBehaviour
         }
 
     }
+    public void Back()
+    {
+        SceneManager.LoadScene("ChoseCareer");
+    }
 
+    public void SmallGame()
+    {
+        SceneManager.LoadScene("Game1");
+    }
 }
