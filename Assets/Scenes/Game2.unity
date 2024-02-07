@@ -1112,7 +1112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 200
-  PlayerGame2: {fileID: 0}
+  PlayerGame2: {fileID: 826705833}
+  NumberDisplayGame1: {fileID: 861894610}
 --- !u!1 &309446152
 GameObject:
   m_ObjectHideFlags: 0

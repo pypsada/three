@@ -7,13 +7,13 @@ public class Huan : MonoBehaviour
     public float rotationSpeed = 100f;
     private int Ci;
     public PlayerGame2 PlayerGame2;
-
+    public NumberDisplayGame1 NumberDisplayGame1;
     private void Start()
     {
         Ci = 0;
         EnableRandomChildren(transform.GetChild(0).GetChild(0), 5);
         PlayerGame2 = GetComponent<PlayerGame2>();
-
+        NumberDisplayGame1 = FindObjectOfType<NumberDisplayGame1>();
     }
 
     void Update()
@@ -34,7 +34,7 @@ public class Huan : MonoBehaviour
         DisableAllChildren(transform.GetChild(0).GetChild(0));
         yield return new WaitForSeconds(0.1f);
 
-        if (Ci >= 12)
+        if (NumberDisplayGame1.Number >= 10)
         {
             EnableRandomChildren(transform.GetChild(0).GetChild(0), 10);
         }
