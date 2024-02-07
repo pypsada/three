@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Upwall
+  - UpWallTrue
   layers:
   - Default
   - TransparentFX

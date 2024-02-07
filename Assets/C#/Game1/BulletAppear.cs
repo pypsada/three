@@ -12,11 +12,12 @@ public class BulletAppear : MonoBehaviour
     public float RightX;
     public float time;
     public int Ci;
-
+    public NumberDisplayGame1 NumberDisplayGame1;
     void Start()
     {
         time = 0f;
         Ci = 0;
+        NumberDisplayGame1 = FindObjectOfType<NumberDisplayGame1>();
     }
 
     public void Update()
@@ -24,25 +25,21 @@ public class BulletAppear : MonoBehaviour
         time += Time.deltaTime;
         if (time > 2.5f)
         {
-            if (Ci>9)
+            if (NumberDisplayGame1.Number>7)
             {
                 SpawnPrefab();
                 SpawnPrefab();
-                Ci += 1;
             }
-            else if (Ci>18f)
+            else if (NumberDisplayGame1.Number > 14)
             {
                 SpawnPrefab();
                 SpawnPrefab();
                 SpawnPrefab();
-                Ci += 1;
             }
             else
             {
                 SpawnPrefab();
-                Ci += 1;
             }
-
             time = 0f;
         }
 

@@ -6,11 +6,14 @@ public class Huan : MonoBehaviour
 {
     public float rotationSpeed = 100f;
     private int Ci;
+    public PlayerGame2 PlayerGame2;
 
     private void Start()
     {
         Ci = 0;
-        EnableRandomChildren(transform.GetChild(0).GetChild(0), 6);
+        EnableRandomChildren(transform.GetChild(0).GetChild(0), 5);
+        PlayerGame2 = GetComponent<PlayerGame2>();
+
     }
 
     void Update()
@@ -25,10 +28,11 @@ public class Huan : MonoBehaviour
         StartCoroutine(DisableThenEnable());
     }
 
+
     IEnumerator DisableThenEnable()
     {
         DisableAllChildren(transform.GetChild(0).GetChild(0));
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
 
         if (Ci >= 12)
         {

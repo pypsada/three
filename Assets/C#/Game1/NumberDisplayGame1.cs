@@ -16,6 +16,6 @@ public class NumberDisplayGame1 : MonoBehaviour
 
     void Update()
     {
-        textComponent.text = Number.ToString();  //显示技能点数
+        textComponent.text = Number.ToString();  //显示数量
     }
 }
