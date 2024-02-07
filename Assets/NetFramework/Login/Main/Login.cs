@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Login : MonoBehaviour
@@ -27,6 +28,7 @@ public class Login : MonoBehaviour
     [Header("½çÃæ")]
     public GameObject login;
     public GameObject register;
+    public GameObject loginFail;
 
     //µã»÷µÇÂ¼°´Å¥
     public void ClickLogin()
@@ -66,11 +68,13 @@ public class Login : MonoBehaviour
             //µÇÂ¼³É¹¦
             Debug.Log("µÇÂ¼³É¹¦");
             RemoveMsgListener();
+            SceneManager.LoadScene("GameRooms");
         }
         else if(msgLogin.result==1)
         {
             //µÇÂ¼Ê§°Ü
             Debug.Log("µÇÂ¼Ê§°Ü");
+            loginFail.SetActive(true);
         }
     }
 

@@ -1,4 +1,8 @@
-﻿public class PlayerData
+﻿namespace NetGame
 {
-    public string test = "example player data";
+    public class PlayerData
+    {
+        public int victoryTimes;
+        public int failTimes;
+    }
 }

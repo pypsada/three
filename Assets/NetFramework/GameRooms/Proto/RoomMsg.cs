@@ -12,6 +12,6 @@ public class MsgBgmatch : MsgBase
 public class MsgMatched : MsgBase
 {
     MsgMatched() { protoName = "MsgMatched"; }
-    public PlayerData? remotePlayer;
+    public NetGame.PlayerData? remotePlayer;
     public string remotePlayerId = "";
 }

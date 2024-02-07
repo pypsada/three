@@ -1,4 +1,5 @@
 ﻿public class PlayerData
 {
-    public string test = "example player data";
+    public int victoryTimes;
+    public int failTimes;
 }
