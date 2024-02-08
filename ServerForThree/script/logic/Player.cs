@@ -5,7 +5,9 @@
     //指向ClientState
     public ClientState state;
     //临时数据
-    public int x;
+    public PlayerTmpData tmpData;
+    //房间信息。方便找到对应房间
+    public NetGame.Room room;
     //数据库数据
     public PlayerData data;
 

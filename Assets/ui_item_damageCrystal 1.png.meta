@@ -176,7 +176,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ui_item_damageCrystal 1_0: -1544169578214610071
+      ui_item_damageCrystal 1_1: 1390087995033299823
+      ui_item_damageCrystal 1_2: 4875443672146725127
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
