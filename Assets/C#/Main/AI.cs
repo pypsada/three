@@ -56,12 +56,14 @@ public class AI : MonoBehaviour
     {
         Energy += 1;
         Priority = 0;
+        myAnim.SetTrigger("Cuo");
     }
 
     public void Gun()
     {
         Priority = 1;
         Energy -= 1;
+        myAnim.SetTrigger("Gun");
     }
 
     public void Rebound()
@@ -69,36 +71,41 @@ public class AI : MonoBehaviour
         Priority = 100;
         Rebounding = true;
         Energy -= 2;
+        myAnim.SetTrigger("Rebound");
     }
 
     public void Defense()
     {
         Priority = 1;
         Defensing = true;
-
+        myAnim.SetTrigger("Defense");
     }
 
     public void HolyGrail()
     {
         Priority = 2;
         Energy -= 2;
+        myAnim.SetTrigger("King");
     }
 
     public void Assassinate()  // 刺客技能：暗杀
     {
         Priority = 1;
         Career -= 1;
+        myAnim.SetTrigger("King");
     }
 
     public void Steal()   // 盗贼技能：偷取
     {
         Priority = 1;
+        myAnim.SetTrigger("Steal");
     }
 
     public void King() // 国王技能：王权
     {
         Priority = 2;
         Energy -= 2;
+        myAnim.SetTrigger("King");
     }
 
     public void Guard()  // 护卫技能：能防
@@ -106,6 +113,7 @@ public class AI : MonoBehaviour
         Priority = 1;
         Defensing = true;
         Energy += 1;
+        myAnim.SetTrigger("King");
     }
 
     public void Turtle()  //乌龟技能：龟缩
@@ -113,6 +121,7 @@ public class AI : MonoBehaviour
         Energy -= 1;
         Priority = 100;
         Rebounding = true;
+        myAnim.SetTrigger("King");
     }
 
     public void Rascally()  //老赖技能：汲能
@@ -120,12 +129,14 @@ public class AI : MonoBehaviour
         Priority = 0;
         Energy += RascallyNumber;
         RascallyNumber += 1;
+        myAnim.SetTrigger("King");
     }
 
     public void Arrogance()  //傲慢技能：嘲讽
     {
         ArroganceNumber += 1;
         Priority = 0;
+        myAnim.SetTrigger("Arrogant");
     }
 
     public void Thief()  //盗贼技能：神偷
@@ -133,6 +144,7 @@ public class AI : MonoBehaviour
         Career -= 1;
         Thiefing = true;
         Priority = 0;
+        myAnim.SetTrigger("Steal");
     }
 
     public void Pangolin() //穿山甲技能：叠甲
@@ -140,6 +152,7 @@ public class AI : MonoBehaviour
         PangolinNumber += 1;
         Priority = 0;
         IsPangolin = true;
+        myAnim.SetTrigger("King");
     }
 
     public void AIplaying()
@@ -1183,5 +1196,10 @@ public class AI : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void Sum()
+    {
+        myAnim.SetTrigger("Idle");
     }
 }

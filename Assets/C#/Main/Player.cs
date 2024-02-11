@@ -276,7 +276,6 @@ public class Player : MonoBehaviour
     public void Despare()   //判定
     {
         Ground += 1;
-        Debug.Log(zhaoshi);
         if (zhaoshi=="Thief")
         {
             Thief1();
@@ -395,7 +394,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-             if (Priority < AI.Priority && AI.Rebounding==false && AI.Defensing==false)  //AI攻击优先级更高
+            if (Priority < AI.Priority && AI.Rebounding==false && AI.Defensing==false)  //AI攻击优先级更高
             {
                 Win = false;
             }
