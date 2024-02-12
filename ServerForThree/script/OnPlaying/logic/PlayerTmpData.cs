@@ -1,7 +1,7 @@
 ﻿public class PlayerTmpData
 {
-        //public string zhaoshi;
-        public int health;  //血量
+    //public string zhaoshi;
+    public int health;  //血量
     public int Energy;
     //private Animator myAnim;
     public int Priority = 0;  //优先级
