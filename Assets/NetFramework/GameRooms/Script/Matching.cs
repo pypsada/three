@@ -1,3 +1,4 @@
+using NetGame;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,10 @@ public class Matching : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        matching.SetActive(true);
+        matching.SetActive(false);
         matched.SetActive(false);
+        begingMatch.SetActive(true);
+        NetManager.AddMsgListener("MsgMatched", Matched);
         return;
     }
 
@@ -21,21 +24,57 @@ public class Matching : MonoBehaviour
     }
 
     [Header("ref")]
-    public GameRoomMenu gameRoomMenu;
+    //public GameRoomMenu gameRoomMenu;
+    //匹配中动画页面
     public GameObject matching;
+    //匹配成功页面（显示对手和自己的胜率以及对手id）
     public GameObject matched;
+    //开始匹配按钮
     public GameObject begingMatch;
 
     //如果正在查找就显示matching，如果找到就显示mathed界面.
-    [Header("符号变化间隔")]
+    [Header("符号变化相关")]
     public float signInterval;
     private string str = "匹配中";
     private float lastUpdate = 0;
     private int signNum = 1;
 
+    [Header("Mathced界面引用")]
+    public Text localPlayerId;
+    public Text remotePlayerId;
+    public Text localPlayerData;
+    public Text remotePlayerData;
+
+    //收到MsgMatched协议
+    public void Matched(MsgBase msgBase)
+    {
+        NetManager.RemoveMsgListener("MsgMatched", Matched);
+        matching.SetActive(false);
+        matched.SetActive(true);
+        MsgMatched msg = (MsgMatched)msgBase;
+        localPlayerId.text = "ID:"+msg.localPlayerId;
+        remotePlayerId.text = "对手ID:"+msg.remotePlayerId;
+        PlayerData local = msg.localPlayerData;
+        PlayerData remote = msg.remotePlayerData;
+        localPlayerData.text = "数据：" + local.victoryTimes + "胜" + local.failTimes + "败" +
+            " 胜率" + (float)local.victoryTimes / (float)(local.victoryTimes + local.failTimes);
+        remotePlayerData.text = "对手数据：" + remote.victoryTimes + "胜" + remote.failTimes + "败" +
+            " 胜率" + (float)remote.victoryTimes / (float)(remote.victoryTimes + remote.failTimes);
+    }
+
+    //按下开始匹配按钮
     public void OnClickBeginMatching()
     {
+        begingMatch.SetActive(false);
+        matching.SetActive(true);
+        NetManager.Send(new MsgBgmatch());
+    }
 
+    public void OnClickQuiteMatch()
+    {
+        begingMatch.SetActive(true);
+        matching.SetActive(false);
+        NetManager.Send(new MsgMatchQuit());
     }
 
     //匹配等待中的字符串动画

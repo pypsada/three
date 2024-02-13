@@ -330,6 +330,10 @@ namespace NetGame
                 player_b.data.victoryTimes++;
                 DbManager.UpdatePlayerData(player_a.id, player_a.data);
                 DbManager.UpdatePlayerData(player_b.id, player_b.data);
+                player_a.room = null;
+                player_b.room = null;
+                over = true;
+                RoomManager.ClearRooms();
                 //时间暂停
             }
             if (player_b.tmpData.health <= 0)
@@ -341,6 +345,10 @@ namespace NetGame
                 player_a.data.victoryTimes++;
                 DbManager.UpdatePlayerData(player_b.id, player_b.data);
                 DbManager.UpdatePlayerData(player_a.id, player_a.data);
+                player_a.room = null;
+                player_b.room = null;
+                over = true;
+                RoomManager.ClearRooms();
                 //时间暂停
             }
 

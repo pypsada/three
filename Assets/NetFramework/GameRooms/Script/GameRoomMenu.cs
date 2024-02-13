@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//暂时弃用
 public class GameRoomMenu : MonoBehaviour
 {
     [Header("界面")]

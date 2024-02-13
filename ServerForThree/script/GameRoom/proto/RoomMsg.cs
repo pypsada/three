@@ -1,12 +1,25 @@
 
+//开始匹配
+//客户端发出，服务端不发出
 public class MsgBgmatch : MsgBase
 {
-    MsgBgmatch() { protoName = "MsgBgmatch"; }
+    public MsgBgmatch() { protoName = "MsgBgmatch"; }
 }
 
-public class MsgMatched:MsgBase
+//结束匹配
+//服务端发出，客户端不发出
+public class MsgMatched : MsgBase
 {
-    MsgMatched() { protoName = "MsgMatched"; }
-    public PlayerData? remotePlayer;
+    public MsgMatched() { protoName = "MsgMatched"; }
+    public PlayerData remotePlayerData;
+    public PlayerData localPlayerData;
     public string remotePlayerId = "";
+    public string localPlayerId = "";
+}
+
+//退出匹配。
+//客户端发出，服务端不发出
+public class MsgMatchQuit : MsgBase
+{
+    public MsgMatchQuit() { protoName = "MsgMatchQuit"; }
 }
