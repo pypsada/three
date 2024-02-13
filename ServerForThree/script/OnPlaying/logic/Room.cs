@@ -9,6 +9,9 @@ namespace NetGame
         public Player player_a;
         public Player player_b;
 
+        //房间是否已经结束
+        public bool over = false;
+
         //两个玩家进入房间
         public Room(Player a,Player b)
         {
@@ -16,6 +19,8 @@ namespace NetGame
             player_b = b;
             a.room = this;
             b.room = this;
+
+            over = false;
         }
 
         //判定与结算。给双方玩家发送消息：一方胜利一方失败 或者 继续
@@ -321,6 +326,10 @@ namespace NetGame
                 //Destroy(gameObject);
                 player_a.Send(new MsgYouLost());
                 player_b.Send(new MsgYouWin());
+                player_a.data.failTimes++;
+                player_b.data.victoryTimes++;
+                DbManager.UpdatePlayerData(player_a.id, player_a.data);
+                DbManager.UpdatePlayerData(player_b.id, player_b.data);
                 //时间暂停
             }
             if (player_b.tmpData.health <= 0)
@@ -328,6 +337,10 @@ namespace NetGame
                 //Destroy(AIgameobject);
                 player_a.Send(new MsgYouWin());
                 player_b.Send(new MsgYouLost());
+                player_b.data.failTimes++;
+                player_a.data.victoryTimes++;
+                DbManager.UpdatePlayerData(player_b.id, player_b.data);
+                DbManager.UpdatePlayerData(player_a.id, player_a.data);
                 //时间暂停
             }
 
