@@ -218,7 +218,7 @@ public class Player : MonoBehaviour
         Priority = 100;
         Rebounding = true;
         Debug.Log("You:Turtle");
-        myAnim.SetTrigger("King");
+        myAnim.SetTrigger("Rebound");
     }
     public void Rascally()  //老赖技能：汲能
     {
@@ -388,7 +388,6 @@ public class Player : MonoBehaviour
                     Career += 1;
                     Debug.Log("Continue");
                 }
-
             }
             Thiefing=false;
         }
@@ -617,7 +616,7 @@ public class Player : MonoBehaviour
         }
         else if (AI.StringCareer == "Turtle")  //乌龟职业点数判定
         {
-            AI.Career = Energy;
+            AI.Career = AI.Energy;
         }
 
 

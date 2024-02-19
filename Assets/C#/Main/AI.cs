@@ -121,7 +121,7 @@ public class AI : MonoBehaviour
         Energy -= 1;
         Priority = 100;
         Rebounding = true;
-        myAnim.SetTrigger("King");
+        myAnim.SetTrigger("Rebound");
     }
 
     public void Rascally()  //老赖技能：汲能
