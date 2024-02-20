@@ -224,7 +224,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tanx_0: 3199996604767659594
+      tanx_1: 660816878943227023
+      tanx_2: 592631610249351940
+      tanx_3: -7516691988716389773
+      tanx_4: 4960917240576914117
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
