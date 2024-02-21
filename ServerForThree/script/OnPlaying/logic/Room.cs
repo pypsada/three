@@ -23,6 +23,18 @@ namespace NetGame
             over = false;
         }
 
+        //准备开始
+        int readyClient = 0;
+        public void ClientReady()
+        {
+            readyClient += 1;
+            if(readyClient>=2)
+            {
+                player_a.Send(new MsgAllReady());
+                player_b.Send(new MsgAllReady());
+            }
+        }
+
         //判定与结算。给双方玩家发送消息：一方胜利一方失败 或者 继续
         public void Despare()   //判定
         {
