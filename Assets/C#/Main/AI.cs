@@ -20,10 +20,10 @@ public class AI : MonoBehaviour
     public int RascallyNumber;
     public int PangolinNumber;
     public bool IsPangolin;
-
+    public bool CiSha;
     void Start()
     {
-        health = 1;
+        health = (int)0.5 * Whole.AICharacterlevel + 1;
         Win = true;
         PangolinNumber = 0;
         Thiefing = false; Defensing = false;
@@ -44,6 +44,7 @@ public class AI : MonoBehaviour
         {
             Energy = 1;
             Career = 1;
+            health = 1 * Whole.AICharacterlevel + 1;
         }
     }
 

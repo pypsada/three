@@ -200,8 +200,37 @@ public class Button : MonoBehaviour
         SceneManager.LoadScene("ChoseCareer");
     }
 
-    public void SmallGame()
+    public void SmallGame1()
     {
-        SceneManager.LoadScene("Game1");
+        if (Whole.Game1==0)
+        {
+            SceneManager.LoadScene("Game1Teach");
+        }
+        else
+        {
+            SceneManager.LoadScene("Game1");
+        }
+    }
+    public void SmallGame2()
+    {
+        if (Whole.Game1 == 0)
+        {
+            SceneManager.LoadScene("Game2Teach");
+        }
+        else
+        {
+            SceneManager.LoadScene("Game2");
+        }
+    }
+    public void SmallGame3()
+    {
+        if (Whole.Game1 == 0)
+        {
+            SceneManager.LoadScene("Game3Teach");
+        }
+        else
+        {
+            SceneManager.LoadScene("Game3");
+        }
     }
 }

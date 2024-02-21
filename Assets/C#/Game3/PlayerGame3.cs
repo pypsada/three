@@ -11,13 +11,14 @@ public class PlayerGame3 : MonoBehaviour
     public float WudiTime = 0f;
     public Parent Parent;
     public Health3 Health3;
-
+    public NumberDisplayGame1 NumberDisplayGame1;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         Parent = FindObjectOfType<Parent>();
         Health3 = FindObjectOfType<Health3>();
+        NumberDisplayGame1 = FindObjectOfType<NumberDisplayGame1>();
     }
 
     // Update is called once per frame
@@ -51,6 +52,8 @@ public class PlayerGame3 : MonoBehaviour
         {
             GameObject parentObject = collision.transform.parent.gameObject;
             parentObject.SetActive(false);
+            Whole.Game3 += 1;
+            NumberDisplayGame1.Number += 1;
             //Parent.Chose();
         }
     }

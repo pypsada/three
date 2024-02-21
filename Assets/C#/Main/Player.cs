@@ -35,7 +35,8 @@ public class Player : MonoBehaviour
     {
         Continue = true;
         Win = true;
-        health = 1;
+
+
         countDownTimer = 10f;
         Ground = 1;
         RascallyNumber = 1;
@@ -49,6 +50,7 @@ public class Player : MonoBehaviour
         countDownText = countDownText.GetComponent<Text>();
         GroundText = GroundText.GetComponent<Text>();
         AI = FindObjectOfType<AI>();
+        health = (int)0.5 * Whole.Characterlevel + 1;
         if (StringCareer == "Thief" || StringCareer == "Assassin" || StringCareer=="Guard" || 
             StringCareer== "Rascally" || StringCareer== "Arrogance" ||StringCareer== "Pangolin")
         {
@@ -58,6 +60,7 @@ public class Player : MonoBehaviour
         {
             Energy = 1;
             Career = 1;
+            health = 1 * Whole.Characterlevel + 1;
         }
     }
 
@@ -471,19 +474,16 @@ public class Player : MonoBehaviour
 
         if (ArroganceNumber>=3 && AI.ArroganceNumber>=3)
         {
-            ArroganceNumber = 0;
-            AI.ArroganceNumber = 0;
-            Debug.Log("Continue");
+            AI.health -= (int)(0.3 * Whole.Characterlevel + 1.5);
+            health -= (int)(0.3 * Whole.AICharacterlevel + 1.5);
         }
         else if (ArroganceNumber>=3)
         {
-            Destroy(AIgameobject);
-            Debug.Log("WIN");
+            AI.health -= (int)(0.3*Whole.Characterlevel + 1.5);
         }
         else if(AI.ArroganceNumber>=3) 
         {
-            Destroy(gameObject);
-            Debug.Log("LOSE");
+            health -= (int)(0.3 * Whole.AICharacterlevel + 1.5);
         }
     }
 
@@ -495,33 +495,33 @@ public class Player : MonoBehaviour
             {
                 if (AI.Priority == 1)
                 {
-                    AI.health -= 1;
+                    AI.health -= 1+(int)0.2*Whole.AICharacterlevel;
                 }
                 else if (AI.Priority == 2)
                 {
-                    AI.health -= 2;
+                    AI.health -= 2+(int)0.3*Whole.AICharacterlevel;
                 }
             }
             else if (Rebounding==true)
             {
                 if (AI.Priority==1)
                 {
-                    AI.health -= 1;
+                    AI.health -= 1 + (int)0.2 * Whole.AICharacterlevel;
                 }
                 else if(AI.Priority==2)
                 {
-                    AI.health -= 2;
+                    AI.health -= 2 + (int)0.3 * Whole.AICharacterlevel;
                 }
             }
             else
             {
                 if (Priority == 1)
                 {
-                    AI.health -= 1;
+                    AI.health -= 1 + (int)0.2 * Whole.Characterlevel;
                 }
                 else if (Priority == 2)
                 {
-                    AI.health -= 2;
+                    AI.health -= 2 + (int)0.3 * Whole.Characterlevel;
                 }
             }
         }
@@ -531,33 +531,33 @@ public class Player : MonoBehaviour
             {
                 if (Priority == 1)
                 {
-                    health -= 1;
+                    health -= 1 + (int)0.2 * Whole.Characterlevel;
                 }
                 else if (Priority == 2)
                 {
-                    health -= 2;
+                    health -= 2 + (int)0.3 * Whole.Characterlevel;
                 }
             }
             else if (AI.Rebounding == true)
             {
                 if (Priority == 1)
                 {
-                    health -= 1;
+                    health -= 1 + (int)0.2 * Whole.Characterlevel;
                 }
                 else if (Priority == 2)
                 {
-                    health -= 2;
+                    health -= 2 + (int)0.3 * Whole.Characterlevel;
                 }
             }
             else
             {
                 if (AI.Priority == 1)
                 {
-                    health -= 1;
+                    health -= 1 + (int)0.2 * Whole.AICharacterlevel;
                 }
                 else if (AI.Priority == 2)
                 {
-                    health -= 2;
+                    health -= 2 + (int)0.3 * Whole.AICharacterlevel;
                 }
             }
         }

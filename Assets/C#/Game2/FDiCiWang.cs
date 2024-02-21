@@ -23,6 +23,7 @@ public class FDiCiWang : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             NumberDisplayGame1.Number += 1;
+            Whole.Game2 += 1;
             DiCiWang.SpawnPrefab();
             Destroy(gameObject);
         }

@@ -23,6 +23,7 @@ public class FDao : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             NumberDisplayGame1.Number += 1;
+            Whole.Game1 += 1;
             Dao.SpawnPrefab();
             Destroy(gameObject);
         }
