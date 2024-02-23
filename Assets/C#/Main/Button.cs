@@ -233,4 +233,10 @@ public class Button : MonoBehaviour
             SceneManager.LoadScene("Game3");
         }
     }
+
+    public void Backto()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("ChoseCareer");
+    }
 }

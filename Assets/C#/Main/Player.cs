@@ -26,6 +26,10 @@ public class Player : MonoBehaviour
     public bool Continue;
 
     public Text countDownText; // 倒计时文本
+
+    public Text WinOrLose;  //输赢文本
+    public GameObject TanChuang;
+
     public float countDownTimer = 10f; // 倒计时时间
     public Text GroundText; //回合数文本
 
@@ -568,15 +572,20 @@ public class Player : MonoBehaviour
 
         if (health<=0)
         {
+            TanChuang.SetActive(true);
+            Time.timeScale = 0;
+            WinOrLose.text = "Lose";
             Destroy(gameObject);
-            Debug.Log("LOST");
+            //Debug.Log("LOST");
             //时间暂停
         }
         if (AI.health<=0)
         {
+            TanChuang.SetActive(true);
+            Time.timeScale = 0;
+            WinOrLose.text = "Win";
             Destroy(AIgameobject);
-            Debug.Log(Win);
-            //时间暂停
+            //Debug.Log("Win");
         }
 
         Win = true;
