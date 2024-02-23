@@ -476,19 +476,6 @@ public class Player : MonoBehaviour
             }           
         }
 
-        if (ArroganceNumber>=3 && AI.ArroganceNumber>=3)
-        {
-            AI.health -= (int)(0.3 * Whole.Characterlevel + 1.5);
-            health -= (int)(0.3 * Whole.AICharacterlevel + 1.5);
-        }
-        else if (ArroganceNumber>=3)
-        {
-            AI.health -= (int)(0.3*Whole.Characterlevel + 1.5);
-        }
-        else if(AI.ArroganceNumber>=3) 
-        {
-            health -= (int)(0.3 * Whole.AICharacterlevel + 1.5);
-        }
     }
 
     public void Sum()  //½áËã
@@ -658,5 +645,47 @@ public class Player : MonoBehaviour
         myAnim.SetTrigger("Idle");
         countDownTimer = 10f;
         Continue = true;
+
+        if (ArroganceNumber >= 3 && AI.ArroganceNumber >= 3)
+        {
+            AI.health -= (int)(0.3 * Whole.Characterlevel + 1.5);
+            health -= (int)(0.3 * Whole.AICharacterlevel + 1.5);
+            ArroganceNumber -= 3;
+            AI.ArroganceNumber -= 3;
+            ArroganceSum();
+        }
+        else if (ArroganceNumber >= 3)
+        {
+            AI.health -= (int)(0.3 * Whole.Characterlevel + 1.5);
+            ArroganceNumber -= 3;
+            ArroganceSum();
+        }
+        else if (AI.ArroganceNumber >= 3)
+        {
+            health -= (int)(0.3 * Whole.AICharacterlevel + 1.5);
+            AI.ArroganceNumber -= 3;
+            ArroganceSum();
+        }
+
+    }
+
+    public void ArroganceSum()
+    {
+        if (AI.health <= 0)
+        {
+            TanChuang.SetActive(true);
+            Time.timeScale = 0;
+            WinOrLose.text = "Win";
+            Destroy(AIgameobject);
+            //Debug.Log("Win");
+        }
+        if (health <= 0)
+        {
+            TanChuang.SetActive(true);
+            Time.timeScale = 0;
+            WinOrLose.text = "Lose";
+            Destroy(gameObject);
+            //Debug.Log("LOST");
+        }
     }
 }
