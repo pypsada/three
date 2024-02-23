@@ -9,7 +9,21 @@ public class Scene_Menu : MonoBehaviour
 
     public void StartGame()  //开始游戏，进入选择场景界面
     {
-        SceneManager.LoadScene("ActOption");
+        if (SaveGameManager.SaveData == null)
+        {
+            UsersScene();
+        }
+        else
+        {
+            if (SaveGameManager.SaveData.record == 0)
+            {
+                SceneManager.LoadScene("ActOption");
+            }
+            else if (SaveGameManager.SaveData.record > 0)
+            {
+                SceneManager.LoadScene("Base");
+            }
+        }
     }
     public void QuitGame()  //退出程序代码
     {
@@ -41,5 +55,13 @@ public class Scene_Menu : MonoBehaviour
     public void GameCulture()
     {
         SceneManager.LoadScene("GameCulture");
+    }
+    public void UsersScene()
+    {
+        SceneManager.LoadScene("Users");
+    }
+    public void GoToBase()
+    {
+        SceneManager.LoadScene("Base");
     }
 }

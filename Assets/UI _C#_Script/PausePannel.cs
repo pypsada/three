@@ -9,13 +9,12 @@ public class PausePannel : MonoBehaviour
 
     private bool isOpen = false;
     public GameObject pause;
-    private void Update()
+    private void Update()  //用Bool变量循环开关
     {
-        if (Input.GetKeyDown(KeyCode.Escape))  //这一帧按下Esc的时候
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!isOpen)  //“!” 是取反
+            if (!isOpen)
             {
-                //SoundsManager.PlayPauseClip();
                 Pause();
             }
             else if (isOpen)
@@ -27,6 +26,7 @@ public class PausePannel : MonoBehaviour
 
     public void Pause()
     {
+        SoundsManager.PlayPauseClip();
         Time.timeScale = 0;  //「言灵·时间零」
         pause.SetActive(true);
         isOpen = true;

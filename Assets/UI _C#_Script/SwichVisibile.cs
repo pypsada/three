@@ -12,13 +12,13 @@ public class SwichVisibile : MonoBehaviour
 
     public void Swich()
     {
-        // 隐藏父物体下的所有子物体
+        //隐藏父物体下的所有子物体
         foreach (Transform child in parentObject.transform)
         {
             child.gameObject.SetActive(false);
         }
 
-        // 显示指定的子物体
+        //显示指定的子物体
         if (childObject != false)
         {
             childObject.SetActive(true);
