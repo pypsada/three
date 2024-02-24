@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      LanHua_0: 983487004080957641
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &7113613
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -236,6 +236,8 @@ MonoBehaviour:
   IsPangolin: 0
   Continue: 0
   countDownText: {fileID: 991388923}
+  WinOrLose: {fileID: 0}
+  TanChuang: {fileID: 0}
   countDownTimer: 5
   GroundText: {fileID: 1209382040}
   Win: 1
@@ -1993,6 +1995,7 @@ MonoBehaviour:
   RascallyNumber: 0
   PangolinNumber: 0
   IsPangolin: 0
+  CiSha: 0
 --- !u!1 &1409499272
 GameObject:
   m_ObjectHideFlags: 0
