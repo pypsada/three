@@ -16,13 +16,15 @@ public class Scene_Menu : MonoBehaviour
         else
         {
             if (SaveGameManager.SaveData.record == 0)
-            {
                 SceneManager.LoadScene("ActOption");
-            }
-            else if (SaveGameManager.SaveData.record > 0)
-            {
+            else if (SaveGameManager.SaveData.record == 10)
+                SceneManager.LoadScene("Act1");
+            else if (SaveGameManager.SaveData.record == 20)
+                SceneManager.LoadScene("Act2");
+            else if (SaveGameManager.SaveData.record == 30)
+                SceneManager.LoadScene("Act3");
+            else if (SaveGameManager.SaveData.record >= 60)
                 SceneManager.LoadScene("Base");
-            }
         }
     }
     public void QuitGame()  //ÍË³ö³ÌĞò´úÂë

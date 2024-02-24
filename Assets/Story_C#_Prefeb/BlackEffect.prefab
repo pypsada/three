@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1163826091954612454}
   - component: {fileID: 2861308205555239672}
   m_Layer: 5
-  m_Name: BlackStart
+  m_Name: BlackEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,9 +99,9 @@ Animation:
   m_GameObject: {fileID: 6037742004090332351}
   m_Enabled: 1
   serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: a8bb84adc6e2b994e946b9d885dcf3d9, type: 2}
+  m_Animation: {fileID: 7400000, guid: 1316f423ddee65c4292bf9c90abce165, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: a8bb84adc6e2b994e946b9d885dcf3d9, type: 2}
+  - {fileID: 7400000, guid: 1316f423ddee65c4292bf9c90abce165, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0

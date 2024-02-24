@@ -14,16 +14,24 @@ public class DelayInvoke : MonoBehaviour
 
     public GameObject canvas;
 
+    public GameObject[] destroyThing;
+
     void Start()
     {
-        canvas = GameObject.Find("Canvas");
         if (dialog != null)
         {
             StartCoroutine(InvokeDialog());
         }
-        if (cloneThing != null && cloneTime != null && cloneThing.Length == cloneTime.Length)
+        if (canvas != null && cloneThing != null && cloneTime != null && cloneThing.Length == cloneTime.Length)
         {
             StartCoroutine(CloneWithDelay());
+        }
+        if (destroyThing != null)
+        {
+            for (int i = 0; i < destroyThing.Length; i++)
+            {
+                Destroy(destroyThing[i]);
+            }
         }
     }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,7 +16,9 @@ public class SaveData
     public string avatarPath;
     public int record;
     public int level;
-    public float defence;
+    public int stealth;
+    public int agility;
+    public int mathematics;
 }
 
 public class SaveGameManager : MonoBehaviour
@@ -30,9 +33,11 @@ public class SaveGameManager : MonoBehaviour
     public GameObject deletePannel;
     public InputField DeleteChoice;  //删档昵称选择
 
-    public GameObject tipPannel;
+    public GameObject tipPannel;  //各种提示面板
     public GameObject tipCreate;
     public GameObject tipLoad;
+    public Text WhoLogOut;
+    public GameObject tipLogOut;
 
     public GameObject magicPannel;  //内置修改器
     public Text originName;
@@ -43,10 +48,17 @@ public class SaveGameManager : MonoBehaviour
     public InputField magicRecord;
     public Text originLevel;
     public InputField magicLevel;
+    public InputField stealth;
+    public InputField agility;
+    public InputField mathematics;
 
     public Text showName;  //显示名字
     public Image showAvatar;  //显示头像
     public Text showRecord;  //显示游戏主线进度
+    public Text showLevel;  //显示其他数据
+    public Text showStealth;
+    public Text showAgility;
+    public Text showMathematics;
 
     private const string LastUsedSaveKey = "LastUsedSave";  //自动登录系统
     private string lastUsedSave;
@@ -66,6 +78,10 @@ public class SaveGameManager : MonoBehaviour
             showAvatar.sprite = avatarSprite;  //显示头像
             showRecord.text = "进度" + SaveData.record.ToString() + "点";
             DeleteChoice.text = SaveData.nickname;  //删档预输入
+            showLevel.text = SaveData.level.ToString() + "级";
+            showStealth.text = SaveData.stealth.ToString() + "点";
+            showAgility.text = SaveData.agility.ToString() + "点";
+            showMathematics.text = SaveData.mathematics.ToString() + "点";
         }
         IsLoggedIn = true;
     }
@@ -83,6 +99,36 @@ public class SaveGameManager : MonoBehaviour
         changePannel.SetActive(false);
 
         PlayerPrefs.SetString(LastUsedSaveKey, Nickname);
+        PlayerPrefs.Save();
+    }
+
+    public void LogOutPannel()
+    {
+        if (IsLoggedIn)
+        {
+            tipLogOut.SetActive(true);
+            WhoLogOut.text = "存档：<color=blue>" + Nickname + "</color>";
+        }
+    }
+
+    public void LogOut()  //退出登录
+    {
+        IsLoggedIn = false;  //更新登录状态为未登录
+        nicknameChoice.text = Nickname;  //回登预防
+        Nickname = null;
+        SaveData = null;
+
+        showName.text = "？？？";  //手动初始化界面
+        showAvatar.sprite = null;
+        showRecord.text = "？？？";
+        showLevel.text = "？？？";
+        showStealth.text = "？？？";
+        showAgility.text = "？？？";
+        showMathematics.text = "？？？";
+
+        tipLogOut.SetActive(false);
+
+        PlayerPrefs.SetString(LastUsedSaveKey, null);
         PlayerPrefs.Save();
     }
 
@@ -119,7 +165,9 @@ public class SaveGameManager : MonoBehaviour
             avatarPath = avatarPath,
             record = 0,
             level = 1,
-            defence = 1.0f
+            stealth = 0,
+            agility = 0,
+            mathematics = 0,
         };
         string saveDataJson = JsonUtility.ToJson(SaveData);
         PlayerPrefs.SetString(Nickname, saveDataJson);
@@ -138,15 +186,26 @@ public class SaveGameManager : MonoBehaviour
 
     public void DeleteSave()  //删除存档
     {
-        PlayerPrefs.DeleteKey(DeleteChoice.text);  //删除指定昵称的存档数据
-        IsLoggedIn = false;  //更新登录状态为未登录
-        Nickname = null;
-        SaveData = null;
+        if (PlayerPrefs.HasKey(DeleteChoice.text))
+        {
+            PlayerPrefs.DeleteKey(DeleteChoice.text);  //删除指定昵称的存档数据
+            IsLoggedIn = false;  //更新登录状态为未登录
+            Nickname = null;
+            SaveData = null;
 
-        showName.text = "？？？";  //手动初始化界面一下
-        showAvatar.sprite = null;
-        showRecord.text = "？？？";
-        deletePannel.SetActive(false);
+            showName.text = "？？？";  //手动初始化界面一下
+            showAvatar.sprite = null;
+            showRecord.text = "？？？";
+            showLevel.text = "？？？";
+            showStealth.text = "？？？";
+            showAgility.text = "？？？";
+            showMathematics.text = "？？？";
+
+            deletePannel.SetActive(false);
+
+            PlayerPrefs.SetString(LastUsedSaveKey, null);
+            PlayerPrefs.Save();
+        }
     }
     
     private void Start()  //初始化界面
@@ -187,6 +246,9 @@ public class SaveGameManager : MonoBehaviour
                     magicAvatar.value = 1;
                 magicRecord.text = SaveData.record.ToString();
                 magicLevel.text = SaveData.level.ToString();
+                stealth.text = SaveData.stealth.ToString();
+                agility.text = SaveData.agility.ToString();
+                mathematics.text = SaveData.mathematics.ToString();
             }
         }
     }
@@ -217,10 +279,29 @@ public class SaveGameManager : MonoBehaviour
 
         string attack1 = magicLevel.text;  //The Fourth
         int attack2;
-        if (int.TryParse(attack1, out int result2) && result2 <= 1000 && result2 >= 0)
+        if (int.TryParse(attack1, out int result2) && result2 <= 1000 && result2 >= 1)
             attack2 = result2;
         else
             attack2 = 1;
+
+        string magicGame1 = stealth.text;  //The Fifth
+        int game1;
+        if (int.TryParse(magicGame1, out int result3) && result3 <= 100 && result3 >= 0)
+            game1 = result3;
+        else
+            game1 = 0;
+        string magicGame2 = agility.text;  //The Sixth
+        int game2;
+        if (int.TryParse(magicGame2, out int result4) && result4 <= 100 && result4 >= 0)
+            game2 = result4;
+        else
+            game2 = 0;
+        string magicGame3 = mathematics.text;  //The Seventh
+        int game3;
+        if (int.TryParse(magicGame3, out int result5) && result5 <= 100 && result5 >= 0)
+            game3 = result5;
+        else
+            game3 = 0;
 
         SaveData = new SaveData
         {
@@ -228,7 +309,9 @@ public class SaveGameManager : MonoBehaviour
             avatarPath = avatarPath,
             record = record2,
             level = attack2,
-            defence = 1.0f
+            stealth = game1,
+            agility = game2,
+            mathematics = game3,
         };
 
         PlayerPrefs.SetString(Nickname, JsonUtility.ToJson(SaveData));

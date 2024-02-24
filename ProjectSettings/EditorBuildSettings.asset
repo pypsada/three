@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ChoseCareer.unity
     guid: e03ac2d9b1c62554787af127f31bb4b4
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 23485e2d9e890f44a8565ea3f736eda7
   - enabled: 0
     path: Assets/Scenes/Net.unity
     guid: 4c08fecd806e4b2438a7b66693c939ba
@@ -21,17 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/AIChoseCareer.unity
     guid: a97fbd9f0d966fc408b46d18c874a67e
   - enabled: 1
-    path: Assets/Scenes/ActOption.unity
-    guid: 597557e73a44e5b4093c02d30e12e183
-  - enabled: 1
-    path: Assets/Scenes/Toturial.unity
-    guid: 14c01430df822184ab647e4d7b7784c8
-  - enabled: 1
     path: Assets/Scenes/PK&AI.unity
     guid: 148640c986e154b4baeb7a7aff4b51a4
-  - enabled: 1
-    path: Assets/Scenes/Illustration.unity
-    guid: 32d8fd61a8a5d8f40b305e5c0e121b70
   - enabled: 1
     path: Assets/Scenes/Game1.unity
     guid: 1f49739101c24ef4cba0362af211e215
@@ -50,5 +38,32 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game3Teach.unity
     guid: 226c435b6bd85e540935afe6fefbbb0c
+  - enabled: 1
+    path: Assets/Scenes/Users.unity
+    guid: fb4e5f7dc51d26843a446a2e81d18cdc
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 23485e2d9e890f44a8565ea3f736eda7
+  - enabled: 1
+    path: Assets/Scenes/Toturial.unity
+    guid: 14c01430df822184ab647e4d7b7784c8
+  - enabled: 1
+    path: Assets/Scenes/Illustration.unity
+    guid: 32d8fd61a8a5d8f40b305e5c0e121b70
+  - enabled: 1
+    path: Assets/Scenes/GameCulture.unity
+    guid: abdf17cb6dbb2c843a3df0b34e1330fd
+  - enabled: 1
+    path: Assets/Scenes/GameAbout.unity
+    guid: 4ebb5035e1eefc04e9532b9bff486e4a
+  - enabled: 1
+    path: Assets/Scenes/ActOption.unity
+    guid: 597557e73a44e5b4093c02d30e12e183
+  - enabled: 1
+    path: Assets/Scenes/Act1.unity
+    guid: 3cee4c5150043ef47b0a6ee3f19c35cf
+  - enabled: 1
+    path: Assets/Scenes/Base.unity
+    guid: 9333294ec43e7af4485be097b5ce64ed
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
