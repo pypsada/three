@@ -24,7 +24,7 @@ namespace NetGame
         }
 
         //准备开始
-        int readyClient = 0;
+        public int readyClient = 0;
         public void ClientReady()
         {
             readyClient += 1;
