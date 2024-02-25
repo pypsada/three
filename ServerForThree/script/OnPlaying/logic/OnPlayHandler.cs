@@ -2,34 +2,34 @@
 
 public partial class MsgHandler
 {
-    public void MsgYouWin(ClientState c, MsgBase msgBase)
+    public static void MsgYouWin(ClientState c, MsgBase msgBase)
     {
         LogManager.Log("[MsgHandler Recv MsgYouWin in RoomMsgHandler]" +
             "Clients do not send this Msg, there must be something wrong!");
     }
-    public void MsgYouLost(ClientState c, MsgBase msgBase)
+    public static void MsgYouLost(ClientState c, MsgBase msgBase)
     {
         LogManager.Log("[MsgHandler Recv MsgYouLost in RoomMsgHandler]" +
             "Clients do not send this Msg, there must be something wrong!");
     }
-    public void MsgGameContinue(ClientState c, MsgBase msgBase)
+    public static void MsgGameContinue(ClientState c, MsgBase msgBase)
     {
         LogManager.Log("[MsgHandler Recv MsgGameContinue in RoomMsgHandler]" +
              "Clients do not send this Msg, there must be something wrong!");
     }
-    public void MsgAllReady(ClientState c, MsgBase msgBase)
+    public static void MsgAllReady(ClientState c, MsgBase msgBase)
     {
         LogManager.Log("[MsgHandler Recv MsgAllReady in RoomMsgHandler]" +
             "Clients do not send this Msg, there must be something wrong!");
     }
-    public void MsgRemoteInfo(ClientState c,MsgBase msgBase)
+    public static void MsgRemoteInfo(ClientState c,MsgBase msgBase)
     {
         LogManager.Log("[MsgHandler Recv MsgRemoteInfo in RoomMsgHandler]" +
             "Clients do not send this Msg, there must be something wrong!");
     }
 
     //收到某个客户端发过来的准备协议
-    public void MsgClientReady(ClientState c, MsgBase msgBase)
+    public static void MsgClientReady(ClientState c, MsgBase msgBase)
     {
         if(c.player==null)
         {
@@ -47,7 +47,7 @@ public partial class MsgHandler
     }
 
     //收到某个客户端发来的玩家已经行动协议
-    public void MsgPlayerAct(ClientState c,MsgBase msgBase)
+    public static void MsgPlayerAct(ClientState c,MsgBase msgBase)
     {
         MsgPlayerAct msg = (MsgPlayerAct)msgBase;
         c.player.tmpData = msg.tmpData;

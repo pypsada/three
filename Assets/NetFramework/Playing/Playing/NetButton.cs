@@ -44,6 +44,7 @@ public class NetButton : MonoBehaviour
     {
         NetMain.actions.Enqueue(() =>
         {
+            RemoveListner();
             eventSystem.SetActive(false);
             tipText.text = "胜利";
             remotePlayer.SetActive(false);
@@ -55,6 +56,7 @@ public class NetButton : MonoBehaviour
     {
         NetMain.actions.Enqueue(() =>
         {
+            RemoveListner();
             eventSystem.SetActive(false);
             tipText.text = "失败";
             localPlayer.SetActive(false);
@@ -68,6 +70,7 @@ public class NetButton : MonoBehaviour
         {
             eventSystem.SetActive(true);
             tipText.text = "请你出招";
+            round++;
         });
     }
 
@@ -76,6 +79,14 @@ public class NetButton : MonoBehaviour
     {
         MsgRemoteInfo msg=(MsgRemoteInfo)msgBase;
         remotePlayerScript.tmpData = msg.tmpData;
+    }
+
+    private void RemoveListner()
+    {
+        NetManager.RemoveMsgListener("MsgYouWin", ThisWin);
+        NetManager.RemoveMsgListener("MsgYouLost", ThisLose);
+        NetManager.RemoveMsgListener("MsgGameContinue", GameContinue);
+        NetManager.RemoveMsgListener("MsgRemoteInfo", RemoteInfo);
     }
 
 
@@ -88,6 +99,10 @@ public class NetButton : MonoBehaviour
     [Header("远程玩家信息")]
     public Text remoteEnegy;
     public Text remoteCareer;
+    [Header("游戏轮数文本")]
+    public Text gameRound;
+
+    private int round = 0;
 
     //在按下按钮之后
     private void AfterAct()
@@ -107,6 +122,8 @@ public class NetButton : MonoBehaviour
 
         remoteEnegy.text = remoteData.Energy.ToString();
         remoteCareer.text = remoteData.Career.ToString();
+
+        gameRound.text = round.ToString();
     }
 
     public void RubbingEnergy()  //搓能量

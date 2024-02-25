@@ -1696,7 +1696,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 10
+  m_Text: "\u8BF7\u4F60\u51FA\u62DB"
 --- !u!222 &991388924
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2549,6 +2549,7 @@ MonoBehaviour:
   localCareer: {fileID: 1483292583}
   remoteEnegy: {fileID: 927527805}
   remoteCareer: {fileID: 180080595}
+  gameRound: {fileID: 1209382040}
 --- !u!1 &1724565676
 GameObject:
   m_ObjectHideFlags: 0
