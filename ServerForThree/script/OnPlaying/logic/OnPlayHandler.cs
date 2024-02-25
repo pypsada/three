@@ -1,4 +1,5 @@
 ﻿using Mysqlx.Connection;
+using Newtonsoft.Json;
 
 public partial class MsgHandler
 {
@@ -50,15 +51,16 @@ public partial class MsgHandler
     public static void MsgPlayerAct(ClientState c,MsgBase msgBase)
     {
         MsgPlayerAct msg = (MsgPlayerAct)msgBase;
-        c.player.tmpData = msg.tmpData;
+        c.player.tmpData = (PlayerTmpData)JsonConvert.DeserializeObject(msg.tmpData, typeof(PlayerTmpData));
         NetGame.Room room = c.player.room;
+        room.actPlayer++;
 
         if(room.actPlayer>=2)
         {
             MsgRemoteInfo msg_a = new();
-            msg_a.tmpData = room.player_a.tmpData;
+            msg_a.tmpData = JsonConvert.SerializeObject(room.player_a.tmpData);
             MsgRemoteInfo msg_b = new();
-            msg_b.tmpData = room.player_b.tmpData;
+            msg_b.tmpData = JsonConvert.SerializeObject(room.player_b.tmpData);
 
             room.player_a.Send(msg_b);
             room.player_b.Send(msg_a);

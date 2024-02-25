@@ -1,4 +1,5 @@
 ﻿using NetGame;
+using Newtonsoft.Json;
 
 //管理匹配中和游戏中的房间
 public class RoomManager
@@ -23,17 +24,17 @@ public class RoomManager
             rooms.Add(room);
 
             MsgMatched msg_0 = new();
-            msg_0.localPlayerData = matching[0].data;
+            msg_0.localPlayerData = JsonConvert.SerializeObject(matching[0].data);
             msg_0.localPlayerId = matching[0].id;
             msg_0.remotePlayerId = matching[1].id;
-            msg_0.remotePlayerData = matching[1].data;
+            msg_0.remotePlayerData = JsonConvert.SerializeObject(matching[1].data);
             matching[0].Send(msg_0);
 
             MsgMatched msg_1 = new();
-            msg_1.localPlayerData = matching[1].data;
+            msg_1.localPlayerData = JsonConvert.SerializeObject(matching[1].data);
             msg_1.localPlayerId = matching[1].id;
             msg_1.remotePlayerId = matching[0].id;
-            msg_1.remotePlayerData = matching[0].data;
+            msg_1.remotePlayerData = JsonConvert.SerializeObject(matching[0].data);
             matching[1].Send(msg_1);
 
             matching.RemoveAt(0);

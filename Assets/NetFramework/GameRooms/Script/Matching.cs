@@ -1,4 +1,5 @@
 using NetGame;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -55,8 +56,13 @@ public class Matching : MonoBehaviour
         MsgMatched msg = (MsgMatched)msgBase;
         localPlayerId.text = "ID:"+msg.localPlayerId;
         remotePlayerId.text = "对手ID:"+msg.remotePlayerId;
-        PlayerData local = msg.localPlayerData;
-        PlayerData remote = msg.remotePlayerData;
+        PlayerData local = (PlayerData)JsonUtility.FromJson(msg.localPlayerData, typeof(PlayerData));
+        PlayerData remote = (PlayerData)JsonUtility.FromJson(msg.localPlayerData, typeof(PlayerData));
+
+        Debug.Log(localPlayerData.text);
+        Debug.Log(local.victoryTimes);
+        Debug.Log(local.failTimes);
+
         localPlayerData.text = "数据：" + local.victoryTimes + "胜" + local.failTimes + "败\n" +
             "胜率" + (float)local.victoryTimes / (float)(local.victoryTimes + local.failTimes);
         remotePlayerData.text = "对手数据：" + remote.victoryTimes + "胜" + remote.failTimes + "败\n" +

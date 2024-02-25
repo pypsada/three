@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using MySqlX.XDevAPI;
+using System.Net;
 using System.Net.Sockets;
 using System.Reflection;
 
@@ -226,6 +227,9 @@ class NetManager
         //为了简化代码，暂时不使用回调
         try
         {
+            LogManager.Log("Send to "+ cs.socket.RemoteEndPoint.ToString() + ":\n" +
+            System.Text.Encoding.UTF8.GetString(sendBytes, 0, sendBytes.Length), false, true);
+
             cs.socket.BeginSend(sendBytes, 0, sendBytes.Length, 0, SendCallback, cs.socket);
         }
         catch(SocketException ex)

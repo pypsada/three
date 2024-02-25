@@ -24,7 +24,7 @@ public class MsgPlayerAct : MsgBase
 {
     public MsgPlayerAct() { protoName = "MsgPlayerAct"; }
 
-    public PlayerTmpData tmpData;
+    public string tmpData;
 }
 
 //服务端发客户端传递远程玩家消息
@@ -32,5 +32,5 @@ public class MsgRemoteInfo : MsgBase
 {
     public MsgRemoteInfo() { protoName = "MsgRemoteInfo"; }
 
-    public PlayerTmpData tmpData;
+    public string tmpData;
 }

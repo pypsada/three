@@ -453,8 +453,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1478921104}
-        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+      - m_Target: {fileID: 1478921106}
+        m_TargetAssemblyTypeName: NetButton, Assembly-CSharp
         m_MethodName: ChoseGuard
         m_Mode: 1
         m_Arguments:
@@ -586,8 +586,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1478921104}
-        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+      - m_Target: {fileID: 1478921106}
+        m_TargetAssemblyTypeName: NetButton, Assembly-CSharp
         m_MethodName: ChoseThief
         m_Mode: 1
         m_Arguments:
@@ -719,8 +719,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1478921104}
-        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+      - m_Target: {fileID: 1478921106}
+        m_TargetAssemblyTypeName: NetButton, Assembly-CSharp
         m_MethodName: ChoseRascally
         m_Mode: 1
         m_Arguments:
@@ -931,8 +931,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1478921104}
-        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+      - m_Target: {fileID: 1478921106}
+        m_TargetAssemblyTypeName: NetButton, Assembly-CSharp
         m_MethodName: ChoseArrogance
         m_Mode: 1
         m_Arguments:
@@ -1064,8 +1064,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1478921104}
-        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+      - m_Target: {fileID: 1478921106}
+        m_TargetAssemblyTypeName: NetButton, Assembly-CSharp
         m_MethodName: ChoseKing
         m_Mode: 1
         m_Arguments:
@@ -1276,8 +1276,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1478921104}
-        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+      - m_Target: {fileID: 1478921106}
+        m_TargetAssemblyTypeName: NetButton, Assembly-CSharp
         m_MethodName: ChoseAssassin
         m_Mode: 1
         m_Arguments:
@@ -1523,7 +1523,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1478921105}
-  - component: {fileID: 1478921104}
+  - component: {fileID: 1478921106}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -1531,20 +1531,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1478921104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1478921103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d2013b9e7a25ba459a8b1947caad36e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  ai: {fileID: 0}
 --- !u!4 &1478921105
 Transform:
   m_ObjectHideFlags: 0
@@ -1560,6 +1546,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1478921106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478921103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bda6a5c5a72c6e44ad2cfb52bab349a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localPlayer: {fileID: 0}
+  remotePlayer: {fileID: 0}
+  eventSystem: {fileID: 0}
+  tipText: {fileID: 0}
+  localEnegy: {fileID: 0}
+  localCareer: {fileID: 0}
+  remoteEnegy: {fileID: 0}
+  remoteCareer: {fileID: 0}
+  gameRound: {fileID: 0}
 --- !u!1 &1506785532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1711,8 +1718,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1478921104}
-        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+      - m_Target: {fileID: 1478921106}
+        m_TargetAssemblyTypeName: NetButton, Assembly-CSharp
         m_MethodName: ChoseTurtle
         m_Mode: 1
         m_Arguments:

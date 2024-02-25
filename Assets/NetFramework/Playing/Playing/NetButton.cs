@@ -1,4 +1,5 @@
 using NetGame;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class NetButton : MonoBehaviour
 {
+    [Header("set")]
+    public bool updata;
     [Header("ref")]
     public GameObject localPlayer;
     public GameObject remotePlayer;
@@ -78,7 +81,7 @@ public class NetButton : MonoBehaviour
     private void RemoteInfo(MsgBase msgBase)
     {
         MsgRemoteInfo msg=(MsgRemoteInfo)msgBase;
-        remotePlayerScript.tmpData = msg.tmpData;
+        remotePlayerScript.tmpData = (PlayerTmpData)JsonUtility.FromJson(msg.tmpData, typeof(PlayerTmpData));
     }
 
     private void RemoveListner()
@@ -109,11 +112,16 @@ public class NetButton : MonoBehaviour
     {
         eventSystem.SetActive(false);
         tipText.text = "等待对方玩家出招";
+        MsgPlayerAct act = new();
+        act.tmpData = JsonUtility.ToJson(playerScript.tmpData);
+        NetManager.Send(act);
     }
 
     //更新UI数据
     private void UpdateUIData()
     {
+        if (!updata) return;
+
         PlayerTmpData localData = playerScript.tmpData;
         PlayerTmpData remoteData = remotePlayerScript.tmpData;
 

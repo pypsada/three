@@ -2541,6 +2541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bda6a5c5a72c6e44ad2cfb52bab349a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  updata: 1
   localPlayer: {fileID: 7113612}
   remotePlayer: {fileID: 1339384680}
   eventSystem: {fileID: 47665277}
