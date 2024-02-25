@@ -2,6 +2,7 @@ using NetGame;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Matching : MonoBehaviour
@@ -56,10 +57,10 @@ public class Matching : MonoBehaviour
         remotePlayerId.text = "对手ID:"+msg.remotePlayerId;
         PlayerData local = msg.localPlayerData;
         PlayerData remote = msg.remotePlayerData;
-        localPlayerData.text = "数据：" + local.victoryTimes + "胜" + local.failTimes + "败" +
-            " 胜率" + (float)local.victoryTimes / (float)(local.victoryTimes + local.failTimes);
-        remotePlayerData.text = "对手数据：" + remote.victoryTimes + "胜" + remote.failTimes + "败" +
-            " 胜率" + (float)remote.victoryTimes / (float)(remote.victoryTimes + remote.failTimes);
+        localPlayerData.text = "数据：" + local.victoryTimes + "胜" + local.failTimes + "败\n" +
+            "胜率" + (float)local.victoryTimes / (float)(local.victoryTimes + local.failTimes);
+        remotePlayerData.text = "对手数据：" + remote.victoryTimes + "胜" + remote.failTimes + "败\n" +
+            "胜率" + (float)remote.victoryTimes / (float)(remote.victoryTimes + remote.failTimes);
     }
 
     //按下开始匹配按钮
@@ -95,5 +96,10 @@ public class Matching : MonoBehaviour
                 text.text = str + buff;
             }
         }
+    }
+
+    public void OnClickSure()
+    {
+        SceneManager.LoadScene("NetBeforePlaying");
     }
 }
