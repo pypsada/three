@@ -5,6 +5,6 @@ namespace NetGame
 {
     public class Player : MonoBehaviour
     {
-        PlayerTmpData tmpData;
+        public PlayerTmpData tmpData = new();
     }
 }

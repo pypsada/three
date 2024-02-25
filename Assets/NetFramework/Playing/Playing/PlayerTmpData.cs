@@ -28,6 +28,11 @@ namespace NetGame
 
         public bool Win = true;  //是否获胜
 
+        public PlayerTmpData()
+        {
+            InitData();
+        }
+
         //初始化数据
         public void InitData()
         {

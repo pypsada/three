@@ -25,6 +25,10 @@ namespace NetGame
 
         //准备开始
         public int readyClient = 0;
+
+        //行动玩家数量 
+        public int actPlayer = 0;
+
         public void ClientReady()
         {
             readyClient += 1;

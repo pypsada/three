@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 7113613}
   - component: {fileID: 7113615}
   m_Layer: 0
-  m_Name: Player
+  m_Name: LocalPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -214,33 +214,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7113612}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cc00313f29c97948b10a142b2937df2, type: 3}
+  m_Script: {fileID: 11500000, guid: 1df516f747fde024fbb8d244b2242295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zhaoshi: 
-  health: 0
-  Energy: 0
-  Priority: 0
-  Rebounding: 0
-  Defensing: 0
-  AI: {fileID: 1339384683}
-  AIgameobject: {fileID: 1339384680}
-  Chose: 0
-  Career: 0
-  StringCareer: 
-  Ground: 0
-  RascallyNumber: 0
-  ArroganceNumber: 0
-  Thiefing: 0
-  PangolinNumber: 0
-  IsPangolin: 0
-  Continue: 0
-  countDownText: {fileID: 991388923}
-  WinOrLose: {fileID: 0}
-  TanChuang: {fileID: 0}
-  countDownTimer: 5
-  GroundText: {fileID: 1209382040}
-  Win: 1
 --- !u!1 &9740473
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,13 +451,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180080592}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb7bd311f7ed5c7468b0c641aca57e39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 180080595}
-  AIScript: {fileID: 1339384683}
+  AIScript: {fileID: 0}
   energyValue: 0
   Career: 1
 --- !u!1 &193532658
@@ -532,13 +508,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193532658}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a0d52b0becf39945ad6c940b15469d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   grayColor: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
-  player: {fileID: 7113615}
+  player: {fileID: 0}
   Energy: 1
   Click: 0
   Career: 0
@@ -586,7 +562,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1692729167}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Button, Assembly-CSharp
         m_MethodName: Gun
         m_Mode: 1
@@ -698,13 +674,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260801510}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a0d52b0becf39945ad6c940b15469d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   grayColor: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
-  player: {fileID: 7113615}
+  player: {fileID: 0}
   Energy: 0
   Click: 0
   Career: 0
@@ -752,7 +728,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1692729167}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Button, Assembly-CSharp
         m_MethodName: RubbingEnergy
         m_Mode: 1
@@ -1168,7 +1144,7 @@ PrefabInstance:
     - target: {fileID: 1527234579015329094, guid: ebfe9b9d58b59bf4c91b4fd3b293a4c7, type: 3}
       propertyPath: AI
       value: 
-      objectReference: {fileID: 1339384683}
+      objectReference: {fileID: 0}
     - target: {fileID: 1527234579015329094, guid: ebfe9b9d58b59bf4c91b4fd3b293a4c7, type: 3}
       propertyPath: GroundText
       value: 
@@ -1224,6 +1200,10 @@ PrefabInstance:
     - target: {fileID: 8831512234346702338, guid: ebfe9b9d58b59bf4c91b4fd3b293a4c7, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8831512234346702338, guid: ebfe9b9d58b59bf4c91b4fd3b293a4c7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1446,13 +1426,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915075565}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a0d52b0becf39945ad6c940b15469d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   grayColor: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
-  player: {fileID: 7113615}
+  player: {fileID: 0}
   Energy: 4
   Click: 0
   Career: 1
@@ -1500,7 +1480,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1692729167}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Button, Assembly-CSharp
         m_MethodName: VocationalSkills
         m_Mode: 1
@@ -1595,13 +1575,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927527802}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb7bd311f7ed5c7468b0c641aca57e39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 927527805}
-  AIScript: {fileID: 1339384683}
+  AIScript: {fileID: 0}
   energyValue: 0
   Career: 0
 --- !u!114 &927527805
@@ -1895,7 +1875,7 @@ GameObject:
   - component: {fileID: 1339384681}
   - component: {fileID: 1339384683}
   m_Layer: 0
-  m_Name: AI
+  m_Name: RemotePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1977,25 +1957,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1339384680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d0d68c5881d1dd47b1e54eba479620f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1df516f747fde024fbb8d244b2242295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  Win: 0
-  Energy: 0
-  Priority: 0
-  Rebounding: 0
-  Defensing: 0
-  player: {fileID: 7113615}
-  chose: 0
-  StringCareer: 
-  Career: 0
-  ArroganceNumber: 0
-  Thiefing: 0
-  RascallyNumber: 0
-  PangolinNumber: 0
-  IsPangolin: 0
-  CiSha: 0
 --- !u!1 &1409499272
 GameObject:
   m_ObjectHideFlags: 0
@@ -2044,13 +2008,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1409499272}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a0d52b0becf39945ad6c940b15469d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   grayColor: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
-  player: {fileID: 7113615}
+  player: {fileID: 0}
   Energy: 4
   Click: 0
   Career: 0
@@ -2098,7 +2062,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1692729167}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Button, Assembly-CSharp
         m_MethodName: HolyGrail
         m_Mode: 1
@@ -2285,7 +2249,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483292580}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0091e1301784b7e4da3ee23ab7321e3b, type: 3}
   m_Name: 
@@ -2542,7 +2506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1692729168}
-  - component: {fileID: 1692729167}
+  - component: {fileID: 1692729169}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -2550,20 +2514,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1692729167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1692729166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d2013b9e7a25ba459a8b1947caad36e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 7113615}
-  ai: {fileID: 1339384683}
 --- !u!4 &1692729168
 Transform:
   m_ObjectHideFlags: 0
@@ -2579,6 +2529,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1692729169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692729166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bda6a5c5a72c6e44ad2cfb52bab349a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localPlayer: {fileID: 7113612}
+  remotePlayer: {fileID: 1339384680}
+  eventSystem: {fileID: 47665277}
+  tipText: {fileID: 991388923}
+  localEnegy: {fileID: 1724565679}
+  localCareer: {fileID: 1483292583}
+  remoteEnegy: {fileID: 927527805}
+  remoteCareer: {fileID: 180080595}
 --- !u!1 &1724565676
 GameObject:
   m_ObjectHideFlags: 0
@@ -2624,7 +2594,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724565676}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0091e1301784b7e4da3ee23ab7321e3b, type: 3}
   m_Name: 
@@ -2722,13 +2692,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731153857}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a0d52b0becf39945ad6c940b15469d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   grayColor: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
-  player: {fileID: 7113615}
+  player: {fileID: 0}
   Energy: 2
   Click: 0
   Career: 0
@@ -2776,7 +2746,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1692729167}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Button, Assembly-CSharp
         m_MethodName: Rebound
         m_Mode: 1
@@ -2966,13 +2936,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1954435683}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a0d52b0becf39945ad6c940b15469d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   grayColor: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
-  player: {fileID: 7113615}
+  player: {fileID: 0}
   Energy: 0
   Click: 0
   Career: 0
@@ -3020,7 +2990,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1692729167}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Button, Assembly-CSharp
         m_MethodName: Defense
         m_Mode: 1

@@ -13,6 +13,7 @@ public class WaitingChosing : MonoBehaviour
         lastUpdate = 0;
         signNum = 1;
 
+        NetManager.Send(new MsgClientReady());
         NetManager.AddMsgListener("MsgAllReady", OnLoad);
     }
 

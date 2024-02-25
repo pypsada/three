@@ -15,3 +15,20 @@ public class MsgGameContinue:MsgBase
 {
     public MsgGameContinue() { protoName = "MsgGameContinue"; }
 }
+
+
+//客户端发服务端表示玩家已经行动
+public class MsgPlayerAct:MsgBase
+{
+    public MsgPlayerAct() { protoName = "MsgPlayerAct"; }
+
+    public PlayerTmpData tmpData;
+}
+
+//服务端发客户端传递远程玩家消息
+public class MsgRemoteInfo:MsgBase
+{
+    public MsgRemoteInfo() { protoName = "MsgRemoteInfo"; }
+
+    public PlayerTmpData tmpData;
+}
