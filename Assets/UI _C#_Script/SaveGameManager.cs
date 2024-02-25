@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Profiling;
 using UnityEngine.UI;
 using UnityEngine.Windows;
 
@@ -19,6 +20,9 @@ public class SaveData
     public int stealth;
     public int agility;
     public int mathematics;
+    public int UID;
+    public int victory;
+    public int lose;
 }
 
 public class SaveGameManager : MonoBehaviour
@@ -26,6 +30,10 @@ public class SaveGameManager : MonoBehaviour
     public GameObject createPannel;  //创建存档的面板
     public InputField nicknameInput;  //输入昵称的栏
     public Dropdown avatorValue;  //选择头像的栏
+
+    public GameObject correctPannel;  //改名改头像
+    public InputField nicknameCorrect;
+    public Dropdown avatarCorrect;
 
     public GameObject changePannel;
     public InputField nicknameChoice;  //选择昵称调出
@@ -223,6 +231,67 @@ public class SaveGameManager : MonoBehaviour
             Load(Nickname);
         else
             createPannel.SetActive(true);
+    }
+
+    public void CorrectPannel()  //更改信息
+    {
+        if (Nickname != null)
+        {
+            correctPannel.SetActive(true);
+            nicknameCorrect.text = SaveData.nickname;  //预输入
+            if (SaveData.avatarPath == "MrWu")
+                avatarCorrect.value = 0;
+            else
+                avatarCorrect.value = 1;
+        }
+    }
+
+    public void Correct()
+    {
+        if (PlayerPrefs.HasKey(nicknameCorrect.text) && !nicknameCorrect.text.Equals(Nickname))
+        {
+            tipPannel.SetActive(true);//昵称已存在，弹出提示框
+            return;
+        }
+
+        string name1 = nicknameCorrect.text;  //改昵称
+
+        string avatarPath;  //改头像
+        if (avatarCorrect.value == 0)
+            avatarPath = "MrWu";
+        else
+            avatarPath = "MissMei";
+
+        int record1 = SaveData.record;  //临时变量保护其他储存值
+        int level1 = SaveData.level;
+        int game1 = SaveData.stealth;
+        int game2 = SaveData.agility;
+        int game3 = SaveData.mathematics;
+
+        DeleteSave();  //删档
+
+        Nickname = name1;
+
+        SaveData = new SaveData
+        {
+            nickname = name1,
+            avatarPath = avatarPath,
+            record = record1,
+            level = level1,
+            stealth = game1,
+            agility = game2,
+            mathematics = game3,
+        };
+
+        PlayerPrefs.SetString(Nickname, JsonUtility.ToJson(SaveData));
+        PlayerPrefs.Save();
+
+        Load(Nickname);
+
+        correctPannel.SetActive(false);
+
+        PlayerPrefs.SetString(LastUsedSaveKey, Nickname);
+        PlayerPrefs.Save();
     }
 
     private void Update()  //内置修改器
