@@ -1189,14 +1189,6 @@ PrefabInstance:
       propertyPath: countDownText
       value: 
       objectReference: {fileID: 991388923}
-    - target: {fileID: 1614198177042495262, guid: ebfe9b9d58b59bf4c91b4fd3b293a4c7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1614198177042495262, guid: ebfe9b9d58b59bf4c91b4fd3b293a4c7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1822920951660741120, guid: ebfe9b9d58b59bf4c91b4fd3b293a4c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.74
@@ -1237,49 +1229,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4962111910904400084, guid: ebfe9b9d58b59bf4c91b4fd3b293a4c7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4962111910904400084, guid: ebfe9b9d58b59bf4c91b4fd3b293a4c7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5112428755145057859, guid: ebfe9b9d58b59bf4c91b4fd3b293a4c7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5112428755145057859, guid: ebfe9b9d58b59bf4c91b4fd3b293a4c7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7106164976809681746, guid: ebfe9b9d58b59bf4c91b4fd3b293a4c7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7106164976809681746, guid: ebfe9b9d58b59bf4c91b4fd3b293a4c7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8224088288685733140, guid: ebfe9b9d58b59bf4c91b4fd3b293a4c7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8224088288685733140, guid: ebfe9b9d58b59bf4c91b4fd3b293a4c7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8831512234346702338, guid: ebfe9b9d58b59bf4c91b4fd3b293a4c7, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9119611513934358359, guid: ebfe9b9d58b59bf4c91b4fd3b293a4c7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9119611513934358359, guid: ebfe9b9d58b59bf4c91b4fd3b293a4c7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

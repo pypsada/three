@@ -335,43 +335,6 @@ public class Player : MonoBehaviour
         {
             Arrogance1();
         }
-        //if (IsPangolin)  //穿山甲职业判定
-        //{
-        //    if (PangolinNumber >= 5)  //秒杀
-        //    {
-        //        Destroy(AIgameobject);
-        //        Debug.Log("WIN");
-        //    }
-        //    else if (PangolinNumber >= 3)  //免疫普攻判定
-        //    {
-        //        if (AI.Priority == 2)
-        //        {
-        //            Destroy(gameObject);
-        //            Debug.Log("LOSE");
-        //        }
-        //        else
-        //        {
-        //            Debug.Log("Continue");
-        //        }
-        //    }
-        //    else  //否则就相当于普通搓
-        //    {
-        //        if (AI.Defensing==false && AI.Rebounding==false && AI.Priority>=2)
-        //        {
-        //            Destroy(gameObject) ;
-        //            Debug.Log("LOSE");
-        //        }
-        //        else if (AI.Defensing == false && AI.Rebounding == false && AI.Priority == 1 && Defensing==false)
-        //        {
-        //            Destroy(gameObject);
-        //            Debug.Log("LOSE");
-        //        }
-        //        else
-        //        {
-        //            Debug.Log("Continue");
-        //        }
-        //    }
-        //}
         if (Thiefing)
         {
             if (AI.Defensing==true || AI.Rebounding==true)  
