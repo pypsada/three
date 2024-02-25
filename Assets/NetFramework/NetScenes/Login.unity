@@ -1958,7 +1958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5779215dcf6b3e4389145561c9702fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ip: 47.108.235.175
+  ip: 127.0.0.1
   port: 8888
 --- !u!4 &909516139
 Transform:
@@ -2282,7 +2282,6 @@ MonoBehaviour:
   netMain: {fileID: 909516138}
   beforeConnect: {fileID: 891517691}
   connecting: {fileID: 720396982}
-  login: {fileID: 632633063}
   connectSucc: {fileID: 897303713}
   connectFail: {fileID: 1590322041}
 --- !u!114 &952097275

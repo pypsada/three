@@ -206,4 +206,24 @@ public class DbManager
             return false;
         }
     }
+
+    //给新用户分配uid
+    public static int GetNewUid()
+    {
+        string fileName = "./NewUid.json";
+        int buff;
+        if (!File.Exists(fileName))
+        {
+            buff = 1;
+        }
+        else
+        {
+            string buffJson = File.ReadAllText(fileName);
+            buff = (int)JsonConvert.DeserializeObject(buffJson, typeof(int));
+        }
+        buff++;
+        string json = JsonConvert.SerializeObject(buff);
+        File.WriteAllText(fileName, json);
+        return buff - 1;
+    }
 }

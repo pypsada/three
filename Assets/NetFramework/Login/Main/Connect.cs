@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
+using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 //Used by Canvas
 public class Connect : MonoBehaviour
@@ -24,7 +27,7 @@ public class Connect : MonoBehaviour
     [Header("½çÃæ")]
     public GameObject beforeConnect;
     public GameObject connecting;
-    public GameObject login;
+    //public GameObject login;
     public GameObject connectSucc;
     public GameObject connectFail;
 
@@ -37,6 +40,29 @@ public class Connect : MonoBehaviour
     }
 
     private void ConnectSucc(string msg)
+    {
+        NetMain.actions.Enqueue(() =>
+        {
+            //Debug.Log(SaveGameManager.SaveData==null);
+            //SaveGameManager.SaveData.UID = 0;
+            //PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
+            //PlayerPrefs.Save();
+
+            if (SaveGameManager.SaveData.UID == 0)
+            {
+                NetManager.Send(new MsgAskNewUid());
+            }
+            else
+            {
+                MsgLogin msgLogin = new();
+                msgLogin.id = SaveGameManager.SaveData.UID.ToString();
+                msgLogin.pw = SaveGameManager.SaveData.UID.ToString();
+                NetManager.Send(msgLogin);
+            }
+        });
+    }
+
+    private void ConnectSuccCompletely()
     {
         NetMain.actions.Enqueue(() =>
         {
@@ -58,13 +84,15 @@ public class Connect : MonoBehaviour
     public void OnClickConnSucc()
     {
         connectSucc.SetActive(false);
-        login.SetActive(true);
+        //login.SetActive(true);
         RemoveMsgListener();
+        SceneManager.LoadScene("GameRooms");
     }
 
     //°´ÏÂÁ¬½ÓÊ§°ÜµÄ°´Å¥
     public void OnClickConnFail()
     {
+        ClickClose();
         connectFail.SetActive(false);
         beforeConnect.SetActive(true);
     }
@@ -75,7 +103,7 @@ public class Connect : MonoBehaviour
         Debug.Log("µÇ³ö");
         NetManager.Close();
         NetManager.ping = -1;
-        login.SetActive(false);
+        //login.SetActive(false);
         beforeConnect.SetActive(true);
         AddMsgListener();
     }
@@ -84,11 +112,86 @@ public class Connect : MonoBehaviour
     {
         NetManager.AddEventListener(NetManager.NetEvent.ConnectSucc, ConnectSucc);
         NetManager.AddEventListener(NetManager.NetEvent.ConnectFail, ConnectFail);
+        NetManager.AddMsgListener("MsgLogin", OnLogin);
+        NetManager.AddMsgListener("MsgRegister", OnRegister);
+        NetManager.AddMsgListener("MsgAskNewUid", GetNewUid);
     }
 
     private void RemoveMsgListener()
     {
         NetManager.RemoveEventListener(NetManager.NetEvent.ConnectSucc, ConnectSucc);
         NetManager.RemoveEventListener(NetManager.NetEvent.ConnectFail, ConnectFail);
+        NetManager.RemoveMsgListener("MsgLogin", OnLogin);
+        NetManager.RemoveMsgListener("MsgRegister", OnRegister);
+        NetManager.RemoveMsgListener("MsgAskNewUid", GetNewUid);
+    }
+
+    private void OnLogin(MsgBase msgBase)
+    {
+        NetMain.actions.Enqueue(() =>
+        {
+            MsgLogin msgLogin = (MsgLogin)msgBase;
+            if (msgLogin.result == 0)
+            {
+                //µÇÂ¼³É¹¦
+                Debug.Log("µÇÂ¼³É¹¦");
+                ConnectSuccCompletely();
+                //RemoveMsgListener();
+                //SceneManager.LoadScene("GameRooms");
+            }
+            else if (msgLogin.result == 1)
+            {
+                //µÇÂ¼Ê§°Ü
+                Debug.Log("µÇÂ¼Ê§°Ü");
+                NetManager.Close();
+                ConnectFail("µÇÂ¼Ê§°Ü");
+            }
+        });
+    }
+
+    private void OnRegister(MsgBase msgBase)
+    {
+        NetMain.actions.Enqueue(() =>
+        {
+            MsgRegister msg = (MsgRegister)msgBase;
+            if (msg.result == 0)
+            {
+                //×¢²á³É¹¦
+                Debug.Log("×¢²á³É¹¦");
+
+                MsgLogin msgLogin = new();
+                msgLogin.id = SaveGameManager.SaveData.UID.ToString();
+                msgLogin.pw = SaveGameManager.SaveData.UID.ToString();
+                NetManager.Send(msgLogin);
+            }
+            else if (msg.result == 1)
+            {
+                //×¢²áÊ§°Ü
+                Debug.Log("×¢²áÊ§°Ü");
+
+                SaveGameManager.SaveData.UID = 0;
+                PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
+                PlayerPrefs.Save();
+
+                NetManager.Close();
+                ConnectFail("×¢²áÊ§°Ü");
+            }
+        });  
+    }
+
+    private void GetNewUid(MsgBase msgBase)
+    {
+        NetMain.actions.Enqueue(() =>
+        {
+            MsgAskNewUid msg = (MsgAskNewUid)msgBase;
+            SaveGameManager.SaveData.UID = msg.newUid;
+            PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
+            PlayerPrefs.Save();
+
+            MsgRegister msgRigiser = new();
+            msgRigiser.id = SaveGameManager.SaveData.UID.ToString();
+            msgRigiser.pw = SaveGameManager.SaveData.UID.ToString();
+            NetManager.Send(msgRigiser);
+        });
     }
 }
