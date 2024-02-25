@@ -79,4 +79,8 @@ public class Scene_Menu : MonoBehaviour
     {
         SceneManager.LoadScene("Base");
     }
+    public void PVP()
+    {
+        SceneManager.LoadScene("Login");
+    }
 }

@@ -81,11 +81,11 @@ public class SaveGameManager : MonoBehaviour
         if (!string.IsNullOrEmpty(saveDataJson))
         {
             SaveData = JsonUtility.FromJson<SaveData>(saveDataJson);  //在界面上显示存档信息
-            showName.text = SaveData.nickname;  //其他存档数据的显示
+            showName.text = nickname;  //其他存档数据的显示
             Sprite avatarSprite = Resources.Load<Sprite>(SaveData.avatarPath);
             showAvatar.sprite = avatarSprite;  //显示头像
             showRecord.text = "进度" + SaveData.record.ToString() + "点";
-            DeleteChoice.text = SaveData.nickname;  //删档预输入
+            DeleteChoice.text = nickname;  //删档预输入
             showLevel.text = SaveData.level.ToString() + "级";
             showStealth.text = SaveData.stealth.ToString() + "点";
             showAgility.text = SaveData.agility.ToString() + "点";
@@ -241,7 +241,7 @@ public class SaveGameManager : MonoBehaviour
         if (Nickname != null)
         {
             correctPannel.SetActive(true);
-            nicknameCorrect.text = SaveData.nickname;  //预输入
+            nicknameCorrect.text = Nickname;  //预输入
             if (SaveData.avatarPath == "MrWu")
                 avatarCorrect.value = 0;
             else
@@ -281,7 +281,7 @@ public class SaveGameManager : MonoBehaviour
 
         SaveData = new SaveData
         {
-            nickname = name1,
+            nickname = Nickname,
             avatarPath = avatarPath,
             record = record1,
             level = level1,
@@ -312,13 +312,13 @@ public class SaveGameManager : MonoBehaviour
                 UnityEngine.Input.GetKey(KeyCode.P))
             {
                 magicPannel.SetActive(true);
-                originName.text = SaveData.nickname;
+                originName.text = Nickname;
                 Sprite avatarSprite = Resources.Load<Sprite>(SaveData.avatarPath);
                 originAvatar.sprite = avatarSprite;  //显示头像
                 originRecord.text = SaveData.record.ToString() + "点";
                 originLevel.text = SaveData.level.ToString() + "级";
                 
-                magicName.text = SaveData.nickname;  //预输入
+                magicName.text = Nickname;  //预输入
                 if (SaveData.avatarPath == "MrWu")
                     magicAvatar.value = 0;
                 else

@@ -76,7 +76,8 @@ public class DialogManager : MonoBehaviour
 
     IEnumerator TypeText()  //逐字跳字
     {
-        foreach (char letter in theContent[currentSignIndex].ToCharArray())
+        string str = theContent[currentSignIndex].Replace("ZJ", SaveGameManager.Nickname);
+        foreach (char letter in str.ToCharArray())
         {
             Content.text += letter;  //添加当前字符到文本框
             yield return new WaitForSeconds(letterPause);
