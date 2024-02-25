@@ -524,17 +524,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241264410}
   m_CullTransparentMesh: 1
---- !u!114 &296825131 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1401434648226751315, guid: 3616a69cc28b1704f9ad04d95954a3fb, type: 3}
-  m_PrefabInstance: {fileID: 2605770063099144957}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62a9a49a15a9a404f9b5521c458f96ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &299149851
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,6 +770,7 @@ GameObject:
   - component: {fileID: 347650501}
   - component: {fileID: 347650500}
   - component: {fileID: 347650499}
+  - component: {fileID: 347650503}
   m_Layer: 5
   m_Name: Choice2
   m_TagString: Untagged
@@ -857,9 +847,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 296825131}
-          m_TargetAssemblyTypeName: Scene_Menu, Assembly-CSharp
-          m_MethodName: MainMenu
+        - m_Target: {fileID: 347650503}
+          m_TargetAssemblyTypeName: SceneChoice, Assembly-CSharp
+          m_MethodName: SceneAlt
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -919,6 +909,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 347650497}
   m_CullTransparentMesh: 1
+--- !u!114 &347650503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347650497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a9992e18cc86b409e9183c40dc709e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneChoice: MainMenu
+  time: 2
+  effectPrefab: {fileID: 6037742004090332351, guid: 0df6d4512043ad944a01dd291ffbe8da, type: 3}
+  canvas: {fileID: 1539774107}
 --- !u!1 &423760200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1297,6 +1303,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneChoice: Act1
+  time: 2
+  effectPrefab: {fileID: 6037742004090332351, guid: 0df6d4512043ad944a01dd291ffbe8da, type: 3}
+  canvas: {fileID: 1539774107}
 --- !u!1 &857908305
 GameObject:
   m_ObjectHideFlags: 0

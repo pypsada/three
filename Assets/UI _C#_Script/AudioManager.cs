@@ -25,22 +25,24 @@ public class AudioManager : MonoBehaviour
     private void Update()
     {
         manager = GameObject.Find("VolumeManager");
-        int i = manager.GetComponent<VolumeManager>().bgmValue;
-        if (i != NowBgm)
+        if (manager != null)
         {
-            NowBgm = i;
-            switch (i)
+            int i = manager.GetComponent<VolumeManager>().bgmValue;
+            if (i != NowBgm)
             {
-                case 0:
-                    bgmSrc.clip = SoundsManager.SublimeWeakness;
-                    bgmSrc.Play();
-                    break;
-                case 1:
-                    bgmSrc.clip = SoundsManager.YiSuoYanYuRenPingSheng;
-                    bgmSrc.Play();
-                    break;
+                NowBgm = i;
+                switch (i)
+                {
+                    case 0:
+                        bgmSrc.clip = SoundsManager.SublimeWeakness;
+                        bgmSrc.Play();
+                        break;
+                    case 1:
+                        bgmSrc.clip = SoundsManager.YiSuoYanYuRenPingSheng;
+                        bgmSrc.Play();
+                        break;
+                }
             }
         }
-
     }
 }
