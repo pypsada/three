@@ -49,12 +49,8 @@ public class Scene_Menu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    /*下面是进入各个场景的跳转代码*/
+    /*下面是进入各个重UI场景的跳转代码*/
 
-    public void StartPVP()
-    {
-        SceneManager.LoadScene("Net");
-    }
     public void Toturial()
     {
         SceneManager.LoadScene("Toturial");
@@ -74,6 +70,10 @@ public class Scene_Menu : MonoBehaviour
     public void UsersScene()
     {
         SceneManager.LoadScene("Users");
+    }
+    public void GoToFight()
+    {
+        SceneManager.LoadScene("FightPrepare");
     }
     public void GoToBase()
     {

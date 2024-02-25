@@ -670,7 +670,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1514841349}
           m_TargetAssemblyTypeName: Scene_Menu, Assembly-CSharp
-          m_MethodName: StartPVP
+          m_MethodName: GoToFight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

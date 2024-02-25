@@ -176,6 +176,9 @@ public class SaveGameManager : MonoBehaviour
             stealth = 0,
             agility = 0,
             mathematics = 0,
+            UID = 0,
+            victory = 0,
+            lose = 0,
         };
         string saveDataJson = JsonUtility.ToJson(SaveData);
         PlayerPrefs.SetString(Nickname, saveDataJson);
@@ -268,6 +271,10 @@ public class SaveGameManager : MonoBehaviour
         int game2 = SaveData.agility;
         int game3 = SaveData.mathematics;
 
+        int uid = SaveData.UID;
+        int vic = SaveData.victory;
+        int los = SaveData.lose;
+
         DeleteSave();  //删档
 
         Nickname = name1;
@@ -281,6 +288,9 @@ public class SaveGameManager : MonoBehaviour
             stealth = game1,
             agility = game2,
             mathematics = game3,
+            UID = uid,
+            victory = vic,
+            lose = los,
         };
 
         PlayerPrefs.SetString(Nickname, JsonUtility.ToJson(SaveData));
@@ -329,6 +339,10 @@ public class SaveGameManager : MonoBehaviour
             tipPannel.SetActive(true);//昵称已存在，弹出提示框
             return;
         }
+
+        int uid = SaveData.UID;
+        int vic = SaveData.victory;
+        int los = SaveData.lose;
 
         DeleteSave();  //The First
         Nickname = magicName.text;
@@ -381,6 +395,9 @@ public class SaveGameManager : MonoBehaviour
             stealth = game1,
             agility = game2,
             mathematics = game3,
+            UID = uid,
+            victory = vic,
+            lose = los,
         };
 
         PlayerPrefs.SetString(Nickname, JsonUtility.ToJson(SaveData));
