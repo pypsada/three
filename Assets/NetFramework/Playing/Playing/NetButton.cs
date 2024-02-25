@@ -26,6 +26,7 @@ public class NetButton : MonoBehaviour
     {
         //    Player = FindObjectOfType<Player>(); // 获取Player脚本的引用
         //    ai = FindObjectOfType<AI>();  //获取AI脚本的引用
+        if (!updata) return;
         playerScript = localPlayer.GetComponent<NetGame.Player>();
         remotePlayerScript = remotePlayer.GetComponent<NetGame.Player>();
 
@@ -48,6 +49,13 @@ public class NetButton : MonoBehaviour
         NetMain.actions.Enqueue(() =>
         {
             RemoveListner();
+
+            MsgYouWin msg = (MsgYouWin)msgBase;
+            SaveGameManager.SaveData.victory = msg.victualTimes;
+            SaveGameManager.SaveData.lose = msg.failTimes;
+            PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
+            PlayerPrefs.Save();
+
             eventSystem.SetActive(false);
             tipText.text = "胜利";
             remotePlayer.SetActive(false);
@@ -60,6 +68,13 @@ public class NetButton : MonoBehaviour
         NetMain.actions.Enqueue(() =>
         {
             RemoveListner();
+
+            MsgYouLost msg = (MsgYouLost)msgBase;
+            SaveGameManager.SaveData.victory = msg.victualTimes;
+            SaveGameManager.SaveData.lose = msg.failTimes;
+            PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
+            PlayerPrefs.Save();
+
             eventSystem.SetActive(false);
             tipText.text = "失败";
             localPlayer.SetActive(false);

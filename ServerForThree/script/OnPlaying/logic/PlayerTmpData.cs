@@ -1,4 +1,6 @@
-﻿public class PlayerTmpData
+﻿
+
+public class PlayerTmpData
 {
     //public string zhaoshi;
     public int health;  //血量
@@ -24,22 +26,38 @@
     //public float countDownTimer = 10f; // 倒计时时间
     //public Text GroundText; //回合数文本
 
+    //玩家等级
+    public int level;
+
     public bool Win = true;  //是否获胜
+
+    public PlayerTmpData()
+    {
+        InitData();
+    }
 
     //初始化数据
     public void InitData()
     {
         Continue = true;
         Win = true;
-        health = 1;
+
+
+        //countDownTimer = 10f;
         Ground = 1;
         RascallyNumber = 1;
         ArroganceNumber = 0;
         Thiefing = false;
         PangolinNumber = 0;
         //StringCareer = Whole.PlayerCareer;
+        //level = Whole.Characterlevel;
         Career = 0;
         Energy = 0;   //初始化
+                      //myAnim = GetComponent<Animator>();
+                      //countDownText = countDownText.GetComponent<Text>();
+                      //GroundText = GroundText.GetComponent<Text>();
+                      //AI = FindObjectOfType<AI>();
+        health = (int)0.5 * level + 1;
         if (StringCareer == "Thief" || StringCareer == "Assassin" || StringCareer == "Guard" ||
             StringCareer == "Rascally" || StringCareer == "Arrogance" || StringCareer == "Pangolin")
         {
@@ -49,6 +67,7 @@
         {
             Energy = 1;
             Career = 1;
+            health = 1 * level + 1;
         }
     }
 

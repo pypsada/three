@@ -1,13 +1,19 @@
 ﻿//服务端发给胜利玩家
+using System.Runtime.InteropServices;
+
 public class MsgYouWin:MsgBase
 {
     public MsgYouWin() { protoName = "MsgYouWin"; }
+    public int victualTimes;
+    public int failTimes;
 }
 
 //服务端发给失败玩家
 public class MsgYouLost:MsgBase
 {
     public MsgYouLost() { protoName = "MsgYouLost"; }
+    public int victualTimes;
+    public int failTimes;
 }
 
 //服务端发给玩家表示继续

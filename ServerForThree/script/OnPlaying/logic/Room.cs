@@ -95,43 +95,6 @@ namespace NetGame
             //{
             //    Arrogance1();
             //}
-            //if (IsPangolin)  //穿山甲职业判定
-            //{
-            //    if (PangolinNumber >= 5)  //秒杀
-            //    {
-            //        Destroy(AIgameobject);
-            //        Debug.Log("WIN");
-            //    }
-            //    else if (PangolinNumber >= 3)  //免疫普攻判定
-            //    {
-            //        if (player_b.tmpData.Priority == 2)
-            //        {
-            //            Destroy(gameObject);
-            //            Debug.Log("LOSE");
-            //        }
-            //        else
-            //        {
-            //            Debug.Log("Continue");
-            //        }
-            //    }
-            //    else  //否则就相当于普通搓
-            //    {
-            //        if (player_b.tmpData.Defensing==false && player_b.tmpData.Rebounding==false && player_b.tmpData.Priority>=2)
-            //        {
-            //            Destroy(gameObject) ;
-            //            Debug.Log("LOSE");
-            //        }
-            //        else if (player_b.tmpData.Defensing == false && player_b.tmpData.Rebounding == false && player_b.tmpData.Priority == 1 && Defensing==false)
-            //        {
-            //            Destroy(gameObject);
-            //            Debug.Log("LOSE");
-            //        }
-            //        else
-            //        {
-            //            Debug.Log("Continue");
-            //        }
-            //    }
-            //}
             if (player_a.tmpData.Thiefing)
             {
                 if (player_b.tmpData.Defensing == true || player_b.tmpData.Rebounding == true)
@@ -146,6 +109,7 @@ namespace NetGame
                 {
                     if (player_b.tmpData.Thiefing == true)
                     {
+                        GameContinue();
                         //Debug.Log("Continue");
                     }
                     else
@@ -153,9 +117,9 @@ namespace NetGame
                         player_b.tmpData.Energy -= 1;
                         player_a.tmpData.Energy += 1;
                         player_a.tmpData.Career += 1;
+                        GameContinue();
                         //Debug.Log("Continue");
                     }
-
                 }
                 player_a.tmpData.Thiefing = false;
             }
@@ -176,10 +140,12 @@ namespace NetGame
                         player_a.tmpData.Energy -= 1;
                         player_b.tmpData.Energy += 1;
                         player_b.tmpData.Career += 1;
+                        GameContinue();
                         //Debug.Log("Continue");
                     }
                     else
                     {
+                        GameContinue();
                         //Debug.Log("Continue");
                     }
 
@@ -189,10 +155,12 @@ namespace NetGame
                     if (player_b.tmpData.Thiefing == true)
                     {
                         player_b.tmpData.Career -= 1;
+                        GameContinue();
                         //Debug.Log("Continue");
                     }
                     else
                     {
+                        GameContinue();
                         //Debug.Log("Continue");
                     }
 
@@ -202,11 +170,13 @@ namespace NetGame
                     if (player_b.tmpData.Thiefing == true)
                     {
                         player_b.tmpData.Career -= 1;
-                       // Debug.Log("Continue");
+                        GameContinue();
+                        //Debug.Log("Continue");
                     }
                     else
                     {
-                       // Debug.Log("Continue");
+                        GameContinue();
+                        //Debug.Log("Continue");
                     }
 
                 }
@@ -219,6 +189,7 @@ namespace NetGame
                     }
                     else
                     {
+                        GameContinue();
                         //Debug.Log("Continue");
                     }
 
@@ -237,24 +208,6 @@ namespace NetGame
                 }
             }
 
-            if (player_a.tmpData.ArroganceNumber >= 3 && player_b.tmpData.ArroganceNumber >= 3)
-            {
-                player_a.tmpData.ArroganceNumber = 0;
-                player_b.tmpData.ArroganceNumber = 0;
-                //Debug.Log("Continue");
-            }
-            else if (player_a.tmpData.ArroganceNumber >= 3)
-            {
-                //Destroy(AIgameobject);
-                player_a.Send(new MsgYouWin());
-                player_b.Send(new MsgYouLost());
-            }
-            else if (player_b.tmpData.ArroganceNumber >= 3)
-            {
-                //Destroy(gameObject);
-                player_a.Send(new MsgYouLost());
-                player_b.Send(new MsgYouWin());
-            }
         }
 
         public void Sum()  //结算
@@ -265,33 +218,33 @@ namespace NetGame
                 {
                     if (player_b.tmpData.Priority == 1)
                     {
-                        player_b.tmpData.health -= 1;
+                        player_b.tmpData.health -= 1 + (int)0.2 * player_b.tmpData.level;
                     }
                     else if (player_b.tmpData.Priority == 2)
                     {
-                        player_b.tmpData.health -= 2;
+                        player_b.tmpData.health -= 2 + (int)0.3 * player_b.tmpData.level;
                     }
                 }
                 else if (player_a.tmpData.Rebounding == true)
                 {
                     if (player_b.tmpData.Priority == 1)
                     {
-                        player_b.tmpData.health -= 1;
+                        player_b.tmpData.health -= 1 + (int)0.2 * player_b.tmpData.level;
                     }
                     else if (player_b.tmpData.Priority == 2)
                     {
-                        player_b.tmpData.health -= 2;
+                        player_b.tmpData.health -= 2 + (int)0.3 * player_b.tmpData.level;
                     }
                 }
                 else
                 {
                     if (player_a.tmpData.Priority == 1)
                     {
-                        player_b.tmpData.health -= 1;
+                        player_b.tmpData.health -= 1 + (int)0.2 * player_a.tmpData.level;
                     }
                     else if (player_a.tmpData.Priority == 2)
                     {
-                        player_b.tmpData.health -= 2;
+                        player_b.tmpData.health -= 2 + (int)0.3 * player_a.tmpData.level;
                     }
                 }
             }
@@ -301,71 +254,48 @@ namespace NetGame
                 {
                     if (player_a.tmpData.Priority == 1)
                     {
-                        player_a.tmpData.health -= 1;
+                        player_a.tmpData.health -= 1 + (int)0.2 * player_a.tmpData.level;
                     }
                     else if (player_a.tmpData.Priority == 2)
                     {
-                        player_a.tmpData.health -= 2;
+                        player_a.tmpData.health -= 2 + (int)0.3 * player_a.tmpData.level;
                     }
                 }
                 else if (player_b.tmpData.Rebounding == true)
                 {
                     if (player_a.tmpData.Priority == 1)
                     {
-                        player_a.tmpData.health -= 1;
+                        player_a.tmpData.health -= 1 + (int)0.2 * player_a.tmpData.level;
                     }
                     else if (player_a.tmpData.Priority == 2)
                     {
-                        player_a.tmpData.health -= 2;
+                        player_a.tmpData.health -= 2 + (int)0.3 * player_a.tmpData.level;
                     }
                 }
                 else
                 {
                     if (player_b.tmpData.Priority == 1)
                     {
-                        player_a.tmpData.health -= 1;
+                        player_a.tmpData.health -= 1 + (int)0.2 * player_b.tmpData.level;
                     }
                     else if (player_b.tmpData.Priority == 2)
                     {
-                        player_a.tmpData.health -= 2;
+                        player_a.tmpData.health -= 2 + (int)0.3 * player_b.tmpData.level;
                     }
                 }
             }
             else
             {
-                player_a.Send(new MsgGameContinue());
-                player_b.Send(new MsgGameContinue());
+                GameContinue();
             }
 
             if (player_a.tmpData.health <= 0)
             {
-                //Destroy(gameObject);
-                player_a.Send(new MsgYouLost());
-                player_b.Send(new MsgYouWin());
-                player_a.data.failTimes++;
-                player_b.data.victoryTimes++;
-                DbManager.UpdatePlayerData(player_a.id, player_a.data);
-                DbManager.UpdatePlayerData(player_b.id, player_b.data);
-                player_a.room = null;
-                player_b.room = null;
-                over = true;
-                RoomManager.ClearRooms();
-                //时间暂停
+                BWin();
             }
             if (player_b.tmpData.health <= 0)
             {
-                //Destroy(AIgameobject);
-                player_a.Send(new MsgYouWin());
-                player_b.Send(new MsgYouLost());
-                player_b.data.failTimes++;
-                player_a.data.victoryTimes++;
-                DbManager.UpdatePlayerData(player_b.id, player_b.data);
-                DbManager.UpdatePlayerData(player_a.id, player_a.data);
-                player_a.room = null;
-                player_b.room = null;
-                over = true;
-                RoomManager.ClearRooms();
-                //时间暂停
+                AWin();
             }
 
             player_a.tmpData.Win = true;
@@ -405,7 +335,7 @@ namespace NetGame
             }
             else if (player_b.tmpData.StringCareer == "Turtle")  //乌龟职业点数判定
             {
-                player_b.tmpData.Career = player_a.tmpData.Energy;
+                player_b.tmpData.Career = player_b.tmpData.Energy;
             }
 
 
@@ -435,7 +365,83 @@ namespace NetGame
             {
                 player_a.tmpData.Career = player_a.tmpData.Energy;
             }
+            //myAnim.SetTrigger("Idle");
+            //countDownTimer = 10f;
             player_a.tmpData.Continue = true;
+
+            if (/*gameObject != null && AIgameobject != null*/!over)
+            {
+                if (player_a.tmpData.ArroganceNumber >= 3 && player_b.tmpData.ArroganceNumber >= 3)
+                {
+                    player_b.tmpData.health -= (int)(0.3 * player_a.tmpData.level + 1.5);
+                    player_a.tmpData.health -= (int)(0.3 * player_b.tmpData.level + 1.5);
+                    player_a.tmpData.ArroganceNumber -= 3;
+                    player_b.tmpData.ArroganceNumber -= 3;
+                    ArroganceSum();
+                }
+                else if (player_a.tmpData.ArroganceNumber >= 3)
+                {
+                    player_b.tmpData.health -= (int)(0.3 * player_a.tmpData.level + 1.5);
+                    player_a.tmpData.ArroganceNumber -= 3;
+                    ArroganceSum();
+                }
+                else if (player_b.tmpData.ArroganceNumber >= 3)
+                {
+                    player_a.tmpData.health -= (int)(0.3 * player_b.tmpData.level + 1.5);
+                    player_b.tmpData.ArroganceNumber -= 3;
+                    ArroganceSum();
+                }
+            }
+        }
+
+        public void ArroganceSum()
+        {
+            if (player_b.tmpData.health <= 0)
+            {
+                AWin();
+            }
+            if (player_a.tmpData.health <= 0)
+            {
+                BWin();
+            }
+        }
+
+        private void AWin()
+        {
+            player_a.Send(new MsgYouWin());
+            player_b.Send(new MsgYouLost());
+            player_b.data.failTimes++;
+            player_a.data.victoryTimes++;
+            DbManager.UpdatePlayerData(player_b.id, player_b.data);
+            DbManager.UpdatePlayerData(player_a.id, player_a.data);
+            player_a.room = null;
+            player_b.room = null;
+            over = true;
+            RoomManager.ClearRooms();
+        }
+
+        private void BWin()
+        {
+            player_a.Send(new MsgYouLost());
+            player_b.Send(new MsgYouWin());
+            player_a.data.failTimes++;
+            player_b.data.victoryTimes++;
+            DbManager.UpdatePlayerData(player_a.id, player_a.data);
+            DbManager.UpdatePlayerData(player_b.id, player_b.data);
+            player_a.room = null;
+            player_b.room = null;
+            over = true;
+            RoomManager.ClearRooms();
+        }
+
+        private void GameContinue()
+        {
+            player_a.Send(new MsgGameContinue());
+            player_b.Send(new MsgGameContinue());
         }
     }
 }
+
+
+
+
