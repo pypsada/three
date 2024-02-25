@@ -225,7 +225,7 @@ public class Player : MonoBehaviour
         Priority = 100;
         Rebounding = true;
         Debug.Log("You:Turtle");
-        myAnim.SetTrigger("Rebound");
+        myAnim.SetTrigger("Turtle");
     }
     public void Rascally()  //老赖技能：汲能
     {

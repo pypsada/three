@@ -122,7 +122,7 @@ public class AI : MonoBehaviour
         Energy -= 1;
         Priority = 100;
         Rebounding = true;
-        myAnim.SetTrigger("Rebound");
+        myAnim.SetTrigger("Turtle");
     }
 
     public void Rascally()  //老赖技能：汲能
