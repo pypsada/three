@@ -16,23 +16,36 @@ public class PVPShow : MonoBehaviour
 
     void Start()
     {
+        SaveData saveData = SaveGameManager.SaveData;
         int a, b, c, id; float rate; string level;
-        showName.text = SaveGameManager.Nickname;
-        id = SaveGameManager.SaveData.UID;
+        showName.text = saveData.nickname;
+        id = saveData.UID;
         if (id == 0)
             showUID.text = "未参与";
+        else if (id < 10)
+            showUID.text = "0000" + id.ToString();
+        else if (id < 100)
+            showUID.text = "000" + id.ToString();
+        else if (id < 1000)
+            showUID.text = "00" + id.ToString();
+        else if (id < 10000)
+            showUID.text = "0" + id.ToString();
         else
             showUID.text = id.ToString();
-        a = SaveGameManager.SaveData.victory;
-        b = SaveGameManager.SaveData.lose;
+        a = saveData.victory;
+        b = saveData.lose;
         c = a + b;
-        rate = (float)a / b;
+        rate = (float)a / c;
         showVictory.text = a.ToString();
         showLose.text = b.ToString();
         showTotal.text = c.ToString();
-        showRate.text = rate.ToString() + "%";
+        if (c != 0)
+            showRate.text = rate.ToString() + "%";
         if (c == 0)
+        {
+            showRate.text = "未参与";
             level = levelRank[0];
+        }
         else if (c <= 5)
             level = levelRank[1];
         else if (c <= 10)

@@ -57,6 +57,18 @@ EditorBuildSettings:
     path: Assets/Scenes/ActOption.unity
     guid: 597557e73a44e5b4093c02d30e12e183
   - enabled: 1
+    path: Assets/Scenes/Act1.unity
+    guid: 3cee4c5150043ef47b0a6ee3f19c35cf
+  - enabled: 1
+    path: Assets/Scenes/Act2.unity
+    guid: 4dc13317ac71fa84da3941995c618b8b
+  - enabled: 1
+    path: Assets/Scenes/Act3.unity
+    guid: b05a9b2fa4390d04ab9db1232b1853ca
+  - enabled: 1
+    path: Assets/Scenes/FightPrepare.unity
+    guid: b61a1e21c4c822744aca49131e6866d2
+  - enabled: 1
     path: Assets/NetFramework/NetScenes/Login.unity
     guid: 0bbb5b9de950cab4daef70bc039feefe
   - enabled: 1
