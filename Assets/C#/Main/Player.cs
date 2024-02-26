@@ -66,6 +66,10 @@ public class Player : MonoBehaviour
             Career = 1;
             health = 1 * Whole.Characterlevel + 1;
         }
+        if (StringCareer == "Assassin")
+        {
+            health = (int)0.8 * Whole.Characterlevel + 1;
+        }
     }
 
     void Update()
@@ -449,33 +453,80 @@ public class Player : MonoBehaviour
             {
                 if (AI.Priority == 1)
                 {
-                    AI.health -= 1+(int)0.2*Whole.AICharacterlevel;
+                    if(Whole.AICareer== "Assassin")
+                    {
+                        AI.health -= 1 + (int)0.3 * Whole.AICharacterlevel;
+                    }
+                    else
+                    {
+                        AI.health -= 1+(int)0.2*Whole.AICharacterlevel;
+                    }
+
                 }
                 else if (AI.Priority == 2)
                 {
-                    AI.health -= 2+(int)0.3*Whole.AICharacterlevel;
+                    if (Whole.AICareer=="King")
+                    {
+                        AI.health -= 2 + (int)0.37 * Whole.AICharacterlevel;
+                    }
+                    else
+                    {
+                        AI.health -= 2 + (int)0.3 * Whole.AICharacterlevel;
+                    }
+                    
                 }
             }
             else if (Rebounding==true)
             {
                 if (AI.Priority==1)
                 {
-                    AI.health -= 1 + (int)0.2 * Whole.AICharacterlevel;
+                    if (Whole.AICareer == "Assassin")
+                    {
+                        AI.health -= 1 + (int)0.3 * Whole.AICharacterlevel;
+                    }
+                    else
+                    {
+                        AI.health -= 1 + (int)0.2 * Whole.AICharacterlevel;
+                    }
+
                 }
                 else if(AI.Priority==2)
                 {
-                    AI.health -= 2 + (int)0.3 * Whole.AICharacterlevel;
+                    if (Whole.AICareer == "King")
+                    {
+                        AI.health -= 2 + (int)0.37 * Whole.AICharacterlevel;
+                    }
+                    else
+                    {
+                        AI.health -= 2 + (int)0.3 * Whole.AICharacterlevel;
+                    }
                 }
             }
             else
             {
                 if (Priority == 1)
                 {
-                    AI.health -= 1 + (int)0.2 * Whole.Characterlevel;
+                    if (Whole.PlayerCareer == "Assassin")
+                    {
+                        AI.health -= 1 + (int)0.3 * Whole.Characterlevel;
+                    }
+                    else
+                    {
+                        AI.health -= 1 + (int)0.2 * Whole.Characterlevel;
+                    }
+
                 }
                 else if (Priority == 2)
                 {
-                    AI.health -= 2 + (int)0.3 * Whole.Characterlevel;
+                    if (Whole.PlayerCareer == "King")
+                    {
+                        AI.health -= 2 + (int)0.37 * Whole.Characterlevel;
+                    }
+                    else
+                    {
+                        AI.health -= 2 + (int)0.3 * Whole.Characterlevel;
+                    }
+
                 }
             }
         }
@@ -485,33 +536,81 @@ public class Player : MonoBehaviour
             {
                 if (Priority == 1)
                 {
-                    health -= 1 + (int)0.2 * Whole.Characterlevel;
+                    if (Whole.PlayerCareer == "Assassin")
+                    {
+                        health -= 1 + (int)0.3 * Whole.Characterlevel;
+                    }
+                    else
+                    {
+                        health -= 1 + (int)0.2 * Whole.Characterlevel;
+                    }
+                    
                 }
                 else if (Priority == 2)
                 {
-                    health -= 2 + (int)0.3 * Whole.Characterlevel;
+                    if (Whole.PlayerCareer == "King")
+                    {
+                        health -= 2 + (int)0.37 * Whole.Characterlevel;
+                    }
+                    else
+                    {
+                        health -= 2 + (int)0.3 * Whole.Characterlevel;
+                    }
+
                 }
             }
             else if (AI.Rebounding == true)
             {
                 if (Priority == 1)
                 {
-                    health -= 1 + (int)0.2 * Whole.Characterlevel;
+                    if (Whole.PlayerCareer == "Assassin")
+                    {
+                        health -= 1 + (int)0.3 * Whole.Characterlevel;
+                    }
+                    else
+                    {
+                        health -= 1 + (int)0.2 * Whole.Characterlevel;
+                    }
+
                 }
                 else if (Priority == 2)
                 {
-                    health -= 2 + (int)0.3 * Whole.Characterlevel;
+                    if (Whole.PlayerCareer == "King")
+                    {
+                        health -= 2 + (int)0.37 * Whole.Characterlevel;
+                    }
+                    else
+                    {
+                        health -= 2 + (int)0.3 * Whole.Characterlevel;
+                    }
+
                 }
             }
             else
             {
                 if (AI.Priority == 1)
                 {
-                    health -= 1 + (int)0.2 * Whole.AICharacterlevel;
+                    if (Whole.AICareer == "Assassin")
+                    {
+                        health -= 1 + (int)0.3 * Whole.AICharacterlevel;
+                    }
+                    else
+                    {
+                        health -= 1 + (int)0.2 * Whole.AICharacterlevel;
+                    }
+
                 }
                 else if (AI.Priority == 2)
                 {
-                    health -= 2 + (int)0.3 * Whole.AICharacterlevel;
+                    if (Whole.PlayerCareer == "Kings")
+                    {
+                        health -= 2 + (int)0.37 * Whole.AICharacterlevel;
+                    }
+                    else
+                    {
+                        health -= 2 + (int)0.3 * Whole.AICharacterlevel;
+                    }
+
                 }
             }
         }
@@ -613,8 +712,8 @@ public class Player : MonoBehaviour
         {
             if (ArroganceNumber >= 3 && AI.ArroganceNumber >= 3)
             {
-                AI.health -= (int)(0.3 * Whole.Characterlevel + 1.5);
-                health -= (int)(0.3 * Whole.AICharacterlevel + 1.5);
+                AI.health -= (int)(0.35 * Whole.Characterlevel + 1.5);
+                health -= (int)(0.35 * Whole.AICharacterlevel + 1.5);
                 ArroganceNumber -= 3;
                 AI.ArroganceNumber -= 3;
                 Energy += 1;
@@ -623,14 +722,14 @@ public class Player : MonoBehaviour
             }
             else if (ArroganceNumber >= 3)
             {
-                AI.health -= (int)(0.3 * Whole.Characterlevel + 1.5);
+                AI.health -= (int)(0.35 * Whole.Characterlevel + 1.5);
                 ArroganceNumber -= 3;
                 Energy += 1;
                 ArroganceSum();
             }
             else if (AI.ArroganceNumber >= 3)
             {
-                health -= (int)(0.3 * Whole.AICharacterlevel + 1.5);
+                health -= (int)(0.35 * Whole.AICharacterlevel + 1.5);
                 AI.ArroganceNumber -= 3;
                 AI.Energy += 1;
                 ArroganceSum();
