@@ -377,18 +377,22 @@ namespace NetGame
                     player_a.tmpData.health -= (int)(0.3 * player_b.tmpData.level + 1.5);
                     player_a.tmpData.ArroganceNumber -= 3;
                     player_b.tmpData.ArroganceNumber -= 3;
+                    player_a.tmpData.Energy += 1;
+                    player_b.tmpData.Energy += 1;
                     ArroganceSum();
                 }
                 else if (player_a.tmpData.ArroganceNumber >= 3)
                 {
                     player_b.tmpData.health -= (int)(0.3 * player_a.tmpData.level + 1.5);
                     player_a.tmpData.ArroganceNumber -= 3;
+                    player_a.tmpData.Energy += 1;
                     ArroganceSum();
                 }
                 else if (player_b.tmpData.ArroganceNumber >= 3)
                 {
                     player_a.tmpData.health -= (int)(0.3 * player_b.tmpData.level + 1.5);
                     player_b.tmpData.ArroganceNumber -= 3;
+                    player_b.tmpData.Energy += 1;
                     ArroganceSum();
                 }
             }

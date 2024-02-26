@@ -50,6 +50,7 @@ public class NetButton : MonoBehaviour
         NetManager.AddMsgListener("MsgYouLost", ThisLose);
         NetManager.AddMsgListener("MsgGameContinue", GameContinue);
         NetManager.AddMsgListener("MsgRemoteInfo", RemoteInfo);
+        NetManager.AddMsgListener("MsgLocalInfo", LocalInfo);
     }
 
     // Update is called once per frame
@@ -183,12 +184,20 @@ public class NetButton : MonoBehaviour
         remotePlayerScript.tmpData = (PlayerTmpData)JsonUtility.FromJson(msg.tmpData, typeof(PlayerTmpData));
     }
 
+    //本地玩家信息
+    private void LocalInfo(MsgBase msgBase)
+    {
+        MsgLocalInfo msg = (MsgLocalInfo)msgBase;
+        playerScript.tmpData = (PlayerTmpData)JsonUtility.FromJson(msg.tmpData, typeof(PlayerTmpData));
+    }
+
     private void RemoveListner()
     {
         NetManager.RemoveMsgListener("MsgYouWin", ThisWin);
         NetManager.RemoveMsgListener("MsgYouLost", ThisLose);
         NetManager.RemoveMsgListener("MsgGameContinue", GameContinue);
         NetManager.RemoveMsgListener("MsgRemoteInfo", RemoteInfo);
+        NetManager.RemoveMsgListener("MsgLocalInfo", LocalInfo);
     }
 
 

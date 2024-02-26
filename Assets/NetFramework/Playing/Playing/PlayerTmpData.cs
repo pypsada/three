@@ -190,7 +190,7 @@ namespace NetGame
             Priority = 1;
             Defensing = true;
             Energy += 1;
-            skillName = "King";
+            skillName = "Cuo";
             //Debug.Log("You:Guard");
             //myAnim.SetTrigger();
         }
@@ -220,7 +220,7 @@ namespace NetGame
             Priority = 0;
             Energy += RascallyNumber;
             RascallyNumber += 1;
-            skillName = "King";
+            skillName = "Cuo";
             //myAnim.SetTrigger();
         }
         //public void Arrogance()  //°ÁÂý¼¼ÄÜ£º³°·í

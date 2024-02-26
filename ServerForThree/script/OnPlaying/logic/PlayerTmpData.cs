@@ -1,6 +1,4 @@
-﻿
-
-public class PlayerTmpData
+﻿public class PlayerTmpData
 {
     public string skillName;
     public int health;  //血量
@@ -50,7 +48,7 @@ public class PlayerTmpData
         Thiefing = false;
         PangolinNumber = 0;
         //StringCareer = Whole.PlayerCareer;
-        //level = Whole.Characterlevel;
+        // = Whole.Characterlevel;
         Career = 0;
         Energy = 0;   //初始化
                       //myAnim = GetComponent<Animator>();
@@ -82,6 +80,7 @@ public class PlayerTmpData
         Energy += 1;
         //Debug.Log("You:RubbingEnergy");
         Priority = 0;
+        skillName = "Cuo";
         //myAnim.SetTrigger("Cuo");
     }
     //public void Gun()  //枪
@@ -94,6 +93,7 @@ public class PlayerTmpData
     {
         Priority = 1;
         Energy -= 1;
+        skillName = "Gun";
         //Debug.Log("You:Gun");
         //myAnim.SetTrigger("Gun");
     }
@@ -108,8 +108,9 @@ public class PlayerTmpData
         Priority = 100;
         Rebounding = true;
         Energy -= 2;
+        skillName = "Rebound";
         //Debug.Log("You:Rebound");
-        //myAnim.SetTrigger("Rebound");
+        //myAnim.SetTrigger();
     }
     //public void Defense()   //防御
     //{
@@ -121,8 +122,9 @@ public class PlayerTmpData
     {
         Priority = 1;
         Defensing = true;
+        skillName = "Defense";
         //Debug.Log("You:Defense");
-        //myAnim.SetTrigger("Defense");
+        //myAnim.SetTrigger();
     }
     //public void HolyGrail()   //大招
     //{
@@ -134,8 +136,9 @@ public class PlayerTmpData
     {
         Priority = 2;
         Energy -= 4;
+        skillName = "King";
         //Debug.Log("You:HolyGrail");
-        //myAnim.SetTrigger("King");
+        //myAnim.SetTrigger();
     }
     //public void Assassinate()  // 刺客技能：暗杀
     //{
@@ -147,8 +150,9 @@ public class PlayerTmpData
     {
         Priority = 1;
         Career -= 1;
+        skillName = "King";
         //Debug.Log("You:Assassinate");
-        //myAnim.SetTrigger("King");
+        //myAnim.SetTrigger();
     }
 
     //public void Steal()   // 盗贼技能：偷取
@@ -167,8 +171,9 @@ public class PlayerTmpData
     {
         Priority = 2;
         Energy -= 2;
+        skillName = "King";
         //Debug.Log("You:King");
-        //myAnim.SetTrigger("King");
+        //myAnim.SetTrigger();
     }
     //public void Guard()  // 护卫技能：能防
     //{
@@ -181,8 +186,9 @@ public class PlayerTmpData
         Priority = 1;
         Defensing = true;
         Energy += 1;
+        skillName = "Cuo";
         //Debug.Log("You:Guard");
-        //myAnim.SetTrigger("King");
+        //myAnim.SetTrigger();
     }
     //public void Turtle()  //乌龟技能：龟缩
     //{
@@ -195,8 +201,9 @@ public class PlayerTmpData
         Energy -= 1;
         Priority = 100;
         Rebounding = true;
+        skillName = "Turtle";
         //Debug.Log("You:Turtle");
-        //myAnim.SetTrigger("King");
+        //myAnim.SetTrigger();
     }
     //public void Rascally()  //老赖技能：汲能
     //{
@@ -209,7 +216,8 @@ public class PlayerTmpData
         Priority = 0;
         Energy += RascallyNumber;
         RascallyNumber += 1;
-        //myAnim.SetTrigger("King");
+        skillName = "Cuo";
+        //myAnim.SetTrigger();
     }
     //public void Arrogance()  //傲慢技能：嘲讽
     //{
@@ -221,7 +229,8 @@ public class PlayerTmpData
     {
         ArroganceNumber += 1;
         Priority = 0;
-        //myAnim.SetTrigger("Arrogant");
+        skillName = "Arrogant";
+        //myAnim.SetTrigger();
     }
     //public void Thief()  //盗贼技能：神偷
     //{
@@ -234,7 +243,8 @@ public class PlayerTmpData
         Career -= 1;
         Thiefing = true;
         Priority = 1;
-        //myAnim.SetTrigger("Steal");
+        skillName = "Steal";
+        //myAnim.SetTrigger();
     }
 
     //public void Pangolin()
@@ -248,6 +258,7 @@ public class PlayerTmpData
         PangolinNumber += 1;
         Priority = 0;
         IsPangolin = true;
-        //myAnim.SetTrigger("King");
+        skillName = "King";
+        //myAnim.SetTrigger();
     }
 }

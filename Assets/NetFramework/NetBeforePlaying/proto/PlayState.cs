@@ -38,3 +38,11 @@ public class MsgRemoteInfo : MsgBase
 
     public string tmpData;
 }
+
+//服务端发客户端传递当地玩家消息
+public class MsgLocalInfo : MsgBase
+{
+    public MsgLocalInfo() { protoName = "MsgLocalInfo"; }
+
+    public string tmpData;
+}

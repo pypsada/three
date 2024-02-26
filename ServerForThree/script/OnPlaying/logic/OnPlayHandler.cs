@@ -28,6 +28,11 @@ public partial class MsgHandler
         LogManager.Log("[MsgHandler Recv MsgRemoteInfo in RoomMsgHandler]" +
             "Clients do not send this Msg, there must be something wrong!");
     }
+    public static void MsgLocalInfo(ClientState c, MsgBase msgBase)
+    {
+        LogManager.Log("[MsgHandler Recv MsgLocalInfo in RoomMsgHandler]" +
+            "Clients do not send this Msg, there must be something wrong!");
+    }
 
     //收到某个客户端发过来的准备协议
     public static void MsgClientReady(ClientState c, MsgBase msgBase)
@@ -64,6 +69,16 @@ public partial class MsgHandler
 
             room.player_a.Send(msg_b);
             room.player_b.Send(msg_a);
+
+
+
+            MsgRemoteInfo msg_aa = new();
+            msg_aa.tmpData = JsonConvert.SerializeObject(room.player_a.tmpData);
+            MsgRemoteInfo msg_bb = new();
+            msg_bb.tmpData = JsonConvert.SerializeObject(room.player_b.tmpData);
+
+            room.player_a.Send(msg_aa);
+            room.player_b.Send(msg_bb);
 
 
             room.actPlayer = 0;
