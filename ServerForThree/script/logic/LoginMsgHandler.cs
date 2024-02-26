@@ -64,6 +64,9 @@ public partial class MsgHandler
         player.data = playerData;
         PlayerManager.AddPlayer(msg.id, player);
         c.player = player;
+        //修改Player的nickName
+        c.player.data.nickName = msg.nickName;
+        DbManager.UpdatePlayerData(c.player.id, c.player.data);
         //返回协议
         msg.result = 0;
         player.Send(msg);

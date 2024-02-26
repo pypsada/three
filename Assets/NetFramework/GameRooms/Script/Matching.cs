@@ -54,14 +54,10 @@ public class Matching : MonoBehaviour
         matching.SetActive(false);
         matched.SetActive(true);
         MsgMatched msg = (MsgMatched)msgBase;
-        localPlayerId.text = "ID:"+msg.localPlayerId;
-        remotePlayerId.text = "对手ID:"+msg.remotePlayerId;
         PlayerData local = (PlayerData)JsonUtility.FromJson(msg.localPlayerData, typeof(PlayerData));
-        PlayerData remote = (PlayerData)JsonUtility.FromJson(msg.localPlayerData, typeof(PlayerData));
-
-        Debug.Log(localPlayerData.text);
-        Debug.Log(local.victoryTimes);
-        Debug.Log(local.failTimes);
+        PlayerData remote = (PlayerData)JsonUtility.FromJson(msg.remotePlayerData, typeof(PlayerData));
+        localPlayerId.text = "ID:"+local.nickName;
+        remotePlayerId.text = "对手ID:" + remote.nickName;
 
         localPlayerData.text = "数据：" + local.victoryTimes + "胜" + local.failTimes + "败\n" +
             "胜率" + (float)local.victoryTimes / (float)(local.victoryTimes + local.failTimes);

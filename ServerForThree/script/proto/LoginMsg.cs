@@ -15,7 +15,7 @@ public class MsgRegister:MsgBase
 }
 
 //登陆
-public class MsgLogin:MsgBase
+public class MsgLogin : MsgBase
 {
     public MsgLogin()
     {
@@ -24,6 +24,7 @@ public class MsgLogin:MsgBase
     //客户端发
     public string id = "";
     public string pw = "";
+    public string nickName = "";
     //服务端回（0成功，1失败）
     public int result = 0;
 }

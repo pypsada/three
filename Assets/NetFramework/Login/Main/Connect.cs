@@ -58,6 +58,7 @@ public class Connect : MonoBehaviour
                 MsgLogin msgLogin = new();
                 msgLogin.id = SaveGameManager.SaveData.UID.ToString();
                 msgLogin.pw = SaveGameManager.SaveData.UID.ToString();
+                msgLogin.nickName = SaveGameManager.Nickname;
                 NetManager.Send(msgLogin);
             }
         });
@@ -165,6 +166,7 @@ public class Connect : MonoBehaviour
                 MsgLogin msgLogin = new();
                 msgLogin.id = SaveGameManager.SaveData.UID.ToString();
                 msgLogin.pw = SaveGameManager.SaveData.UID.ToString();
+                msgLogin.nickName = SaveGameManager.Nickname;
                 NetManager.Send(msgLogin);
             }
             else if (msg.result == 1)
