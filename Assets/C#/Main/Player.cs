@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
         }
         if (StringCareer == "Assassin")
         {
-            health = (int)0.8 * Whole.Characterlevel + 1;
+            health = (int)0.4 * Whole.Characterlevel + 1;
         }
     }
 
@@ -459,7 +459,7 @@ public class Player : MonoBehaviour
                     }
                     else
                     {
-                        AI.health -= 1+(int)0.2*Whole.AICharacterlevel;
+                        AI.health -= 1+(int)0.15*Whole.AICharacterlevel;
                     }
 
                 }
@@ -486,7 +486,7 @@ public class Player : MonoBehaviour
                     }
                     else
                     {
-                        AI.health -= 1 + (int)0.2 * Whole.AICharacterlevel;
+                        AI.health -= 1 + (int)0.15 * Whole.AICharacterlevel;
                     }
 
                 }
@@ -512,7 +512,7 @@ public class Player : MonoBehaviour
                     }
                     else
                     {
-                        AI.health -= 1 + (int)0.2 * Whole.Characterlevel;
+                        AI.health -= 1 + (int)0.15 * Whole.Characterlevel;
                     }
 
                 }
@@ -542,7 +542,7 @@ public class Player : MonoBehaviour
                     }
                     else
                     {
-                        health -= 1 + (int)0.2 * Whole.Characterlevel;
+                        health -= 1 + (int)0.15 * Whole.Characterlevel;
                     }
                     
                 }
@@ -569,7 +569,7 @@ public class Player : MonoBehaviour
                     }
                     else
                     {
-                        health -= 1 + (int)0.2 * Whole.Characterlevel;
+                        health -= 1 + (int)0.15 * Whole.Characterlevel;
                     }
 
                 }
@@ -596,7 +596,7 @@ public class Player : MonoBehaviour
                     }
                     else
                     {
-                        health -= 1 + (int)0.2 * Whole.AICharacterlevel;
+                        health -= 1 + (int)0.15 * Whole.AICharacterlevel;
                     }
 
                 }
