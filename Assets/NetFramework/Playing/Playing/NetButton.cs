@@ -15,6 +15,22 @@ public class NetButton : MonoBehaviour
     public GameObject localPlayer;
     public GameObject remotePlayer;
     public GameObject eventSystem;
+    [Header("玩家动画引用")]
+    public Animator localAni;
+    public Animator remoteAni;
+
+    [HideInInspector]
+    //用来指示动画已经播放完毕
+    public int aniTrigger = 0;
+
+    private enum PlayState
+    {
+        win,
+        lost,
+        conti
+    }
+    //用来记录结算后游戏状态
+    private PlayState playState;
 
     internal object image;
 
@@ -40,6 +56,7 @@ public class NetButton : MonoBehaviour
     void Update()
     {
         UpdateUIData();
+        AfterPlayAnimation();
         return;
     }
 
@@ -48,17 +65,17 @@ public class NetButton : MonoBehaviour
     {
         NetMain.actions.Enqueue(() =>
         {
-            RemoveListner();
-
             MsgYouWin msg = (MsgYouWin)msgBase;
             SaveGameManager.SaveData.victory = msg.victualTimes;
             SaveGameManager.SaveData.lose = msg.failTimes;
             PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
             PlayerPrefs.Save();
 
-            eventSystem.SetActive(false);
-            tipText.text = "胜利";
-            remotePlayer.SetActive(false);
+            playState = PlayState.win;
+            //eventSystem.SetActive(false);
+            //tipText.text = "胜利";
+            //remotePlayer.SetActive(false);
+            AfterGetState();
         });
     }
 
@@ -67,22 +84,89 @@ public class NetButton : MonoBehaviour
     {
         NetMain.actions.Enqueue(() =>
         {
-            RemoveListner();
-
             MsgYouLost msg = (MsgYouLost)msgBase;
             SaveGameManager.SaveData.victory = msg.victualTimes;
             SaveGameManager.SaveData.lose = msg.failTimes;
             PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
             PlayerPrefs.Save();
 
+            playState = PlayState.lost;
+            //eventSystem.SetActive(false);
+            //tipText.text = "失败";
+            //localPlayer.SetActive(false);
+            AfterGetState();
+        });
+    }
+
+    //游戏继续
+    private void GameContinue(MsgBase msgBase)
+    {
+        playState = PlayState.conti;
+        NetMain.actions.Enqueue(() =>
+        {
+            //eventSystem.SetActive(true);
+            //tipText.text = "请你出招";
+            //round++;
+            AfterGetState();
+        });
+    }
+
+    //收到State消息，准备播放动画
+    private void AfterGetState()
+    {
+        aniTrigger = 0;
+        //播放本地玩家和远程玩家的动画
+        localAni.SetTrigger(playerScript.tmpData.skillName);
+        remoteAni.SetTrigger(remotePlayerScript.tmpData.skillName);
+    }
+
+    //当Tigger达到2时就启动这个函数
+    //Used by Update
+    private void AfterPlayAnimation()
+    {
+        if (!updata) return;
+        if(aniTrigger>=2)
+        {
+            aniTrigger = 0;
+            switch(playState)
+            {
+                case PlayState.win:
+                    GameWin();
+                    break;
+                case PlayState.lost:
+                    GameLost();
+                    break;
+                case PlayState.conti:
+                    GameConti();
+                    break;
+            }
+        }
+    }
+
+    //为了方便以后更改，将游戏胜负的情况放在这里
+    private void GameWin()
+    {
+        NetMain.actions.Enqueue(() =>
+        {
+            RemoveListner();
+            eventSystem.SetActive(false);
+            tipText.text = "胜利";
+            remotePlayer.SetActive(false);
+        });
+    }
+
+    private void GameLost()
+    {
+        NetMain.actions.Enqueue(() =>
+        {
+            RemoveListner();
             eventSystem.SetActive(false);
             tipText.text = "失败";
             localPlayer.SetActive(false);
         });
     }
 
-    //游戏继续
-    private void GameContinue(MsgBase msgBase)
+    private void GameConti()
     {
         NetMain.actions.Enqueue(() =>
         {
@@ -120,7 +204,7 @@ public class NetButton : MonoBehaviour
     [Header("游戏轮数文本")]
     public Text gameRound;
 
-    private int round = 0;
+    private int round = 1;
 
     //在按下按钮之后
     private void AfterAct()

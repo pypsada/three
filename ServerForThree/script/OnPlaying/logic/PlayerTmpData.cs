@@ -2,7 +2,7 @@
 
 public class PlayerTmpData
 {
-    //public string zhaoshi;
+    public string skillName;
     public int health;  //血量
     public int Energy;
     //private Animator myAnim;
