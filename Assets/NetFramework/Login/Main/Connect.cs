@@ -13,6 +13,7 @@ public class Connect : MonoBehaviour
     void Start()
     {
         AddMsgListener();
+        ClickConnect();
     }
 
     // Update is called once per frame
@@ -68,6 +69,7 @@ public class Connect : MonoBehaviour
         {
             connectSucc.SetActive(true);
             connecting.SetActive(false);
+            OnClickConnSucc();
         });
     }
 
@@ -95,6 +97,7 @@ public class Connect : MonoBehaviour
         ClickClose();
         connectFail.SetActive(false);
         beforeConnect.SetActive(true);
+        SceneManager.LoadScene("MainMenu");
     }
 
     //主动点击关闭按钮

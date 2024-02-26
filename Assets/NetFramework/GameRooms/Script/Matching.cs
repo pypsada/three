@@ -108,4 +108,12 @@ public class Matching : MonoBehaviour
     {
         SceneManager.LoadScene("NetBeforePlaying");
     }
+
+    public void OnClickExit()
+    {
+        Debug.Log("µÇ³ö");
+        NetManager.Close();
+        NetManager.ping = -1;
+        SceneManager.LoadScene("MainMenu");
+    }
 }
