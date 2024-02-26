@@ -617,18 +617,22 @@ public class Player : MonoBehaviour
                 health -= (int)(0.3 * Whole.AICharacterlevel + 1.5);
                 ArroganceNumber -= 3;
                 AI.ArroganceNumber -= 3;
+                Energy += 1;
+                AI.Energy += 1;
                 ArroganceSum();
             }
             else if (ArroganceNumber >= 3)
             {
                 AI.health -= (int)(0.3 * Whole.Characterlevel + 1.5);
                 ArroganceNumber -= 3;
+                Energy += 1;
                 ArroganceSum();
             }
             else if (AI.ArroganceNumber >= 3)
             {
                 health -= (int)(0.3 * Whole.AICharacterlevel + 1.5);
                 AI.ArroganceNumber -= 3;
+                AI.Energy += 1;
                 ArroganceSum();
             }
         }
