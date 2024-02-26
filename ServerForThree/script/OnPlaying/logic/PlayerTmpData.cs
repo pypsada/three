@@ -1,4 +1,5 @@
-﻿public class PlayerTmpData
+﻿
+public class PlayerTmpData
 {
     public string skillName;
     public int health;  //血量
@@ -48,7 +49,7 @@
         Thiefing = false;
         PangolinNumber = 0;
         //StringCareer = Whole.PlayerCareer;
-        // = Whole.Characterlevel;
+        //level = Whole.Characterlevel;
         Career = 0;
         Energy = 0;   //初始化
                       //myAnim = GetComponent<Animator>();
