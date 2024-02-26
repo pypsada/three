@@ -114,7 +114,7 @@ public class AI : MonoBehaviour
         Priority = 1;
         Defensing = true;
         Energy += 1;
-        myAnim.SetTrigger("King");
+        myAnim.SetTrigger("Cuo");
     }
 
     public void Turtle()  //拫實撮夔ㄩ實坫
@@ -130,7 +130,7 @@ public class AI : MonoBehaviour
         Priority = 0;
         Energy += RascallyNumber;
         RascallyNumber += 1;
-        myAnim.SetTrigger("King");
+        myAnim.SetTrigger("Cuo");
     }
 
     public void Arrogance()  //偭鞣撮夔ㄩ陸當
