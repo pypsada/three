@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AI : MonoBehaviour
 {
+    public float Laolai;
+
     public int health;
     public bool Win;
     public int Energy;
@@ -23,6 +25,7 @@ public class AI : MonoBehaviour
     public bool CiSha;
     void Start()
     {
+        Laolai = 1f;
         health = 8 * Whole.AICharacterlevel + 60;
         Win = true;
         PangolinNumber = 0;
@@ -133,7 +136,8 @@ public class AI : MonoBehaviour
     {
         Priority = 0;
         Energy += RascallyNumber;
-        RascallyNumber += 1;
+        RascallyNumber =(int)Laolai;
+        Laolai += 0.5f;
         myAnim.SetTrigger("Cuo");
     }
 

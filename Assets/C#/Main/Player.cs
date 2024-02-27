@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public float Laolai;
+
+
     public string zhaoshi;
     public int health;  //血量
     public int Energy;
@@ -37,6 +40,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        Laolai = 1f;
+
         Continue = true;
         Win = true;
 
@@ -160,7 +165,7 @@ public class Player : MonoBehaviour
     public void HolyGrail()   //大招
     {
         Chose = true;
-        zhaoshi = "HolyGrail1";
+        zhaoshi = "HolyGrail";
         countDownTimer = 2f;
     }
     public void HolyGrail1()   //大招
@@ -241,7 +246,8 @@ public class Player : MonoBehaviour
     {
         Priority = 0;
         Energy += RascallyNumber;
-        RascallyNumber += 1;
+        Laolai += 0.5f;
+        RascallyNumber=(int)Laolai;
         myAnim.SetTrigger("Cuo");
     }
     public void Arrogance()  //傲慢技能：嘲讽
@@ -357,10 +363,17 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    AI.Energy -= 1;
-                    Energy += 1;
-                    Career += 1;
-                    
+                    if (Whole.AICareer== "Rascally")
+                    {
+                        AI.Energy -= AI.RascallyNumber;
+                        Energy += AI.RascallyNumber;
+                    }
+                    else
+                    {
+                        AI.Energy -= 1;
+                        Energy += 1;
+                        Career += 1;
+                    }
                 }
             }
             Thiefing=false;
@@ -377,12 +390,20 @@ public class Player : MonoBehaviour
             }
             else if(Priority==AI.Priority)  //优先级一样，相互抵消
             {
-                if (AI.Thiefing==true)
+                if (AI.Thiefing == true)
                 {
-                    Energy -= 1;
-                    AI.Energy += 1;
-                    AI.Career += 1;
-                    
+                    if (Whole.PlayerCareer == "Rascally")
+                    {
+                        Energy -= RascallyNumber;
+                        AI.Energy += RascallyNumber;
+                        AI.Career += 1;
+                    }
+                    else
+                    {
+                        Energy -= 1;
+                        AI.Energy += 1;
+                        AI.Career += 1;
+                    }
                 }
 
             }
