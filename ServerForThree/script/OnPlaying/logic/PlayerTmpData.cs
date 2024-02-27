@@ -91,9 +91,14 @@
                       //AI = FindObjectOfType<AI>();
         health = 8 * level + 60;
         if (StringCareer == "Thief" || StringCareer == "Assassin" || StringCareer == "Guard" ||
-            StringCareer == "Rascally" || StringCareer == "Arrogance" || StringCareer == "Pangolin")
+            StringCareer == "Arrogance" || StringCareer == "Pangolin")
         {
             Career = 1;
+        }
+        if (StringCareer == "Rascally")
+        {
+            Career = 1;
+            health = 6 * level + 50;
         }
         if (StringCareer == "Turtle")
         {
