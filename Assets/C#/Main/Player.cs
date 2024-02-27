@@ -554,7 +554,7 @@ public class Player : MonoBehaviour
                     }
                     else
                     {
-                        health -= 20s + 1 * Whole.Characterlevel;
+                        health -= 20 + 1 * Whole.Characterlevel;
                     }
 
                 }

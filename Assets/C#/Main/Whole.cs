@@ -6,8 +6,8 @@ public class Whole : MonoBehaviour
 {
     public static string PlayerCareer;
     public static string AICareer;
-    public static int Characterlevel=200;
-    public static int AICharacterlevel=200;
+    public static int Characterlevel=100;
+    public static int AICharacterlevel=100;
     public static int Game1;
     public static int Game2;
     public static int Game3;

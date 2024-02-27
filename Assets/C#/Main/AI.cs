@@ -23,7 +23,7 @@ public class AI : MonoBehaviour
     public bool CiSha;
     void Start()
     {
-        health = (int)0.5 * Whole.AICharacterlevel + 1;
+        health = 8 * Whole.AICharacterlevel + 60;
         Win = true;
         PangolinNumber = 0;
         Thiefing = false; Defensing = false;
@@ -44,7 +44,11 @@ public class AI : MonoBehaviour
         {
             Energy = 1;
             Career = 1;
-            health = 1 * Whole.AICharacterlevel + 1;
+            health = 10 * Whole.AICharacterlevel + 80;
+        }
+        if (StringCareer == "Assassin")
+        {
+            health = 6 * Whole.AICharacterlevel + 50;
         }
     }
 
