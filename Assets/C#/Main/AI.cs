@@ -39,9 +39,14 @@ public class AI : MonoBehaviour
         player = FindObjectOfType<Player>(); // 获取Player脚本的引用
 
         if (StringCareer == "Thief" || StringCareer == "Assassin" || StringCareer == "Guard" ||
-    StringCareer == "Rascally" || StringCareer == "Arrogance" || StringCareer == "Pangolin")
+            StringCareer == "Arrogance" || StringCareer == "Pangolin")
         {
             Career = 1;
+        }
+        if (StringCareer == "Rascally")
+        {
+            Career = 1;
+            health = 6 * Whole.Characterlevel + 50;
         }
         if (StringCareer == "Turtle")
         {
