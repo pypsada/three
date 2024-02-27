@@ -30,7 +30,6 @@ public class Player : MonoBehaviour
 
     public Text countDownText; // 倒计时文本
 
-    public Text WinOrLose;  //输赢文本
     public GameObject TanChuang1;
     public GameObject TanChuang2;
 
@@ -756,7 +755,6 @@ public class Player : MonoBehaviour
         {
             TanChuang1.SetActive(true);
             Time.timeScale = 0;
-            WinOrLose.text = "胜利！";
             Destroy(AIgameobject);
             //Debug.Log("Win");
         }
@@ -764,7 +762,6 @@ public class Player : MonoBehaviour
         {
             TanChuang2.SetActive(true);
             Time.timeScale = 0;
-            WinOrLose.text = "失败……";
             Destroy(gameObject);
             //Debug.Log("LOST");
         }
