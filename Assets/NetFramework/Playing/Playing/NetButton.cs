@@ -116,6 +116,7 @@ public class NetButton : MonoBehaviour
     private void AfterGetState()
     {
         aniTrigger = 0;
+        eventSystem.SetActive(false);
         //播放本地玩家和远程玩家的动画
         localAni.SetTrigger(playerScript.tmpData.skillName);
         remoteAni.SetTrigger(remotePlayerScript.tmpData.skillName);
@@ -128,6 +129,9 @@ public class NetButton : MonoBehaviour
         if (!updata) return;
         if(aniTrigger>=2)
         {
+            localAni.SetTrigger("Idle");
+            remoteAni.SetTrigger("Idle");
+            eventSystem.SetActive(true);
             aniTrigger = 0;
             switch(playState)
             {
