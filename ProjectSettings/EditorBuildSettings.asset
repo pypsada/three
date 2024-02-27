@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Users.unity
+    guid: fb4e5f7dc51d26843a446a2e81d18cdc
+  - enabled: 1
     path: Assets/Scenes/ChoseCareer.unity
     guid: e03ac2d9b1c62554787af127f31bb4b4
   - enabled: 1
@@ -35,9 +38,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game3Teach.unity
     guid: 226c435b6bd85e540935afe6fefbbb0c
-  - enabled: 1
-    path: Assets/Scenes/Users.unity
-    guid: fb4e5f7dc51d26843a446a2e81d18cdc
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 23485e2d9e890f44a8565ea3f736eda7

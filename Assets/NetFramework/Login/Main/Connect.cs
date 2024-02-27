@@ -48,7 +48,7 @@ public class Connect : MonoBehaviour
             //SaveGameManager.SaveData.UID = 0;
             //PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
             //PlayerPrefs.Save();
-
+            NetManager.Send(new MsgPing());
             if (SaveGameManager.SaveData.UID == 0)
             {
                 NetManager.Send(new MsgAskNewUid());
