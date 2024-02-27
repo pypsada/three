@@ -170,7 +170,7 @@ public class AI : MonoBehaviour
         {
             if (Career!=0)
             {
-                if(Energy == 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
+                if(Energy <= 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
                 {
                     chose = Random.Range(0, 3);
                     if (chose == 0)
@@ -189,7 +189,7 @@ public class AI : MonoBehaviour
                         Debug.Log("AI:Defense");
                     }
                 }
-                else if (Energy == 0)  //这样这里就是能量为0，玩家没有攻击手段
+                else if (Energy <= 0)  //这样这里就是能量为0，玩家没有攻击手段
                 {
                     chose = Random.Range(0, 2);
                     if (chose == 0)
@@ -355,7 +355,7 @@ public class AI : MonoBehaviour
             }
             else
             {
-                if (Energy == 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
+                if (Energy <= 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
                 {
                     chose = Random.Range(0, 2);
                     if (chose == 0)
@@ -369,7 +369,7 @@ public class AI : MonoBehaviour
                         Debug.Log("AI:Defense");
                     }
                 }
-                else if (Energy == 0)  //这样这里就是能量为0，玩家没有攻击手段
+                else if (Energy <= 0)  //这样这里就是能量为0，玩家没有攻击手段
                 {
                     RubbingEnergy();
                     Debug.Log("AI:RubbingEnergy");
@@ -499,7 +499,7 @@ public class AI : MonoBehaviour
         {
             if (Career != 0)
             {
-                if (Energy == 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
+                if (Energy <= 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
                 {
                     chose = Random.Range(1, 3);
                     if (chose == 1)
@@ -513,7 +513,7 @@ public class AI : MonoBehaviour
                         Debug.Log("AI:Defense");
                     }
                 }
-                else if (Energy == 0)  //这样这里就是能量为0，玩家没有攻击手段
+                else if (Energy <= 0)  //这样这里就是能量为0，玩家没有攻击手段
                 {
                     chose = Random.Range(1, 2);
                     if (chose == 1)
@@ -644,7 +644,7 @@ public class AI : MonoBehaviour
             }
             else
             {
-                if (Energy == 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
+                if (Energy <= 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
                 {
                     chose = Random.Range(1, 2);
                     if (chose == 1)
@@ -794,7 +794,7 @@ public class AI : MonoBehaviour
             }
             else
             {
-                if (Energy == 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
+                if (Energy <= 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
                 {
                     chose = Random.Range(0, 2);
                     if (chose == 0)
@@ -808,7 +808,7 @@ public class AI : MonoBehaviour
                         Debug.Log("AI:Defense");
                     }
                 }
-                else if (Energy == 0)  //这样这里就是能量为0，玩家没有攻击手段
+                else if (Energy <= 0)  //这样这里就是能量为0，玩家没有攻击手段
                 {
                     RubbingEnergy();
                     Debug.Log("AI:RubbingEnergy");
@@ -931,7 +931,7 @@ public class AI : MonoBehaviour
             }
             else
             {
-                if (Energy == 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
+                if (Energy <= 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
                 {
                     chose = Random.Range(0, 2);
                     if (chose == 0)
@@ -945,7 +945,7 @@ public class AI : MonoBehaviour
                         Debug.Log("AI:Defense");
                     }
                 }
-                else if (Energy == 0)  //这样这里就是能量为0，玩家没有攻击手段
+                else if (Energy <= 0)  //这样这里就是能量为0，玩家没有攻击手段
                 {
                     RubbingEnergy();
                     Debug.Log("AI:RubbingEnergy");
@@ -956,7 +956,7 @@ public class AI : MonoBehaviour
         {
             if (Career != 0)
             {
-                if (Energy == 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
+                if (Energy <= 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
                 {
                     chose = Random.Range(1, 2);
                     if (chose == 1)
@@ -965,7 +965,7 @@ public class AI : MonoBehaviour
                         Debug.Log("AI:Guard");
                     }
                 }
-                else if (Energy == 0)  //这样这里就是能量为0，玩家没有攻击手段
+                else if (Energy <= 0)  //这样这里就是能量为0，玩家没有攻击手段
                 {
                     chose = Random.Range(0, 1);
                     if (chose == 0)
@@ -1084,7 +1084,7 @@ public class AI : MonoBehaviour
         {
             if (Career != 0)
             {
-                if (Energy == 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
+                if (Energy <= 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
                 {
                     chose = Random.Range(0, 2);
                     if (chose == 0)
@@ -1098,7 +1098,7 @@ public class AI : MonoBehaviour
                         Debug.Log("AI:Defense");
                     }
                 }
-                else if (Energy == 0)  //这样这里就是能量为0，玩家没有攻击手段
+                else if (Energy <= 0)  //这样这里就是能量为0，玩家没有攻击手段
                 {
                     chose = Random.Range(0, 1);
                     if (chose == 0)
@@ -1184,7 +1184,7 @@ public class AI : MonoBehaviour
         {
             if (Career != 0)
             {
-                if (Energy == 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
+                if (Energy <= 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
                 {
                     chose = Random.Range(0, 2);
                     if (chose == 0)
@@ -1198,7 +1198,7 @@ public class AI : MonoBehaviour
                         Debug.Log("AI:Defense");
                     }
                 }
-                else if (Energy == 0)  //这样这里就是能量为0，玩家没有攻击手段
+                else if (Energy <= 0)  //这样这里就是能量为0，玩家没有攻击手段
                 {
                     Arrogance();
                     Debug.Log("AI:Arrogance");

@@ -245,9 +245,9 @@ public class Player : MonoBehaviour
     public void Rascally1()  //老赖技能：汲能
     {
         Priority = 0;
+        RascallyNumber = (int)Laolai;
         Energy += RascallyNumber;
         Laolai += 0.5f;
-        RascallyNumber=(int)Laolai;
         myAnim.SetTrigger("Cuo");
     }
     public void Arrogance()  //傲慢技能：嘲讽
