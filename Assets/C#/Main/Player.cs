@@ -94,7 +94,7 @@ public class Player : MonoBehaviour
                 AI.AIplaying();
                 if (Chose==false)
                 {
-                    if (StringCareer== "Pangolin" || StringCareer=="Thief")
+                    if (StringCareer== "Pangolin" || StringCareer=="Thief" || StringCareer=="Guard")
                     {
                         Defense();
                     }
