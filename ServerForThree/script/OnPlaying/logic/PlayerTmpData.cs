@@ -1,7 +1,7 @@
-﻿
-public class PlayerTmpData
+﻿public class PlayerTmpData
 {
     public string skillName;
+    public float Laolai;
     public int health;  //血量
     public int Energy;
     //private Animator myAnim;
@@ -38,6 +38,39 @@ public class PlayerTmpData
     //初始化数据
     public void InitData()
     {
+        //Continue = true;
+        //Win = true;
+
+
+        ////countDownTimer = 10f;
+        //Ground = 1;
+        //RascallyNumber = 1;
+        //ArroganceNumber = 0;
+        //Thiefing = false;
+        //PangolinNumber = 0;
+        //StringCareer = Whole.PlayerCareer;
+        //level = level;
+        //Career = 0;
+        //Energy = 0;   //初始化
+        ////myAnim = GetComponent<Animator>();
+        ////countDownText = countDownText.GetComponent<Text>();
+        ////GroundText = GroundText.GetComponent<Text>();
+        ////AI = FindObjectOfType<AI>();
+        //health = (int)0.5 * level + 1;
+        //if (StringCareer == "Thief" || StringCareer == "Assassin" || StringCareer == "Guard" ||
+        //    StringCareer == "Rascally" || StringCareer == "Arrogance" || StringCareer == "Pangolin")
+        //{
+        //    Career = 1;
+        //}
+        //if (StringCareer == "Turtle")
+        //{
+        //    Energy = 1;
+        //    Career = 1;
+        //    health = 1 * level + 1;
+        //}
+
+        Laolai = 1f;
+
         Continue = true;
         Win = true;
 
@@ -56,7 +89,7 @@ public class PlayerTmpData
                       //countDownText = countDownText.GetComponent<Text>();
                       //GroundText = GroundText.GetComponent<Text>();
                       //AI = FindObjectOfType<AI>();
-        health = (int)0.5 * level + 1;
+        health = 8 * level + 60;
         if (StringCareer == "Thief" || StringCareer == "Assassin" || StringCareer == "Guard" ||
             StringCareer == "Rascally" || StringCareer == "Arrogance" || StringCareer == "Pangolin")
         {
@@ -66,7 +99,11 @@ public class PlayerTmpData
         {
             Energy = 1;
             Career = 1;
-            health = 1 * level + 1;
+            health = 10 * level + 80;
+        }
+        if (StringCareer == "Assassin")
+        {
+            health = 6 * level + 50;
         }
     }
 
@@ -214,9 +251,14 @@ public class PlayerTmpData
     //}
     public void Rascally()  //老赖技能：汲能
     {
+        //Priority = 0;
+        //Energy += RascallyNumber;
+        //RascallyNumber += 1;
+
         Priority = 0;
+        RascallyNumber = (int)Laolai;
         Energy += RascallyNumber;
-        RascallyNumber += 1;
+        Laolai += 0.5f;
         skillName = "Cuo";
         //myAnim.SetTrigger();
     }

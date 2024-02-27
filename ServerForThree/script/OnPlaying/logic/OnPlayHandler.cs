@@ -72,9 +72,9 @@ public partial class MsgHandler
 
 
 
-            MsgRemoteInfo msg_aa = new();
+            MsgLocalInfo msg_aa = new();
             msg_aa.tmpData = JsonConvert.SerializeObject(room.player_a.tmpData);
-            MsgRemoteInfo msg_bb = new();
+            MsgLocalInfo msg_bb = new();
             msg_bb.tmpData = JsonConvert.SerializeObject(room.player_b.tmpData);
 
             room.player_a.Send(msg_aa);

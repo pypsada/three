@@ -5,6 +5,7 @@ namespace NetGame
     public class PlayerTmpData
     {
         public string skillName;
+        public float Laolai;
         public int health;  //血量
         public int Energy;
         //private Animator myAnim;
@@ -71,6 +72,8 @@ namespace NetGame
             //    Career = 1;
             //    health = 1 * level + 1;
             //}
+
+            Laolai = 1f;
 
             Continue = true;
             Win = true;
@@ -252,9 +255,14 @@ namespace NetGame
         //}
         public void Rascally()  //老赖技能：汲能
         {
+            //Priority = 0;
+            //Energy += RascallyNumber;
+            //RascallyNumber += 1;
+
             Priority = 0;
+            RascallyNumber = (int)Laolai;
             Energy += RascallyNumber;
-            RascallyNumber += 1;
+            Laolai += 0.5f;
             skillName = "Cuo";
             //myAnim.SetTrigger();
         }
