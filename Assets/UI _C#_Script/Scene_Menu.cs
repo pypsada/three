@@ -34,6 +34,16 @@ public class Scene_Menu : MonoBehaviour
                 SaveGameManager.SaveData.record = 30;
                 SceneManager.LoadScene("Act3");
             }
+            else if (SaveGameManager.SaveData.record < 50)
+            {
+                SaveGameManager.SaveData.record = 40;
+                SceneManager.LoadScene("Act4");
+            }
+            else if (SaveGameManager.SaveData.record < 60)
+            {
+                SaveGameManager.SaveData.record = 50;
+                SceneManager.LoadScene("Act5");
+            }
             else if (SaveGameManager.SaveData.record >= 60)
             {
                 SceneManager.LoadScene("Base");

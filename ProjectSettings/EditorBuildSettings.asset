@@ -89,5 +89,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FightModle.unity
     guid: 0aa3ce512cc6e0043a9a54626afcb5e5
+  - enabled: 1
+    path: Assets/Scenes/Act5.unity
+    guid: 3e1ed0d4905ba8542a9f6bfdd19a3231
+  - enabled: 1
+    path: Assets/Scenes/Base.unity
+    guid: 9333294ec43e7af4485be097b5ce64ed
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

@@ -9,6 +9,7 @@ public class SceneChoice : MonoBehaviour
     public float time = 2f;
     public GameObject effectPrefab;
     public GameObject canvas;
+    public bool win;
 
     public void SceneAlt()
     {
@@ -21,7 +22,18 @@ public class SceneChoice : MonoBehaviour
         yield return new WaitForSeconds(time);
         if (!string.IsNullOrEmpty(sceneChoice))
         {
+            Time.timeScale = 1;
             SceneManager.LoadScene(sceneChoice);
+        }
+        else if (win)
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene(BossFight.Scene);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene(BossFight.Scene2);
         }
     }
 

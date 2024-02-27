@@ -10,6 +10,7 @@ public class AddRecord : MonoBehaviour
 
     public void Add()
     {
+        Time.timeScale = 1;
         SaveGameManager.SaveData.record += increment;
         PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
         PlayerPrefs.Save();

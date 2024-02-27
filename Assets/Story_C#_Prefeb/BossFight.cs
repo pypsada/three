@@ -8,6 +8,10 @@ public class BossFight : MonoBehaviour
     public int playrLevel;
     public string AICareer;
     public int AILevel;
+    public string goingScene;
+    public static string Scene;
+    public string backScene;
+    public static string Scene2;
 
     public void ControlFight()
     {
@@ -15,5 +19,7 @@ public class BossFight : MonoBehaviour
         Whole.AICareer = AICareer;
         Whole.Characterlevel = playrLevel;
         Whole.AICharacterlevel = AILevel;
+        Scene = goingScene;
+        Scene2 = backScene;
     }
 }

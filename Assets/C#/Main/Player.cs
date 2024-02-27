@@ -629,18 +629,14 @@ public class Player : MonoBehaviour
 
         if (AI.health<=0)
         {
-            TanChuang.SetActive(true);
+            TanChuang1.SetActive(true);
             Time.timeScale = 0;
-            WinOrLose.text = "Win";
-            Destroy(AIgameobject);
             Debug.Log("Win");
         }
         else if (health <= 0)
         {
-            TanChuang.SetActive(true);
+            TanChuang2.SetActive(true);
             Time.timeScale = 0;
-            WinOrLose.text = "Lose";
-            Destroy(gameObject);
             Debug.Log("LOST");
             //Ê±¼äÔÝÍ£
         }
@@ -755,14 +751,12 @@ public class Player : MonoBehaviour
         {
             TanChuang1.SetActive(true);
             Time.timeScale = 0;
-            Destroy(AIgameobject);
             //Debug.Log("Win");
         }
         if (health <= 0)
         {
             TanChuang2.SetActive(true);
             Time.timeScale = 0;
-            Destroy(gameObject);
             //Debug.Log("LOST");
         }
     }
