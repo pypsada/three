@@ -61,6 +61,11 @@ public class NetButton : MonoBehaviour
         return;
     }
 
+    private void OnDestroy()
+    {
+        RemoveListner();
+    }
+
     //Íæ¼ÒÊ¤Àû
     private void ThisWin(MsgBase msgBase)
     {
@@ -153,7 +158,7 @@ public class NetButton : MonoBehaviour
     {
         NetMain.actions.Enqueue(() =>
         {
-            RemoveListner();
+            //RemoveListner();
             eventSystem.SetActive(false);
             tipText.text = "Ê¤Àû";
             remotePlayer.SetActive(false);
@@ -164,7 +169,7 @@ public class NetButton : MonoBehaviour
     {
         NetMain.actions.Enqueue(() =>
         {
-            RemoveListner();
+            //RemoveListner();
             eventSystem.SetActive(false);
             tipText.text = "Ê§°Ü";
             localPlayer.SetActive(false);

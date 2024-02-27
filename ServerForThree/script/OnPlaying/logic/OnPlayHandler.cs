@@ -62,6 +62,11 @@ public partial class MsgHandler
 
         if(room.actPlayer>=2)
         {
+            room.actPlayer = 0;
+            room.Despare();
+            room.Sum();
+
+
             MsgRemoteInfo msg_a = new();
             msg_a.tmpData = JsonConvert.SerializeObject(room.player_a.tmpData);
             MsgRemoteInfo msg_b = new();
@@ -69,7 +74,6 @@ public partial class MsgHandler
 
             room.player_a.Send(msg_b);
             room.player_b.Send(msg_a);
-
 
 
             MsgLocalInfo msg_aa = new();
@@ -81,9 +85,6 @@ public partial class MsgHandler
             room.player_b.Send(msg_bb);
 
 
-            room.actPlayer = 0;
-            room.Despare();
-            room.Sum();
         }
     }
 }

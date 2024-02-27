@@ -7,11 +7,6 @@ public class ChatFeild:MonoBehaviour
     [Header("ref")]
     public Text[] texts;
     public InputField inputField;
-    [Header("set")]
-    [Tooltip("对方消息颜色")]
-    public Color remoteColor;
-    [Tooltip("我方消息颜色")]
-    public Color localColor;
 
     void Start()
     {
@@ -20,6 +15,7 @@ public class ChatFeild:MonoBehaviour
 
     void Update()
     {
+        //OnClickEnter();
         return;
     }
 
@@ -44,25 +40,41 @@ public class ChatFeild:MonoBehaviour
         NetMain.actions.Enqueue(() =>
         {
             MsgChat msg = (MsgChat)msgBase;
-            TextRoll(msg.chatStr, remoteColor);
+            TextRoll("对手:"+msg.chatStr);
         });
     }
 
     //己方玩家发消息(点击发送按钮)
     public void OnClickSend()
     {
-        TextRoll(inputField.text, localColor);
+        if (inputField.text.Replace(" ", "") == "") return;
+
+        TextRoll("自己:"+inputField.text);
+
+        MsgChat msg = new();
+        msg.chatStr = inputField.text;
+        NetManager.Send(msg);
+
         inputField.text = "";
     }
 
-    private void TextRoll(string text,Color color)
+    //Used by update
+    //按下Enter键相当于点击发送键
+    //private void OnClickEnter()
+    //{
+    //    if(Input.GetKeyDown(KeyCode.KeypadEnter))
+    //    {
+    //        OnClickSend();
+    //    }
+    //}
+
+    private void TextRoll(string text)
     {
         for (int i = 0; i < texts.Length - 1; i++)
         {
-            texts[i] = texts[i + 1];
+            texts[i].text = texts[i + 1].text;
         }
         Text lastText = texts[texts.Length - 1];
-        lastText.color = color;
         lastText.text = text;
     }
 }
