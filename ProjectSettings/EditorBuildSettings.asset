@@ -83,5 +83,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/NetFramework/NetScenes/WaitPlaying.unity
     guid: ca5276879682adb43b746b92cb2fe001
+  - enabled: 1
+    path: Assets/Scenes/Act4.unity
+    guid: 17f0f74ddbb8af94495279f7c8a1151e
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

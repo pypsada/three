@@ -31,7 +31,8 @@ public class Player : MonoBehaviour
     public Text countDownText; // 倒计时文本
 
     public Text WinOrLose;  //输赢文本
-    public GameObject TanChuang;
+    public GameObject TanChuang1;
+    public GameObject TanChuang2;
 
     public float countDownTimer = 10f; // 倒计时时间
     public Text GroundText; //回合数文本
@@ -753,17 +754,17 @@ public class Player : MonoBehaviour
     {
         if (AI.health <= 0)
         {
-            TanChuang.SetActive(true);
+            TanChuang1.SetActive(true);
             Time.timeScale = 0;
-            WinOrLose.text = "Win";
+            WinOrLose.text = "胜利！";
             Destroy(AIgameobject);
             //Debug.Log("Win");
         }
         if (health <= 0)
         {
-            TanChuang.SetActive(true);
+            TanChuang2.SetActive(true);
             Time.timeScale = 0;
-            WinOrLose.text = "Lose";
+            WinOrLose.text = "失败……";
             Destroy(gameObject);
             //Debug.Log("LOST");
         }
