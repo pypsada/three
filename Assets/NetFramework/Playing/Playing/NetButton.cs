@@ -207,9 +207,11 @@ public class NetButton : MonoBehaviour
     [Header("本地玩家信息")]
     public Text localEnegy;
     public Text localCareer;
+    public Text localHealth;
     [Header("远程玩家信息")]
     public Text remoteEnegy;
     public Text remoteCareer;
+    public Text remoteHealth;
     [Header("游戏轮数文本")]
     public Text gameRound;
 
@@ -235,9 +237,11 @@ public class NetButton : MonoBehaviour
 
         localEnegy.text = localData.Energy.ToString();
         localCareer.text = localData.Career.ToString();
+        localHealth.text = localData.health.ToString();
 
         remoteEnegy.text = remoteData.Energy.ToString();
         remoteCareer.text = remoteData.Career.ToString();
+        remoteHealth.text = remoteData.health.ToString();
 
         gameRound.text = round.ToString();
     }
