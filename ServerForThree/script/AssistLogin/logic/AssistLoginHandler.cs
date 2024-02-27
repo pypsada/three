@@ -1,6 +1,6 @@
 ﻿public partial class MsgHandler
 {
-    public void MsgAskNewUid(ClientState c, MsgBase msgBase)
+    public static void MsgAskNewUid(ClientState c, MsgBase msgBase)
     {
         MsgAskNewUid msg = new();
         msg.newUid = DbManager.GetNewUid();

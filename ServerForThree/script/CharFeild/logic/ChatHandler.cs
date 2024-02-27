@@ -2,7 +2,7 @@
 
 public partial class MsgHandler
 {
-    public void MsgChat(ClientState c,MsgBase msgBase)
+    public static void MsgChat(ClientState c,MsgBase msgBase)
     {
         MsgChat msg = (MsgChat)msgBase;
 
