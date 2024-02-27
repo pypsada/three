@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
         countDownText = countDownText.GetComponent<Text>();
         GroundText = GroundText.GetComponent<Text>();
         AI = FindObjectOfType<AI>();
-        health = (int)0.5 * Whole.Characterlevel + 1;
+        health = 8 * Whole.Characterlevel + 60;
         if (StringCareer == "Thief" || StringCareer == "Assassin" || StringCareer=="Guard" || 
             StringCareer== "Rascally" || StringCareer== "Arrogance" ||StringCareer== "Pangolin")
         {
@@ -64,11 +64,11 @@ public class Player : MonoBehaviour
         {
             Energy = 1;
             Career = 1;
-            health = 1 * Whole.Characterlevel + 1;
+            health = 10 * Whole.Characterlevel + 80;
         }
         if (StringCareer == "Assassin")
         {
-            health = (int)0.4 * Whole.Characterlevel + 1;
+            health = 6 * Whole.Characterlevel + 50;
         }
     }
 
@@ -353,14 +353,14 @@ public class Player : MonoBehaviour
             {
                 if (AI.Thiefing==true)
                 {
-                    Debug.Log("Continue");
+                    
                 }
                 else
                 {
                     AI.Energy -= 1;
                     Energy += 1;
                     Career += 1;
-                    Debug.Log("Continue");
+                    
                 }
             }
             Thiefing=false;
@@ -382,11 +382,7 @@ public class Player : MonoBehaviour
                     Energy -= 1;
                     AI.Energy += 1;
                     AI.Career += 1;
-                    Debug.Log("Continue");
-                }
-                else
-                {
-                    Debug.Log("Continue");
+                    
                 }
 
             }
@@ -395,11 +391,7 @@ public class Player : MonoBehaviour
                 if (AI.Thiefing==true)
                 {
                     AI.Career -= 1;
-                    Debug.Log("Continue");
-                }
-                else
-                {
-                    Debug.Log("Continue");
+                    
                 }
 
             }
@@ -408,12 +400,8 @@ public class Player : MonoBehaviour
                 if (AI.Thiefing==true)
                 {
                     AI.Career -= 1;
-                    Debug.Log("Continue");
                 }
-                else
-                {
-                    Debug.Log("Continue");
-                }
+
 
             }
             else if (Priority==0 && (AI.Defensing==true || AI.Priority==0 || AI.Rebounding==true))  //玩家搓能量，AI不攻击
@@ -423,10 +411,7 @@ public class Player : MonoBehaviour
                     AI.Career += 1;
                     AI.Energy += 1;
                 }
-                else
-                {
-                    Debug.Log("Continue");
-                }
+
 
             }
             else  //否则就是玩家赢
@@ -455,11 +440,11 @@ public class Player : MonoBehaviour
                 {
                     if(Whole.AICareer== "Assassin")
                     {
-                        AI.health -= 1 + (int)0.3 * Whole.AICharacterlevel;
+                        AI.health -= (int)(30 + 1.1 * Whole.AICharacterlevel);
                     }
                     else
                     {
-                        AI.health -= 1+(int)0.15*Whole.AICharacterlevel;
+                        AI.health -= 20+1*Whole.AICharacterlevel;
                     }
 
                 }
@@ -467,11 +452,11 @@ public class Player : MonoBehaviour
                 {
                     if (Whole.AICareer=="King")
                     {
-                        AI.health -= 2 + (int)0.37 * Whole.AICharacterlevel;
+                        AI.health -= (int)(40 + 1.8 * Whole.AICharacterlevel);
                     }
                     else
                     {
-                        AI.health -= 2 + (int)0.3 * Whole.AICharacterlevel;
+                        AI.health -= (int)(50 + 2 * Whole.AICharacterlevel);
                     }
                     
                 }
@@ -482,11 +467,11 @@ public class Player : MonoBehaviour
                 {
                     if (Whole.AICareer == "Assassin")
                     {
-                        AI.health -= 1 + (int)0.3 * Whole.AICharacterlevel;
+                        AI.health -= (int)(30 + 1.1 * Whole.AICharacterlevel);
                     }
                     else
                     {
-                        AI.health -= 1 + (int)0.15 * Whole.AICharacterlevel;
+                        AI.health -= 50 + 2 * Whole.AICharacterlevel;
                     }
 
                 }
@@ -494,11 +479,11 @@ public class Player : MonoBehaviour
                 {
                     if (Whole.AICareer == "King")
                     {
-                        AI.health -= 2 + (int)0.37 * Whole.AICharacterlevel;
+                        AI.health -=(int)( 40 + 1.8* Whole.AICharacterlevel);
                     }
                     else
                     {
-                        AI.health -= 2 + (int)0.3 * Whole.AICharacterlevel;
+                        AI.health -= 50 + 2 * Whole.AICharacterlevel;
                     }
                 }
             }
@@ -508,11 +493,11 @@ public class Player : MonoBehaviour
                 {
                     if (Whole.PlayerCareer == "Assassin")
                     {
-                        AI.health -= 1 + (int)0.3 * Whole.Characterlevel;
+                        AI.health -= (int)(30 + 1.1 * Whole.Characterlevel);
                     }
                     else
                     {
-                        AI.health -= 1 + (int)0.15 * Whole.Characterlevel;
+                        AI.health -= 20 + 1 * Whole.Characterlevel;
                     }
 
                 }
@@ -520,11 +505,11 @@ public class Player : MonoBehaviour
                 {
                     if (Whole.PlayerCareer == "King")
                     {
-                        AI.health -= 2 + (int)0.37 * Whole.Characterlevel;
+                        AI.health -= (int)(40+1.8 * Whole.Characterlevel);
                     }
                     else
                     {
-                        AI.health -= 2 + (int)0.3 * Whole.Characterlevel;
+                        AI.health -= 50+2 * Whole.Characterlevel;
                     }
 
                 }
@@ -538,11 +523,11 @@ public class Player : MonoBehaviour
                 {
                     if (Whole.PlayerCareer == "Assassin")
                     {
-                        health -= 1 + (int)0.3 * Whole.Characterlevel;
+                        health -= (int)(30 + 1.1 * Whole.Characterlevel);
                     }
                     else
                     {
-                        health -= 1 + (int)0.15 * Whole.Characterlevel;
+                        health -= 20+1 * Whole.Characterlevel;
                     }
                     
                 }
@@ -550,11 +535,11 @@ public class Player : MonoBehaviour
                 {
                     if (Whole.PlayerCareer == "King")
                     {
-                        health -= 2 + (int)0.37 * Whole.Characterlevel;
+                        health -= (int)(40 + 1.8 * Whole.Characterlevel);
                     }
                     else
                     {
-                        health -= 2 + (int)0.3 * Whole.Characterlevel;
+                        health -= 50+2 * Whole.Characterlevel;
                     }
 
                 }
@@ -565,11 +550,11 @@ public class Player : MonoBehaviour
                 {
                     if (Whole.PlayerCareer == "Assassin")
                     {
-                        health -= 1 + (int)0.3 * Whole.Characterlevel;
+                        health -= (int)(30 + 1.1 * Whole.Characterlevel);
                     }
                     else
                     {
-                        health -= 1 + (int)0.15 * Whole.Characterlevel;
+                        health -= 20s + 1 * Whole.Characterlevel;
                     }
 
                 }
@@ -577,11 +562,11 @@ public class Player : MonoBehaviour
                 {
                     if (Whole.PlayerCareer == "King")
                     {
-                        health -= 2 + (int)0.37 * Whole.Characterlevel;
+                        health -= (int)(40 + 1.8* Whole.Characterlevel);
                     }
                     else
                     {
-                        health -= 2 + (int)0.3 * Whole.Characterlevel;
+                        health -= 50 + 2 * Whole.Characterlevel;
                     }
 
                 }
@@ -592,11 +577,11 @@ public class Player : MonoBehaviour
                 {
                     if (Whole.AICareer == "Assassin")
                     {
-                        health -= 1 + (int)0.3 * Whole.AICharacterlevel;
+                        health -= (int)(30 + 1.1 * Whole.AICharacterlevel);
                     }
                     else
                     {
-                        health -= 1 + (int)0.15 * Whole.AICharacterlevel;
+                        health -= 20 + 1 * Whole.AICharacterlevel;
                     }
 
                 }
@@ -604,37 +589,37 @@ public class Player : MonoBehaviour
                 {
                     if (Whole.PlayerCareer == "Kings")
                     {
-                        health -= 2 + (int)0.37 * Whole.AICharacterlevel;
+                        health -= (int)(40+1.8 * Whole.AICharacterlevel);
                     }
                     else
                     {
-                        health -= 2 + (int)0.3 * Whole.AICharacterlevel;
+                        health -= 50 + 2 * Whole.AICharacterlevel;
                     }
 
                 }
             }
         }
-        else
-        {
-            Debug.Log("Continue");
-        }
 
-        if (health<=0)
-        {
-            TanChuang.SetActive(true);
-            Time.timeScale = 0;
-            WinOrLose.text = "Lose";
-            Destroy(gameObject);
-            //Debug.Log("LOST");
-            //时间暂停
-        }
         if (AI.health<=0)
         {
             TanChuang.SetActive(true);
             Time.timeScale = 0;
             WinOrLose.text = "Win";
             Destroy(AIgameobject);
-            //Debug.Log("Win");
+            Debug.Log("Win");
+        }
+        else if (health <= 0)
+        {
+            TanChuang.SetActive(true);
+            Time.timeScale = 0;
+            WinOrLose.text = "Lose";
+            Destroy(gameObject);
+            Debug.Log("LOST");
+            //时间暂停
+        }
+        else
+        {
+            Debug.Log("Continue");
         }
 
         Win = true;
@@ -712,8 +697,8 @@ public class Player : MonoBehaviour
         {
             if (ArroganceNumber >= 3 && AI.ArroganceNumber >= 3)
             {
-                AI.health -= (int)(0.35 * Whole.Characterlevel + 1.5);
-                health -= (int)(0.35 * Whole.AICharacterlevel + 1.5);
+                AI.health -= (int)(1.5 * Whole.Characterlevel + 45);
+                health -= (int)(1.5 * Whole.AICharacterlevel + 45);
                 ArroganceNumber -= 3;
                 AI.ArroganceNumber -= 3;
                 Energy += 1;
@@ -722,14 +707,14 @@ public class Player : MonoBehaviour
             }
             else if (ArroganceNumber >= 3)
             {
-                AI.health -= (int)(0.35 * Whole.Characterlevel + 1.5);
+                AI.health -= (int)(1.5 * Whole.Characterlevel + 45);
                 ArroganceNumber -= 3;
                 Energy += 1;
                 ArroganceSum();
             }
             else if (AI.ArroganceNumber >= 3)
             {
-                health -= (int)(0.35 * Whole.AICharacterlevel + 1.5);
+                health -= (int)(1.5 * Whole.AICharacterlevel + 45);
                 AI.ArroganceNumber -= 3;
                 AI.Energy += 1;
                 ArroganceSum();
