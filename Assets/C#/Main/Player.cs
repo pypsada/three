@@ -367,6 +367,7 @@ public class Player : MonoBehaviour
                     {
                         AI.Energy -= AI.RascallyNumber;
                         Energy += AI.RascallyNumber;
+                        Career += 1;
                     }
                     else
                     {
