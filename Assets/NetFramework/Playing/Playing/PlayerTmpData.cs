@@ -41,6 +41,37 @@ namespace NetGame
         //初始化数据
         public void InitData()
         {
+            //Continue = true;
+            //Win = true;
+
+
+            ////countDownTimer = 10f;
+            //Ground = 1;
+            //RascallyNumber = 1;
+            //ArroganceNumber = 0;
+            //Thiefing = false;
+            //PangolinNumber = 0;
+            //StringCareer = Whole.PlayerCareer;
+            //level = level;
+            //Career = 0;
+            //Energy = 0;   //初始化
+            ////myAnim = GetComponent<Animator>();
+            ////countDownText = countDownText.GetComponent<Text>();
+            ////GroundText = GroundText.GetComponent<Text>();
+            ////AI = FindObjectOfType<AI>();
+            //health = (int)0.5 * level + 1;
+            //if (StringCareer == "Thief" || StringCareer == "Assassin" || StringCareer == "Guard" ||
+            //    StringCareer == "Rascally" || StringCareer == "Arrogance" || StringCareer == "Pangolin")
+            //{
+            //    Career = 1;
+            //}
+            //if (StringCareer == "Turtle")
+            //{
+            //    Energy = 1;
+            //    Career = 1;
+            //    health = 1 * level + 1;
+            //}
+
             Continue = true;
             Win = true;
 
@@ -59,7 +90,7 @@ namespace NetGame
             //countDownText = countDownText.GetComponent<Text>();
             //GroundText = GroundText.GetComponent<Text>();
             //AI = FindObjectOfType<AI>();
-            health = (int)0.5 * level + 1;
+            health = 8 * level + 60;
             if (StringCareer == "Thief" || StringCareer == "Assassin" || StringCareer == "Guard" ||
                 StringCareer == "Rascally" || StringCareer == "Arrogance" || StringCareer == "Pangolin")
             {
@@ -69,7 +100,11 @@ namespace NetGame
             {
                 Energy = 1;
                 Career = 1;
-                health = 1 * level + 1;
+                health = 10 * level + 80;
+            }
+            if (StringCareer == "Assassin")
+            {
+                health = 6 * level + 50;
             }
         }
 
