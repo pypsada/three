@@ -98,7 +98,7 @@ public class Connect : MonoBehaviour
         ClickClose();
         connectFail.SetActive(false);
         beforeConnect.SetActive(true);
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("FightPrepare");
     }
 
     //主动点击关闭按钮
