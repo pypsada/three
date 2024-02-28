@@ -14,6 +14,7 @@ public class NetButton : MonoBehaviour
     [Header("ref")]
     public GameObject localPlayer;
     public GameObject remotePlayer;
+    public ChatFeild chatFeild;
     //public GameObject eventSystem;
     [Header("玩家动画引用")]
     public Animator localAni;
@@ -53,6 +54,7 @@ public class NetButton : MonoBehaviour
         NetManager.AddMsgListener("MsgGameContinue", GameContinue);
         NetManager.AddMsgListener("MsgRemoteInfo", RemoteInfo);
         NetManager.AddMsgListener("MsgLocalInfo", LocalInfo);
+        NetManager.AddMsgListener("MsgUrge", BeUrged);
     }
 
     // Update is called once per frame
@@ -60,6 +62,7 @@ public class NetButton : MonoBehaviour
     {
         UpdateUIData();
         AfterPlayAnimation();
+        IsUrging();
         return;
     }
 
@@ -125,6 +128,11 @@ public class NetButton : MonoBehaviour
         aniTrigger = 0;
         //eventSystem.SetActive(false);
         canClick = false;
+        if(Urging)
+        {
+            chatFeild.TextRoll("系统:对方行动,催促取消");
+        }
+        Urging = false;
         //播放本地玩家和远程玩家的动画
         localAni.SetTrigger(playerScript.tmpData.skillName);
         remoteAni.SetTrigger(remotePlayerScript.tmpData.skillName);
@@ -215,6 +223,64 @@ public class NetButton : MonoBehaviour
         playerScript.tmpData = (PlayerTmpData)JsonUtility.FromJson(msg.tmpData, typeof(PlayerTmpData));
     }
 
+    //按下认输按钮，如果是催促时间到也是调用这个函数
+    public void OnClickEscape()
+    {
+        NetManager.Send(new MsgAdmitDefeat());
+    }
+
+    //是否正在催促
+    private bool Urging = false;
+    private int leftTime = 30;
+    private float lastUrgeTime = 0;
+
+    //按下催促按钮
+    public void OnClickUrge()
+    {
+        if(canClick)
+        {
+            chatFeild.TextRoll("系统:请你先出招");
+            return;
+        }
+        lastUrgeTime = 0;
+        leftTime = 30;
+        Urging = true;
+    }
+
+    //被催促
+    private void BeUrged(MsgBase msgBase)
+    {
+        MsgUrge msg = (MsgUrge)msgBase;
+        if(msg.leftTime>0)
+        {
+            chatFeild.TextRoll("系统:被催促,剩" + msg.leftTime + "秒");
+        }
+        else
+        {
+            OnClickEscape();
+        }
+    }
+
+    //Used by update
+    private void IsUrging()
+    {
+        if (!updata) return;
+        if(Urging)
+        {
+            if(Time.time-lastUrgeTime>5)
+            {
+                lastUrgeTime = Time.time;
+
+                MsgUrge msgUrge = new();
+                msgUrge.leftTime = leftTime;
+                NetManager.Send(msgUrge);
+                chatFeild.TextRoll("系统:催促对方,剩" + leftTime + "秒");
+
+                leftTime -= 5;
+            }
+        }
+    }
+
     private void RemoveListner()
     {
         NetManager.RemoveMsgListener("MsgYouWin", ThisWin);
@@ -222,6 +288,7 @@ public class NetButton : MonoBehaviour
         NetManager.RemoveMsgListener("MsgGameContinue", GameContinue);
         NetManager.RemoveMsgListener("MsgRemoteInfo", RemoteInfo);
         NetManager.RemoveMsgListener("MsgLocalInfo", LocalInfo);
+        NetManager.RemoveMsgListener("MsgUrge",BeUrged);
     }
 
 

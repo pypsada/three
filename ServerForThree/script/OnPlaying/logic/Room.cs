@@ -533,7 +533,7 @@ namespace NetGame
             }
         }
 
-        private void AWin()
+        public void AWin()
         {
             player_a.Send(new MsgYouWin());
             player_b.Send(new MsgYouLost());
@@ -547,7 +547,7 @@ namespace NetGame
             RoomManager.ClearRooms();
         }
 
-        private void BWin()
+        public void BWin()
         {
             player_a.Send(new MsgYouLost());
             player_b.Send(new MsgYouWin());
@@ -565,6 +565,23 @@ namespace NetGame
         {
             player_a.Send(new MsgGameContinue());
             player_b.Send(new MsgGameContinue());
+        }
+
+        //房间内另一个玩家
+        public Player? Another(Player player)
+        {
+            if(player==player_a)
+            {
+                return player_b;
+            }
+            else if(player==player_b)
+            {
+                return player_a;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         //玩家逃跑算作失败

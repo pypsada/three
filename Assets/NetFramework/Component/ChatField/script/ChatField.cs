@@ -68,7 +68,7 @@ public class ChatFeild:MonoBehaviour
     //    }
     //}
 
-    private void TextRoll(string text)
+    public void TextRoll(string text)
     {
         for (int i = 0; i < texts.Length - 1; i++)
         {

@@ -1,5 +1,6 @@
 ﻿using Mysqlx.Connection;
 using Newtonsoft.Json;
+using System.Security.Cryptography.X509Certificates;
 
 public partial class MsgHandler
 {
@@ -86,5 +87,60 @@ public partial class MsgHandler
 
             RoomManager.ClearRooms();
         }
+    }
+
+    //玩家认输
+    public static void MsgAdmitDefeat(ClientState c, MsgBase msgBase)
+    {
+        if(c.player==null)
+        {
+            LogManager.Log("[MsgAdmitDefeat] c.player is null");
+            return;
+        }
+        NetGame.Room room = c.player.room;
+        if(room==null)
+        {
+            LogManager.Log("[MsgAdmitDefeat] c.player.room is null");
+            return;
+        }
+
+        if(c.player==room.player_a)
+        {
+            room.BWin();
+            RoomManager.ClearRooms();
+        }
+        else if(c.player==room.player_b)
+        {
+            room.AWin();
+            RoomManager.ClearRooms();
+        }
+        else
+        {
+            LogManager.Log("[MsgAdmitDefeat] not in this room");
+            return;
+        }
+    }
+
+    //催促
+    public static void MsgUrge(ClientState c, MsgBase msgBase)
+    {
+        if (c.player == null)
+        {
+            LogManager.Log("[MsgUrge] c.player is null");
+            return;
+        }
+        NetGame.Room room = c.player.room;
+        if (room == null)
+        {
+            LogManager.Log("[MsgUrge] c.player.room is null");
+            return;
+        }
+        Player? another = room.Another(c.player);
+        if(another==null)
+        {
+            LogManager.Log("[MsgUrge] c.player.another is null");
+            return;
+        }
+        another.Send(msgBase);
     }
 }

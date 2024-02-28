@@ -110,6 +110,6 @@ public class Matching : MonoBehaviour
         Debug.Log("µÇ³ö");
         NetManager.Close();
         NetManager.ping = -1;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("FightPrepare");
     }
 }
