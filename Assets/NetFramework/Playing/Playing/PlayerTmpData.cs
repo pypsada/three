@@ -4,7 +4,7 @@ namespace NetGame
 {
     public class PlayerTmpData
     {
-        public string skillName;
+        public string skillName = "Idle";
         public float Laolai;
         public int health;  //血量
         public int Energy;
@@ -17,7 +17,7 @@ namespace NetGame
         public bool Chose = false;    //是否选择了技能
         public int Career;  //技能点数(职业技能点数)
         public string StringCareer;  //职业名字
-        public int Ground;  //回合数
+        public int Ground=0;  //回合数
         public int RascallyNumber;  //老赖技能获取能量数
         public int ArroganceNumber;  //傲慢点数
         public bool Thiefing;  //神偷判定

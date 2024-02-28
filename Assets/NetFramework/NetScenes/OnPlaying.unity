@@ -3257,7 +3257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 523584413}
-  flag: 1
+  flag: 0
 --- !u!114 &523584413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6076,7 +6076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 990070702}
-  flag: 1
+  flag: 0
 --- !u!114 &990070702
 MonoBehaviour:
   m_ObjectHideFlags: 0
