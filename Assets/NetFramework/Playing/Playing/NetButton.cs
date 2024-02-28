@@ -237,6 +237,7 @@ public class NetButton : MonoBehaviour
     //按下催促按钮
     public void OnClickUrge()
     {
+        if (Urging) return;
         if(canClick)
         {
             chatFeild.TextRoll("系统:请你先出招");
