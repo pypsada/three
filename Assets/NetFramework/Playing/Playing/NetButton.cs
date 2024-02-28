@@ -56,10 +56,7 @@ public class NetButton : MonoBehaviour
         NetManager.AddMsgListener("MsgLocalInfo", LocalInfo);
         NetManager.AddMsgListener("MsgUrge", BeUrged);
 
-        //初始通过Act协议来同步双方的tmpData
-        MsgPlayerAct act = new();
-        act.tmpData = JsonUtility.ToJson(playerScript.tmpData);
-        NetManager.Send(act);
+        NetManager.Send(new MsgInitPlaying());
     }
 
     // Update is called once per frame
@@ -131,7 +128,6 @@ public class NetButton : MonoBehaviour
     private void AfterGetState()
     {
         aniTrigger = 0;
-        //eventSystem.SetActive(false);
         canClick = false;
         if(Urging)
         {
@@ -315,7 +311,7 @@ public class NetButton : MonoBehaviour
     public GameObject victoryWindown;
     public GameObject lostWindown;
 
-    private int round = 0;
+    private int round = 1;
 
     //在按下按钮之后
     private void AfterAct()

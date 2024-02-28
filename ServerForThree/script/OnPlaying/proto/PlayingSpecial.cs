@@ -12,3 +12,9 @@ public class MsgUrge : MsgBase
     //大于零仅仅为提醒，小于等于零则被催促客户端强制认输
     public int leftTime;
 }
+
+//客户端发服务端：服务端收到后回应房间内两玩家信息
+public class MsgInitPlaying : MsgBase
+{
+    public MsgInitPlaying() { protoName = "MsgInitPlaying"; }
+}
