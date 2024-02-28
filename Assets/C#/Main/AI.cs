@@ -98,7 +98,7 @@ public class AI : MonoBehaviour
     {
         Priority = 2;
         Energy -= 2;
-        myAnim.SetTrigger("King");
+        myAnim.SetTrigger("HolyGrail");
     }
 
     public void Assassinate()  // ´Ì¿Í¼¼ÄÜ£º°µÉ±

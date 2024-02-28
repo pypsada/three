@@ -178,7 +178,7 @@ public class Player : MonoBehaviour
         Priority = 2;
         Energy -= 4;
         Debug.Log("You:HolyGrail");
-        myAnim.SetTrigger("King");
+        myAnim.SetTrigger("HolyGrail");
     }
     public void Assassinate()  // 刺客技能：暗杀
     {
@@ -225,7 +225,7 @@ public class Player : MonoBehaviour
         Defensing = true;
         Energy += 1;
         Debug.Log("You:Guard");
-        myAnim.SetTrigger("Cuo");
+        myAnim.SetTrigger("Guard");
     }
     public void Turtle()  //乌龟技能：龟缩
     {
