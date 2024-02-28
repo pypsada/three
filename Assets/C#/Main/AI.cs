@@ -502,7 +502,7 @@ public class AI : MonoBehaviour
         }
         else if (StringCareer == "Thief")
         {
-            if (Career != 0)
+            if (Career > 0)
             {
                 if (Energy <= 0 && (player.Energy != 0 || (Whole.PlayerCareer == "Assassin" && player.Career != 0)))  //0能量，玩家有攻击手段
                 {

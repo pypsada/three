@@ -822,7 +822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grayColor: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
   player: {fileID: 7113615}
-  Energy: 0
+  Energy: -100
   Click: 0
   Career: 0
 --- !u!114 &260801513
@@ -5508,7 +5508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grayColor: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
   player: {fileID: 7113615}
-  Energy: 0
+  Energy: -100
   Click: 0
   Career: 0
 --- !u!114 &1954435686

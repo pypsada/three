@@ -84,6 +84,20 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (StringCareer=="Thief")
+        {
+            if (Ground%4==0)
+            {
+                Energy += 1;
+            }
+        }
+        if (AI.StringCareer=="Thief")
+        {
+            if (Ground % 4 == 0)
+            {
+                Energy += 1;
+            }
+        }
         GroundText.text = Ground.ToString();
         if (countDownTimer > 0f)
         {
