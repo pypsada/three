@@ -11,7 +11,6 @@ public class Base : MonoBehaviour
     public Text game1;
     public Text game2;
     public Text game3;
-    public GameObject dialogBox;
 
     void Start()
     {
@@ -23,9 +22,5 @@ public class Base : MonoBehaviour
             game2.text = "身法秘境纪录：<color=yellow>" + saveData.agility.ToString() + "</color>";
             game3.text = "应变秘境纪录：<color=yellow>" + saveData.mathematics.ToString() + "</color>";
         }
-    }
-    public void Close()
-    {
-        dialogBox.SetActive(false);
     }
 }

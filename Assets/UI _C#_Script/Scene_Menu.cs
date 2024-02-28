@@ -19,6 +19,10 @@ public class Scene_Menu : MonoBehaviour
             {
                 SceneManager.LoadScene("ActOption");
             }
+            else if (SaveGameManager.SaveData.record >= 60)
+            {
+                SceneManager.LoadScene("Base");
+            }
             else if (SaveGameManager.SaveData.record < 20)
             {
                 SaveGameManager.SaveData.record = 10;
@@ -43,10 +47,6 @@ public class Scene_Menu : MonoBehaviour
             {
                 SaveGameManager.SaveData.record = 50;
                 SceneManager.LoadScene("Act5");
-            }
-            else if (SaveGameManager.SaveData.record >= 60)
-            {
-                SceneManager.LoadScene("Base");
             }
         }
     }
