@@ -552,6 +552,25 @@ namespace NetGame
             player_a.Send(new MsgGameContinue());
             player_b.Send(new MsgGameContinue());
         }
+
+        //玩家逃跑算作失败
+        public void PlayerEscape(Player esc)
+        {
+            LogManager.Log("[Room.PlayerEscape]" + esc.id + " escape");
+            if(esc==player_a)
+            {
+                BWin();
+            }
+            else if(esc==player_b)
+            {
+                AWin();
+            }
+            else
+            {
+                LogManager.Log("[Room.PlayerEscape] esc is not in this room!");
+                return;
+            }
+        }
     }
 }
 

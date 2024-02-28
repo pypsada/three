@@ -3,7 +3,15 @@
     //断开连接事件
     public static void OnDisconnect(ClientState c)
     {
+        
         LogManager.Log("Close:" + c.socket.RemoteEndPoint.ToString());
+
+        //玩家逃跑算作失败
+        if(c.player!=null&&c.player.room!=null)
+        {
+            c.player.room.PlayerEscape(c.player);
+        }
+
         //玩家下线时保存玩家数据
         if(c.player!=null)
         {
