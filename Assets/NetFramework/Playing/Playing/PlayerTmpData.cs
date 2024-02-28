@@ -183,7 +183,7 @@ namespace NetGame
         {
             Priority = 2;
             Energy -= 4;
-            skillName = "King";
+            skillName = "HolyGrail";
             //Debug.Log("You:HolyGrail");
             //myAnim.SetTrigger();
         }
@@ -197,7 +197,7 @@ namespace NetGame
         {
             Priority = 1;
             Career -= 1;
-            skillName = "King";
+            skillName = "YingRen";
             //Debug.Log("You:Assassinate");
             //myAnim.SetTrigger();
         }
@@ -233,7 +233,7 @@ namespace NetGame
             Priority = 1;
             Defensing = true;
             Energy += 1;
-            skillName = "Cuo";
+            skillName = "Guard";
             //Debug.Log("You:Guard");
             //myAnim.SetTrigger();
         }
