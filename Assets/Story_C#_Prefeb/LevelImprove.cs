@@ -5,8 +5,8 @@ using UnityEngine;
 public class LevelImprove : MonoBehaviour
 {
     int a, b, c, r, level;
-    public int score;
-    private void CorrectLevel()
+
+    private void Start()
     {
         a = SaveGameManager.SaveData.stealth;
         b = SaveGameManager.SaveData.agility;
@@ -56,8 +56,9 @@ public class LevelImprove : MonoBehaviour
             if (c > 20) c = 20;
             level = a + b + 2 * c;
         }
-        SaveGameManager.SaveData.record = level;
+        SaveGameManager.SaveData.level = level;
         PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
         PlayerPrefs.Save();
+        GetComponent<Base>().Show();
     }
 }

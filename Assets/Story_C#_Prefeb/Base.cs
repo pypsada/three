@@ -12,7 +12,7 @@ public class Base : MonoBehaviour
     public Text game2;
     public Text game3;
 
-    void Start()
+    public void Show()
     {
         SaveData saveData = SaveGameManager.SaveData;
         if (saveData != null)
