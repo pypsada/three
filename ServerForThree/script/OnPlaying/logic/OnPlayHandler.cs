@@ -84,7 +84,7 @@ public partial class MsgHandler
             room.player_a.Send(msg_aa);
             room.player_b.Send(msg_bb);
 
-
+            RoomManager.ClearRooms();
         }
     }
 }
