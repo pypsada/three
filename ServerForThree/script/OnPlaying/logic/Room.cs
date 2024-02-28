@@ -204,6 +204,20 @@ namespace NetGame
 
         public void Sum()  //结算
         {
+            if (player_a.tmpData.StringCareer == "Thief")
+            {
+                if (player_a.tmpData.Ground % 4 == 0)
+                {
+                    player_a.tmpData.Energy += 1;
+                }
+            }
+            if (player_b.tmpData.StringCareer == "Thief")
+            {
+                if (player_a.tmpData.Ground % 4 == 0)
+                {
+                    player_b.tmpData.Energy += 1;
+                }
+            }
             if (player_b.tmpData.Win == false)
             {
                 if (player_a.tmpData.Thiefing)
