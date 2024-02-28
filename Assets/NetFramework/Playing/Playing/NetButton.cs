@@ -167,6 +167,7 @@ public class NetButton : MonoBehaviour
             canClick = false;
             tipText.text = "胜利";
             remotePlayer.SetActive(false);
+            victoryWindown.SetActive(true);
         });
     }
 
@@ -179,6 +180,7 @@ public class NetButton : MonoBehaviour
             canClick = false;
             tipText.text = "失败";
             localPlayer.SetActive(false);
+            lostWindown.SetActive(true);
         });
     }
 
@@ -188,9 +190,15 @@ public class NetButton : MonoBehaviour
         {
             //eventSystem.SetActive(true);
             canClick = true;
-            tipText.text = "请你出招";
+            tipText.text = "请出招";
             round++;
         });
+    }
+
+    //按下返回匹配界面
+    public void OnClickGoBack()
+    {
+        SceneManager.LoadScene("GameRooms");
     }
 
     //远程玩家信息
@@ -230,6 +238,9 @@ public class NetButton : MonoBehaviour
     public Text remoteHealth;
     [Header("游戏轮数文本")]
     public Text gameRound;
+    [Header("弹窗")]
+    public GameObject victoryWindown;
+    public GameObject lostWindown;
 
     private int round = 1;
 
@@ -238,7 +249,7 @@ public class NetButton : MonoBehaviour
     {
         //eventSystem.SetActive(false);
         canClick = false;
-        tipText.text = "等待对方玩家出招";
+        tipText.text = "对手出招";
         MsgPlayerAct act = new();
         act.tmpData = JsonUtility.ToJson(playerScript.tmpData);
         NetManager.Send(act);
@@ -364,54 +375,6 @@ public class NetButton : MonoBehaviour
         SceneManager.LoadScene("WaitPlaying");
     }
 
-    //public void AIChoseAssassin()  //AI选择刺客职业
-    //{
-    //    Whole.AICareer = "Assassin";
-    //    SceneManager.LoadScene("PK&AI");
-    //}
-
-    //public void AIKing()  //AI选择国王职业
-    //{
-    //    Whole.AICareer = "King";
-    //    SceneManager.LoadScene("PK&AI");
-    //}
-
-    //public void AIGuard()  //AI选择护卫职业
-    //{
-    //    Whole.AICareer = "Guard";
-    //    SceneManager.LoadScene("PK&AI");
-    //}
-
-    //public void AIChoseTurtle()  //AI选择乌龟职业
-    //{
-    //    Whole.AICareer = "Turtle";
-    //    SceneManager.LoadScene("PK&AI");
-    //}
-
-    //public void AIChoseRascally()  //AI选择老赖职业
-    //{
-    //    Whole.AICareer = "Rascally";
-    //    SceneManager.LoadScene("PK&AI");
-    //}
-
-    //public void AIChoseArrogance()  //AI选择傲慢职业
-    //{
-    //    Whole.AICareer = "Arrogance";
-    //    SceneManager.LoadScene("PK&AI");
-    //}
-
-    //public void AIChoseThief()  //选择盗贼职业
-    //{
-    //    Whole.AICareer = "Thief";
-    //    SceneManager.LoadScene("PK&AI");
-    //}
-
-    //public void AIChosePangolin()  //AI选择穿山甲职业
-    //{
-    //    Whole.AICareer = "Pangolin";
-    //    SceneManager.LoadScene("PK&AI");
-    //}
-
     public void VocationalSkills()  //使用职业技能
     {
         if (!canClick) return;
@@ -460,48 +423,4 @@ public class NetButton : MonoBehaviour
         }
 
     }
-    //public void Back()
-    //{
-    //    SceneManager.LoadScene("ChoseCareer");
-    //}
-
-    //public void SmallGame1()
-    //{
-    //    if (Whole.Game1 == 0)
-    //    {
-    //        SceneManager.LoadScene("Game1Teach");
-    //    }
-    //    else
-    //    {
-    //        SceneManager.LoadScene("Game1");
-    //    }
-    //}
-    //public void SmallGame2()
-    //{
-    //    if (Whole.Game1 == 0)
-    //    {
-    //        SceneManager.LoadScene("Game2Teach");
-    //    }
-    //    else
-    //    {
-    //        SceneManager.LoadScene("Game2");
-    //    }
-    //}
-    //public void SmallGame3()
-    //{
-    //    if (Whole.Game1 == 0)
-    //    {
-    //        SceneManager.LoadScene("Game3Teach");
-    //    }
-    //    else
-    //    {
-    //        SceneManager.LoadScene("Game3");
-    //    }
-    //}
-
-    //public void Backto()
-    //{
-    //    Time.timeScale = 1;
-    //    SceneManager.LoadScene("ChoseCareer");
-    //}
 }

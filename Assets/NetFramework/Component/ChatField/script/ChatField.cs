@@ -49,7 +49,7 @@ public class ChatFeild:MonoBehaviour
     {
         if (inputField.text.Replace(" ", "") == "") return;
 
-        TextRoll("自己:"+inputField.text);
+        TextRoll("你:"+inputField.text);
 
         MsgChat msg = new();
         msg.chatStr = inputField.text;
