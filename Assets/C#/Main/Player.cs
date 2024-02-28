@@ -95,7 +95,7 @@ public class Player : MonoBehaviour
         {
             if (Ground % 4 == 0)
             {
-                Energy += 1;
+                AI.Energy += 1;
             }
         }
         GroundText.text = Ground.ToString();
