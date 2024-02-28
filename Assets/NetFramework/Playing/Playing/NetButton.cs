@@ -14,7 +14,7 @@ public class NetButton : MonoBehaviour
     [Header("ref")]
     public GameObject localPlayer;
     public GameObject remotePlayer;
-    public GameObject eventSystem;
+    //public GameObject eventSystem;
     [Header("玩家动画引用")]
     public Animator localAni;
     public Animator remoteAni;
@@ -22,6 +22,8 @@ public class NetButton : MonoBehaviour
     [HideInInspector]
     //用来指示动画已经播放完毕
     public int aniTrigger = 0;
+
+    private bool canClick = true;
 
     private enum PlayState
     {
@@ -121,7 +123,8 @@ public class NetButton : MonoBehaviour
     private void AfterGetState()
     {
         aniTrigger = 0;
-        eventSystem.SetActive(false);
+        //eventSystem.SetActive(false);
+        canClick = false;
         //播放本地玩家和远程玩家的动画
         localAni.SetTrigger(playerScript.tmpData.skillName);
         remoteAni.SetTrigger(remotePlayerScript.tmpData.skillName);
@@ -136,7 +139,8 @@ public class NetButton : MonoBehaviour
         {
             localAni.SetTrigger("Idle");
             remoteAni.SetTrigger("Idle");
-            eventSystem.SetActive(true);
+            //eventSystem.SetActive(true);
+            canClick = true;
             aniTrigger = 0;
             switch(playState)
             {
@@ -159,7 +163,8 @@ public class NetButton : MonoBehaviour
         NetMain.actions.Enqueue(() =>
         {
             //RemoveListner();
-            eventSystem.SetActive(false);
+            //eventSystem.SetActive(false);
+            canClick = false;
             tipText.text = "胜利";
             remotePlayer.SetActive(false);
         });
@@ -170,7 +175,8 @@ public class NetButton : MonoBehaviour
         NetMain.actions.Enqueue(() =>
         {
             //RemoveListner();
-            eventSystem.SetActive(false);
+            //eventSystem.SetActive(false);
+            canClick = false;
             tipText.text = "失败";
             localPlayer.SetActive(false);
         });
@@ -180,7 +186,8 @@ public class NetButton : MonoBehaviour
     {
         NetMain.actions.Enqueue(() =>
         {
-            eventSystem.SetActive(true);
+            //eventSystem.SetActive(true);
+            canClick = true;
             tipText.text = "请你出招";
             round++;
         });
@@ -229,7 +236,8 @@ public class NetButton : MonoBehaviour
     //在按下按钮之后
     private void AfterAct()
     {
-        eventSystem.SetActive(false);
+        //eventSystem.SetActive(false);
+        canClick = false;
         tipText.text = "等待对方玩家出招";
         MsgPlayerAct act = new();
         act.tmpData = JsonUtility.ToJson(playerScript.tmpData);
@@ -257,12 +265,14 @@ public class NetButton : MonoBehaviour
 
     public void RubbingEnergy()  //搓能量
     {
+        if (!canClick) return;
         playerScript.tmpData.RubbingEnergy();
         AfterAct();
     }
 
     public void Gun()  //枪
     {
+        if (!canClick) return;
         if (playerScript.tmpData.Energy >= 1)
         {
             playerScript.tmpData.Gun();
@@ -272,6 +282,7 @@ public class NetButton : MonoBehaviour
 
     public void Rebound()  //反弹
     {
+        if (!canClick) return;
         if (playerScript.tmpData.Energy >= 2)
         {
             playerScript.tmpData.Rebound();
@@ -282,12 +293,14 @@ public class NetButton : MonoBehaviour
 
     public void Defense()  //防御
     {
+        if (!canClick) return;
         playerScript.tmpData.Defense();
         AfterAct();
     }
 
     public void HolyGrail()  //大招
     {
+        if (!canClick) return;
         if (playerScript.tmpData.Energy >= 4)
         {
             playerScript.tmpData.HolyGrail();
@@ -401,6 +414,7 @@ public class NetButton : MonoBehaviour
 
     public void VocationalSkills()  //使用职业技能
     {
+        if (!canClick) return;
         if (playerScript.tmpData.Career > 0)
         {
             if (playerScript.tmpData.StringCareer == "Assassin")
