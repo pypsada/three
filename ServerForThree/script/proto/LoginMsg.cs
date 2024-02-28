@@ -25,6 +25,8 @@ public class MsgLogin : MsgBase
     public string id = "";
     public string pw = "";
     public string nickName = "";
+    public int winTimes;
+    public int lostTimes;
     //服务端回（0成功，1失败）
     public int result = 0;
 }

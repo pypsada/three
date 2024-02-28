@@ -67,6 +67,9 @@ public partial class MsgHandler
         //修改Player的nickName
         c.player.data.nickName = msg.nickName;
         DbManager.UpdatePlayerData(c.player.id, c.player.data);
+        //修改发出协议中的胜场败场
+        msg.winTimes = playerData.victoryTimes;
+        msg.lostTimes = playerData.failTimes;
         //返回协议
         msg.result = 0;
         player.Send(msg);

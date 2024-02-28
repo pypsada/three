@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -66,6 +67,14 @@ public class Login : MonoBehaviour
         if(msgLogin.result==0)
         {
             //登录成功
+            NetMain.actions.Enqueue(() =>
+            {
+                //更新胜败场数据
+                SaveGameManager.SaveData.victory = msgLogin.winTimes;
+                SaveGameManager.SaveData.lose = msgLogin.lostTimes;
+                PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
+                PlayerPrefs.Save();
+            });
             Debug.Log("登录成功");
             RemoveMsgListener();
             SceneManager.LoadScene("GameRooms");
