@@ -1606,6 +1606,7 @@ MonoBehaviour:
   time: 2
   effectPrefab: {fileID: 6037742004090332351, guid: 0df6d4512043ad944a01dd291ffbe8da, type: 3}
   canvas: {fileID: 0}
+  win: 1
 --- !u!1 &382011052
 GameObject:
   m_ObjectHideFlags: 0
@@ -3852,10 +3853,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a9992e18cc86b409e9183c40dc709e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneChoice: MainMenu
+  sceneChoice: 
   time: 2
   effectPrefab: {fileID: 6037742004090332351, guid: 0df6d4512043ad944a01dd291ffbe8da, type: 3}
   canvas: {fileID: 0}
+  win: 0
 --- !u!1 &1408745588
 GameObject:
   m_ObjectHideFlags: 0

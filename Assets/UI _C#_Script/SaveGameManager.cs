@@ -172,7 +172,7 @@ public class SaveGameManager : MonoBehaviour
             nickname = Nickname,
             avatarPath = avatarPath,
             record = 0,
-            level = 1,
+            level = 0,
             stealth = 0,
             agility = 0,
             mathematics = 0,
@@ -362,10 +362,10 @@ public class SaveGameManager : MonoBehaviour
 
         string attack1 = magicLevel.text;  //The Fourth
         int attack2;
-        if (int.TryParse(attack1, out int result2) && result2 <= 1000 && result2 >= 1)
+        if (int.TryParse(attack1, out int result2) && result2 <= 100 && result2 >= 0)
             attack2 = result2;
         else
-            attack2 = 1;
+            attack2 = 0;
 
         string magicGame1 = stealth.text;  //The Fifth
         int game1;

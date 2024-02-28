@@ -756,9 +756,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneChoice: Act4
-  time: 0.2
-  effectPrefab: {fileID: 0}
+  time: 2
+  effectPrefab: {fileID: 6037742004090332351, guid: 0df6d4512043ad944a01dd291ffbe8da, type: 3}
   canvas: {fileID: 0}
+  win: 0
 --- !u!1 &295345156
 GameObject:
   m_ObjectHideFlags: 0
@@ -2579,7 +2580,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uFF08\u524D\u5F80\u6218\u6597\uFF09"
+  m_Text: "\u597D\u7684\uFF01\n"
 --- !u!222 &1376267748
 CanvasRenderer:
   m_ObjectHideFlags: 0

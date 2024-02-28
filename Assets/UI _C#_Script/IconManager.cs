@@ -8,6 +8,8 @@ public class IconManager : MonoBehaviour
     /*此代码用于显示出鼠标悬停按键框*/
 
     private bool isOver = false;  //检测鼠标是否悬停，配合EventTrigger使用
+    private Color originalColor;
+    private Image image;
 
     public void OnMouseEnter()
     {
@@ -21,17 +23,21 @@ public class IconManager : MonoBehaviour
         UpdateUI();
     }
 
+    private void Start()
+    {
+        image = GetComponent<Image>();  //获取图像信息
+        originalColor = image.color;
+    }
+
     private void UpdateUI()
     {
-        Image image = GetComponent<Image>();  //先获取图像信息
-
         if (isOver)
         {
-            image.color = new Color(1f, 1f, 1f, 0.5f); //鼠标进入，设置显示颜色（为灰色）
+            image.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0.5f);
         }
         else
         {
-            image.color = Color.white; //鼠标退出，设置透明颜色（优化一下，用预设的）
+            image.color = originalColor;  //恢复原始颜色
         }
     }
 }
