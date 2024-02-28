@@ -191,7 +191,7 @@ public class Player : MonoBehaviour
         Priority = 1;
         Career -= 1;
         Debug.Log("You:Assassinate");
-        myAnim.SetTrigger("King");
+        myAnim.SetTrigger("YingRen");
     }
 
     //public void Steal()   // µ¡‘Ùººƒ‹£∫Õµ»°

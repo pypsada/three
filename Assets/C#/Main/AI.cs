@@ -105,7 +105,7 @@ public class AI : MonoBehaviour
     {
         Priority = 1;
         Career -= 1;
-        myAnim.SetTrigger("King");
+        myAnim.SetTrigger("YingRen");
     }
 
     public void Steal()   // µ¡‘Ùººƒ‹£∫Õµ»°
