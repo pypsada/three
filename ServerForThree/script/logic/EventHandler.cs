@@ -6,6 +6,12 @@
         
         LogManager.Log("Close:" + c.socket.RemoteEndPoint.ToString());
 
+        //当玩家断线时，退出匹配列表
+        if(c.player!=null&&RoomManager.matching.Contains(c.player))
+        {
+            RoomManager.MathingQuit(c.player);
+        }
+
         //玩家逃跑算作失败
         if(c.player!=null&&c.player.room!=null)
         {

@@ -7,7 +7,7 @@ public class RoomManager
     //正式游玩房间
     static List<Room> rooms = new();
     //匹配中玩家房间
-    static List<Player> matching = new();
+    public static List<Player> matching = new();
 
     //添加匹配玩家
     public static void AddPlayerMatching(Player player)
