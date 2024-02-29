@@ -35,12 +35,15 @@ public class PVPShow : MonoBehaviour
         a = saveData.victory;
         b = saveData.lose;
         c = a + b;
-        rate = (float)a / c;
+        rate = 100f * a / c;
         showVictory.text = a.ToString();
         showLose.text = b.ToString();
         showTotal.text = c.ToString();
         if (c != 0)
-            showRate.text = rate.ToString() + "%";
+        {
+            float roundedRate = Mathf.Round(rate * 100) / 100;
+            showRate.text = roundedRate.ToString("F2") + "%";
+        }
         if (c == 0)
         {
             showRate.text = "Œ¥≤Œ”Î";

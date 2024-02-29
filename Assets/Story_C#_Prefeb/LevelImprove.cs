@@ -18,7 +18,7 @@ public class LevelImprove : MonoBehaviour
         r = SaveGameManager.SaveData.record;
         if (r < 60) 
             level = 0;
-        else if (60 <= r)
+        else if (r < 80)
         {
             if (a > 6) a = 6;
             if (b > 6) b = 6;
@@ -26,7 +26,7 @@ public class LevelImprove : MonoBehaviour
             level = a + b + 2 * c;
             max = 20; m1 = 6; m2 = 6; m3 = 4;
         }
-        else if (80 <= r)
+        else if (r < 110)
         {
             if (a > 12) a = 12;
             if (b > 12) b = 12;
@@ -34,7 +34,7 @@ public class LevelImprove : MonoBehaviour
             level = a + b + 2 * c;
             max = 40; m1 = 12; m2 = 12; m3 = 8;
         }
-        else if (110 <= r)
+        else if (r < 140)
         {
             if (a > 18) a = 18;
             if (b > 18) b = 18;
@@ -42,7 +42,7 @@ public class LevelImprove : MonoBehaviour
             level = a + b + 2 * c;
             max = 60; m1 = 18; m2 = 18; m3 = 12;
         }
-        else if (140 <= r)
+        else if (r < 180)
         {
             if (a > 24) a = 24;
             if (b > 24) b = 24;
@@ -50,7 +50,7 @@ public class LevelImprove : MonoBehaviour
             level = a + b + 2 * c;
             max = 80; m1 = 24; m2 = 24; m3 = 16;
         }
-        else if (180 <= r)
+        else if (r < 210)
         {
             if (a > 27) a = 27;
             if (b > 27) b = 27;
@@ -58,7 +58,7 @@ public class LevelImprove : MonoBehaviour
             level = a + b + 2 * c;
             max = 90; m1 = 27; m2 = 27; m3 = 18;
         }
-        else if (210 <= r)
+        else
         {
             if (a > 30) a = 30;
             if (b > 30) b = 30;
