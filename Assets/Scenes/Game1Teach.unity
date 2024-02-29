@@ -1845,6 +1845,7 @@ GameObject:
   - component: {fileID: 347449238}
   - component: {fileID: 347449237}
   - component: {fileID: 347449240}
+  - component: {fileID: 347449241}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1955,6 +1956,18 @@ PlayableDirector:
     value: {fileID: 331073798}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &347449241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347449236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9424f3cb97aaa4099f97c9bbc597ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &352310200
 GameObject:
   m_ObjectHideFlags: 0
@@ -3595,7 +3608,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -319.6, y: 154.2}
+  m_AnchoredPosition: {x: -360, y: 96}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &724187792
@@ -3620,7 +3633,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 80
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -7229,8 +7242,8 @@ Canvas:
   m_GameObject: {fileID: 1619203660}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 347449238}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -9597,7 +9610,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3379905794356369907, guid: 522ca0b71c4703c49801f85a8ece20d1, type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 80
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4663747485254914278, guid: 522ca0b71c4703c49801f85a8ece20d1, type: 3}
       propertyPath: m_Pivot.x
@@ -9661,11 +9674,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4663747485254914278, guid: 522ca0b71c4703c49801f85a8ece20d1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -319.6
+      value: -360
       objectReference: {fileID: 0}
     - target: {fileID: 4663747485254914278, guid: 522ca0b71c4703c49801f85a8ece20d1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 154.2
+      value: 96
       objectReference: {fileID: 0}
     - target: {fileID: 4663747485254914278, guid: 522ca0b71c4703c49801f85a8ece20d1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
