@@ -15,6 +15,7 @@ public class NetButton : MonoBehaviour
     public GameObject localPlayer;
     public GameObject remotePlayer;
     public ChatFeild chatFeild;
+    public Text makeSure;
     //public GameObject eventSystem;
     [Header("玩家动画引用")]
     public Animator localAni;
@@ -45,6 +46,7 @@ public class NetButton : MonoBehaviour
     {
         //    Player = FindObjectOfType<Player>(); // 获取Player脚本的引用
         //    ai = FindObjectOfType<AI>();  //获取AI脚本的引用
+        mathedTime = Time.time;
         if (!updata) return;
         playerScript = localPlayer.GetComponent<NetGame.Player>();
         remotePlayerScript = remotePlayer.GetComponent<NetGame.Player>();
@@ -67,7 +69,26 @@ public class NetButton : MonoBehaviour
         UpdateUIData();
         AfterPlayAnimation();
         IsUrging();
+        TimeOut();
         return;
+    }
+
+    private float mathedTime = 0;
+    //倒计时20s结束自动选刺客
+    //Used by update
+    private void TimeOut()
+    {
+        if (updata) return;
+        int bdiff = (int)(Time.time - mathedTime);
+        int diff = 20 - bdiff;
+        if (diff > 0)
+        {
+            makeSure.text = "倒计时(" + diff.ToString() + ")";
+        }
+        else
+        {
+            ChoseAssassin();
+        }
     }
 
     private void OnDestroy()

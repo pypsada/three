@@ -24,6 +24,7 @@ public class Matching : MonoBehaviour
     void Update()
     {
         matchingFace();
+        MakeSure();
         return;
     }
 
@@ -35,6 +36,26 @@ public class Matching : MonoBehaviour
     public GameObject matched;
     //开始匹配按钮
     public GameObject begingMatch;
+    public Text makeSure;
+
+    private float mathedTime = 0;
+
+    //10秒自动点击确认
+    //Used by Update
+    private void MakeSure()
+    {
+        if (!matched.activeSelf) return;
+        int bdiff = (int)(Time.time - mathedTime);
+        int diff = 10 - bdiff;
+        if(diff>0)
+        {
+            makeSure.text = "确认(" + diff.ToString() + ")";
+        }
+        else
+        {
+            OnClickSure();
+        }
+    }
 
     //如果正在查找就显示matching，如果找到就显示mathed界面.
     [Header("符号变化相关")]
@@ -52,19 +73,23 @@ public class Matching : MonoBehaviour
     //收到MsgMatched协议
     public void Matched(MsgBase msgBase)
     {
-        NetManager.RemoveMsgListener("MsgMatched", Matched);
-        matching.SetActive(false);
-        matched.SetActive(true);
-        MsgMatched msg = (MsgMatched)msgBase;
-        PlayerData local = (PlayerData)JsonUtility.FromJson(msg.localPlayerData, typeof(PlayerData));
-        PlayerData remote = (PlayerData)JsonUtility.FromJson(msg.remotePlayerData, typeof(PlayerData));
-        localPlayerId.text = "ID:"+local.nickName;
-        remotePlayerId.text = "对手ID:" + remote.nickName;
+        NetMain.actions.Enqueue(() =>
+        {
+            mathedTime = Time.time;
+            matching.SetActive(false);
+            matched.SetActive(true);
+            NetManager.RemoveMsgListener("MsgMatched", Matched);
+            MsgMatched msg = (MsgMatched)msgBase;
+            PlayerData local = (PlayerData)JsonUtility.FromJson(msg.localPlayerData, typeof(PlayerData));
+            PlayerData remote = (PlayerData)JsonUtility.FromJson(msg.remotePlayerData, typeof(PlayerData));
+            localPlayerId.text = "ID:" + local.nickName;
+            remotePlayerId.text = "对手ID:" + remote.nickName;
 
-        localPlayerData.text = "数据：" + local.victoryTimes + "胜" + local.failTimes + "败\n" +
-            "胜率" + (float)local.victoryTimes / (float)(local.victoryTimes + local.failTimes);
-        remotePlayerData.text = "对手数据：" + remote.victoryTimes + "胜" + remote.failTimes + "败\n" +
-            "胜率" + (float)remote.victoryTimes / (float)(remote.victoryTimes + remote.failTimes);
+            localPlayerData.text = "数据：" + local.victoryTimes + "胜" + local.failTimes + "败\n" +
+                "胜率" + (float)local.victoryTimes / (float)(local.victoryTimes + local.failTimes);
+            remotePlayerData.text = "对手数据：" + remote.victoryTimes + "胜" + remote.failTimes + "败\n" +
+                "胜率" + (float)remote.victoryTimes / (float)(remote.victoryTimes + remote.failTimes);
+        });
     }
 
     //按下开始匹配按钮
