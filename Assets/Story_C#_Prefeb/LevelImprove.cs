@@ -69,7 +69,7 @@ public class LevelImprove : MonoBehaviour
         SaveGameManager.SaveData.level = level;
         PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
         PlayerPrefs.Save();
-        showTips.text = "当前主线计入上限：" + "<color=yellow>" + max.ToString() + "</color>" + " / "
+        showTips.text = "当前主线可计入上限：" + "<color=yellow>" + max.ToString() + "</color>" + " / "
                         + "<color=cyan>" + m3.ToString() + "</color>" + " / "
                         + "<color=green>" + m1.ToString() + "</color>" + " / "
                         + "<color=blue>" + m2.ToString() + "</color>";
