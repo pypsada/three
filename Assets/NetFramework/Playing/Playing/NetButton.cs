@@ -56,7 +56,9 @@ public class NetButton : MonoBehaviour
         NetManager.AddMsgListener("MsgLocalInfo", LocalInfo);
         NetManager.AddMsgListener("MsgUrge", BeUrged);
 
-        NetManager.Send(new MsgInitPlaying());
+        MsgInitPlaying msg = new();
+        msg.tmpData = JsonUtility.ToJson(playerScript.tmpData);
+        NetManager.Send(msg);
     }
 
     // Update is called once per frame

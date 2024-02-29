@@ -17,4 +17,6 @@ public class MsgUrge:MsgBase
 public class MsgInitPlaying:MsgBase
 {
     public MsgInitPlaying() { protoName = "MsgInitPlaying"; }
+
+    public string tmpData;
 }

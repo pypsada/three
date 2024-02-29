@@ -167,22 +167,34 @@ public partial class MsgHandler
     //初始化更新数据
     public static void MsgInitPlaying(ClientState c, MsgBase msgBase)
     {
+        //同步玩家tmpData
+        MsgInitPlaying msg = (MsgInitPlaying)msgBase;
+        c.player.tmpData = (PlayerTmpData)JsonConvert.DeserializeObject(msg.tmpData, typeof(PlayerTmpData));
+
+        //当一个房间内同步了初始数据的玩家为两人，
+        //就向每个玩家发送本地玩家数据和远程玩家数据
         Room room = c.player.room;
-        MsgRemoteInfo msg_a = new();
-        msg_a.tmpData = JsonConvert.SerializeObject(room.player_a.tmpData);
-        MsgRemoteInfo msg_b = new();
-        msg_b.tmpData = JsonConvert.SerializeObject(room.player_b.tmpData);
+        room.initPlayer++;
+        if (room.initPlayer >= 2)
+        {
+            room.initPlayer = 0;
 
-        room.player_a.Send(msg_b);
-        room.player_b.Send(msg_a);
+            MsgRemoteInfo msg_a = new();
+            msg_a.tmpData = JsonConvert.SerializeObject(room.player_a.tmpData);
+            MsgRemoteInfo msg_b = new();
+            msg_b.tmpData = JsonConvert.SerializeObject(room.player_b.tmpData);
+
+            room.player_a.Send(msg_b);
+            room.player_b.Send(msg_a);
 
 
-        MsgLocalInfo msg_aa = new();
-        msg_aa.tmpData = JsonConvert.SerializeObject(room.player_a.tmpData);
-        MsgLocalInfo msg_bb = new();
-        msg_bb.tmpData = JsonConvert.SerializeObject(room.player_b.tmpData);
+            MsgLocalInfo msg_aa = new();
+            msg_aa.tmpData = JsonConvert.SerializeObject(room.player_a.tmpData);
+            MsgLocalInfo msg_bb = new();
+            msg_bb.tmpData = JsonConvert.SerializeObject(room.player_b.tmpData);
 
-        room.player_a.Send(msg_aa);
-        room.player_b.Send(msg_bb);
+            room.player_a.Send(msg_aa);
+            room.player_b.Send(msg_bb);
+        }
     }
 }
