@@ -10,6 +10,10 @@ public class ChangeName : MonoBehaviour
     public GameObject next;
     public Text show;
 
+    private void Start()
+    {
+        newName.text = SaveGameManager.Nickname;
+    }
     public void Change()
     {
         if (PlayerPrefs.HasKey(newName.text) && !newName.text.Equals(SaveGameManager.Nickname))

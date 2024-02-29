@@ -5588,9 +5588,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1871194470}
-          m_TargetAssemblyTypeName: UsersChoice, Assembly-CSharp
-          m_MethodName: ClosePannel
+        - m_Target: {fileID: 1871194469}
+          m_TargetAssemblyTypeName: ChangeName, Assembly-CSharp
+          m_MethodName: Close
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
