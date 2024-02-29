@@ -86,7 +86,7 @@ namespace NetGame
             Thiefing = false;
             PangolinNumber = 0;
             StringCareer = Whole.PlayerCareer;
-            level = Whole.Characterlevel;
+            level = 50;
             Career = 0;
             Energy = 0;   //≥ı ºªØ
             //myAnim = GetComponent<Animator>();
