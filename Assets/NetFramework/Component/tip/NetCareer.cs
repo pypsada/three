@@ -12,22 +12,22 @@ public class NetCareer : MonoBehaviour
     public Text textComponent; // 引用物体上的Text组件
     public bool flag;
 
-    private bool updateFlags = true;
+    //private bool updateFlags = true;
 
     void Start()
     {
-        updateFlags = true;
+        //updateFlags = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!updateFlags) return;
+        //if (!updateFlags) return;
         textComponent = GetComponent<Text>();
         if (player.tmpData.StringCareer == "King")
         {
             textComponent.text = "王权";
-            updateFlags = false;
+            //updateFlags = false;
             if (flag)
             {
                 gameObject.SetActive(false);
@@ -36,7 +36,7 @@ public class NetCareer : MonoBehaviour
         else if (player.tmpData.StringCareer == "Assassin")
         {
             textComponent.text = "影刃";
-            updateFlags = false;
+            //updateFlags = false;
             if (flag)
             {
                 textComponent.text = "刃:";
@@ -45,7 +45,7 @@ public class NetCareer : MonoBehaviour
         else if (player.tmpData.StringCareer == "Guard")
         {
             textComponent.text = "守护";
-            updateFlags = false;
+            //updateFlags = false;
             if (flag)
             {
                 gameObject.SetActive(false);
@@ -54,7 +54,7 @@ public class NetCareer : MonoBehaviour
         else if (player.tmpData.StringCareer == "Turtle")
         {
             textComponent.text = "刺甲";
-            updateFlags = false;
+            //updateFlags = false;
             if (flag)
             {
                 gameObject.SetActive(false);
@@ -63,7 +63,7 @@ public class NetCareer : MonoBehaviour
         else if (player.tmpData.StringCareer == "Rascally")
         {
             textComponent.text = "蹬鼻子上脸";
-            updateFlags = false;
+            //updateFlags = false;
             if (flag)
             {
                 gameObject.SetActive(false);
@@ -72,7 +72,7 @@ public class NetCareer : MonoBehaviour
         else if (player.tmpData.StringCareer == "Arrogance")
         {
             textComponent.text = "中指";
-            updateFlags = false;
+            //updateFlags = false;
             if (flag)
             {
                 textComponent.text = "嘲讽值:";
@@ -81,7 +81,7 @@ public class NetCareer : MonoBehaviour
         else if (player.tmpData.StringCareer == "Thief")
         {
             textComponent.text = "神偷";
-            updateFlags = false;
+            //updateFlags = false;
             if (flag)
             {
                 textComponent.text = "偷:";
@@ -89,7 +89,7 @@ public class NetCareer : MonoBehaviour
         }
         else
         {
-            updateFlags = true;
+            //updateFlags = true;
         }
         //else if (player.tmpData.StringCareer == "Pangolin")
         //{
