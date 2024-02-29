@@ -15,6 +15,8 @@ public class Matching : MonoBehaviour
         matched.SetActive(false);
         begingMatch.SetActive(true);
         NetManager.AddMsgListener("MsgMatched", Matched);
+
+        OnClickBeginMatching();
         return;
     }
 
@@ -78,6 +80,12 @@ public class Matching : MonoBehaviour
         begingMatch.SetActive(true);
         matching.SetActive(false);
         NetManager.Send(new MsgMatchQuit());
+
+        Debug.Log("登出");
+        NetManager.Close();
+        NetManager.ping = -1;
+        NetManager.RemoveMsgListener("MsgMatched", Matched);
+        SceneManager.LoadScene("FightPrepare");
     }
 
     //匹配等待中的字符串动画

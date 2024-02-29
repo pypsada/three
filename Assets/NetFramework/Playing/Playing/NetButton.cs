@@ -131,7 +131,7 @@ public class NetButton : MonoBehaviour
     {
         aniTrigger = 0;
         canClick = false;
-        if(Urging)
+        if (Urging)
         {
             chatFeild.TextRoll("系统:对方行动,催促取消");
         }
@@ -146,14 +146,14 @@ public class NetButton : MonoBehaviour
     private void AfterPlayAnimation()
     {
         if (!updata) return;
-        if(aniTrigger>=2)
+        if (aniTrigger >= 2)
         {
             localAni.SetTrigger("Idle");
             remoteAni.SetTrigger("Idle");
             //eventSystem.SetActive(true);
             canClick = true;
             aniTrigger = 0;
-            switch(playState)
+            switch (playState)
             {
                 case PlayState.win:
                     GameWin();
@@ -215,7 +215,7 @@ public class NetButton : MonoBehaviour
     //远程玩家信息
     private void RemoteInfo(MsgBase msgBase)
     {
-        MsgRemoteInfo msg=(MsgRemoteInfo)msgBase;
+        MsgRemoteInfo msg = (MsgRemoteInfo)msgBase;
         remotePlayerScript.tmpData = (PlayerTmpData)JsonUtility.FromJson(msg.tmpData, typeof(PlayerTmpData));
     }
 
@@ -241,7 +241,7 @@ public class NetButton : MonoBehaviour
     public void OnClickUrge()
     {
         if (Urging) return;
-        if(canClick)
+        if (canClick)
         {
             chatFeild.TextRoll("系统:请你先出招");
             return;
@@ -249,6 +249,15 @@ public class NetButton : MonoBehaviour
         lastUrgeTime = 0;
         leftTime = 30;
         Urging = true;
+    }
+
+    //按下返回键
+    public void OnClickBack()
+    {
+        Debug.Log("登出");
+        NetManager.Close();
+        NetManager.ping = -1;
+        //SceneManager.LoadScene("FightPrepare");
     }
 
     //被催促

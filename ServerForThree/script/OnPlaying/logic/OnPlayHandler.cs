@@ -1,4 +1,5 @@
 ﻿using Mysqlx.Connection;
+using Mysqlx.Crud;
 using NetGame;
 using Newtonsoft.Json;
 using System.Security.Cryptography.X509Certificates;
@@ -64,49 +65,36 @@ public partial class MsgHandler
 
         if(room.actPlayer>=2)
         {
-            MsgRemoteInfo msg_a = new();
-            msg_a.tmpData = JsonConvert.SerializeObject(room.player_a.tmpData);
-            MsgRemoteInfo msg_b = new();
-            msg_b.tmpData = JsonConvert.SerializeObject(room.player_b.tmpData);
-
-            room.player_a.Send(msg_b);
-            room.player_b.Send(msg_a);
-
-
-            MsgLocalInfo msg_aa = new();
-            msg_aa.tmpData = JsonConvert.SerializeObject(room.player_a.tmpData);
-            MsgLocalInfo msg_bb = new();
-            msg_bb.tmpData = JsonConvert.SerializeObject(room.player_b.tmpData);
-
-            room.player_a.Send(msg_aa);
-            room.player_b.Send(msg_bb);
-
-
+            UpdateTmpData(room);
 
             room.actPlayer = 0;
             room.Despare();
             room.Sum();
 
-
-            MsgRemoteInfo msg_a1 = new();
-            msg_a.tmpData = JsonConvert.SerializeObject(room.player_a.tmpData);
-            MsgRemoteInfo msg_b1 = new();
-            msg_b.tmpData = JsonConvert.SerializeObject(room.player_b.tmpData);
-
-            room.player_a.Send(msg_b1);
-            room.player_b.Send(msg_a1);
-
-
-            MsgLocalInfo msg_aa1 = new();
-            msg_aa.tmpData = JsonConvert.SerializeObject(room.player_a.tmpData);
-            MsgLocalInfo msg_bb1 = new();
-            msg_bb.tmpData = JsonConvert.SerializeObject(room.player_b.tmpData);
-
-            room.player_a.Send(msg_aa1);
-            room.player_b.Send(msg_bb1);
+            UpdateTmpData(room);
 
             RoomManager.ClearRooms();
         }
+    }
+
+    private static void UpdateTmpData(Room room)
+    {
+        MsgRemoteInfo msg_a = new();
+        msg_a.tmpData = JsonConvert.SerializeObject(room.player_a.tmpData);
+        MsgRemoteInfo msg_b = new();
+        msg_b.tmpData = JsonConvert.SerializeObject(room.player_b.tmpData);
+
+        room.player_a.Send(msg_b);
+        room.player_b.Send(msg_a);
+
+
+        MsgLocalInfo msg_aa = new();
+        msg_aa.tmpData = JsonConvert.SerializeObject(room.player_a.tmpData);
+        MsgLocalInfo msg_bb = new();
+        msg_bb.tmpData = JsonConvert.SerializeObject(room.player_b.tmpData);
+
+        room.player_a.Send(msg_aa);
+        room.player_b.Send(msg_bb);
     }
 
     //玩家认输

@@ -4296,6 +4296,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1692729169}
+          m_TargetAssemblyTypeName: NetButton, Assembly-CSharp
+          m_MethodName: OnClickBack
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &704762164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4321,7 +4333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a9992e18cc86b409e9183c40dc709e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneChoice: GameRooms
+  sceneChoice: FightPrepare
   time: 2
   effectPrefab: {fileID: 6037742004090332351, guid: 0df6d4512043ad944a01dd291ffbe8da, type: 3}
   canvas: {fileID: 0}
@@ -9988,6 +10000,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1692729169}
+          m_TargetAssemblyTypeName: NetButton, Assembly-CSharp
+          m_MethodName: OnClickBack
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1504298103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10013,7 +10037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a9992e18cc86b409e9183c40dc709e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneChoice: GameRooms
+  sceneChoice: FightPrepare
   time: 2
   effectPrefab: {fileID: 6037742004090332351, guid: 0df6d4512043ad944a01dd291ffbe8da, type: 3}
   canvas: {fileID: 0}
