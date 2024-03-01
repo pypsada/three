@@ -1120,7 +1120,7 @@ MonoBehaviour:
   myContent:
   - "\u5404\u6709\u6240\u4E3A\uFF0C\u90A3\u5C31\u6218\u5427"
   myAnswer: {fileID: 1800509141}
-  picPath: 
+  picPath: WangShou
   needDestroy: {fileID: 0}
 --- !u!1 &1033452946
 GameObject:

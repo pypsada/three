@@ -328,8 +328,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 295345164}
-          m_TargetAssemblyTypeName: AddRecord, Assembly-CSharp
-          m_MethodName: Add
+          m_TargetAssemblyTypeName: BossFight, Assembly-CSharp
+          m_MethodName: ControlFight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a9992e18cc86b409e9183c40dc709e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneChoice: Act20
+  sceneChoice: FightModle
   time: 2
   effectPrefab: {fileID: 6037742004090332351, guid: 0df6d4512043ad944a01dd291ffbe8da, type: 3}
   canvas: {fileID: 0}
@@ -427,87 +427,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 295345156}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f44f15a380b4a034c8639b603094f324, type: 3}
+  m_Script: {fileID: 11500000, guid: 333895cc12471894eb3d0c334924df45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  increment: 10
---- !u!1 &312488683
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 312488684}
-  - component: {fileID: 312488686}
-  - component: {fileID: 312488685}
-  m_Layer: 5
-  m_Name: Dialog5
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &312488684
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 312488683}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1480951769}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &312488685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 312488683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 018f65b4636554b41b1f4e7d2e0ccecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialog: {fileID: 312488683}
-  delayTime: 0
-  cloneThing: []
-  cloneTime: []
-  canvas: {fileID: 0}
-  destroyThing: []
---- !u!114 &312488686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 312488683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa62dcd8c6554f54c94cefd43d524195, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DialogManager: {fileID: 0}
-  Pictures: {fileID: 0}
-  pictures: {fileID: 0}
-  myName: 
-  myContent:
-  - "\uFF08\u6211\u5C6E\u8278\u8294\u833B\uFF09"
-  - "\u989D\uFF0C\u5BB6\u7236\u2026\u2026\u5C3C\u53E4\u62C9\u65AF\xB7\u8D56\u76AE\uFF1F"
-  myAnswer: {fileID: 1895945452}
-  picPath: LaiPi
-  needDestroy: {fileID: 0}
+  playerCareer: 
+  playerLevel: 0
+  AICareer: Pangolin
+  AILevel: 90
+  goingScene: Act23
+  backScene: Base
+  story: 1
 --- !u!1001 &401811941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -724,83 +653,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 513226752}
   m_CullTransparentMesh: 1
---- !u!1 &555380424
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 555380427}
-  - component: {fileID: 555380426}
-  - component: {fileID: 555380425}
-  m_Layer: 5
-  m_Name: Dialog4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &555380425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 555380424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 018f65b4636554b41b1f4e7d2e0ccecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialog: {fileID: 555380424}
-  delayTime: 0
-  cloneThing: []
-  cloneTime: []
-  canvas: {fileID: 0}
-  destroyThing: []
---- !u!114 &555380426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 555380424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa62dcd8c6554f54c94cefd43d524195, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DialogManager: {fileID: 0}
-  Pictures: {fileID: 0}
-  pictures: {fileID: 0}
-  myName: "\u56FD\u738B\u4E4B\u5B88"
-  myContent:
-  - "\u8001\u8D56\u76AE\u9601\u4E0B\uFF0C\u518D\u5F80\u524D\u8D70\u5C31\u662F\u56FD\u738B\u4E4B\u6BBF\uFF0C\u4F60\u6765\u6B64\u4F55\u5E72\uFF1F"
-  - "\u54A6\uFF0C\u4E0D\u5BF9\u2026\u2026\u8001\u8D56\u76AE\u9601\u4E0B\uFF0C\u8BF7\u95EE\u4F60\u7684\u7236\u4EB2\u53EB\u4EC0\u4E48\uFF1F"
-  myAnswer: {fileID: 312488683}
-  picPath: WangShou
-  needDestroy: {fileID: 0}
---- !u!224 &555380427
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 555380424}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1480951769}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &660595298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,83 +944,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768034145}
   m_CullTransparentMesh: 1
---- !u!1 &768240784
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 768240785}
-  - component: {fileID: 768240787}
-  - component: {fileID: 768240786}
-  m_Layer: 5
-  m_Name: Dialog7
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &768240785
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768240784}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1480951769}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &768240786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768240784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 018f65b4636554b41b1f4e7d2e0ccecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialog: {fileID: 768240784}
-  delayTime: 0
-  cloneThing: []
-  cloneTime: []
-  canvas: {fileID: 0}
-  destroyThing: []
---- !u!114 &768240787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768240784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa62dcd8c6554f54c94cefd43d524195, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DialogManager: {fileID: 0}
-  Pictures: {fileID: 0}
-  pictures: {fileID: 0}
-  myName: 
-  myContent:
-  - "\u597D\u5427\u6211\u4E0D\u88C5\u4E86\uFF0C\u4E0D\u8FC7\u4F60\u521A\u624D\u8BF4\uFF0C\u56FD\u738B\u5C31\u5728\u4F60\u8EAB\u540E\u7684\u8FD9\u95E8\u91CC\u9762\u5427\uFF1F"
-  - "\u90A3\uFF0C\u8D70\u72D7\uFF0C\u6211\u5C31\u5148\u6536\u4F60\u6027\u547D\u4E86\uFF01"
-  myAnswer: {fileID: 1800509141}
-  picPath: 
-  needDestroy: {fileID: 0}
 --- !u!1001 &916989497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1341,14 +1116,11 @@ MonoBehaviour:
   DialogManager: {fileID: 0}
   Pictures: {fileID: 0}
   pictures: {fileID: 0}
-  myName: 
+  myName: "\u56FD\u738B"
   myContent:
-  - "\uFF08\u8001\u8D56\u76AE\u8FD9\u5BB6\u4F19\u505A\u7684\u5047\u5916\u58F3\u8FD8\u633A\u50CF\u4E48\uFF09"
-  - "\uFF08\u6F5C\u5165\u738B\u5BAB\u7684\u4E00\u8DEF\u4E0A\u5F88\u987A\u5229\uFF0C\u6682\u65F6\u6CA1\u6709\u4EBA\u8BA4\u51FA\u6211\u662F\u5192\u724C\u8D27\uFF09"
-  - "\uFF08\u4E0B\u6765\u8981\u5BFB\u627E\u56FD\u738B\u7684\u4F4D\u7F6E\uFF0C\u8FD9\u5BB6\u4F19\u5BAB\u6BBF\u4FEE\u8FD9\u4E48\u5927\uFF0C\u8981\u600E\u4E48\u627E\u5462\uFF09"
-  - "\uFF08\u55EF\uFF1F\u524D\u9762\u8FD9\u4E2A\u5947\u602A\u7684\u5BB6\u4F19\u662F\u8C01\uFF1F\uFF09"
-  myAnswer: {fileID: 1722457422}
-  picPath: LaiPi
+  - "\u51FA\u624B\u5427\uFF01\u5C0F\u8F88\uFF01"
+  myAnswer: {fileID: 1800509141}
+  picPath: ShouLing
   needDestroy: {fileID: 0}
 --- !u!1 &1033452946
 GameObject:
@@ -1852,12 +1624,6 @@ RectTransform:
   - {fileID: 692818655}
   - {fileID: 916989498}
   - {fileID: 928629353}
-  - {fileID: 1722457423}
-  - {fileID: 1725105259}
-  - {fileID: 555380427}
-  - {fileID: 312488684}
-  - {fileID: 1895945455}
-  - {fileID: 768240785}
   - {fileID: 1051735077}
   - {fileID: 1800509142}
   - {fileID: 1033452947}
@@ -2043,7 +1809,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uFF08\u51C6\u5907\u6218\u6597\uFF09"
+  m_Text: "\uFF08\u51B3\u6218\uFF01\uFF09"
 --- !u!222 &1561615368
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2052,158 +1818,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561615365}
   m_CullTransparentMesh: 1
---- !u!1 &1722457422
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1722457423}
-  - component: {fileID: 1722457425}
-  - component: {fileID: 1722457424}
-  m_Layer: 5
-  m_Name: Dialog2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1722457423
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722457422}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1480951769}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1722457424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722457422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 018f65b4636554b41b1f4e7d2e0ccecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialog: {fileID: 1722457422}
-  delayTime: 0
-  cloneThing: []
-  cloneTime: []
-  canvas: {fileID: 0}
-  destroyThing: []
---- !u!114 &1722457425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722457422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa62dcd8c6554f54c94cefd43d524195, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DialogManager: {fileID: 0}
-  Pictures: {fileID: 0}
-  pictures: {fileID: 0}
-  myName: "\u56FD\u738B\u4E4B\u5B88"
-  myContent:
-  - "\u55EF\uFF1F\u4F60\u662F\u2026\u2026"
-  myAnswer: {fileID: 1725105258}
-  picPath: WangShou
-  needDestroy: {fileID: 0}
---- !u!1 &1725105258
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1725105259}
-  - component: {fileID: 1725105261}
-  - component: {fileID: 1725105260}
-  m_Layer: 5
-  m_Name: Dialog3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1725105259
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1725105258}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1480951769}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1725105260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1725105258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 018f65b4636554b41b1f4e7d2e0ccecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialog: {fileID: 1725105258}
-  delayTime: 0
-  cloneThing: []
-  cloneTime: []
-  canvas: {fileID: 0}
-  destroyThing: []
---- !u!114 &1725105261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1725105258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa62dcd8c6554f54c94cefd43d524195, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DialogManager: {fileID: 0}
-  Pictures: {fileID: 0}
-  pictures: {fileID: 0}
-  myName: 
-  myContent:
-  - "\uFF08\u4E0D\u597D\uFF0C\u88AB\u4ED6\u6CE8\u610F\u5230\u4E86\u2026\u2026\uFF09"
-  myAnswer: {fileID: 555380424}
-  picPath: LaiPi
-  needDestroy: {fileID: 0}
 --- !u!1 &1800509141
 GameObject:
   m_ObjectHideFlags: 0
@@ -2385,82 +1999,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9424f3cb97aaa4099f97c9bbc597ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1895945452
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1895945455}
-  - component: {fileID: 1895945454}
-  - component: {fileID: 1895945453}
-  m_Layer: 5
-  m_Name: Dialog6
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1895945453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895945452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 018f65b4636554b41b1f4e7d2e0ccecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialog: {fileID: 1895945452}
-  delayTime: 0
-  cloneThing: []
-  cloneTime: []
-  canvas: {fileID: 0}
-  destroyThing: []
---- !u!114 &1895945454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895945452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa62dcd8c6554f54c94cefd43d524195, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DialogManager: {fileID: 0}
-  Pictures: {fileID: 0}
-  pictures: {fileID: 0}
-  myName: "\u56FD\u738B\u4E4B\u5B88"
-  myContent:
-  - "\u54FC\uFF0C\u4F60\u679C\u7136\u662F\u5047\u5192\u7684\uFF0C\u9B3C\u9B3C\u795F\u795F\uFF0C\u5FEB\u5FEB\u4F0F\u8BDB\uFF01"
-  myAnswer: {fileID: 768240784}
-  picPath: WangShou
-  needDestroy: {fileID: 0}
---- !u!224 &1895945455
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895945452}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1480951769}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1899653407
 GameObject:
   m_ObjectHideFlags: 0

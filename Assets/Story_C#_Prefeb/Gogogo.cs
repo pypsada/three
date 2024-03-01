@@ -106,13 +106,16 @@ public class Gogogo : MonoBehaviour
                 SaveGameManager.SaveData.record = 220;
                 SceneManager.LoadScene("Act22");
             }
-            /*
+            else if (record < 240)
+            {
+                SaveGameManager.SaveData.record = 230;
+                SceneManager.LoadScene("Act23");
+            }
             else
             {
-                SaveGameManager.SaveData.record = 170;
-                SceneManager.LoadScene("Act17");
+                SaveGameManager.SaveData.record = 240;  //一般在主界面的Go就进入了，不用调用这一句
+                SceneManager.LoadScene("Act24");
             }
-            */
         }
     }
 }

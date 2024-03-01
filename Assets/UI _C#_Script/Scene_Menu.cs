@@ -24,6 +24,15 @@ public class Scene_Menu : MonoBehaviour
                 SaveGameManager.SaveData.record = 150;
                 SceneManager.LoadScene("Act15");
             }
+            else if (SaveGameManager.SaveData.record >= 240 && SaveGameManager.SaveData.record < 250)
+            {
+                SaveGameManager.SaveData.record = 240;
+                SceneManager.LoadScene("Act24");
+            }
+            else if (SaveGameManager.SaveData.record >= 250)
+            {
+                SceneManager.LoadScene("BaseFinal");
+            }
             else if (SaveGameManager.SaveData.record >= 60)
             {
                 SceneManager.LoadScene("Base");
@@ -97,5 +106,9 @@ public class Scene_Menu : MonoBehaviour
     public void PVP()
     {
         SceneManager.LoadScene("Login");
+    }
+    public void Memory()
+    {
+        SceneManager.LoadScene("Memory");
     }
 }

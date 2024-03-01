@@ -120,6 +120,83 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &174547843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 174547844}
+  - component: {fileID: 174547846}
+  - component: {fileID: 174547845}
+  m_Layer: 5
+  m_Name: Dialog7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &174547844
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174547843}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1480951769}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &174547845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174547843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 018f65b4636554b41b1f4e7d2e0ccecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialog: {fileID: 174547843}
+  delayTime: 0
+  cloneThing: []
+  cloneTime: []
+  canvas: {fileID: 0}
+  destroyThing: []
+--- !u!114 &174547846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174547843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa62dcd8c6554f54c94cefd43d524195, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogManager: {fileID: 0}
+  Pictures: {fileID: 0}
+  pictures: {fileID: 0}
+  myName: "\u9E21\u54E5"
+  myContent:
+  - "\u5BB6\u4EBA\u4EEC\uFF0C\u6211\u521A\u4ECE\u738B\u90FD\u8DD1\u6765\uFF0C\u73B0\u5728\u8981\u4EE5\u523A\u5BA2\u5206\u90E8\u65E7\u90E8\u5EFA\u7ACB\u65B0\u7EC4\u7EC7\uFF0C\u6697\u4E2D\u4FDD\u62A4\u65B0\u738B\u56FD\uFF01"
+  - "\u73B0\u8981\u8BF7ZJ\u5F53\u7EDF\u5E05\uFF0C\u4E3B\u6301\u516C\u6B63\uFF0C\u770B\u6765\uFF0C\u6211\u4EEC\u4EE5\u540E\u8FD8\u662F\u4E00\u5BB6\u4EBA\u55BD\uFF01"
+  myAnswer: {fileID: 1800509141}
+  picPath: DaBao
+  needDestroy: {fileID: 0}
 --- !u!1 &179776271
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a9992e18cc86b409e9183c40dc709e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneChoice: Act20
+  sceneChoice: BaseFinal
   time: 2
   effectPrefab: {fileID: 6037742004090332351, guid: 0df6d4512043ad944a01dd291ffbe8da, type: 3}
   canvas: {fileID: 0}
@@ -501,12 +578,12 @@ MonoBehaviour:
   DialogManager: {fileID: 0}
   Pictures: {fileID: 0}
   pictures: {fileID: 0}
-  myName: 
+  myName: "\u6885\u5E08\u59D0"
   myContent:
-  - "\uFF08\u6211\u5C6E\u8278\u8294\u833B\uFF09"
-  - "\u989D\uFF0C\u5BB6\u7236\u2026\u2026\u5C3C\u53E4\u62C9\u65AF\xB7\u8D56\u76AE\uFF1F"
+  - "\u6211\u77E5\u9053\u6211\u77E5\u9053\uFF0C\u8BF6\u5440\u5E08\u5144\u4F60\u770B\u8FD9\u4E1C\u897F\u90A3\u4E2A\u561A\u745F\u52B2"
+  - "ZJ\u5E08\u5F1F\uFF0C\u5982\u4ECA\u4F60\u4E5F\u662F\u5F00\u56FD\u5143\u52CB\uFF0C\u4E3A\u4F55\u5C01\u8D4F\u4F60\u90FD\u62D2\u7EDD\u4E86\u5462\uFF1F\u5E08\u59D0\u6211\u53EF\u662F\u7FA1\u6155\u5730\u4E0D\u5F97\u4E86\u554A"
   myAnswer: {fileID: 1895945452}
-  picPath: LaiPi
+  picPath: ShiYi
   needDestroy: {fileID: 0}
 --- !u!1001 &401811941
 PrefabInstance:
@@ -775,12 +852,11 @@ MonoBehaviour:
   DialogManager: {fileID: 0}
   Pictures: {fileID: 0}
   pictures: {fileID: 0}
-  myName: "\u56FD\u738B\u4E4B\u5B88"
+  myName: "\u4F0D\u8FB9\u884C\u5E08\u5144"
   myContent:
-  - "\u8001\u8D56\u76AE\u9601\u4E0B\uFF0C\u518D\u5F80\u524D\u8D70\u5C31\u662F\u56FD\u738B\u4E4B\u6BBF\uFF0C\u4F60\u6765\u6B64\u4F55\u5E72\uFF1F"
-  - "\u54A6\uFF0C\u4E0D\u5BF9\u2026\u2026\u8001\u8D56\u76AE\u9601\u4E0B\uFF0C\u8BF7\u95EE\u4F60\u7684\u7236\u4EB2\u53EB\u4EC0\u4E48\uFF1F"
+  - "\u6885\u5E08\u59B9\uFF0C\u8D56\u5144\u5728\u51FB\u8D25\u65E7\u738B\u56FD\u4E2D\u4E5F\u662F\u7ACB\u4E0B\u529F\u52B3\uFF0C\u662F\u7EC4\u7EC7\u4E0A\u7279\u5730\u8D66\u514D\u8BA9\u8DDF\u968FZJ"
   myAnswer: {fileID: 312488683}
-  picPath: WangShou
+  picPath: DaChun
   needDestroy: {fileID: 0}
 --- !u!224 &555380427
 RectTransform:
@@ -999,7 +1075,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4408892869394802697, guid: 25da69d354be76d41a5da16e691a7bbf, type: 3}
+  m_Sprite: {fileID: -57933577528528250, guid: 4bf93980c24e5d4499c77f95b33332a2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1092,83 +1168,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768034145}
   m_CullTransparentMesh: 1
---- !u!1 &768240784
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 768240785}
-  - component: {fileID: 768240787}
-  - component: {fileID: 768240786}
-  m_Layer: 5
-  m_Name: Dialog7
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &768240785
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768240784}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1480951769}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &768240786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768240784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 018f65b4636554b41b1f4e7d2e0ccecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialog: {fileID: 768240784}
-  delayTime: 0
-  cloneThing: []
-  cloneTime: []
-  canvas: {fileID: 0}
-  destroyThing: []
---- !u!114 &768240787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768240784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa62dcd8c6554f54c94cefd43d524195, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DialogManager: {fileID: 0}
-  Pictures: {fileID: 0}
-  pictures: {fileID: 0}
-  myName: 
-  myContent:
-  - "\u597D\u5427\u6211\u4E0D\u88C5\u4E86\uFF0C\u4E0D\u8FC7\u4F60\u521A\u624D\u8BF4\uFF0C\u56FD\u738B\u5C31\u5728\u4F60\u8EAB\u540E\u7684\u8FD9\u95E8\u91CC\u9762\u5427\uFF1F"
-  - "\u90A3\uFF0C\u8D70\u72D7\uFF0C\u6211\u5C31\u5148\u6536\u4F60\u6027\u547D\u4E86\uFF01"
-  myAnswer: {fileID: 1800509141}
-  picPath: 
-  needDestroy: {fileID: 0}
 --- !u!1001 &916989497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1343,12 +1342,11 @@ MonoBehaviour:
   pictures: {fileID: 0}
   myName: 
   myContent:
-  - "\uFF08\u8001\u8D56\u76AE\u8FD9\u5BB6\u4F19\u505A\u7684\u5047\u5916\u58F3\u8FD8\u633A\u50CF\u4E48\uFF09"
-  - "\uFF08\u6F5C\u5165\u738B\u5BAB\u7684\u4E00\u8DEF\u4E0A\u5F88\u987A\u5229\uFF0C\u6682\u65F6\u6CA1\u6709\u4EBA\u8BA4\u51FA\u6211\u662F\u5192\u724C\u8D27\uFF09"
-  - "\uFF08\u4E0B\u6765\u8981\u5BFB\u627E\u56FD\u738B\u7684\u4F4D\u7F6E\uFF0C\u8FD9\u5BB6\u4F19\u5BAB\u6BBF\u4FEE\u8FD9\u4E48\u5927\uFF0C\u8981\u600E\u4E48\u627E\u5462\uFF09"
-  - "\uFF08\u55EF\uFF1F\u524D\u9762\u8FD9\u4E2A\u5947\u602A\u7684\u5BB6\u4F19\u662F\u8C01\uFF1F\uFF09"
+  - "\u7EC4\u7EC7\u771F\u662F\u5389\u5BB3\u554A\uFF0C\u6CA1\u6709\u4E86\u56FD\u738B\uFF0C\u5168\u56FD\u5404\u5730\u7684\u884C\u52A8\u52BF\u5982\u7834\u7AF9"
+  - "\u65E7\u738B\u56FD\u65B0\u7ACB\u738B\u5B50\u7EE7\u4F4D\uFF0C\u4F46\u6839\u672C\u65E0\u6CD5\u62B5\u6321\u7EC4\u7EC7\u7684\u811A\u6B65"
+  - "\u523A\u5BA2\u5206\u90E8\u5982\u4ECA\u4E5F\u662F\u89E3\u6563\u4E86\u2026\u2026\u54CE\uFF0C\u6211\u8FD8\u9887\u6709\u4E9B\u6000\u5FF5"
   myAnswer: {fileID: 1722457422}
-  picPath: LaiPi
+  picPath: 
   needDestroy: {fileID: 0}
 --- !u!1 &1033452946
 GameObject:
@@ -1601,6 +1599,82 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   usersName: {fileID: 2007407692}
   usersAvatar: {fileID: 1033452948}
+--- !u!1 &1428563517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1428563518}
+  - component: {fileID: 1428563520}
+  - component: {fileID: 1428563519}
+  m_Layer: 5
+  m_Name: Dialog8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1428563518
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428563517}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1480951769}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1428563519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428563517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 018f65b4636554b41b1f4e7d2e0ccecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialog: {fileID: 1428563517}
+  delayTime: 0
+  cloneThing: []
+  cloneTime: []
+  canvas: {fileID: 0}
+  destroyThing: []
+--- !u!114 &1428563520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428563517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa62dcd8c6554f54c94cefd43d524195, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogManager: {fileID: 0}
+  Pictures: {fileID: 0}
+  pictures: {fileID: 0}
+  myName: 
+  myContent:
+  - "\u55EF\uFF0C\u8FD9\u5230\u6B63\u5408\u6211\u610F\uFF01"
+  myAnswer: {fileID: 1800509141}
+  picPath: 
+  needDestroy: {fileID: 0}
 --- !u!1 &1450651961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,7 +1931,8 @@ RectTransform:
   - {fileID: 555380427}
   - {fileID: 312488684}
   - {fileID: 1895945455}
-  - {fileID: 768240785}
+  - {fileID: 174547844}
+  - {fileID: 1428563518}
   - {fileID: 1051735077}
   - {fileID: 1800509142}
   - {fileID: 1033452947}
@@ -2043,7 +2118,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uFF08\u51C6\u5907\u6218\u6597\uFF09"
+  m_Text: "\uFF08\u5B8C\uFF09"
 --- !u!222 &1561615368
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2122,11 +2197,12 @@ MonoBehaviour:
   DialogManager: {fileID: 0}
   Pictures: {fileID: 0}
   pictures: {fileID: 0}
-  myName: "\u56FD\u738B\u4E4B\u5B88"
+  myName: "\u8001\u8D56\u76AE"
   myContent:
-  - "\u55EF\uFF1F\u4F60\u662F\u2026\u2026"
+  - "\u8FD8\u5F97\u662F\u4E3B\u4EBA\u60A8\u5389\u5BB3\u554A\uFF0C\u7ADE\u771F\u80FD\u6253\u8D25\u56FD\u738B"
+  - "\u8FD8\u597D\u5F53\u5E74\u6211\u6167\u773C\u5982\u70AC\uFF0C\u7ACB\u9A6C\u5C31\u8DDF\u60A8\u5F53\u4E86\u5C0F\u5F1F\uFF0C\u563F\u563F"
   myAnswer: {fileID: 1725105258}
-  picPath: WangShou
+  picPath: LaiPi
   needDestroy: {fileID: 0}
 --- !u!1 &1725105258
 GameObject:
@@ -2198,11 +2274,11 @@ MonoBehaviour:
   DialogManager: {fileID: 0}
   Pictures: {fileID: 0}
   pictures: {fileID: 0}
-  myName: 
+  myName: "\u6885\u5E08\u59D0"
   myContent:
-  - "\uFF08\u4E0D\u597D\uFF0C\u88AB\u4ED6\u6CE8\u610F\u5230\u4E86\u2026\u2026\uFF09"
-  myAnswer: {fileID: 555380424}
-  picPath: LaiPi
+  - "\u54FC\uFF0C\u4E11\u516B\u602A\uFF0C\u5C11\u561A\u745F\uFF0CZJ\u4E0D\u6740\u4F60\uFF0C\u7559\u4F60\u5F53\u5C0F\u5F1F\u662F\u7ED9\u4F60\u8138\u4E86"
+  myAnswer: {fileID: 1722457422}
+  picPath: WangShou
   needDestroy: {fileID: 0}
 --- !u!1 &1800509141
 GameObject:
@@ -2436,11 +2512,12 @@ MonoBehaviour:
   DialogManager: {fileID: 0}
   Pictures: {fileID: 0}
   pictures: {fileID: 0}
-  myName: "\u56FD\u738B\u4E4B\u5B88"
+  myName: 
   myContent:
-  - "\u54FC\uFF0C\u4F60\u679C\u7136\u662F\u5047\u5192\u7684\uFF0C\u9B3C\u9B3C\u795F\u795F\uFF0C\u5FEB\u5FEB\u4F0F\u8BDB\uFF01"
-  myAnswer: {fileID: 768240784}
-  picPath: WangShou
+  - "\u5E08\u59D0\uFF0C\u6211\u53EF\u662F\u4E0D\u613F\u5728\u6743\u529B\u573A\u4E0A\u64CD\u5FC3"
+  - "\u4E0D\u8FC7\uFF0C\u5B9E\u5728\u662F\u6000\u5FF5\u5728\u8FC7\u53BB\u6211\u4EEC\u5171\u4E8B\u7684\u65E5\u5B50\u2026\u2026"
+  myAnswer: {fileID: 1800509141}
+  picPath: 
   needDestroy: {fileID: 0}
 --- !u!224 &1895945455
 RectTransform:
