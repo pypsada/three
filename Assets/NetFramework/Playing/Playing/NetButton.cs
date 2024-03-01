@@ -101,12 +101,6 @@ public class NetButton : MonoBehaviour
     {
         NetMain.actions.Enqueue(() =>
         {
-            MsgYouWin msg = (MsgYouWin)msgBase;
-            SaveGameManager.SaveData.victory = msg.victualTimes;
-            SaveGameManager.SaveData.lose = msg.failTimes;
-            PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
-            PlayerPrefs.Save();
-
             playState = PlayState.win;
             //eventSystem.SetActive(false);
             //tipText.text = "胜利";
@@ -120,12 +114,6 @@ public class NetButton : MonoBehaviour
     {
         NetMain.actions.Enqueue(() =>
         {
-            MsgYouLost msg = (MsgYouLost)msgBase;
-            SaveGameManager.SaveData.victory = msg.victualTimes;
-            SaveGameManager.SaveData.lose = msg.failTimes;
-            PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
-            PlayerPrefs.Save();
-
             playState = PlayState.lost;
             //eventSystem.SetActive(false);
             //tipText.text = "失败";
@@ -192,6 +180,10 @@ public class NetButton : MonoBehaviour
     //为了方便以后更改，将游戏胜负的情况放在这里
     private void GameWin()
     {
+        SaveGameManager.SaveData.victory++;
+        PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
+        PlayerPrefs.Save();
+
         NetMain.actions.Enqueue(() =>
         {
             //RemoveListner();
@@ -205,6 +197,10 @@ public class NetButton : MonoBehaviour
 
     private void GameLost()
     {
+        SaveGameManager.SaveData.lose++;
+        PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
+        PlayerPrefs.Save();
+
         NetMain.actions.Enqueue(() =>
         {
             //RemoveListner();
