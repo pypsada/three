@@ -12,11 +12,27 @@ public class NetMain : MonoBehaviour
     [HideInInspector]
     public static Queue<Action> actions = new();
     private readonly int ACTIONS_MAX_FIRE_EVENT = 30;
-    
+
+    private static NetMain netMain;
+
+    private void Awake()
+    {
+        if (netMain == null)
+        {
+            netMain = GetComponent<NetMain>();
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
+        return;
     }
 
     // Update is called once per frame
