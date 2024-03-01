@@ -539,12 +539,12 @@ namespace NetGame
 
         public void AWin()
         {
-            player_a.Send(new MsgYouWin());
-            player_b.Send(new MsgYouLost());
             player_b.data.failTimes++;
             player_a.data.victoryTimes++;
             DbManager.UpdatePlayerData(player_b.id, player_b.data);
             DbManager.UpdatePlayerData(player_a.id, player_a.data);
+            player_b.Send(new MsgYouLost());
+            player_a.Send(new MsgYouWin());
             player_a.room = null;
             player_b.room = null;
             over = true;
@@ -553,12 +553,12 @@ namespace NetGame
 
         public void BWin()
         {
-            player_a.Send(new MsgYouLost());
-            player_b.Send(new MsgYouWin());
             player_a.data.failTimes++;
             player_b.data.victoryTimes++;
             DbManager.UpdatePlayerData(player_a.id, player_a.data);
             DbManager.UpdatePlayerData(player_b.id, player_b.data);
+            player_a.Send(new MsgYouLost());
+            player_b.Send(new MsgYouWin());
             player_a.room = null;
             player_b.room = null;
             over = true;
