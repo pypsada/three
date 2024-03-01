@@ -246,6 +246,12 @@ public class NetButton : MonoBehaviour
     //按下认输按钮
     public void OnClickEscape()
     {
+        chatFeild.TextRoll("你:认输");
+
+        MsgChat msg = new();
+        msg.chatStr = "认输";
+        NetManager.Send(msg);
+
         NetManager.Send(new MsgAdmitDefeat());
     }
 

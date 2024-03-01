@@ -4,7 +4,7 @@ namespace NetGame
 {
     public class PlayerTmpData
     {
-        public string skillName = "Idle";
+        public string skillName = "Cuo";
         public float Laolai;
         public int health;  //ÑªÁ¿
         public int Energy;
