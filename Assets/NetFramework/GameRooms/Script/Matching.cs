@@ -85,11 +85,27 @@ public class Matching : MonoBehaviour
             localPlayerId.text = "ID:" + local.nickName;
             remotePlayerId.text = "对手ID:" + remote.nickName;
 
+
             localPlayerData.text = "数据：" + local.victoryTimes + "胜" + local.failTimes + "败\n" +
-                "胜率" + (float)local.victoryTimes / (float)(local.victoryTimes + local.failTimes);
+                "胜率" + OutPutRate(local.victoryTimes, local.victoryTimes + local.failTimes);
             remotePlayerData.text = "对手数据：" + remote.victoryTimes + "胜" + remote.failTimes + "败\n" +
-                "胜率" + (float)remote.victoryTimes / (float)(remote.victoryTimes + remote.failTimes);
+                "胜率" + OutPutRate(remote.victoryTimes, remote.victoryTimes + remote.failTimes);
         });
+    }
+
+    //胜率显示
+    private string OutPutRate(int win,int all)
+    {
+        float rate = 100f * win / all;
+        if(all!=0)
+        {
+            float rate1 = Mathf.Round(rate * 100) / 100;
+            return rate1.ToString("F2") + "%";
+        }
+        else
+        {
+            return "NaN%";
+        }
     }
 
     //按下开始匹配按钮

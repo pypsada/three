@@ -83,7 +83,7 @@ public class Login : MonoBehaviour
         {
             //µÇÂ¼Ê§°Ü
             Debug.Log("µÇÂ¼Ê§°Ü");
-            loginFail.SetActive(true);
+            //loginFail.SetActive(true);
         }
     }
 
