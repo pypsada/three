@@ -3287,7 +3287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 523584413}
-  flag: 0
+  flag: 1
 --- !u!114 &523584413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6235,7 +6235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 264167896}
   textComponent: {fileID: 990070702}
-  flag: 0
+  flag: 1
 --- !u!1 &991388921
 GameObject:
   m_ObjectHideFlags: 0
