@@ -432,9 +432,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCareer: 
   playerLevel: 0
-  AICareer: Arrogance
-  AILevel: 15
-  goingScene: Act8
+  AICareer: Rascally
+  AILevel: 70
+  goingScene: Act18
   backScene: Base
   story: 1
 --- !u!1001 &401811941
@@ -1118,8 +1118,8 @@ MonoBehaviour:
   pictures: {fileID: 0}
   myName: 
   myContent:
-  - "\u524D\u9762\u5C31\u662F\u76EE\u7684\u5730\u4E86"
-  - "\uFF08\u8BA9\u6211\u6F5C\u4F0F\u597D\uFF0C\u770B\u4E00\u773C\u2026\u2026\uFF09"
+  - "\uFF08\u5C31\u662F\u8FD9\u4E2A\u76EE\u6807\u4E86\uFF09"
+  - "\uFF08\u3010\u8001\u8D56\u76AE\u3011\uFF0C\u4F20\u95FB\u5C31\u662F\u6B64\u4EBA\u8D2A\u751F\u6015\u6B7B\uFF0C\u79C1\u4E0B\u91CC\u8C03\u52A8\u6C11\u8D22\u5BFB\u5316\u9F99\u4E4B\u6CD5\uFF09"
   myAnswer: {fileID: 1722457422}
   picPath: 
   needDestroy: {fileID: 0}
@@ -1811,7 +1811,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uFF08\u51FA\u51FB\uFF01\uFF09"
+  m_Text: "\uFF08\u51FA\u51FB\uFF09"
 --- !u!222 &1561615368
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1890,12 +1890,12 @@ MonoBehaviour:
   DialogManager: {fileID: 0}
   Pictures: {fileID: 0}
   pictures: {fileID: 0}
-  myName: "\u50B2\u6162\xB7\u7231\u7F57\u6839\u65AF"
+  myName: "\u8001\u8D56\u76AE"
   myContent:
-  - "\u55EF\u2026\u2026"
-  - "\u4ECA\u5929\u53C8\u4ECE\u5C5E\u5730\u6536\u4E86\u4E00\u767E\u4E00\u5341\u56DB\u4E2A\u7537\u7AE5\u5462\uFF08\u8214\u5634\uFF09"
+  - "\u55EF\uFF0C\u9CA4\u9C7C\u65CF\u5230\u5E95\u6709\u4EC0\u4E48\u4F18\u52BF\uFF1F\u4E3A\u4EC0\u4E48\u2026\u2026"
+  - "\uFF08\u600E\u4E48\u611F\u89C9\u6709\u4EBA\u7AA5\u89C6\uFF1F\uFF09"
   myAnswer: {fileID: 1800509141}
-  picPath: MoZu
+  picPath: LaiPi
   needDestroy: {fileID: 0}
 --- !u!1 &1800509141
 GameObject:

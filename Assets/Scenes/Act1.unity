@@ -2322,7 +2322,7 @@ MonoBehaviour:
   - "\uFF08\u6211\u8FD9\u662F\u6B7B\u4E86\u4E48\uFF09"
   - "\u201C\u563F\uFF0C\u5C0F\u5B50\uFF0C\u9192\u4E86\uFF01\u201D"
   myAnswer: {fileID: 630195873}
-  picPath: 
+  picPath: ZJ
   needDestroy: {fileID: 0}
 --- !u!1 &951253073
 GameObject:

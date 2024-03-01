@@ -77,6 +77,12 @@ public class DialogManager : MonoBehaviour
     IEnumerator TypeText()  //逐字跳字
     {
         string str = theContent[currentSignIndex].Replace("ZJ", SaveGameManager.Nickname);
+        if (SaveGameManager.SaveData.avatarPath == "MissMei")
+        {
+            str = str.Replace("师弟", "师妹");
+            str = str.Replace("小弟弟", "小妹妹");
+            str = str.Replace("爷爷", "姑奶奶");
+        }
         foreach (char letter in str.ToCharArray())
         {
             Content.text += letter;  //添加当前字符到文本框

@@ -435,7 +435,7 @@ MonoBehaviour:
   AICareer: Thief
   AILevel: 30
   goingScene: Act11
-  backScene: Act10
+  backScene: Base
   story: 1
 --- !u!1001 &401811941
 PrefabInstance:

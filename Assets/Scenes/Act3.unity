@@ -2003,7 +2003,7 @@ MonoBehaviour:
   myContent:
   - "\u4E00\u6643\u6570\u5E74\u8FC7\u53BB\u4E86\u2026\u2026"
   myAnswer: {fileID: 1425176681}
-  picPath: 
+  picPath: null
   needDestroy: {fileID: 0}
 --- !u!1 &995304954
 GameObject:

@@ -40,13 +40,39 @@ public class Dialog : MonoBehaviour
 
         Pictures = GameObject.Find("Pictures");  //调入图片
         pictures = Pictures.GetComponent<Image>();
-        if (picPath != "")
+        if (picPath == "null")
+            pictures.color = Color.clear;
+        else if (picPath == "ZJ")
+        {
+            if (SaveGameManager.SaveData.avatarPath == "MrWu")
+            {
+                pictures.color = Color.white;
+                pictures.sprite = Resources.Load<Sprite>("NanZhu1");
+            }
+            else
+            {
+                pictures.color = Color.white;
+                pictures.sprite = Resources.Load<Sprite>("NvZhu1");
+            }
+        }
+        else if (picPath != "")
         {
             pictures.color = Color.white;
             pictures.sprite = Resources.Load<Sprite>(picPath);
         }
         else
-            pictures.color = Color.clear;
+        {
+            if (SaveGameManager.SaveData.avatarPath == "MrWu")
+            {
+                pictures.color = Color.white;
+                pictures.sprite = Resources.Load<Sprite>("NanZhu");
+            }
+            else
+            {
+                pictures.color = Color.white;
+                pictures.sprite = Resources.Load<Sprite>("NvZhu");
+            }
+        }
 
         if (needDestroy != null)  //可清除一些东西
             Destroy(needDestroy);

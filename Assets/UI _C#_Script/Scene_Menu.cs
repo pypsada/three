@@ -19,6 +19,11 @@ public class Scene_Menu : MonoBehaviour
             {
                 SceneManager.LoadScene("ActOption");
             }
+            else if (SaveGameManager.SaveData.record >= 150 && SaveGameManager.SaveData.record < 160)
+            {
+                SaveGameManager.SaveData.record = 150;
+                SceneManager.LoadScene("Act15");
+            }
             else if (SaveGameManager.SaveData.record >= 60)
             {
                 SceneManager.LoadScene("Base");
