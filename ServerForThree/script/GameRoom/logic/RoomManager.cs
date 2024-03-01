@@ -56,12 +56,19 @@ public class RoomManager
     //清除已经结束的房间
     public static void ClearRooms()
     {
-        foreach(Room room in rooms)
+        List<Room> roomsToRemove = new List<Room>();
+
+        foreach (Room room in rooms)
         {
-            if(room.over==true)
+            if (room.over == true)
             {
-                rooms.Remove(room);
+                roomsToRemove.Add(room);
             }
+        }
+
+        foreach (Room roomToRemove in roomsToRemove)
+        {
+            rooms.Remove(roomToRemove);
         }
     }
 }

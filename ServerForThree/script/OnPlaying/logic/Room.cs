@@ -398,6 +398,8 @@ namespace NetGame
                 //Destroy(AIgameobject);
                 //Debug.Log("Win");
                 AWin();
+                RoomManager.ClearRooms();
+
             }
             else if (player_a.tmpData.health <= 0)
             {
@@ -408,6 +410,8 @@ namespace NetGame
                 //Debug.Log("LOST");
                 ////时间暂停
                 BWin();
+                RoomManager.ClearRooms();
+
             }
             else
             {
@@ -525,6 +529,8 @@ namespace NetGame
                 //Destroy(AIgameobject);
                 //Debug.Log("Win");
                 AWin();
+                RoomManager.ClearRooms();
+
             }
             if (player_a.tmpData.health <= 0)
             {
@@ -534,6 +540,8 @@ namespace NetGame
                 //Destroy(gameObject);
                 //Debug.Log("LOST");
                 BWin();
+                RoomManager.ClearRooms();
+
             }
         }
 
@@ -548,7 +556,7 @@ namespace NetGame
             player_a.room = null;
             player_b.room = null;
             over = true;
-            RoomManager.ClearRooms();
+            //RoomManager.ClearRooms();
         }
 
         public void BWin()
@@ -562,7 +570,7 @@ namespace NetGame
             player_a.room = null;
             player_b.room = null;
             over = true;
-            RoomManager.ClearRooms();
+            //RoomManager.ClearRooms();
         }
 
         private void GameContinue()
@@ -595,10 +603,14 @@ namespace NetGame
             if(esc==player_a)
             {
                 BWin();
+                RoomManager.ClearRooms();
+
             }
             else if(esc==player_b)
             {
                 AWin();
+                RoomManager.ClearRooms();
+
             }
             else
             {

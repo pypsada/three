@@ -156,10 +156,14 @@ public partial class MsgHandler
             if(c.player==room.player_a)
             {
                 room.AWin();
+                RoomManager.ClearRooms();
+
             }
             else
             {
                 room.BWin();
+                RoomManager.ClearRooms();
+
             }
         }
     }
