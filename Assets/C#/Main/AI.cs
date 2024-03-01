@@ -46,7 +46,7 @@ public class AI : MonoBehaviour
         if (StringCareer == "Rascally")
         {
             Career = 1;
-            health = 6 * Whole.Characterlevel + 50;
+            health = 6 * Whole.AICharacterlevel + 50;
         }
         if (StringCareer == "Turtle")
         {

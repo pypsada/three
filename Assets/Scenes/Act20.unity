@@ -432,9 +432,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCareer: 
   playerLevel: 0
-  AICareer: Rascally
-  AILevel: 70
-  goingScene: Act18
+  AICareer: Guard
+  AILevel: 80
+  goingScene: Act21
   backScene: Base
   story: 1
 --- !u!1001 &401811941
@@ -851,7 +851,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8215547426286642532, guid: c82488684b23e934faa2d902f7ec8465, type: 3}
+  m_Sprite: {fileID: 4408892869394802697, guid: 25da69d354be76d41a5da16e691a7bbf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1116,11 +1116,10 @@ MonoBehaviour:
   DialogManager: {fileID: 0}
   Pictures: {fileID: 0}
   pictures: {fileID: 0}
-  myName: 
+  myName: "\u56FD\u738B\u4E4B\u5B88"
   myContent:
-  - "\uFF08\u5C31\u662F\u8FD9\u4E2A\u76EE\u6807\u4E86\uFF09"
-  - "\uFF08\u3010\u8001\u8D56\u76AE\u3011\uFF0C\u4F20\u95FB\u5C31\u662F\u6B64\u4EBA\u8D2A\u751F\u6015\u6B7B\uFF0C\u79C1\u4E0B\u91CC\u8C03\u52A8\u6C11\u8D22\u5BFB\u5316\u9F99\u4E4B\u6CD5\uFF09"
-  myAnswer: {fileID: 1722457422}
+  - "\u5404\u6709\u6240\u4E3A\uFF0C\u90A3\u5C31\u6218\u5427"
+  myAnswer: {fileID: 1800509141}
   picPath: 
   needDestroy: {fileID: 0}
 --- !u!1 &1033452946
@@ -1625,7 +1624,6 @@ RectTransform:
   - {fileID: 692818655}
   - {fileID: 916989498}
   - {fileID: 928629353}
-  - {fileID: 1722457423}
   - {fileID: 1051735077}
   - {fileID: 1800509142}
   - {fileID: 1033452947}
@@ -1820,83 +1818,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561615365}
   m_CullTransparentMesh: 1
---- !u!1 &1722457422
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1722457423}
-  - component: {fileID: 1722457425}
-  - component: {fileID: 1722457424}
-  m_Layer: 5
-  m_Name: Dialog2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1722457423
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722457422}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1480951769}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1722457424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722457422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 018f65b4636554b41b1f4e7d2e0ccecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialog: {fileID: 1722457422}
-  delayTime: 0
-  cloneThing: []
-  cloneTime: []
-  canvas: {fileID: 0}
-  destroyThing: []
---- !u!114 &1722457425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722457422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa62dcd8c6554f54c94cefd43d524195, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DialogManager: {fileID: 0}
-  Pictures: {fileID: 0}
-  pictures: {fileID: 0}
-  myName: "\u8001\u8D56\u76AE"
-  myContent:
-  - "\u55EF\uFF0C\u9CA4\u9C7C\u65CF\u5230\u5E95\u6709\u4EC0\u4E48\u4F18\u52BF\uFF1F\u4E3A\u4EC0\u4E48\u2026\u2026"
-  - "\uFF08\u600E\u4E48\u611F\u89C9\u6709\u4EBA\u7AA5\u89C6\uFF1F\uFF09"
-  myAnswer: {fileID: 1800509141}
-  picPath: LaiPi
-  needDestroy: {fileID: 0}
 --- !u!1 &1800509141
 GameObject:
   m_ObjectHideFlags: 0

@@ -79,6 +79,40 @@ public class Gogogo : MonoBehaviour
                 SceneManager.LoadScene("Act17");
             }
         }
-
+        else
+        {
+            if (record < 190)
+            {
+                SaveGameManager.SaveData.record = 180;
+                SceneManager.LoadScene("Act18");
+            }
+            else if (record < 200)
+            {
+                SaveGameManager.SaveData.record = 190;
+                SceneManager.LoadScene("Act19");
+            }
+            else if (record < 210)
+            {
+                SaveGameManager.SaveData.record = 200;
+                SceneManager.LoadScene("Act20");
+            }
+            else if (record < 220)
+            {
+                SaveGameManager.SaveData.record = 210;
+                SceneManager.LoadScene("Act21");
+            }
+            else if (record < 230)
+            {
+                SaveGameManager.SaveData.record = 220;
+                SceneManager.LoadScene("Act22");
+            }
+            /*
+            else
+            {
+                SaveGameManager.SaveData.record = 170;
+                SceneManager.LoadScene("Act17");
+            }
+            */
+        }
     }
 }
