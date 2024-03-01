@@ -112,6 +112,10 @@ public partial class MsgHandler
             return;
         }
 
+        room.player_a.tmpData.skillName = "Cuo";
+        room.player_b.tmpData.skillName = "Cuo";
+        UpdateTmpData(room);
+
         if(c.player==room.player_a)
         {
             room.BWin();
@@ -119,6 +123,7 @@ public partial class MsgHandler
         }
         else if(c.player==room.player_b)
         {
+
             room.AWin();
             RoomManager.ClearRooms();
         }
