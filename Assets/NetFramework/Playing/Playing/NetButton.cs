@@ -247,7 +247,7 @@ public class NetButton : MonoBehaviour
         playerScript.tmpData = (PlayerTmpData)JsonUtility.FromJson(msg.tmpData, typeof(PlayerTmpData));
     }
 
-    //按下认输按钮，如果是催促时间到也是调用这个函数
+    //按下认输按钮
     public void OnClickEscape()
     {
         NetManager.Send(new MsgAdmitDefeat());
@@ -285,14 +285,15 @@ public class NetButton : MonoBehaviour
     private void BeUrged(MsgBase msgBase)
     {
         MsgUrge msg = (MsgUrge)msgBase;
-        if(msg.leftTime>0)
-        {
-            chatFeild.TextRoll("系统:被催促,剩" + msg.leftTime + "秒");
-        }
-        else
-        {
-            OnClickEscape();
-        }
+        chatFeild.TextRoll("系统:被催促,剩" + msg.leftTime + "秒");
+        //if(msg.leftTime>0)
+        //{
+        //    chatFeild.TextRoll("系统:被催促,剩" + msg.leftTime + "秒");
+        //}
+        //else
+        //{
+        //    OnClickEscape();
+        //}
     }
 
     //Used by update

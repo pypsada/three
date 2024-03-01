@@ -150,6 +150,18 @@ public partial class MsgHandler
             return;
         }
         another.Send(msgBase);
+        MsgUrge msg = (MsgUrge)msgBase;
+        if(msg.leftTime<=0)
+        {
+            if(c.player==room.player_a)
+            {
+                room.AWin();
+            }
+            else
+            {
+                room.BWin();
+            }
+        }
     }
 
     //初始化更新数据
