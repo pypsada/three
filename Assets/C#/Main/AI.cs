@@ -126,7 +126,7 @@ public class AI : MonoBehaviour
         Priority = 1;
         Defensing = true;
         Energy += 1;
-        myAnim.SetTrigger("Cuo");
+        myAnim.SetTrigger("Guard");
     }
 
     public void Turtle()  //ÎÚ¹ê¼¼ÄÜ£º¹êËõ
