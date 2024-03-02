@@ -107,8 +107,15 @@ public class Scene_Menu : MonoBehaviour
     {
         SceneManager.LoadScene("Login");
     }
+<<<<<<< Updated upstream
     public void Memory()
     {
         SceneManager.LoadScene("Memory");
+=======
+
+    public void AI()
+    {
+        SceneManager.LoadScene("ChoseCareer");
+>>>>>>> Stashed changes
     }
 }
