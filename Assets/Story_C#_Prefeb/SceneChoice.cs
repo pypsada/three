@@ -17,6 +17,11 @@ public class SceneChoice : MonoBehaviour
         CloneEffect();
     }
 
+    public void Back()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");
+    }
     IEnumerator DelayedSceneLoad()
     {
         yield return new WaitForSeconds(time);

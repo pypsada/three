@@ -111,49 +111,49 @@ public class Button : MonoBehaviour
     public void AIChoseAssassin()  //AI选择刺客职业
     {
         Whole.AICareer = "Assassin";
-        SceneManager.LoadScene("PK&AI");
+        SceneManager.LoadScene("FightModleAI");
     }
 
     public void AIKing()  //AI选择国王职业
     {
         Whole.AICareer = "King";
-        SceneManager.LoadScene("PK&AI");
+        SceneManager.LoadScene("FightModleAI");
     }
 
     public void AIGuard()  //AI选择护卫职业
     {
         Whole.AICareer = "Guard";
-        SceneManager.LoadScene("PK&AI");
+        SceneManager.LoadScene("FightModleAI");
     }
 
     public void AIChoseTurtle()  //AI选择乌龟职业
     {
         Whole.AICareer = "Turtle";
-        SceneManager.LoadScene("PK&AI");
+        SceneManager.LoadScene("FightModleAI");
     }
 
     public void AIChoseRascally()  //AI选择老赖职业
     {
         Whole.AICareer = "Rascally";
-        SceneManager.LoadScene("PK&AI");
+        SceneManager.LoadScene("FightModleAI");
     }
 
     public void AIChoseArrogance()  //AI选择傲慢职业
     {
         Whole.AICareer = "Arrogance";
-        SceneManager.LoadScene("PK&AI");
+        SceneManager.LoadScene("FightModleAI");
     }
 
     public void AIChoseThief()  //选择盗贼职业
     {
         Whole.AICareer = "Thief";
-        SceneManager.LoadScene("PK&AI");
+        SceneManager.LoadScene("FightModleAI");
     }
 
     public void AIChosePangolin()  //AI选择穿山甲职业
     {
         Whole.AICareer = "Pangolin";
-        SceneManager.LoadScene("PK&AI");
+        SceneManager.LoadScene("FightModleAI");
     }
 
     public void VocationalSkills()  //使用职业技能
