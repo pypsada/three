@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -646,12 +647,14 @@ public class Player : MonoBehaviour
             TanChuang1.SetActive(true);
             Time.timeScale = 0;
             Debug.Log("Win");
+            return;
         }
         else if (health <= 0)
         {
             TanChuang2.SetActive(true);
             Time.timeScale = 0;
             Debug.Log("LOST");
+            return;
             //Ê±¼äÔÝÍ£
         }
         else
@@ -766,12 +769,14 @@ public class Player : MonoBehaviour
             TanChuang1.SetActive(true);
             Time.timeScale = 0;
             //Debug.Log("Win");
+            return;
         }
         if (health <= 0)
         {
             TanChuang2.SetActive(true);
             Time.timeScale = 0;
             //Debug.Log("LOST");
+            return;
         }
     }
 }
