@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      NanZhu1_0: 4565945636054935103
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
