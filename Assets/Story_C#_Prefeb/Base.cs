@@ -18,7 +18,7 @@ public class Base : MonoBehaviour
         if (saveData != null)
         {
             level.text = "搓客等级：<color=yellow>" + saveData.level.ToString() + "</color>";
-            game1.text = "潜伏秘境纪录：<color=green>" + saveData.stealth.ToString() + "</color>";
+            game1.text = "潜伏秘境纪录：<color=#00FF00>" + saveData.stealth.ToString() + "</color>";
             game2.text = "身法秘境纪录：<color=blue>" + saveData.agility.ToString() + "</color>";
             game3.text = "应变秘境纪录：<color=cyan>" + saveData.mathematics.ToString() + "</color>";
         }

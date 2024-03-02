@@ -13,6 +13,7 @@ public class Gogogo : MonoBehaviour
     }
     public void Go()
     {
+        SoundsManager.PlayClick();
         if (record < 120)
         {
             if (record < 70)

@@ -10,9 +10,15 @@ public class SceneChoice : MonoBehaviour
     public GameObject effectPrefab;
     public GameObject canvas;
     public bool win;
+    private GameObject pause;
+    private void Start()
+    {
+        pause = GameObject.Find("PauseManager");
+    }
 
     public void SceneAlt()
     {
+        Destroy(pause);
         StartCoroutine(DelayedSceneLoad());
         CloneEffect();
     }
@@ -20,24 +26,28 @@ public class SceneChoice : MonoBehaviour
     public void Back()
     {
         Time.timeScale = 1;
+        SoundsManager.PlayClick();
         SceneManager.LoadScene("MainMenu");
     }
     IEnumerator DelayedSceneLoad()
     {
+        Time.timeScale = 1;
+        SoundsManager.PlayClick();
         yield return new WaitForSeconds(time);
         if (!string.IsNullOrEmpty(sceneChoice))
         {
-            Time.timeScale = 1;
+            if (sceneChoice == "Base" && SaveGameManager.SaveData.record >= 250)
+            {
+                sceneChoice = "BaseFinal";
+            }
             SceneManager.LoadScene(sceneChoice);
         }
         else if (win)
         {
-            Time.timeScale = 1;
             SceneManager.LoadScene(BossFight.Scene);
         }
         else
         {
-            Time.timeScale = 1;
             SceneManager.LoadScene(BossFight.Scene2);
         }
     }

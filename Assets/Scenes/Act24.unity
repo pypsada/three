@@ -194,7 +194,7 @@ MonoBehaviour:
   myContent:
   - "\u5BB6\u4EBA\u4EEC\uFF0C\u6211\u521A\u4ECE\u738B\u90FD\u8DD1\u6765\uFF0C\u73B0\u5728\u8981\u4EE5\u523A\u5BA2\u5206\u90E8\u65E7\u90E8\u5EFA\u7ACB\u65B0\u7EC4\u7EC7\uFF0C\u6697\u4E2D\u4FDD\u62A4\u65B0\u738B\u56FD\uFF01"
   - "\u73B0\u8981\u8BF7ZJ\u5F53\u7EDF\u5E05\uFF0C\u4E3B\u6301\u516C\u6B63\uFF0C\u770B\u6765\uFF0C\u6211\u4EEC\u4EE5\u540E\u8FD8\u662F\u4E00\u5BB6\u4EBA\u55BD\uFF01"
-  myAnswer: {fileID: 1800509141}
+  myAnswer: {fileID: 1428563517}
   picPath: DaBao
   needDestroy: {fileID: 0}
 --- !u!1 &179776271
@@ -507,7 +507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f44f15a380b4a034c8639b603094f324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  increment: 10
+  increment: 281
 --- !u!1 &312488683
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,11 +704,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be6495931aed9ab468d6a2beaa5eade8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmValue: 1
+  bgmValue: 5
   bgm: {fileID: 0}
   bgmSource: {fileID: 0}
   bgmSlider: {fileID: 401811944}
-  effectSource: {fileID: 660595299}
+  effect: {fileID: 0}
+  effectSource: {fileID: 0}
   effectSlider: {fileID: 401811943}
 --- !u!4 &418509902
 Transform:
@@ -722,8 +723,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 660595301}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &513226752
@@ -877,147 +877,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &660595298
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 660595301}
-  - component: {fileID: 660595300}
-  - component: {fileID: 660595299}
-  m_Layer: 0
-  m_Name: 'SoundEffect '
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &660595299
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 660595298}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &660595300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 660595298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf43dc27b4c23d49af19c00ff1021df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &660595301
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 660595298}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 418509902}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &692818654
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,7 +1977,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uFF08\u5B8C\uFF09"
+  m_Text: "\uFF08\u5168\u5267\u7EC8\uFF09"
 --- !u!222 &1561615368
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2277,8 +2136,8 @@ MonoBehaviour:
   myName: "\u6885\u5E08\u59D0"
   myContent:
   - "\u54FC\uFF0C\u4E11\u516B\u602A\uFF0C\u5C11\u561A\u745F\uFF0CZJ\u4E0D\u6740\u4F60\uFF0C\u7559\u4F60\u5F53\u5C0F\u5F1F\u662F\u7ED9\u4F60\u8138\u4E86"
-  myAnswer: {fileID: 1722457422}
-  picPath: WangShou
+  myAnswer: {fileID: 555380424}
+  picPath: ShiYi
   needDestroy: {fileID: 0}
 --- !u!1 &1800509141
 GameObject:
@@ -2516,7 +2375,7 @@ MonoBehaviour:
   myContent:
   - "\u5E08\u59D0\uFF0C\u6211\u53EF\u662F\u4E0D\u613F\u5728\u6743\u529B\u573A\u4E0A\u64CD\u5FC3"
   - "\u4E0D\u8FC7\uFF0C\u5B9E\u5728\u662F\u6000\u5FF5\u5728\u8FC7\u53BB\u6211\u4EEC\u5171\u4E8B\u7684\u65E5\u5B50\u2026\u2026"
-  myAnswer: {fileID: 1800509141}
+  myAnswer: {fileID: 174547843}
   picPath: 
   needDestroy: {fileID: 0}
 --- !u!224 &1895945455

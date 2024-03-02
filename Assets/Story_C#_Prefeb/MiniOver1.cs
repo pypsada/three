@@ -12,18 +12,22 @@ public class MiniOver1 : MonoBehaviour
 
     private void OnDisable()
     {
-        a = numberDisplay.GetComponent<NumberDisplayGame1>().Number;
-        if (a > SaveGameManager.SaveData.stealth)
+        if (pannel != null && numberDisplay != null)
         {
-            scoreText.text = "本次潜伏得分：<color=blue>" + a.ToString() + "</color>\n得分新记录！";
-            SaveGameManager.SaveData.stealth = a;
-            PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
-            PlayerPrefs.Save();
+            a = numberDisplay.GetComponent<NumberDisplayGame1>().Number;
+            if (a > SaveGameManager.SaveData.stealth)
+            {
+                scoreText.text = "本次潜伏得分：<color=blue>" + a.ToString() + "</color>\n得分新记录！";
+                SaveGameManager.SaveData.stealth = a;
+                PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
+                PlayerPrefs.Save();
+            }
+            else
+            {
+                scoreText.text = "本次潜伏得分：<color=blue>" + a.ToString() + "</color>";
+            }
+            pannel.SetActive(true);
         }
-        else
-        {
-            scoreText.text = "本次潜伏得分：<color=blue>" + a.ToString() + "</color>";
-        }
-        pannel.SetActive(true);
+
     }
 }

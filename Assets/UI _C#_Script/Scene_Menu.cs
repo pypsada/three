@@ -9,6 +9,7 @@ public class Scene_Menu : MonoBehaviour
 
     public void StartGame()  //开始游戏，进入选择场景界面
     {
+        SoundsManager.PlayClick();
         if (SaveGameManager.SaveData == null)
         {
             SceneManager.LoadScene("Users");
@@ -70,6 +71,7 @@ public class Scene_Menu : MonoBehaviour
     }
     public void MainMenu()
     {
+        SoundsManager.PlayClick();
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -77,42 +79,57 @@ public class Scene_Menu : MonoBehaviour
 
     public void Toturial()
     {
+        SoundsManager.PlayClick();
         SceneManager.LoadScene("Toturial");
     }
     public void Illustration()
     {
+        SoundsManager.PlayClick();
         SceneManager.LoadScene("Illustration");
     }
     public void GameAbout()
     {
+        SoundsManager.PlayClick();
         SceneManager.LoadScene("GameAbout");
     }
     public void GameCulture()
     {
+        SoundsManager.PlayClick();
         SceneManager.LoadScene("GameCulture");
     }
     public void UsersScene()
     {
+        SoundsManager.PlayClick();
         SceneManager.LoadScene("Users");
     }
     public void GoToFight()
     {
+        SoundsManager.PlayClick();
         SceneManager.LoadScene("FightPrepare");
     }
     public void GoToBase()
     {
+        SoundsManager.PlayClick();
         SceneManager.LoadScene("Base");
     }
     public void PVP()
     {
+        SoundsManager.PlayClick();
         SceneManager.LoadScene("Login");
     }
     public void Memory()
     {
+        SoundsManager.PlayClick();
         SceneManager.LoadScene("Memory");
     }
     public void AI()
     {
+        SoundsManager.PlayClick();
         SceneManager.LoadScene("ChoseCareer");
+    }
+    public void Base2()
+    {
+        SoundsManager.PlayClick();
+        SceneManager.LoadScene("BaseFinal");
     }
 }

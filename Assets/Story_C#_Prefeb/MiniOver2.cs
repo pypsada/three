@@ -12,18 +12,22 @@ public class MiniOver2 : MonoBehaviour
 
     private void OnDestroy()
     {
-        a = numberDisplay.GetComponent<NumberDisplayGame1>().Number;
-        if (a > SaveGameManager.SaveData.agility)
+        if (pannel != null && numberDisplay != null)
         {
-            scoreText.text = "本次身法得分：<color=blue>" + a.ToString() + "</color>\n得分新记录！";
-            SaveGameManager.SaveData.agility = a;
-            PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
-            PlayerPrefs.Save();
+            a = numberDisplay.GetComponent<NumberDisplayGame1>().Number;
+            if (a > SaveGameManager.SaveData.agility)
+            {
+                scoreText.text = "本次身法得分：<color=blue>" + a.ToString() + "</color>\n得分新记录！";
+                SaveGameManager.SaveData.agility = a;
+                PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
+                PlayerPrefs.Save();
+            }
+            else
+            {
+                scoreText.text = "本次身法得分：<color=blue>" + a.ToString() + "</color>";
+            }
+            pannel.SetActive(true);
         }
-        else
-        {
-            scoreText.text = "本次身法得分：<color=blue>" + a.ToString() + "</color>";
-        }
-        pannel.SetActive(true);
+
     }
 }

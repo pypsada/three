@@ -41,6 +41,22 @@ public class AudioManager : MonoBehaviour
                         bgmSrc.clip = SoundsManager.YiSuoYanYuRenPingSheng;
                         bgmSrc.Play();
                         break;
+                    case 2:
+                        bgmSrc.clip = SoundsManager.YuePo;
+                        bgmSrc.Play();
+                        break;
+                    case 3:
+                        bgmSrc.clip = SoundsManager.Dragonflame;
+                        bgmSrc.Play();
+                        break;
+                    case 4:
+                        bgmSrc.clip = SoundsManager.CracksInvisible;
+                        bgmSrc.Play();
+                        break;
+                    case 5:
+                        bgmSrc.clip = SoundsManager.FreeLucky;
+                        bgmSrc.Play();
+                        break;
                 }
             }
         }

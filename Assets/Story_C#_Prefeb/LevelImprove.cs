@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class LevelImprove : MonoBehaviour
 {
     int a, b, c, r, m1, m2, m3, max, level;
-    string show;
     public Text showTips;
 
     private void Start()
@@ -69,10 +68,13 @@ public class LevelImprove : MonoBehaviour
         SaveGameManager.SaveData.level = level;
         PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
         PlayerPrefs.Save();
-        showTips.text = "当前主线可计入上限：" + "<color=yellow>" + max.ToString() + "</color>" + " / "
-                        + "<color=cyan>" + m3.ToString() + "</color>" + " / "
-                        + "<color=green>" + m1.ToString() + "</color>" + " / "
-                        + "<color=blue>" + m2.ToString() + "</color>";
-        GetComponent<Base>().Show();
+        if (showTips != null)
+        {
+            showTips.text = "当前主线可计入上限：" + "<color=yellow>" + max.ToString() + "</color>" + " / "
+                            + "<color=cyan>" + m3.ToString() + "</color>" + " / "
+                            + "<color=#00FF00>" + m1.ToString() + "</color>" + " / "
+                            + "<color=blue>" + m2.ToString() + "</color>";
+            GetComponent<Base>().Show();
+        }
     }
 }

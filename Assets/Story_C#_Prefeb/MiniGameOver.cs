@@ -13,18 +13,21 @@ public class MiniGameOver : MonoBehaviour
 
     private void OnDestroy()
     {
-        a = numberDisplay.GetComponent<NumberDisplayGame1>().Number;
-        if (a > SaveGameManager.SaveData.mathematics)
+        if (pannel != null && numberDisplay != null)
         {
-            scoreText.text = "本次应变得分：<color=blue>" + a.ToString() + "</color>\n得分新记录！";
-            SaveGameManager.SaveData.mathematics = a;
-            PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
-            PlayerPrefs.Save();
+            a = numberDisplay.GetComponent<NumberDisplayGame1>().Number;
+            if (a > SaveGameManager.SaveData.mathematics)
+            {
+                scoreText.text = "本次应变得分：<color=blue>" + a.ToString() + "</color>\n得分新记录！";
+                SaveGameManager.SaveData.mathematics = a;
+                PlayerPrefs.SetString(SaveGameManager.Nickname, JsonUtility.ToJson(SaveGameManager.SaveData));
+                PlayerPrefs.Save();
+            }
+            else
+            {
+                scoreText.text = "本次应变得分：<color=blue>" + a.ToString() + "</color>";
+            }
+            pannel.SetActive(true);
         }
-        else
-        {
-            scoreText.text = "本次应变得分：<color=blue>" + a.ToString() + "</color>";
-        }
-        pannel.SetActive(true);
     }
 }

@@ -34,17 +34,20 @@ public class PausePannel : MonoBehaviour
     public void GameContinue()
     {
         Time.timeScale = 1;  //时间流速返回
+        SoundsManager.PlayClick();
         pause.SetActive(false);
         isOpen = false;
     }
     public void BackToMenu()
     {
         Time.timeScale = 1;
+        SoundsManager.PlayClick();
         SceneManager.LoadScene("MainMenu");
     }
     public void ReloadScene()  //如果需要重开关卡的时候使用
     {
         Time.timeScale = 1;
+        SoundsManager.PlayClick();
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }

@@ -13,10 +13,11 @@ public class VolumeManager : MonoBehaviour
     public GameObject bgm;
     public AudioSource bgmSource;
     public Slider bgmSlider;
+    public GameObject effect;
     public AudioSource effectSource;
     public Slider effectSlider;
 
-    private static float BgmVol = 1f;
+    private static float BgmVol = 0.5f;
     private static float EffectVol = 1f;
 
     private void Awake()
@@ -24,6 +25,9 @@ public class VolumeManager : MonoBehaviour
         bgm = GameObject.Find("Audio Source");
         if (bgm != null)
             bgmSource = bgm.GetComponent<AudioSource>();
+        effect = GameObject.Find("NewBroadcast");
+        if (effect != null)
+            effectSource = effect.GetComponent<AudioSource>();
     }
     void Start()
     {

@@ -12,14 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/ChoseCareer.unity
     guid: e03ac2d9b1c62554787af127f31bb4b4
   - enabled: 1
-    path: Assets/Scenes/PK&AIBefore.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/AIChoseCareer.unity
     guid: a97fbd9f0d966fc408b46d18c874a67e
-  - enabled: 1
-    path: Assets/Scenes/PK&AI.unity
-    guid: 148640c986e154b4baeb7a7aff4b51a4
   - enabled: 1
     path: Assets/Scenes/Game1.unity
     guid: 1f49739101c24ef4cba0362af211e215
@@ -133,7 +127,7 @@ EditorBuildSettings:
     guid: 018cc60263f2fd148ba24688af976853
   - enabled: 1
     path: Assets/Scenes/Act18.unity
-    guid: abd08b54b7ed06c44837bfad6aa4496c
+    guid: d8fbe84a0fdfa6f47be771c914796c59
   - enabled: 1
     path: Assets/Scenes/Act18.unity
     guid: d8fbe84a0fdfa6f47be771c914796c59

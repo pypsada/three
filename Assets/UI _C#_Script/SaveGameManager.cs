@@ -98,12 +98,14 @@ public class SaveGameManager : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey(nicknameChoice.text))
         {
+            SoundsManager.PlayClick();
             tipLoad.SetActive(true);//存档不存在，弹出提示框
             return;
         }
         Nickname = nicknameChoice.text;
         Load(Nickname);
         nicknameChoice.text = null;
+        SoundsManager.PlayClick();
         changePannel.SetActive(false);
 
         PlayerPrefs.SetString(LastUsedSaveKey, Nickname);
@@ -114,6 +116,7 @@ public class SaveGameManager : MonoBehaviour
     {
         if (IsLoggedIn)
         {
+            SoundsManager.PlayClick();
             tipLogOut.SetActive(true);
             WhoLogOut.text = "存档：<color=blue>" + Nickname + "</color>";
         }
@@ -134,6 +137,7 @@ public class SaveGameManager : MonoBehaviour
         showAgility.text = "？？？";
         showMathematics.text = "？？？";
 
+        SoundsManager.PlayClick();
         tipLogOut.SetActive(false);
 
         PlayerPrefs.SetString(LastUsedSaveKey, null);
@@ -146,6 +150,8 @@ public class SaveGameManager : MonoBehaviour
         Load(Nickname);
         nicknameInput.text = null;
         avatorValue.value = 0;
+
+        SoundsManager.PlayClick();
         tipCreate.SetActive(false);
         createPannel.SetActive(false);
 
@@ -157,6 +163,7 @@ public class SaveGameManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(nicknameInput.text))
         {
+            SoundsManager.PlayClick();
             tipCreate.SetActive(true);//昵称已存在，弹出提示框
             return;
         }
@@ -189,6 +196,7 @@ public class SaveGameManager : MonoBehaviour
         nicknameInput.text = null;
         avatorValue.value = 0;
 
+        SoundsManager.PlayClick();
         createPannel.SetActive(false);  //创建结束，关闭界面
 
         PlayerPrefs.SetString(LastUsedSaveKey, Nickname);
@@ -212,6 +220,7 @@ public class SaveGameManager : MonoBehaviour
             showAgility.text = "？？？";
             showMathematics.text = "？？？";
 
+            SoundsManager.PlayClick();
             deletePannel.SetActive(false);
 
             PlayerPrefs.SetString(LastUsedSaveKey, null);
@@ -240,6 +249,7 @@ public class SaveGameManager : MonoBehaviour
     {
         if (Nickname != null)
         {
+            SoundsManager.PlayClick();
             correctPannel.SetActive(true);
             nicknameCorrect.text = Nickname;  //预输入
             if (SaveData.avatarPath == "MrWu")
@@ -253,6 +263,7 @@ public class SaveGameManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(nicknameCorrect.text) && !nicknameCorrect.text.Equals(Nickname))
         {
+            SoundsManager.PlayClick();
             tipPannel.SetActive(true);//昵称已存在，弹出提示框
             return;
         }
@@ -298,6 +309,7 @@ public class SaveGameManager : MonoBehaviour
 
         Load(Nickname);
 
+        SoundsManager.PlayClick();
         correctPannel.SetActive(false);
 
         PlayerPrefs.SetString(LastUsedSaveKey, Nickname);
@@ -311,6 +323,7 @@ public class SaveGameManager : MonoBehaviour
             if (UnityEngine.Input.GetKey(KeyCode.O) &&
                 UnityEngine.Input.GetKey(KeyCode.P))
             {
+                SoundsManager.PlayClick();
                 magicPannel.SetActive(true);
                 originName.text = Nickname;
                 Sprite avatarSprite = Resources.Load<Sprite>(SaveData.avatarPath);
@@ -336,6 +349,7 @@ public class SaveGameManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(magicName.text) && !magicName.text.Equals(Nickname))
         {
+            SoundsManager.PlayClick();
             tipPannel.SetActive(true);//昵称已存在，弹出提示框
             return;
         }
@@ -405,6 +419,7 @@ public class SaveGameManager : MonoBehaviour
 
         Load(Nickname);
 
+        SoundsManager.PlayClick();
         magicPannel.SetActive(false);
 
         PlayerPrefs.SetString(LastUsedSaveKey, Nickname);

@@ -59,6 +59,7 @@ public class ChangeName : MonoBehaviour
         PlayerPrefs.Save();
 
         show.text = name1;
+        SoundsManager.PlayClick();
         next.SetActive(true);
         pannel.SetActive(false);
 
@@ -68,6 +69,7 @@ public class ChangeName : MonoBehaviour
 
     public void Close()
     {
+        SoundsManager.PlayClick();
         next.SetActive(true);
         pannel.SetActive(false);
     }

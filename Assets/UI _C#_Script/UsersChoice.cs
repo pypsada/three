@@ -10,10 +10,12 @@ public class UsersChoice : MonoBehaviour
 
     public void OpenPannel()
     {
+        SoundsManager.PlayClick();
         LoadPannel.SetActive(true);
     }
     public void ClosePannel()
     {
+        SoundsManager.PlayClick();
         LoadPannel.SetActive(false);
     }
 }
