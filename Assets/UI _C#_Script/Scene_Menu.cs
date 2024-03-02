@@ -111,7 +111,6 @@ public class Scene_Menu : MonoBehaviour
     {
         SceneManager.LoadScene("Memory");
     }
-
     public void AI()
     {
         SceneManager.LoadScene("ChoseCareer");
