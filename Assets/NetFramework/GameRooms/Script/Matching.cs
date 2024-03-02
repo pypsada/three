@@ -85,6 +85,9 @@ public class Matching : MonoBehaviour
             localPlayerId.text = "ID:" + local.nickName;
             remotePlayerId.text = "对手ID:" + remote.nickName;
 
+            Whole.remoteNickName = remote.nickName;
+            Whole.localNickName = local.nickName;
+
 
             localPlayerData.text = "数据：" + local.victoryTimes + "胜" + local.failTimes + "败\n" +
                 "胜率" + OutPutRate(local.victoryTimes, local.victoryTimes + local.failTimes);

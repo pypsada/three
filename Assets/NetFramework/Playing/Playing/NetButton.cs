@@ -336,10 +336,12 @@ public class NetButton : MonoBehaviour
     public Text localEnegy;
     public Text localCareer;
     public Text localHealth;
+    public Text localNickname;
     [Header("远程玩家信息")]
     public Text remoteEnegy;
     public Text remoteCareer;
     public Text remoteHealth;
+    public Text remoteNickname;
     [Header("游戏轮数文本")]
     public Text gameRound;
     [Header("弹窗")]
@@ -370,10 +372,12 @@ public class NetButton : MonoBehaviour
         localEnegy.text = localData.Energy.ToString();
         localCareer.text = localData.Career.ToString();
         localHealth.text = localData.health.ToString();
+        localNickname.text = Whole.localNickName;
 
         remoteEnegy.text = remoteData.Energy.ToString();
         remoteCareer.text = remoteData.Career.ToString();
         remoteHealth.text = remoteData.health.ToString();
+        remoteNickname.text = Whole.remoteNickName;
 
         gameRound.text = round.ToString();
     }
