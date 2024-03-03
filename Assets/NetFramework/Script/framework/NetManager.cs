@@ -98,11 +98,13 @@ public static class NetManager
         if(socket!=null&&socket.Connected)
         {
             Debug.Log("Conn fail,already connected!");
+            FireEvent(NetEvent.ConnectFail, "Conn fail,already connected!");
             return;
         }
         if(isConnecting)
         {
             Debug.Log("Connect fail, is connecting");
+            FireEvent(NetEvent.ConnectFail, "Connect fail, is connecting");
             return;
         }
         InitState();
