@@ -128,6 +128,7 @@ public class Matching : MonoBehaviour
         Debug.Log("µÇ³ö");
         NetManager.Close();
         NetManager.ping = -1;
+        NetManager.RemoveMsgListener("MsgMatched", Matched);
         SceneManager.LoadScene("FightPrepare");
     }
 
