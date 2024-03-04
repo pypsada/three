@@ -110,10 +110,6 @@ namespace NetGame
                 Career = 1;
                 health = 10 * level + 80;
             }
-            if (StringCareer == "Assassin")
-            {
-                health = 6 * level + 50;
-            }
         }
 
         //public void RubbingEnergy()   //ÄÜÁ¿
