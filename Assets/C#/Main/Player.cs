@@ -351,42 +351,81 @@ public class Player : MonoBehaviour
         {
             Arrogance1();
         }
-        if (Thiefing)
+
+        if (Thiefing || AI.Thiefing)
         {
-            if (AI.Defensing==true || AI.Rebounding==true)  
+            if (Thiefing)
             {
-                Career -= 1;
-            }
-            else if (AI.Defensing==false && AI.Priority>0)
-            {
-                AI.Win=false;
-            }
-            else if (AI.Priority==0)
-            {
-                if (AI.Thiefing==true)
+                if (AI.Defensing==true || AI.Rebounding==true)  
                 {
-                    
+                    Career -= 1;
                 }
-                else
+                else if (AI.Defensing==false && AI.Priority>0)
                 {
-                    if (Whole.AICareer== "Rascally")
+                    AI.Win=false;
+                }
+                else if (AI.Priority==0)
+                {
+                    if (AI.Thiefing==true)
                     {
-                        AI.Energy -= AI.RascallyNumber;
-                        Energy += AI.RascallyNumber;
-                        Career += 1;
+                    
                     }
                     else
                     {
-                        AI.Energy -= 1;
-                        Energy += 1;
-                        Career += 1;
+                        if (Whole.AICareer== "Rascally")
+                        {
+                            AI.Energy -= AI.RascallyNumber;
+                            Energy += AI.RascallyNumber;
+                            Career += 1;
+                        }
+                        else
+                        {
+                            AI.Energy -= 1;
+                            Energy += 1;
+                            Career += 1;
+                        }
                     }
                 }
+                Thiefing=false;
             }
-            Thiefing=false;
+            if (AI.Thiefing)
+            {
+                if (Defensing == true || Rebounding == true)
+                {
+                    Career -= 1;
+                }
+                else if (Defensing == false && Priority > 0)
+                {
+                    Win = false;
+                }
+                else if (Priority == 0)
+                {
+                    if (Thiefing == true)
+                    {
+
+                    }
+                    else
+                    {
+                        if (Whole.PlayerCareer == "Rascally")
+                        {
+                            Energy -= RascallyNumber;
+                            AI.Energy += RascallyNumber;
+                            AI.Career += 1;
+                        }
+                        else
+                        {
+                            Energy -= 1;
+                            AI.Energy += 1;
+                            AI.Career += 1;
+                        }
+                    }
+                }
+                AI.Thiefing = false;
+            }
         }
         else
         {
+            
             if (Priority < AI.Priority && AI.Rebounding==false && AI.Defensing==false)  //AI攻击优先级更高
             {
                 Win = false;
@@ -397,61 +436,31 @@ public class Player : MonoBehaviour
             }
             else if(Priority==AI.Priority)  //优先级一样，相互抵消
             {
-                if (AI.Thiefing == true)
-                {
-                    if (Whole.PlayerCareer == "Rascally")
-                    {
-                        Energy -= RascallyNumber;
-                        AI.Energy += RascallyNumber;
-                        AI.Career += 1;
-                    }
-                    else
-                    {
-                        Energy -= 1;
-                        AI.Energy += 1;
-                        AI.Career += 1;
-                    }
-                }
 
             }
             else if (Defensing==true && AI.Priority!=2)  //玩家防御，AI不用大招，继续游戏
             {
-                if (AI.Thiefing==true)
-                {
-                    AI.Career -= 1;
-                    
-                }
 
             }
             else if(Rebounding==true && (AI.Priority==0 || (AI.Priority!=0 && AI.Defensing==true)))  //玩家反弹失败
             {
-                if (AI.Thiefing==true)
-                {
-                    AI.Career -= 1;
-                }
 
 
             }
             else if (Priority==0 && (AI.Defensing==true || AI.Priority==0 || AI.Rebounding==true))  //玩家搓能量，AI不攻击
             {
-                if (AI.Thiefing==true)
-                {
-                    AI.Career += 1;
-                    AI.Energy += 1;
-                }
-
 
             }
             else  //否则就是玩家赢
             {
-                if (AI.Thiefing==true)
-                {
-                    Win = false;
-                }
-                else
-                {
-                    AI.Win = false;
-                }
+                //if (AI.Thiefing==true)
+                //{
+                //    Win = false;
+                //}
+                //else
+                //{
+                //    AI.Win = false;
+                //}
 
             }           
         }

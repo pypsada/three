@@ -157,7 +157,7 @@ public class AI : MonoBehaviour
     {
         Career -= 1;
         Thiefing = true;
-        Priority = 0;
+        Priority = 1;
         myAnim.SetTrigger("Steal");
     }
 
