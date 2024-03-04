@@ -99,42 +99,80 @@ namespace NetGame
             //{
             //    Arrogance1();
             //}
-            if (player_a.tmpData.Thiefing)
+            if (player_a.tmpData.Thiefing || player_b.tmpData.Thiefing)
             {
-                if (player_b.tmpData.Defensing == true || player_b.tmpData.Rebounding == true)
+                if (player_a.tmpData.Thiefing)
                 {
-                    player_a.tmpData.Career -= 1;
-                }
-                else if (player_b.tmpData.Defensing == false && player_b.tmpData.Priority > 0)
-                {
-                    player_b.tmpData.Win = false;
-                }
-                else if (player_b.tmpData.Priority == 0)
-                {
-                    if (player_b.tmpData.Thiefing == true)
+                    if (player_b.tmpData.Defensing == true || player_b.tmpData.Rebounding == true)
                     {
-
+                        player_a.tmpData.Career -= 1;
                     }
-                    else
+                    else if (player_b.tmpData.Defensing == false && player_b.tmpData.Priority > 0)
                     {
-                        if (player_b.tmpData.StringCareer == "Rascally")
+                        player_b.tmpData.Win = false;
+                    }
+                    else if (player_b.tmpData.Priority == 0)
+                    {
+                        if (player_b.tmpData.Thiefing == true)
                         {
-                            player_b.tmpData.Energy -= player_b.tmpData.RascallyNumber;
-                            player_a.tmpData.Energy += player_b.tmpData.RascallyNumber;
-                            player_a.tmpData.Career += 1;
+
                         }
                         else
                         {
-                            player_b.tmpData.Energy -= 1;
-                            player_a.tmpData.Energy += 1;
-                            player_a.tmpData.Career += 1;
+                            if (player_b.tmpData.StringCareer == "Rascally")
+                            {
+                                player_b.tmpData.Energy -= player_b.tmpData.RascallyNumber;
+                                player_a.tmpData.Energy += player_b.tmpData.RascallyNumber;
+                                player_a.tmpData.Career += 1;
+                            }
+                            else
+                            {
+                                player_b.tmpData.Energy -= 1;
+                                player_a.tmpData.Energy += 1;
+                                player_a.tmpData.Career += 1;
+                            }
                         }
                     }
+                    player_a.tmpData.Thiefing = false;
                 }
-                player_a.tmpData.Thiefing = false;
+                if (player_b.tmpData.Thiefing)
+                {
+                    if (player_a.tmpData.Defensing == true || player_a.tmpData.Rebounding == true)
+                    {
+                        player_a.tmpData.Career -= 1;
+                    }
+                    else if (player_a.tmpData.Defensing == false && player_a.tmpData.Priority > 0)
+                    {
+                        player_a.tmpData.Win = false;
+                    }
+                    else if (player_a.tmpData.Priority == 0)
+                    {
+                        if (player_a.tmpData.Thiefing == true)
+                        {
+
+                        }
+                        else
+                        {
+                            if (player_a.tmpData.StringCareer == "Rascally")
+                            {
+                                player_a.tmpData.Energy -= player_a.tmpData.RascallyNumber;
+                                player_b.tmpData.Energy += player_a.tmpData.RascallyNumber;
+                                player_b.tmpData.Career += 1;
+                            }
+                            else
+                            {
+                                player_a.tmpData.Energy -= 1;
+                                player_b.tmpData.Energy += 1;
+                                player_b.tmpData.Career += 1;
+                            }
+                        }
+                    }
+                    player_b.tmpData.Thiefing = false;
+                }
             }
             else
             {
+
                 if (player_a.tmpData.Priority < player_b.tmpData.Priority && player_b.tmpData.Rebounding == false && player_b.tmpData.Defensing == false)  //AI攻击优先级更高
                 {
                     player_a.tmpData.Win = false;
@@ -145,61 +183,31 @@ namespace NetGame
                 }
                 else if (player_a.tmpData.Priority == player_b.tmpData.Priority)  //优先级一样，相互抵消
                 {
-                    if (player_b.tmpData.Thiefing == true)
-                    {
-                        if (player_a.tmpData.StringCareer == "Rascally")
-                        {
-                            player_a.tmpData.Energy -= player_a.tmpData.RascallyNumber;
-                            player_b.tmpData.Energy += player_a.tmpData.RascallyNumber;
-                            player_b.tmpData.Career += 1;
-                        }
-                        else
-                        {
-                            player_a.tmpData.Energy -= 1;
-                            player_b.tmpData.Energy += 1;
-                            player_b.tmpData.Career += 1;
-                        }
-                    }
 
                 }
                 else if (player_a.tmpData.Defensing == true && player_b.tmpData.Priority != 2)  //玩家防御，AI不用大招，继续游戏
                 {
-                    if (player_b.tmpData.Thiefing == true)
-                    {
-                        player_b.tmpData.Career -= 1;
-
-                    }
 
                 }
                 else if (player_a.tmpData.Rebounding == true && (player_b.tmpData.Priority == 0 || (player_b.tmpData.Priority != 0 && player_b.tmpData.Defensing == true)))  //玩家反弹失败
                 {
-                    if (player_b.tmpData.Thiefing == true)
-                    {
-                        player_b.tmpData.Career -= 1;
-                    }
 
 
                 }
                 else if (player_a.tmpData.Priority == 0 && (player_b.tmpData.Defensing == true || player_b.tmpData.Priority == 0 || player_b.tmpData.Rebounding == true))  //玩家搓能量，AI不攻击
                 {
-                    if (player_b.tmpData.Thiefing == true)
-                    {
-                        player_b.tmpData.Career += 1;
-                        player_b.tmpData.Energy += 1;
-                    }
-
 
                 }
                 else  //否则就是玩家赢
                 {
-                    if (player_b.tmpData.Thiefing == true)
-                    {
-                        player_a.tmpData.Win = false;
-                    }
-                    else
-                    {
-                        player_b.tmpData.Win = false;
-                    }
+                    //if (player_b.tmpData.Thiefing==true)
+                    //{
+                    //    Win = false;
+                    //}
+                    //else
+                    //{
+                    //    player_b.tmpData.Win = false;
+                    //}
 
                 }
             }
