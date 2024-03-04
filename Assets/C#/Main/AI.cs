@@ -54,10 +54,7 @@ public class AI : MonoBehaviour
             Career = 1;
             health = 10 * Whole.AICharacterlevel + 80;
         }
-        if (StringCareer == "Assassin")
-        {
-            health = 6 * Whole.AICharacterlevel + 50;
-        }
+        
     }
 
     void Update()

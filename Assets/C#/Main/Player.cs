@@ -383,7 +383,7 @@ public class Player : MonoBehaviour
             {
                 if (Defensing == true || Rebounding == true)
                 {
-                    Career -= 1;
+                    AI.Career -= 1;
                 }
                 else if (Defensing == false && Priority > 0)
                 {
