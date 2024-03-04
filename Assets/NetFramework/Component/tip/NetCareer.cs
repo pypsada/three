@@ -12,6 +12,9 @@ public class NetCareer : MonoBehaviour
     public Text textComponent; // 引用物体上的Text组件
     public bool flag;
 
+    //用来判断远程玩家数据是否已经被同步的flag
+    public static bool activeFlag = false;
+
     //private bool updateFlags = true;
 
     void Start()
@@ -23,6 +26,7 @@ public class NetCareer : MonoBehaviour
     void Update()
     {
         //if (!updateFlags) return;
+        if (!activeFlag) return;
         textComponent = GetComponent<Text>();
         if (player.tmpData.StringCareer == "King")
         {

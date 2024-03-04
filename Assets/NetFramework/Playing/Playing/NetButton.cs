@@ -232,6 +232,7 @@ public class NetButton : MonoBehaviour
     //远程玩家信息
     private void RemoteInfo(MsgBase msgBase)
     {
+        NetCareer.activeFlag = true;
         MsgRemoteInfo msg = (MsgRemoteInfo)msgBase;
         remotePlayerScript.tmpData = (PlayerTmpData)JsonUtility.FromJson(msg.tmpData, typeof(PlayerTmpData));
     }
