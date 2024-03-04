@@ -195,12 +195,7 @@ public class Player : MonoBehaviour
         myAnim.SetTrigger("YingRen");
     }
 
-    //public void Steal()   // 盗贼技能：偷取
-    //{
-    //    Chose = true;
-    //    countDownTimer = 2f;
-    //    Priority = 1;
-    //}
+
     public void King() // 国王技能：王权
     {
         Chose = true;
@@ -459,7 +454,7 @@ public class Player : MonoBehaviour
                 //}
                 //else
                 //{
-                //    AI.Win = false;
+                AI.Win = false;
                 //}
 
             }           
