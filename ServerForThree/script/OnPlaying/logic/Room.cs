@@ -139,7 +139,7 @@ namespace NetGame
                 {
                     if (player_a.tmpData.Defensing == true || player_a.tmpData.Rebounding == true)
                     {
-                        player_a.tmpData.Career -= 1;
+                        player_b.tmpData.Career -= 1;
                     }
                     else if (player_a.tmpData.Defensing == false && player_a.tmpData.Priority > 0)
                     {
