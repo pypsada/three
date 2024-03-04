@@ -206,7 +206,7 @@ namespace NetGame
                     //}
                     //else
                     //{
-                    //    player_b.tmpData.Win = false;
+                    player_b.tmpData.Win = false;
                     //}
 
                 }
