@@ -19,7 +19,7 @@ public class NetCareer : MonoBehaviour
 
     void Start()
     {
-        //updateFlags = true;
+        activeFlag = false;
     }
 
     // Update is called once per frame
