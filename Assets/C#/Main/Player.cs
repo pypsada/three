@@ -77,10 +77,6 @@ public class Player : MonoBehaviour
             Career = 1;
             health = 10 * Whole.Characterlevel + 80;
         }
-        if (StringCareer == "Assassin")
-        {
-            health = 6 * Whole.Characterlevel + 50;
-        }
     }
 
     void Update()
