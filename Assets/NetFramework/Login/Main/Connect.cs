@@ -12,6 +12,7 @@ public class Connect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        NetManager.ping = -1;
         AddMsgListener();
         ClickConnect();
     }
