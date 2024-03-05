@@ -98,6 +98,7 @@ public class Connect : MonoBehaviour
         ClickClose();
         connectFail.SetActive(false);
         beforeConnect.SetActive(true);
+        RemoveMsgListener();
         SceneManager.LoadScene("FightPrepare");
     }
 

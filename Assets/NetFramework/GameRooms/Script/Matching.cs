@@ -20,6 +20,11 @@ public class Matching : MonoBehaviour
         return;
     }
 
+    private void OnDestroy()
+    {
+        NetManager.RemoveMsgListener("MsgMatched", Matched);
+    }
+
     // Update is called once per frame
     void Update()
     {
