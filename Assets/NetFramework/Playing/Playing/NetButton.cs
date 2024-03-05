@@ -61,6 +61,12 @@ public class NetButton : MonoBehaviour
         MsgInitPlaying msg = new();
         msg.tmpData = JsonUtility.ToJson(playerScript.tmpData);
         NetManager.Send(msg);
+
+        string careerText = "我的职业是 " + GetCareerName();
+        chatFeild.TextRoll("你:" + careerText);
+        MsgChat msgChat = new();
+        msgChat.chatStr = careerText;
+        NetManager.Send(msgChat);
     }
 
     // Update is called once per frame
@@ -482,6 +488,44 @@ public class NetButton : MonoBehaviour
         Whole.PlayerCareer = "Pangolin";
         //NetManager.Send(new MsgClientReady());
         SceneManager.LoadScene("WaitPlaying");
+    }
+
+    //返回职业的中文名字
+    private string GetCareerName()
+    {
+        string name = Whole.PlayerCareer;
+        if(name== "Assassin")
+        {
+            return "刺客";
+        }
+        else if(name== "Thief")
+        {
+            return "盗贼";
+        }
+        else if(name== "Arrogance")
+        {
+            return "傲慢";
+        }
+        else if(name== "Rascally")
+        {
+            return "老赖";
+        }
+        else if(name=="Turtle")
+        {
+            return "乌龟";
+        }
+        else if(name== "Guard")
+        {
+            return "守卫";
+        }
+        else if(name== "King")
+        {
+            return "国王";
+        }
+        else
+        {
+            return "这啥？";
+        }
     }
 
     public void VocationalSkills()  //使用职业技能
