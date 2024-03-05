@@ -23,6 +23,11 @@ public class Connect : MonoBehaviour
         return;
     }
 
+    private void OnDestroy()
+    {
+        RemoveMsgListener();
+    }
+
     [Header("Ref")]
     public NetMain netMain;
 
