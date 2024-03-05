@@ -48,5 +48,6 @@ public class CameraAspectRatioController : MonoBehaviour
         }
 
         cam.rect = rect; // 更新摄像机视口
+        cam.ResetAspect();
     }
 }
