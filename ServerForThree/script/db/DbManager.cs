@@ -33,7 +33,7 @@ public class DbManager
         {
             MySqlCommand command = new("SELECT 1", mysql);
             command.ExecuteScalar();
-            LogManager.Log("[Database]Heart beat sent", true, false);
+            //LogManager.Log("[Database]Heart beat sent", true, false);
         }
         catch (Exception ex)
         {
