@@ -27,6 +27,20 @@ public class DbManager
         }
     }
 
+    public static void SendHeartbeat()
+    {
+        try
+        {
+            MySqlCommand command = new("SELECT 1", mysql);
+            command.ExecuteScalar();
+            LogManager.Log("[Database]Heart beat sent", true, false);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("[Database]Database has no heart beat:"+ex.Message);
+        }
+    }
+
     //判定安全字符串
     private static bool IsSafeString(string str)
     {

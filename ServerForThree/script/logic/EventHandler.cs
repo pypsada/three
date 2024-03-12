@@ -30,6 +30,7 @@
     public static void OnTimer()
     {
         CheckPing();
+        DbManager.SendHeartbeat();
     }
 
     //ping检查
