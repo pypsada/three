@@ -387,6 +387,15 @@ public class NetButton : MonoBehaviour
         remoteNickname.text = Whole.remoteNickName;
 
         gameRound.text = round.ToString();
+
+        if (localData.StringCareer == "Arrogance")
+        {
+            localCareer.text = localData.ArroganceNumber.ToString();
+        }
+        if (remoteData.StringCareer == "Arrogance")
+        {
+            remoteCareer.text = remoteData.ArroganceNumber.ToString();
+        }
     }
 
     public void RubbingEnergy()  //¥Íƒ‹¡ø
