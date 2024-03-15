@@ -77,6 +77,10 @@ public class Player : MonoBehaviour
             Career = 1;
             health = 10 * Whole.Characterlevel + 80;
         }
+        if(StringCareer == "Arrogance")
+        {
+            health = 60 + 7 * Whole.Characterlevel;
+        }
     }
 
     void Update()
