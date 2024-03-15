@@ -529,30 +529,29 @@ namespace NetGame
 
         public void ArroganceSum()
         {
-            if (player_b.tmpData.health <= 0)
-                if (player_b.tmpData.health <= 0 && player_a.tmpData.health <= 0)
-                {
-                    player_a.tmpData.health += (int)(1.5 * player_b.tmpData.level + 45);
-                    player_b.tmpData.health += (int)(1.5 * player_a.tmpData.level + 45);
-                }
-                else if (player_b.tmpData.health <= 0)
-                {
-                    //TanChuang1.SetActive(true);
-                    //Time.timeScale = 0;
-                    //Debug.Log("Win");
-                    AWin();
-                    RoomManager.ClearRooms();
-                    return;
-                }
-                else if (player_a.tmpData.health <= 0)
-                {
-                    //TanChuang2.SetActive(true);
-                    //Time.timeScale = 0;
-                    //Debug.Log("LOST");
-                    BWin();
-                    RoomManager.ClearRooms();
-                    return;
-                }
+            if (player_b.tmpData.health <= 0 && player_a.tmpData.health <= 0)
+            {
+                player_a.tmpData.health += (int)(1.5 * player_b.tmpData.level + 45);
+                player_b.tmpData.health += (int)(1.5 * player_a.tmpData.level + 45);
+            }
+            else if (player_b.tmpData.health <= 0)
+            {
+                //TanChuang1.SetActive(true);
+                //Time.timeScale = 0;
+                //Debug.Log("Win");
+                AWin();
+                RoomManager.ClearRooms();
+                return;
+            }
+            else if (player_a.tmpData.health <= 0)
+            {
+                //TanChuang2.SetActive(true);
+                //Time.timeScale = 0;
+                //Debug.Log("LOST");
+                BWin();
+                RoomManager.ClearRooms();
+                return;
+            }
         }
 
         public void AWin()
