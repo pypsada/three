@@ -764,14 +764,19 @@ public class Player : MonoBehaviour
 
     public void ArroganceSum()
     {
-        if (AI.health <= 0)
+        if (AI.health<=0 && health<=0)
+        {
+            health+= (int)(1.5 * Whole.AICharacterlevel + 45);
+            AI.health+= (int)(1.5 * Whole.Characterlevel + 45);
+        }
+        else if (AI.health <= 0)
         {
             TanChuang1.SetActive(true);
             Time.timeScale = 0;
             //Debug.Log("Win");
             return;
         }
-        if (health <= 0)
+        else if (health <= 0)
         {
             TanChuang2.SetActive(true);
             Time.timeScale = 0;
