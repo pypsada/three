@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public float Laolai;
-
+    public int Ren;
 
     public string zhaoshi;
     public int health;  //血量
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         Laolai = 1f;
-
+        Ren = 0;
         Continue = true;
         Win = true;
 
@@ -80,6 +80,10 @@ public class Player : MonoBehaviour
         if(StringCareer == "Arrogance")
         {
             health = 60 + 7 * Whole.Characterlevel;
+        }
+        if (StringCareer == "Thief")
+        {
+            health = 6 * Whole.Characterlevel + 50;
         }
     }
 
@@ -189,6 +193,11 @@ public class Player : MonoBehaviour
     }
     public void Assassinate1()  // 刺客技能：暗杀
     {
+        Ren += 1;
+        if (Ren %3==0)
+        {
+            Energy += 1;
+        }
         Priority = 1;
         Career -= 1;
         Debug.Log("You:Assassinate");

@@ -5,7 +5,7 @@ using UnityEngine;
 public class AI : MonoBehaviour
 {
     public float Laolai;
-
+    public int Ren;
     public int health;
     public bool Win;
     public int Energy;
@@ -25,6 +25,7 @@ public class AI : MonoBehaviour
     public bool CiSha;
     void Start()
     {
+        Ren = 0;
         Laolai = 1f;
         health = 8 * Whole.AICharacterlevel + 60;
         Win = true;
@@ -103,6 +104,11 @@ public class AI : MonoBehaviour
 
     public void Assassinate()  // ´Ì¿Í¼¼ÄÜ£º°µÉ±
     {
+        Ren += 1;
+        if (Ren%3==0)
+        {
+            Energy += 1;
+        }
         Priority = 1;
         Career -= 1;
         myAnim.SetTrigger("YingRen");
