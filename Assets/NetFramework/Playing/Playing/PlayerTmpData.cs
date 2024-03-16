@@ -6,6 +6,7 @@ namespace NetGame
     {
         public string skillName = "Cuo";
         public float Laolai;
+        public int Ren;
         public int health;  //血量
         public int Energy;
         //private Animator myAnim;
@@ -74,6 +75,7 @@ namespace NetGame
             //}
 
             Laolai = 1f;
+            Ren = 0;
 
             Continue = true;
             Win = true;
@@ -109,6 +111,14 @@ namespace NetGame
                 Energy = 1;
                 Career = 1;
                 health = 10 * level + 80;
+            }
+            if (StringCareer == "Arrogance")
+            {
+                health = 60 + 7 * level;
+            }
+            if (StringCareer == "Thief")
+            {
+                health = 6 * level + 50;
             }
         }
 
@@ -191,6 +201,12 @@ namespace NetGame
         //}
         public void Assassinate()  // 刺客技能：暗杀
         {
+            Ren += 1;
+            if (Ren % 3 == 0)
+            {
+                Energy += 1;
+            }
+
             Priority = 1;
             Career -= 1;
             skillName = "YingRen";
