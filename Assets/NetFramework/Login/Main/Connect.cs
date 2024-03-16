@@ -109,7 +109,7 @@ public class Connect : MonoBehaviour
         connectFail.SetActive(false);
         beforeConnect.SetActive(true);
         RemoveMsgListener();
-        SceneManager.LoadScene("FightPrepare");
+        SceneManager.LoadScene("PleaseUpdate");
     }
 
     //主动点击关闭按钮
