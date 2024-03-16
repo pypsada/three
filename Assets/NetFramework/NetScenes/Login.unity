@@ -2903,6 +2903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5779215dcf6b3e4389145561c9702fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 3.10
   ip: 47.108.235.175
   port: 8888
 --- !u!4 &909516139
@@ -3224,6 +3225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b9c84d89870514c8931a46ff2d6e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  connectFailTip: {fileID: 1705586078}
   netMain: {fileID: 909516138}
   beforeConnect: {fileID: 891517691}
   connecting: {fileID: 720396982}

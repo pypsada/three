@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class NetMain : MonoBehaviour
 {
+    public string version;
     [Header("Remote IP Adress and Port")]
     public string ip;
     public int port;

@@ -4,11 +4,13 @@ using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 //Used by Canvas
 public class Connect : MonoBehaviour
 {
+    public Text connectFailTip;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +67,7 @@ public class Connect : MonoBehaviour
                 msgLogin.id = SaveGameManager.SaveData.UID.ToString();
                 msgLogin.pw = SaveGameManager.SaveData.UID.ToString();
                 msgLogin.nickName = SaveGameManager.Nickname;
+                msgLogin.version = netMain.version;
                 NetManager.Send(msgLogin);
             }
         });
@@ -86,6 +89,7 @@ public class Connect : MonoBehaviour
         {
             connectFail.SetActive(true);
             connecting.SetActive(false);
+            connectFailTip.text = msg;
         });
     }
 
@@ -157,6 +161,12 @@ public class Connect : MonoBehaviour
                 NetManager.Close();
                 ConnectFail("µÇÂ¼Ê§°Ü");
             }
+            else if(msgLogin.result==2)
+            {
+                //°æ±¾Ð£ÑéÊ§°Ü
+                NetManager.Close();
+                ConnectFail("¾É°æ±¾£¡");
+            }
         });
     }
 
@@ -174,6 +184,7 @@ public class Connect : MonoBehaviour
                 msgLogin.id = SaveGameManager.SaveData.UID.ToString();
                 msgLogin.pw = SaveGameManager.SaveData.UID.ToString();
                 msgLogin.nickName = SaveGameManager.Nickname;
+                msgLogin.version = netMain.version;
                 NetManager.Send(msgLogin);
             }
             else if (msg.result == 1)

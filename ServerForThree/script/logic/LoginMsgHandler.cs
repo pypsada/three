@@ -3,6 +3,7 @@ using System.Runtime.Intrinsics.Arm;
 
 public partial class MsgHandler
 {
+    readonly static string VER = "./Version.txt";
     //注册
     public static void MsgRegister(ClientState c, MsgBase msgBase)
     {
@@ -37,6 +38,17 @@ public partial class MsgHandler
             msg.result = 1;
             NetManager.Send(c, msg);
             return;
+        }
+        //校验版本号
+        if(msg.version!=null)
+        {
+            string version = File.ReadAllText(VER);
+            if(msg.version!=version)
+            {
+                msg.result = 2;
+                NetManager.Send(c, msg);
+                return;
+            }
         }
         //如果已经登陆，踢下线
         if(PlayerManager.IsOnline(msg.id))
