@@ -40,12 +40,12 @@ public partial class MsgHandler
             return;
         }
         //校验版本号
-        string version = File.ReadAllText(VER);
-        if(msg.version==null|| msg.version != version)
+        int version = int.Parse(File.ReadAllText(VER));
+        if (msg.version != version)
         {
-                msg.result = 2;
-                NetManager.Send(c, msg);
-                return;
+            msg.result = 2;
+            NetManager.Send(c, msg);
+            return;
         }
         //如果已经登陆，踢下线
         if(PlayerManager.IsOnline(msg.id))

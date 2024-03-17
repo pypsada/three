@@ -97,14 +97,14 @@ public static class NetManager
     {
         if(socket!=null&&socket.Connected)
         {
-            Debug.Log("Conn fail,already connected!");
-            FireEvent(NetEvent.ConnectFail, "Conn fail,already connected!");
+            Debug.Log("连接失败");
+            FireEvent(NetEvent.ConnectFail, "连接失败");
             return;
         }
         if(isConnecting)
         {
-            Debug.Log("Connect fail, is connecting");
-            FireEvent(NetEvent.ConnectFail, "Connect fail, is connecting");
+            Debug.Log("连接失败");
+            FireEvent(NetEvent.ConnectFail, "连接失败");
             return;
         }
         InitState();
@@ -138,7 +138,7 @@ public static class NetManager
         catch(SocketException ex)
         {
             Debug.Log("Socket Conn fail " + ex.ToString());
-            FireEvent(NetEvent.ConnectFail, ex.ToString());
+            FireEvent(NetEvent.ConnectFail, "无法连接");
             isConnecting = false;
         }
     }

@@ -67,6 +67,9 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 0
@@ -2903,7 +2906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5779215dcf6b3e4389145561c9702fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 3.10
+  version: 310
   ip: 47.108.235.175
   port: 8888
 --- !u!4 &909516139

@@ -28,7 +28,7 @@ public class MsgLogin : MsgBase
     public int winTimes;
     public int lostTimes;
     //版本号
-    public string version;
+    public int version;
     //服务端回（0成功，1失败）
     public int result = 0;
 }
